@@ -1,1 +1,1 @@
-About collectioning from ProcessWire point of view
+About collectioning from the ProcessWire point of view
