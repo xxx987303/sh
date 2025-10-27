@@ -1,0 +1,12 @@
+{
+    "file": "site\/templates\/h_spot.php",
+    "textdomain": "site--templates--h_spot-php",
+    "translations": {
+        "9fe585c84dfb0bacfa3bcd824a680efa": {
+            "text": "Utvalda konstverk"
+        },
+        "debcdeaed89626ed7d06a6098c929b7a": {
+            "text": "Fler samlingar"
+        }
+    }
+}

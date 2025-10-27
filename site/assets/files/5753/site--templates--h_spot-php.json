@@ -1,0 +1,12 @@
+{
+    "file": "site\/templates\/h_spot.php",
+    "textdomain": "site--templates--h_spot-php",
+    "translations": {
+        "9fe585c84dfb0bacfa3bcd824a680efa": {
+            "text": "\u0421\u043b\u0443\u0447\u0430\u0439\u043d\u044b\u0435 \u043f\u043b\u0430\u0442\u043a\u0438 \u0438\u0437 \u043a\u043e\u043b\u043b\u0435\u043a\u0446\u0438\u0438"
+        },
+        "debcdeaed89626ed7d06a6098c929b7a": {
+            "text": "\u041a\u043e\u043b\u043b\u0435\u043a\u0446\u0438\u0438 \u0432\u043e\u043a\u0440\u0443\u0433 \u043d\u0430\u0441"
+        }
+    }
+}

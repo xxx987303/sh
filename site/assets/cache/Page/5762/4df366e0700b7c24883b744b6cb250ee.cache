@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>Les folies, artworks</title>
+
+    
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,400i,700' />
+    <link rel='stylesheet' type='text/css' href='/sh/site/uikit/css/uikit.gradient.min.css' />
+    <link rel='stylesheet' type='text/css' href='/sh/site/uikit/css/components/slidenav.gradient.min.css' />
+    <link rel='stylesheet' type='text/css' href='/sh/site/templates/styles/objects.css' />
+    
+    
+<!-- default language -->
+
+	<link rel='alternate' hreflang='home' href='http://localhost/sh/artworks/mongol-fer/' />
+<!-- russian language -->
+
+	<link rel='alternate' hreflang='ru-home' href='http://localhost/sh/ru-home/artworks/ru-mongol/' />
+<!-- french language -->
+
+	<link rel='alternate' hreflang='fr-home' href='http://localhost/sh/fr-home/artworks/fr-mongol/' />
+<!-- swedish language -->
+
+	<link rel='alternate' hreflang='sv-home' href='http://localhost/sh/sv-home/artworks/sv-mongol/' /><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-19325148-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </head>
+  
+  <body>
+    <div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
+      <div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
+	<h2>
+	  <a href='/sh/'>Home</a> <i class='uk-icon-angle-right'></i>
+ <a href='/sh/artworks/'>artworks</a> <i class='uk-icon-angle-right'></i>
+ Les folies	</h2>
+      </div>
+      
+      <nav id='topnav' class='uk-navbar uk-navbar-attached uk-hidden-small'>
+	<div class='uk-container uk-container-center'>
+	  <!-- language switcher  -->
+	  <div class='uk-navbar-flip'>
+	    <ul class='languages uk-navbar-nav' role='navigation'>
+	      
+<!-- default language -->
+<li class='current uk-active'>
+<a hreflang='home' href='/sh/artworks/mongol-fer/'>English</a></li>
+<!-- russian language -->
+<li>
+<a hreflang='ru-home' href='/sh/ru-home/artworks/ru-mongol/'>Русский</a></li>
+<!-- french language -->
+<li>
+<a hreflang='fr-home' href='/sh/fr-home/artworks/fr-mongol/'>Français</a></li>
+<!-- swedish language -->
+<li>
+<a hreflang='sv-home' href='/sh/sv-home/artworks/sv-mongol/'>Svenska</a></li>	    </ul>
+	  </div>
+	  <!-- language switcher / navigation end -->
+        </div>
+      </nav>
+      
+      <nav id='topnav' class='uk-navbar uk-navbar-attached uk-hidden-small'>
+	<div class='uk-container uk-container-center'>
+	  <ul class='uk-navbar-nav'>
+	    <li class=''><a href='/sh/'>Home</a></li>
+<li class=''><a href='/sh/persons/'>People</a></li>
+<li class=''><a href='/sh/brands/'>Brands</a></li>
+<li class='uk-active'><a href='/sh/artworks/'>artworks</a></li>
+	  </ul>
+
+<div class='uk-navbar-flip'>
+
+<ul class='uk-navbar-nav'>
+<li><a href='/sh/search/'><i class='uk-icon-search'></i>
+ Search</a>
+</li>
+<li><a href='/sh/processwire/login/'><i class='uk-icon-user'></i>
+ Login</a>
+</li>
+
+</ul>
+
+</div>
+	</div>	
+      </nav>
+    </div><!--/masthead-->
+    
+    <div id='main'>
+      <div class='uk-container uk-container-center'>
+		<div class='uk-grid uk-grid-medium'>
+<!--	  <div id='content' class='uk-width-large-2-3 uk-margin-bottom'> -->
+	  <div id='content' class="uk-width-large-1-1 uk-margin-bottom">
+	    <div class='uk-grid uk-grid-medium'>
+<div class='object-images uk-width-medium-1-3 uk-text-center'>
+
+<div class='object-image uk-margin-small'>
+<a href='/sh/site/assets/files/5762/les_folies_du_ciel_000229.jpg' data-uk-lightbox="{group:'photos'}"><img src='/sh/site/assets/files/5762/les_folies_du_ciel_000229.300x0.jpg' alt='Le'  />
+</a>
+
+<div class='caption uk-text-small uk-text-muted'>
+<span>Le</span>
+
+</div>
+
+</div>
+  </div>
+  <div class='uk-width-medium-2-3'>
+<table class='uk-table object-info'> <tbody>
+<tr><th>Authors</th>
+<td>
+<ul class='uk-list uk-margin-remove'>
+<li><a href='/sh/persons/loic-dubigeon/'>Lo&iuml;c Dubigeon</a></li>
+</ul>
+</td>
+</tr>
+<tr><th>Brand</th>
+<td>
+<ul class='uk-list uk-margin-remove'>
+<li><a href='/sh/brands/salvatore-ferrogama/'>Salvatore Ferrogama</a></li><li><a href='/sh/brands/brand/'>Herm&egrave;s</a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<h2>About Les folies</h2>
+<p>History of the scarf....</p><h2>See Also</h2>
+<ul class='uk-list uk-list-line uk-margin-bottom'><li><a href='/sh/persons/loic-dubigeon/'>Artworks by Loïc Dubigeon</a></li></ul>
+ </div>
+</div>	  </div>
+	    	</div>
+      </div>
+    </div> <!--/main-->
+    
+    <footer id='foot' class='uk-margin-large-top'>
+      <div class='uk-container uk-container-center uk-margin-bottom'>
+	<div class='uk-text-muted uk-text-center'>
+<!--
+	  <span class='foot-text'>Powered by <a href='https://processwire.com'>ProcessWire Open Source CMS</a></span>
+	  <span class='foot-line uk-text-small'>Data and photos from Wikipedia and Freebase</span>
+-->
+	</div>
+      </div>
+    </footer>
+    
+    
+<div id='offcanvas' class='uk-offcanvas'>
+
+<div class='uk-offcanvas-bar'>
+
+<ul class='uk-nav uk-nav-offcanvas uk-nav-parent-icon uk-contrast uk-margin-bottom' data-uk-nav>
+<li><a href='/sh/'>Home</a></li>
+<li><a href='/sh/persons/'>People</a></li>
+<li><a href='/sh/search/'>Search</a></li>
+<li><a href='/sh/brands/'>Brands</a></li>
+<li><a href='/sh/countries/'>Countries</a></li>
+<li><a href='/sh/artworks/'>artworks</a></li>
+
+</ul>
+<p>&nbsp;</p>
+
+</div>
+
+</div>
+<a id='offcanvas-toggle' href='#offcanvas' class='uk-visible-small uk-navbar-toggle' data-uk-offcanvas></a>
+    
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script src='/sh/site/uikit/js/uikit.min.js'></script>
+    <script src='/sh/site/uikit/js/components/lightbox.min.js'></script>
+    <script src='/sh/site/templates/scripts/objects.js'></script>
+    
+  </body>
+</html>

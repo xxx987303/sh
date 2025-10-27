@@ -1,0 +1,12 @@
+{
+    "file": "site\/templates\/d_spot.php",
+    "textdomain": "site--templates--d_spot-php",
+    "translations": {
+        "9fe585c84dfb0bacfa3bcd824a680efa": {
+            "text": "\u0421\u043b\u0443\u0447\u0430\u0439\u043d\u044b\u0435 \u0438\u0433\u0440\u0443\u0448\u043a\u0438"
+        },
+        "debcdeaed89626ed7d06a6098c929b7a": {
+            "text": "\u0414\u0440\u0443\u0433\u0438\u0435 \u043a\u043e\u043b\u043b\u0435\u043a\u0446\u0438\u0438"
+        }
+    }
+}

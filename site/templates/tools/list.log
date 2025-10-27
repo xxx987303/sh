@@ -1,0 +1,398 @@
+Script started on Mon Jul  5 10:24:18 2021
+command: php list.php
+PHP Notice:  Use of undefined constant cnf_CLI - assumed 'cnf_CLI' in /Users/yb/github/pw_profile_united.git/site-united/classes/debug.php on line 16
+===============OK Hermès, Cheval Turc, 1970/1989, Christiane Vauzelles
+===============OK Hermès, Bride de cour, 1970/1987, Françoise de La Perrière
+===============OK Hermès, Ex-libris (gavroche), 1946/1998, Hugo Grygkar
+===============OK Hermès, Monsieur et Madame, 2020, Bali Barret
+===============OK Hermès, Afrika, 1997, Robert Dallet
+===============OK Hermès, Couvee d'Hermes, 1994, Cathy Latham-Audibert
+===============OK Hermès, Hermes-sellier, 2009/2012, Benoît-Pierre Emery
+===============OK Hermès, Jeu de Omnibus et DameBlanche, 1936, Hugo Grygkar
+===============OK Hermès, Casse-noisette, 1997, Antoine de Jacquelot
+===============OK Hermès, Fafandole, , Cathy Latham-Audibert
+===============OK Hermès, Magic Kelly, 2011, Dimitri Rybaltchenko
+===============OK Hermès, Armes de chasse, 1970/1981, Philippe Ledoux
+===============OK Hermès, Cuivreries (Variant), 1963, Françoise de La Perrière
+===============OK Hermès, Maillons, 1973, Cathy Latham-Audibert
+===============OK Hermès, Cavaliers peuls, 1993, Jean de Fougerolle
+===============OK Hermès, Flore, 1967, Philippe Ledoux
+===============OK Hermès, Avenue des acasias, 1964, Philippe Ledoux
+===============OK Hermès, Azulejos, , Catherine Baschet
+===============OK Hermès, Equitation japonaise, 1969, Françoise de La Perrière
+===============OK Hermès, L'art des steppes, , Annie Faivre
+===============OK Hermès, Brides de Gala, 1957/1967/2009, Hugo Grygkar
+===============OK Hermès, Clefs, 1965/1980/2010, Cathy Latham-Audibert
+===============OK Hermès, Grand manege, 1990/1993, Henri d&#039;Origny
+===============OK Hermès, Escuela Andaluza, 1996/2000, Hubert de Watrigant
+===============OK Hermès, Brazil, 1988/1991, Laurence Bourthoumieux
+===============OK Hermès, Etriers, 1964/1990, Françoise de La Perrière
+===============OK Hermès, Torana, 1987/1990/2000, Annie Faivre
+===============OK Hermès, Bolduc, 1998, Jean-Louis Dumas
+===============OK Hermès, Coqs, 1964, La Torre
+===============OK Hermès, Libre comme l'air, , Annie Faivre
+===============OK Hermès, Grande venerie royale, 1957, Charles-Jean Hallo
+===============OK Hermès, Hemisphaerium Coeli Boreale, 1938, Hugo Grygkar
+===============OK Hermès, Bride de gala, , Hugo Grygkar
+===============OK Hermès, Etude pour une parure, 2017, Florance Manlik
+===============OK Hermès, Marche Flottant du Lac Inle II, 1998/2001, Dimitri Rybaltchenko
+===============OK Hermès, Armes de Paris, 1954/1992, Hugo Grygkar
+===============OK Hermès, Cuillers d,Afrique, 1997, Cathy Latham-Audibert
+===============OK Hermès, Levriers, 1957/1970/2002, Xavier de Poret
+===============OK Hermès, Les Folies Du Ciel, 1984/1990, Loïc Dubigeon
+===============OK Hermès, Cavalcadour, 1982/1992/2012, Henri d&#039;Origny
+===============OK Hermès, Festival des amazones, 2013/2014, Henri d&#039;Origny
+===============OK Hermès, Insectes, 1958, La Torre, Hugo Grygkar
+===============OK Hermès, Astrologie nouvelle, 2012, Marie-Françoise Faconnet, Cyrille Diatkine
+===============OK Hermès, Eperon d'or, 1974/1989, Henri d&#039;Origny
+===============OK Hermès, La mecanique des idees, , Christine Henry
+===============OK Hermès, Mare aux canards, 1981, Daphne Duchesne
+===============OK Hermès, Les Voitures a Transformation, , Françoise de La Perrière
+===============OK Hermès, Charreada, 1990, Jean de Fougerolle
+===============OK Hermès, Gibiers, 1966/1991/1997, Henri de Linarès
+===============OK Hermès, Azuejos, 1992, Catherine Baschet
+===============OK Hermès, Avenue des Acacias, 1960, Philippe Ledoux
+===============OK Hermès, Escuela Andalusa, , Hubert de Watrigant
+===============OK Hermès, Le Carnaval de Venise, 1993/1997, Hubert de Watrigant
+===============OK Hermès, Grand Cortège a Moscou, 1992, Michel Duchêne
+===============OK Hermès, Clic-clac, 1979/1997/2011, Julia Abadie
+===============OK Hermès, Grand tenue, 1985/1998, Henri d&#039;Origny
+===============OK Hermès, Farandole, 1977/1990/2006, Cathy Latham-Audibert
+===============OK Salvatore Ferrogamo, Tiger
+===============OK Lanvin, Lanvin
+===============OK Tiffany & Co.
+===============OK Yves Saint-Laurent, YSL
+
+Afrika                         Robert Dallet             1997                       >>>  OK afrika.h_aw_year                              1997                                                                                              
+OK Hermès, Afrika, 1997, Robert Dallet
+Armes de Paris                 Hugo Grygkar              1954/1992                  >>>  OK armes-de-paris.h_aw_year                      1954/1992                                                                                         
+OK Hermès, Armes de Paris, 1954/1992, Hugo Grygkar
+Armes de chasse                Philippe Ledoux           1970/1981                  >>>  OK armes-de-chasse.h_aw_year                     1970/1981                                                                                         
+OK Hermès, Armes de chasse, 1970/1981, Philippe Ledoux
+Astrologie nouvelle            Faconnet&Diatkine         2012                       >>>  OK astrologie-nouvelle.h_aw_year                 2012                                                                                              
+OK Hermès, Astrologie nouvelle, 2012, Marie-Françoise Faconnet, Cyrille Diatkine
+Avenue des acasias             Philippe Ledoux           1964                       >>>  OK avenue-des-acasias.h_aw_year                  1964                                                                                              
+OK Hermès, Avenue des acasias, 1964, Philippe Ledoux
+Azuejos                        Catherine Baschet         1992                       >>>  OK azuejos.h_aw_year                             1992                                                                                              
+OK Hermès, Azuejos, 1992, Catherine Baschet
+Brazil                         Laurence Bourthoumieux    1988/1991       2          >>>  OK brazil.h_aw_year                              1988/1991                                                                                         
+OK Hermès, Brazil, 1988/1991, Laurence Bourthoumieux
+Bride de cour                  Francoise Perriere        1970/1987                  >>>  OK bride-de-cour.h_aw_year                       1970/1987                                                                                         
+OK Hermès, Bride de cour, 1970/1987, Françoise de La Perrière
+Brides de gala                 Hugo Grygkar              1957/1967/2009             >>>  OK 284-brides-de-gala.h_aw_year                  1957/1967/2009                                                                                    
+OK Hermès, Brides de Gala, 1957/1967/2009, Hugo Grygkar
+Casse-noisette                 Antoine Jacquelot         1997                       >>>  OK casse-noisette.h_aw_year                      1997                                                                                              
+OK Hermès, Casse-noisette, 1997, Antoine de Jacquelot
+Cavalcadour                    Henri d'Origny            1982/1992/2012  2          >>>  OK cavalcadur.h_aw_year                          1982/1992/2012                                                                                    
+OK Hermès, Cavalcadour, 1982/1992/2012, Henri d&#039;Origny
+Cavaliers peuls                Jean Fougerolles          1993                       >>>  OK cavaliers-peuls.h_aw_year                     1993                                                                                              
+OK Hermès, Cavaliers peuls, 1993, Jean de Fougerolle
+Charreada                      Jean Fougerolles          1990                       >>>  OK charreada.h_aw_year                           1990                                                                                              
+OK Hermès, Charreada, 1990, Jean de Fougerolle
+Cheval turc                    Christiane Vauzelles      1970/1989                  >>>  OK 169-cheval-turc.h_aw_year                     1970/1989                                                                                         
+OK Hermès, Cheval Turc, 1970/1989, Christiane Vauzelles
+Clefs                          Caty Latham               1965/1980/2010             >>>  OK clefs.h_aw_year                               1965/1980/2010                                                                                    
+OK Hermès, Clefs, 1965/1980/2010, Cathy Latham-Audibert
+Clic-clac                      Julie Abadie              1979/1997/2011             >>>  OK clic-clac.h_aw_year                           1979/1997/2011                                                                                    
+OK Hermès, Clic-clac, 1979/1997/2011, Julia Abadie
+Coqs                            La Torre                 1964                       >>>  OK coqs.h_aw_year                                1964                                                                                              
+OK Hermès, Coqs, 1964, La Torre
+Couvee d'Hermes                Caty Latham               1994                       >>>  OK couvee-d-hermes.h_aw_year                     1994                                                                                              
+OK Hermès, Couvee d'Hermes, 1994, Cathy Latham-Audibert
+Cuillers d'Afrique             Caty Latham               1997                       >>>  OK cuillers-d-afrique.h_aw_year                  1997                                                                                              
+OK Hermès, Cuillers d,Afrique, 1997, Cathy Latham-Audibert
+Cuivreries(Variant)            Francoise Perriere        1963                       >>>  OK cuivreries-variant.h_aw_year                  1963                                                                                              
+OK Hermès, Cuivreries (Variant), 1963, Françoise de La Perrière
+Eperon d'or                    Henri d'Origny            1974/1989       2+(1)      >>>  OK eperon-d-or.h_aw_year                         1974/1989                                                                                         
+OK Hermès, Eperon d'or, 1974/1989, Henri d&#039;Origny
+Equitation japonaise           Francoise Perriere        1969                       >>>  OK equitation-japonaise.h_aw_year                1969                                                                                              
+OK Hermès, Equitation japonaise, 1969, Françoise de La Perrière
+Escuela Andaluza               Hubert Watrigant          1996/2000                  >>>  OK escuela-andaluza.h_aw_year                    1996/2000                                                                                         
+OK Hermès, Escuela Andaluza, 1996/2000, Hubert de Watrigant
+Etriers                        Francoise Perriere        1964/1990                  >>>  OK etriers.h_aw_year                             1964/1990                                                                                         
+OK Hermès, Etriers, 1964/1990, Françoise de La Perrière
+Ex-libris                      Hugo Grygkar              1946/1998       gavroche   >>>  OK ex-libris-gavroche.h_aw_year                  1946/1998                                                                                         
+OK Hermès, Ex-libris (gavroche), 1946/1998, Hugo Grygkar
+Etude pour une parure          Florance Manlik           2017                       >>>  OK etude-pour-une-parure.h_aw_year               2017                                                                                              
+OK Hermès, Etude pour une parure, 2017, Florance Manlik
+Farandole                      Caty Latham               1977/1990/2006             >>>  OK farandole.h_aw_year                           1977/1990/2006                                                                                    
+OK Hermès, Farandole, 1977/1990/2006, Cathy Latham-Audibert
+Festival des amazones          Henri d'Origny            2013/2014                  >>>  OK festival-des-amazones.h_aw_year               2013/2014                                                                                         
+OK Hermès, Festival des amazones, 2013/2014, Henri d&#039;Origny
+Flore                          Philippe Ledoux           1967                       >>>  OK flore.h_aw_year                               1967                                                                                              
+OK Hermès, Flore, 1967, Philippe Ledoux
+Les Folies Du Ciel             Loic Dubigeon             1984/1990                  >>>  OK 227-les-folies-du-ciel.h_aw_year              1984/1990                                                                                         
+OK Hermès, Les Folies Du Ciel, 1984/1990, Loïc Dubigeon
+Gibiers                        Henri Linares             1966/1991/1997             >>>  OK gibiers.h_aw_year                             1966/1991/1997                                                                                    
+OK Hermès, Gibiers, 1966/1991/1997, Henri de Linarès
+Grand cortege a Moscou         Michel Duchene            1992                       >>>  OK 298-grand-cortge-a-mos.h_aw_year              1992                                                                                              
+OK Hermès, Grand Cortège a Moscou, 1992, Michel Duchêne
+Grand manege                   Henri d'Origny            1990/1993       2          >>>  OK grand-manege.h_aw_year                        1990/1993                                                                                         
+OK Hermès, Grand manege, 1990/1993, Henri d&#039;Origny
+Grand tenue                    Henri d'Origny            1985/1998                  >>>  OK grand-tenue.h_aw_year                         1985/1998                                                                                         
+OK Hermès, Grand tenue, 1985/1998, Henri d&#039;Origny
+Grande venerie royale          Charles-Jean Hallo        1957                       >>>  OK grande-venerie-royale.h_aw_year               1957                                                                                              
+OK Hermès, Grande venerie royale, 1957, Charles-Jean Hallo
+Hermes-sellier                 Benoit-Pierre Emery       2009/2012       gavroche   >>>  OK hermes-sellier.h_aw_year                      2009/2012                                                                                         
+OK Hermès, Hermes-sellier, 2009/2012, Benoît-Pierre Emery
+Insectes                       Grygkar&La Torre          1958                       >>>  OK insectes.h_aw_year                            1958                                                                                              
+OK Hermès, Insectes, 1958, La Torre, Hugo Grygkar
+Levriers                       Xavier Poret              1957/1970/2002             >>>  OK levriers.h_aw_year                            1957/1970/2002                                                                                    
+OK Hermès, Levriers, 1957/1970/2002, Xavier de Poret
+Maillons                       Caty Latham               1973                       >>>  OK maillons.h_aw_year                            1973                                                                                              
+OK Hermès, Maillons, 1973, Cathy Latham-Audibert
+Magic Kelly                    Dimitri Rybaltchenko      2011                       >>>  OK magic-kelly.h_aw_year                         2011                                                                                              
+OK Hermès, Magic Kelly, 2011, Dimitri Rybaltchenko
+Marche Flottant du Lac Inle II Dimitri Rybaltchenko      1998/2001                  >>>  OK marche-flottant-du-lac.h_aw_year              1998/2001                                                                                         
+OK Hermès, Marche Flottant du Lac Inle II, 1998/2001, Dimitri Rybaltchenko
+Mare aux canards               Daphne Duchesne           1981                       >>>  OK mare-aux-canards.h_aw_year                    1981                                                                                              
+OK Hermès, Mare aux canards, 1981, Daphne Duchesne
+Marine et cavalerie            Philippe Ledoux           1966/1984                  ... TO BE CREATED 
+selector: template=h_artwork, title=Marine et cavalerie
+>> Load marine-et-cavalerie.title_                    Marine et cavalerie                                                                               
+CREATED OK Marine et cavalerie
+[1m[32m>> Hook marine-et-cavalerie.h_aw_person               Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook marine-et-cavalerie.h_aw_brand                Object LanguagesPageFieldValue                                                                    (B[m
+>> Load marine-et-cavalerie.h_aw_year                 1966/1984                                                                                         
+Monsieur et Madame ll          Barret&Dallet             2013            Aне      >> Load monsieur-et-madame.h_aw_year                  2020 -> 2013                                                                                              
+OK Hermès, Monsieur et Madame, 2013, Bali Barret
+Mors a la conetable            Henri d'Origny            1970/1985                  ... TO BE CREATED 
+selector: template=h_artwork, title=Mors a la conetable
+>> Load mors-a-la-conetable.title_                    Mors a la conetable                                                                               
+CREATED OK Mors a la conetable
+[1m[32m>> Hook mors-a-la-conetable.h_aw_person               Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook mors-a-la-conetable.h_aw_brand                Object LanguagesPageFieldValue                                                                    (B[m
+>> Load mors-a-la-conetable.h_aw_year                 1970/1985                                                                                         
+Mozart                         Julie Abadie              1991                       ... TO BE CREATED 
+selector: template=h_artwork, title=Mozart
+>> Load mozart.title_                                 Mozart                                                                                            
+CREATED OK Mozart
+[1m[32m>> Hook mozart.h_aw_person                            Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook mozart.h_aw_brand                             Object LanguagesPageFieldValue                                                                    (B[m
+>> Load mozart.h_aw_year                              1991                                                                                              
+Muzerolles                     Christiane Vauzelles      1986                       ... TO BE CREATED 
+selector: template=h_artwork, title=Muzerolles
+>> Load muzerolles.title_                             Muzerolles                                                                                        
+CREATED OK Muzerolles
+[1m[32m>> Hook muzerolles.h_aw_person                        Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook muzerolles.h_aw_brand                         Object LanguagesPageFieldValue                                                                    (B[m
+>> Load muzerolles.h_aw_year                          1986                                                                                              
+Napoleon                       Philippe Ledoux           1963/1985                  ... TO BE CREATED 
+selector: template=h_artwork, title=Napoleon
+>> Load napoleon.title_                               Napoleon                                                                                          
+CREATED OK Napoleon
+[1m[32m>> Hook napoleon.h_aw_person                          Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook napoleon.h_aw_brand                           Object LanguagesPageFieldValue                                                                    (B[m
+>> Load napoleon.h_aw_year                            1963/1985                                                                                         
+Palefroi                       Francoise Perriere        1965/1983                  ... TO BE CREATED 
+selector: template=h_artwork, title=Palefroi
+>> Load palefroi.title_                               Palefroi                                                                                          
+CREATED OK Palefroi
+[1m[32m>> Hook palefroi.h_aw_person                          Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook palefroi.h_aw_brand                           Object LanguagesPageFieldValue                                                                    (B[m
+>> Load palefroi.h_aw_year                            1965/1983                                                                                         
+Parures de Samouraïs          Aline Honore              2017                       ... TO BE CREATED 
+selector: template=h_artwork, title=Parures de Samouraïs
+>> Load parures-de-samourais.title_                   Parures de Samouraïs                                                                             
+CREATED OK Parures de Samouraïs
+[1m[32m>> Hook parures-de-samourais.h_aw_person              Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook parures-de-samourais.h_aw_brand               Object LanguagesPageFieldValue                                                                    (B[m
+>> Load parures-de-samourais.h_aw_year                2017                                                                                              
+Passementerie                  Marie-Francoise Heron     1960/1981                  ... TO BE CREATED 
+selector: template=h_artwork, title=Passementerie
+>> Load passementerie.title_                          Passementerie                                                                                     
+CREATED OK Passementerie
+[1m[32m>> Hook passementerie.h_aw_person                     Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook passementerie.h_aw_brand                      Object LanguagesPageFieldValue                                                                    (B[m
+>> Load passementerie.h_aw_year                       1960/1981                                                                                         
+Petits chevaux                 Jacques Eudel             1974            gavroche   ... TO BE CREATED 
+selector: template=h_artwork, title=Petits chevaux
+>> Load petits-chevaux.title_                         Petits chevaux                                                                                    
+CREATED OK Petits chevaux
+[1m[32m>> Hook petits-chevaux.h_aw_person                    Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook petits-chevaux.h_aw_brand                     Object LanguagesPageFieldValue                                                                    (B[m
+>> Load petits-chevaux.h_aw_year                      1974                                                                                              
+Plumes                         Henri Linares             1953/1964                  ... TO BE CREATED 
+selector: template=h_artwork, title=Plumes
+>> Load plumes.title_                                 Plumes                                                                                            
+CREATED OK Plumes
+[1m[32m>> Hook plumes.h_aw_person                            Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook plumes.h_aw_brand                             Object LanguagesPageFieldValue                                                                    (B[m
+>> Load plumes.h_aw_year                              1953/1964                                                                                         
+Promenade de Longchamp         Philippe Ledoux           1965/1970                  ... TO BE CREATED 
+selector: template=h_artwork, title=Promenade de Longchamp
+>> Load promenade-de-longchamp.title_                 Promenade de Longchamp                                                                            
+CREATED OK Promenade de Longchamp
+[1m[32m>> Hook promenade-de-longchamp.h_aw_person            Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook promenade-de-longchamp.h_aw_brand             Object LanguagesPageFieldValue                                                                    (B[m
+>> Load promenade-de-longchamp.h_aw_year              1965/1970                                                                                         
+Reale                          Hugo Grygkar              1953/1990                  ... TO BE CREATED 
+selector: template=h_artwork, title=Reale
+>> Load reale.title_                                  Reale                                                                                             
+CREATED OK Reale
+[1m[32m>> Hook reale.h_aw_person                             Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook reale.h_aw_brand                              Object LanguagesPageFieldValue                                                                    (B[m
+>> Load reale.h_aw_year                               1953/1990                                                                                         
+Reprise                        Philippe Ledoux           1970/1993                  ... TO BE CREATED 
+selector: template=h_artwork, title=Reprise
+>> Load reprise.title_                                Reprise                                                                                           
+CREATED OK Reprise
+[1m[32m>> Hook reprise.h_aw_person                           Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook reprise.h_aw_brand                            Object LanguagesPageFieldValue                                                                    (B[m
+>> Load reprise.h_aw_year                             1970/1993                                                                                         
+Reveries japonaises            Caty Latham               1991                       ... TO BE CREATED 
+selector: template=h_artwork, title=Reveries japonaises
+>> Load reveries-japonaises.title_                    Reveries japonaises                                                                               
+CREATED OK Reveries japonaises
+[1m[32m>> Hook reveries-japonaises.h_aw_person               Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook reveries-japonaises.h_aw_brand                Object LanguagesPageFieldValue                                                                    (B[m
+>> Load reveries-japonaises.h_aw_year                 1991                                                                                              
+Ryton                          Karin Swildens            1978                       ... TO BE CREATED 
+selector: template=h_artwork, title=Ryton
+>> Load ryton.title_                                  Ryton                                                                                             
+CREATED OK Ryton
+[1m[32m>> Hook ryton.h_aw_person                             Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook ryton.h_aw_brand                              Object LanguagesPageFieldValue                                                                    (B[m
+>> Load ryton.h_aw_year                               1978                                                                                              
+Rose de vents                  Joachim Metz              1984/2012                  ... TO BE CREATED 
+selector: template=h_artwork, title=Rose de vents
+>> Load rose-de-vents.title_                          Rose de vents                                                                                     
+CREATED OK Rose de vents
+[1m[32m>> Hook rose-de-vents.h_aw_person                     Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook rose-de-vents.h_aw_brand                      Object LanguagesPageFieldValue                                                                    (B[m
+>> Load rose-de-vents.h_aw_year                       1984/2012                                                                                         
+Selles a housse                Christiane Vauzelles      1968/1989                  ... TO BE CREATED 
+selector: template=h_artwork, title=Selles a housse
+>> Load selles-a-housse.title_                        Selles a housse                                                                                   
+CREATED OK Selles a housse
+[1m[32m>> Hook selles-a-housse.h_aw_person                   Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook selles-a-housse.h_aw_brand                    Object LanguagesPageFieldValue                                                                    (B[m
+>> Load selles-a-housse.h_aw_year                     1968/1989                                                                                         
+Splendeur des maharadjas       Catherine Baschet         1996/2001                  ... TO BE CREATED 
+selector: template=h_artwork, title=Splendeur des maharadjas
+>> Load splendeur-des-maharadj.title_                 Splendeur des maharadjas                                                                          
+CREATED OK Splendeur des maharadjas
+[1m[32m>> Hook splendeur-des-maharadj.h_aw_person            Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook splendeur-des-maharadj.h_aw_brand             Object LanguagesPageFieldValue                                                                    (B[m
+>> Load splendeur-des-maharadj.h_aw_year              1996/2001                                                                                         
+Springs                        Philippe Ledoux           1974/1981                  ... TO BE CREATED 
+selector: template=h_artwork, title=Springs
+>> Load springs.title_                                Springs                                                                                           
+CREATED OK Springs
+[1m[32m>> Hook springs.h_aw_person                           Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook springs.h_aw_brand                            Object LanguagesPageFieldValue                                                                    (B[m
+>> Load springs.h_aw_year                             1974/1981                                                                                         
+Sulfures & presse-papiers      Caty Latham               1979                       ... TO BE CREATED 
+selector: template=h_artwork, title=Sulfures & presse-papiers
+>> Load sulfures-presse-papier.title_                 Sulfures & presse-papiers                                                                         
+CREATED OK Sulfures & presse-papiers
+[1m[32m>> Hook sulfures-presse-papier.h_aw_person            Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook sulfures-presse-papier.h_aw_brand             Object LanguagesPageFieldValue                                                                    (B[m
+>> Load sulfures-presse-papier.h_aw_year              1979                                                                                              
+Tambours                       Joachim Metz              1989/1990                  ... TO BE CREATED 
+selector: template=h_artwork, title=Tambours
+>> Load tambours.title_                               Tambours                                                                                          
+CREATED OK Tambours
+[1m[32m>> Hook tambours.h_aw_person                          Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook tambours.h_aw_brand                           Object LanguagesPageFieldValue                                                                    (B[m
+>> Load tambours.h_aw_year                            1989/1990                                                                                         
+Tarot                          Annie Faivre              1991                       ... TO BE CREATED 
+selector: template=h_artwork, title=Tarot
+>> Load tarot.title_                                  Tarot                                                                                             
+CREATED OK Tarot
+[1m[32m>> Hook tarot.h_aw_person                             Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook tarot.h_aw_brand                              Object LanguagesPageFieldValue                                                                    (B[m
+>> Load tarot.h_aw_year                               1991                                                                                              
+Tribord                        Julie Abadie              1968/1990                  ... TO BE CREATED 
+selector: template=h_artwork, title=Tribord
+>> Load tribord.title_                                Tribord                                                                                           
+CREATED OK Tribord
+[1m[32m>> Hook tribord.h_aw_person                           Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook tribord.h_aw_brand                            Object LanguagesPageFieldValue                                                                    (B[m
+>> Load tribord.h_aw_year                             1968/1990                                                                                         
+Tropiques                      Laurance Bourthoumieux    1987/1990                  ... TO BE CREATED 
+selector: template=h_artwork, title=Tropiques
+>> Load tropiques.title_                              Tropiques                                                                                         
+CREATED OK Tropiques
+[1m[32m>> Hook tropiques.h_aw_person                         Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook tropiques.h_aw_brand                          Object LanguagesPageFieldValue                                                                    (B[m
+>> Load tropiques.h_aw_year                           1987/1990                                                                                         
+Tuileries                      Joachim Metz              1996                       ... TO BE CREATED 
+selector: template=h_artwork, title=Tuileries
+>> Load tuileries.title_                              Tuileries                                                                                         
+CREATED OK Tuileries
+[1m[32m>> Hook tuileries.h_aw_person                         Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook tuileries.h_aw_brand                          Object LanguagesPageFieldValue                                                                    (B[m
+>> Load tuileries.h_aw_year                           1996                                                                                              
+Vive le vent                   Laurence Bourthoumieux    1992/1995                  ... TO BE CREATED 
+selector: template=h_artwork, title=Vive le vent
+>> Load vive-le-vent.title_                           Vive le vent                                                                                      
+CREATED OK Vive le vent
+[1m[32m>> Hook vive-le-vent.h_aw_person                      Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook vive-le-vent.h_aw_brand                       Object LanguagesPageFieldValue                                                                    (B[m
+>> Load vive-le-vent.h_aw_year                        1992/1995                                                                                         
+Voitures a transformation      Francoise Perriere        1965/1980       3          >> Load 281-les-voitures-trans.h_aw_year              1965/1980                                                                                         
+OK Hermès, Les Voitures a Transformation, 1965/1980, Françoise de La Perrière
+Wachington's carriage          Caty Latham               1979/1981                  ... TO BE CREATED 
+selector: template=h_artwork, title="Wachington's carriage"
+>> Load wachingtons-carriage.title_                   Wachington's carriage                                                                             
+CREATED OK Wachington's carriage
+[1m[32m>> Hook wachingtons-carriage.h_aw_person              Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook wachingtons-carriage.h_aw_brand               Object LanguagesPageFieldValue                                                                    (B[m
+>> Load wachingtons-carriage.h_aw_year                1979/1981                                                                                         
+Zabavushka                     Evgenia Miroshnichenko    2009                       ... TO BE CREATED 
+selector: template=h_artwork, title=Zabavushka
+>> Load zabavushka.title_                             Zabavushka                                                                                        
+CREATED OK Zabavushka
+[1m[32m>> Hook zabavushka.h_aw_person                        Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook zabavushka.h_aw_brand                         Object LanguagesPageFieldValue                                                                    (B[m
+>> Load zabavushka.h_aw_year                          2009                                                                                              
+Le saut H                      Cyrill Diatkine           2016                       ... TO BE CREATED 
+selector: template=h_artwork, title=Le saut H
+>> Load le-saut-h.title_                              Le saut H                                                                                         
+CREATED OK Le saut H
+[1m[32m>> Hook le-saut-h.h_aw_person                         Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook le-saut-h.h_aw_brand                          Object LanguagesPageFieldValue                                                                    (B[m
+>> Load le-saut-h.h_aw_year                           2016                                                                                              
+L'Hiver                        Philippe Ledoux           1969(1968?)                ... TO BE CREATED 
+selector: template=h_artwork, title="L'Hiver"
+>> Load lhiver.title_                                 L'Hiver                                                                                           
+CREATED OK L'Hiver
+[1m[32m>> Hook lhiver.h_aw_person                            Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook lhiver.h_aw_brand                             Object LanguagesPageFieldValue                                                                    (B[m
+>> Load lhiver.h_aw_year                              1969(1968?)                                                                                       
+Sacre du printems              Henri d'Origny            1986                       ... TO BE CREATED 
+selector: template=h_artwork, title=Sacre du printems
+>> Load sacre-du-printems.title_                      Sacre du printems                                                                                 
+CREATED OK Sacre du printems
+[1m[32m>> Hook sacre-du-printems.h_aw_person                 Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook sacre-du-printems.h_aw_brand                  Object LanguagesPageFieldValue                                                                    (B[m
+>> Load sacre-du-printems.h_aw_year                   1986                                                                                              
+Carpe Diem                     Joachim Metz              1994                       ... TO BE CREATED 
+selector: template=h_artwork, title=Carpe Diem
+>> Load carpe-diem.title_                             Carpe Diem                                                                                        
+CREATED OK Carpe Diem
+[1m[32m>> Hook carpe-diem.h_aw_person                        Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook carpe-diem.h_aw_brand                         Object LanguagesPageFieldValue                                                                    (B[m
+>> Load carpe-diem.h_aw_year                          1994                                                                                              
+Libre com l'air                Annie Faivre              2003                       >> Load libre-comme-lair.h_aw_year                    2003                                                                                              
+OK Hermès, Libre comme l'air, 2003, Annie Faivre
+Le temps des marionnettes      Annie Faivre              1996                       ... TO BE CREATED 
+selector: template=h_artwork, title=Le temps des marionnettes
+>> Load le-temps-des-marionnet.title_                 Le temps des marionnettes                                                                         
+CREATED OK Le temps des marionnettes
+[1m[32m>> Hook le-temps-des-marionnet.h_aw_person            Object LanguagesPageFieldValue                                                                    (B[m
+[1m[32m>> Hook le-temps-des-marionnet.h_aw_brand             Object LanguagesPageFieldValue                                                                    (B[m
+>> Load le-temps-des-marionnet.h_aw_year              1996                                                                                              
+Monsieur et Madame             Bali Barret               2020                       >> Load monsieur-et-madame.h_aw_year                  2013 -> 2020                                                                                              
+OK Hermès, Monsieur et Madame, 2020, Bali Barret
+Torana                         Annie Faivre              1987/1990/2000  gavroche   >>>  OK torana.h_aw_year                              1987/1990/2000                                                                                    
+OK Hermès, Torana, 1987/1990/2000, Annie Faivre
+La mecanique des idees         Christine Henry           2004                       >> Load la-mecanique-des-idees.h_aw_year              2004                                                                                              
+OK Hermès, La mecanique des idees, 2004, Christine Henry
+L'art des steppes              Annie Faivre              1991/1997/2000             >> Load lart-des-steppes.h_aw_year                    1991/1997/2000                                                                                    
+OK Hermès, L'art des steppes, 1991/1997/2000, Annie Faivre
+Le Carnaval de Venise          Hubert Watrigant          1993/1997                  >>>  OK le-carnaval-de-venise.h_aw_year               1993/1997                                                                                         
+OK Hermès, Le Carnaval de Venise, 1993/1997, Hubert de Watrigant
+
+Script done on Mon Jul  5 10:24:22 2021

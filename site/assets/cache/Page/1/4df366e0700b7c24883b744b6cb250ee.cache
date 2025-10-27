@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>Home</title>
+
+    
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,400i,700' />
+    <link rel='stylesheet' type='text/css' href='/sh/site/uikit/css/uikit.gradient.min.css' />
+    <link rel='stylesheet' type='text/css' href='/sh/site/uikit/css/components/slidenav.gradient.min.css' />
+    <link rel='stylesheet' type='text/css' href='/sh/site/uikit/css/components/tooltip.min.css' />
+    <link rel='stylesheet' type='text/css' href='/sh/site/templates/styles/objects.css' />
+<meta http-equiv='Refresh' content="0; url='/sh/h_spot/'" />
+	<link rel='alternate' hreflang='home' href='http://localhost/sh/' />
+	<link rel='alternate' hreflang='ru-home' href='http://localhost/sh/ru-home/' />
+	<link rel='alternate' hreflang='fr-home' href='http://localhost/sh/fr-home/' />
+	<link rel='alternate' hreflang='sv-home' href='http://localhost/sh/sv-home/' />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-19325148-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </head>
+  
+  <body>
+    <div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
+      <div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
+	<h2 style='float:left;'>
+Home	</h2>
+
+        <ul class='uk-navbar-nav' style='float:right;'>
+	  
+<form class='pw-search-form' data-action='/sh/_search/' action='/sh/_search/' method='get'>
+<label for='search' class='visually-hidden'>Search:</label>
+<input type='text' name='keywords' id='search' placeholder='Search'  />
+<input type='hidden' name='tags' value=''  />
+<button type='submit' name='submit' class='visually-hidden'>Search</button>
+
+</form><li><a href='/sh/processwire/login/'><i class='uk-icon-user'></i>
+</a>
+</li>
+        </ul>
+      </div>
+
+      <nav id='topnav' class='uk-navbar uk-navbar-attached uk-hidden-small'>
+	<div class='uk-container uk-container-center'>
+	  <ul class='uk-navbar-nav float_left'>
+		<li class='uk-active'><a href='/sh/'>Home</a></li>
+	  </ul>
+          <!-- language switcher  -->
+	      <!-- <div class='uk-navbar-flip' style='float:right;'> -->
+            <ul class='languages uk-navbar-nav' role='navigation' style='float:right;'>
+			<li class='uk-active'><a hreflang='home' href='/sh/'>
+<div uk-tooltip=English>
+<img src=/sh/site/templates/flags/gb.png  />
+
+</div>
+</a></li>
+			<li><a hreflang='ru-home' href='/sh/ru-home/'>
+<div uk-tooltip=Русский>
+<img src=/sh/site/templates/flags/ru.png  />
+
+</div>
+</a></li>
+			<li><a hreflang='fr-home' href='/sh/fr-home/'>
+<div uk-tooltip=Français>
+<img src=/sh/site/templates/flags/fr.png  />
+
+</div>
+</a></li>
+			<li><a hreflang='sv-home' href='/sh/sv-home/'>
+<div uk-tooltip=Svenska>
+<img src=/sh/site/templates/flags/se.png  />
+
+</div>
+</a></li>
+            </ul>
+          <!-- </div> -->
+          <!-- language switcher / navigation end -->
+	</div>	
+      </nav>
+    </div><!--/masthead-->
+    
+    <div id='main'>
+      <div class='uk-container uk-container-center'>
+		<div class='uk-grid uk-grid-medium'>
+<!--	  <div id='content' class='uk-width-large-2-3 uk-margin-bottom'> -->
+	  <div id='content' class="uk-width-large-1-1 uk-margin-bottom">
+	    	  </div>
+	    	</div>
+      </div>
+    </div> <!--/main-->
+    
+    <footer id='foot' class='uk-margin-large-top'>
+      <div class='uk-container uk-container-center uk-margin-bottom'>
+	<div class='uk-text-muted uk-text-center'>
+<!--
+	  <span class='foot-text'>Powered by <a href='https://processwire.com'>ProcessWire Open Source CMS</a></span>
+	  <span class='foot-line uk-text-small'>Data and photos from Wikipedia and Freebase</span>
+-->
+	</div>
+      </div>
+    </footer>
+    
+    
+<div id='offcanvas' class='uk-offcanvas'>
+
+<div class='uk-offcanvas-bar'>
+
+<ul class='uk-nav uk-nav-offcanvas uk-nav-parent-icon uk-contrast uk-margin-bottom' data-uk-nav>
+<li><a href='/sh/'>Home</a></li>
+<li><a href='/sh/h_spot/'>Herm&egrave;s etc...</a></li>
+<li><a href='/sh/a_spot/'>Paintings &amp; Painters</a></li>
+<li><a href='/sh/d_spot/'>Dymkovo toys</a></li>
+
+</ul>
+<p>&nbsp;</p>
+
+</div>
+
+</div>
+<a id='offcanvas-toggle' href='#offcanvas' class='uk-visible-small uk-navbar-toggle' data-uk-offcanvas></a>
+    
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script src='/sh/site/uikit/js/uikit.min.js'></script>
+    <script src='/sh/site/uikit/js/components/lightbox.min.js'></script>
+    <script src='/sh/site/uikit/js/components/tooltip.min.js'></script>
+    <script src='/sh/site/templates/scripts/objects.js'></script>
+    
+  </body>
+</html>
