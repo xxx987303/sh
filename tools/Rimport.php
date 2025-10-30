@@ -1,11 +1,93 @@
 <?php namespace ProcessWire;
+/*
+ *
+ */
 
 //require_once "/Users/yb/github/pw_profile_united.git/site-united/classes/functions.php";
 //require_once "/Users/yb/github/pw_profile_united.git/site-united/classes/debug.php";
 require_once __dir__ . "/Debug.php";
-require_once "/Users/yb/Sites/sh/index.php";
+require_once __dir__ . "/../index.php";
 
-define ('SHOW_TITLES_ONLY', false);
+/*
+ * Get page summary
+ */
+$desc = function(Page $p) {return trim(escape_uml(sprintf("   %s, %s, %s, %s",
+                                                          $p->h_aw_brand->each("{title}"),
+                                                          $p->title,
+                                                          $p->h_aw_year,
+                                                          $p->h_aw_person->each("{title}, "))),
+                                       ', ')."\n"; };
+
+/*
+ * Executor
+ */
+//print_r(pages()->get("title=La Torre")); exit;
+//foreach(($pages=pages()->find("template=h_person")) as $p) echo "$p->template $p->title\n";
+foreach(($pages=pages()->find("template=h_artwork,sort=h_aw_brand")) as $p){
+    //  echo $p->h_aw_brand->each("{title}")." ".$p->title." ".$p->h_aw_person->each("{title}")." ================================================\n";
+    if (SHOW_TITLES_ONLY) {
+        if (str_starts_with($p->h_aw_brand->each("{title}"), 'Herm')) echo  $p->title."\n";
+    }else{
+        //echo "FOUND ===============".$desc($p);
+    }
+    //foreach($p->fields() as $f) if($p->$f) echo "$f->name: ".$p->$f."\n";
+    //print_r($p);
+    //exit;
+}
+echo "\n";
+
+foreach(explode("\n",file_get_contents('/Users/yb/tmp/list.txt')) as $line){
+    if(empty(trim($line))) continue;
+    
+    //echo "-------------$line\n";
+    list($carreTitle,$ln,$fn,$y,$cmt) = explode(',', preg_replace('/, */', ',', $line),5);
+    $y = trim(trim($y,'/'),',');
+    $cmt = str_replace(',', '', $cmt);
+    if (!SHOW_TITLES_ONLY) $output = sprintf("%-30s %-25s %-15s %-10s ",$carreTitle,"$fn $ln",$y,$cmt);
+    $ln = preg_replace("/La /","",$ln);
+    $fn = preg_replace("/La /","",$fn);
+        
+    // Lookup the author
+    $auth = [];
+    if(strpos($fn.$ln,'&') === false){
+        continue;
+        $p = pages()->get("template=h_person, h_av_lastname~=$ln, h_av_firstname~=$fn");
+        if($p->id)     { $auth[] = $p; echo $output . " !!!!!!!!!!!!!!!!!!!!!!!! $p->title\n"; }
+        //            else           echo "???????????????????????? $fn $ln\n";
+    }else{
+        list($a1,$a2) = explode('&',$fn.$ln);
+    $p1 = pages()->get("template=h_person, h_av_lastname~=$a1, h_av_firstname~=$a1");
+    $p2 = pages()->get("template=h_person, h_av_lastname~=$a2, h_av_firstname~=$a2");
+    if($p1->id)    { $auth[] = $p1; echo ""; } // "!!!!!!!!!!!!!!!!!!!!!!!! $p1->title\n";
+    else           echo "???????????????????????? $a1\n";
+    if($p2->id)    { $auth[] = $p2; echo ""; } // "!!!!!!!!!!!!!!!!!!!!!!!! $p2->title\n";
+    else           echo "???????????????????????? $a2\n";
+}
+
+// Lookup the scarf
+$found = 0;
+if(count($pages=pages()->find("template=h_artwork, title~=$carreTitle"))){
+    foreach($pages as $p) { $found++;      echo $desc($p); }
+}else{
+    $items = []; foreach(explode(' ',$carreTitle) as $item) if(strlen($item) > 3) $items[] = $item;
+    if(($p=pages()->get("template=h_artwork, title~=".join(' ',$items)))->id) { $found++;       echo $desc($p); }
+}
+
+if (!$found) {
+    continue; //            die();
+    echo "... TO BE CREATED \n";
+    
+    $p = createPage(['title' => $carreTitle],
+                    [],
+                    ['template'=>'h_artwork',
+                     'hook'    =>'title']);
+    echo "CREATED ".$desc($p);
+    foreach($auth as $a) setKeyValue($p,'h_aw_person',$a,true);
+    setKeyValue($p,'h_aw_brand',pages()->get(5835),true);
+    setKeyValue($p,'h_aw_year',$y,true);
+}
+}
+
 /**
  * Create a page if not yet done (hook done by an argument)
  *
@@ -99,78 +181,3 @@ function escape_uml($text,$direction='<-'){
   return $reply;
 }
 
-$desc = function(Page $p) {return trim(escape_uml(sprintf("   %s, %s, %s, %s",
-                                                          $p->h_aw_brand->each("{title}"),
-                                                          $p->title,
-                                                          $p->h_aw_year,
-                                                          $p->h_aw_person->each("{title}, "))),
-                                       ', ')."\n"; };
-
-//print_r(pages()->get("title=La Torre")); exit;
-//foreach(($pages=pages()->find("template=h_person")) as $p) echo "$p->template $p->title\n";
-foreach(($pages=pages()->find("template=h_artwork,sort=h_aw_brand")) as $p){
-    //  echo $p->h_aw_brand->each("{title}")." ".$p->title." ".$p->h_aw_person->each("{title}")." ================================================\n";
-    if (SHOW_TITLES_ONLY) {
-        if (str_starts_with($p->h_aw_brand->each("{title}"), 'Herm')) echo  $p->title."\n";
-    }else{
-        //echo "FOUND ===============".$desc($p);
-    }
-    //foreach($p->fields() as $f) if($p->$f) echo "$f->name: ".$p->$f."\n";
-    //print_r($p);
-    //exit;
-}
-echo "\n";
-
-if (!SHOW_TITLES_ONLY) {
-    foreach(explode("\n",file_get_contents('/Users/yb/tmp/list.txt')) as $line){
-        if(empty(trim($line))) continue;
-        
-        //echo "-------------$line\n";
-        list($carreTitle,$ln,$fn,$y,$cmt) = explode(',', preg_replace('/, */', ',', $line),5);
-        $y = trim(trim($y,'/'),',');
-        $cmt = str_replace(',', '', $cmt);
-        if (!SHOW_TITLES_ONLY) $output = sprintf("%-30s %-25s %-15s %-10s ",$carreTitle,"$fn $ln",$y,$cmt);
-        $ln = preg_replace("/La /","",$ln);
-        $fn = preg_replace("/La /","",$fn);
-        
-        // Lookup the author
-        $auth = [];
-        if(strpos($fn.$ln,'&') === false){
-            continue;
-            $p = pages()->get("template=h_person, h_av_lastname~=$ln, h_av_firstname~=$fn"));
-            if($p->id)     { $auth[] = $p; echo $output . " !!!!!!!!!!!!!!!!!!!!!!!! $p->title\n"; }
-            //            else           echo "???????????????????????? $fn $ln\n";
-        }else{
-            list($a1,$a2) = explode('&',$fn.$ln);
-            $p1 = pages()->get("template=h_person, h_av_lastname~=$a1, h_av_firstname~=$a1");
-            $p2 = pages()->get("template=h_person, h_av_lastname~=$a2, h_av_firstname~=$a2");
-            if($p1->id)    { $auth[] = $p1; echo ""; } // "!!!!!!!!!!!!!!!!!!!!!!!! $p1->title\n";
-            else           echo "???????????????????????? $a1\n";
-            if($p2->id)    { $auth[] = $p2; echo ""; } // "!!!!!!!!!!!!!!!!!!!!!!!! $p2->title\n";
-            else           echo "???????????????????????? $a2\n";
-        }
-        
-        // Lookup the scarf
-        $found = 0;
-        if(count($pages=pages()->find("template=h_artwork, title~=$carreTitle"))){
-            foreach($pages as $p) { $found++;      echo $desc($p); }
-        }else{
-            $items = []; foreach(explode(' ',$carreTitle) as $item) if(strlen($item) > 3) $items[] = $item;
-            if(($p=pages()->get("template=h_artwork, title~=".join(' ',$items)))->id) { $found++;       echo $desc($p); }
-        }
-        
-        if (!$found) {
-            continue; //            die();
-            echo "... TO BE CREATED \n";
-            
-            $p = createPage(['title' => $carreTitle],
-                            [],
-                            ['template'=>'h_artwork',
-                             'hook'    =>'title']);
-            echo "CREATED ".$desc($p);
-            foreach($auth as $a) setKeyValue($p,'h_aw_person',$a,true);
-            setKeyValue($p,'h_aw_brand',pages()->get(5835),true);
-            setKeyValue($p,'h_aw_year',$y,true);
-        }
-    }
-}

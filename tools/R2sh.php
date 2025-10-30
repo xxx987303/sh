@@ -5,23 +5,23 @@
  * into   (<title> , <lastname>,<firstname> , <year> , <comment>)
  */
 
-define("SHOW_TIDY_LIST", true);
+define("SHOW_TIDY_R_LIST", true);
 define("SHOW_AUTHORS", true);
-       
-$length1 = $length2 = $length3 = 1;
-foreach(explode("\n",file_get_contents("/Users/yb/tmp/R_list.txt")) as $line){
-    if (empty(trim($line))) continue;
-    if (str_starts_with($line, '=======')) die();
-    if (str_starts_with($line, '#')) {
-        continue;
-    }
-    if (substr_count($line, '.') < 2) die("Not enought dots in line:\n$line\n");
 
+$R_list = __dir__ . "/R_list.txt";
+
+$length1 = $length2 = $length3 = 1;
+foreach(explode("\n",file_get_contents($R_list)) as $line){
+    if (empty(trim($line))) continue;
+    if (str_starts_with($line, '=======')) die("\n");
+    if (str_starts_with($line, '#'))       continue;
+    if (substr_count($line, '.') < 2) die("Not enought dots in line:\n$line\nFix $R_list\n");
+    
     $l = explode('.',str_replace('"','',$line));
     for ($k=0; $k<5; $k++) { if (empty($l[$k])) $l[$k]=''; $l[$k]=trim($l[$k]); }
-    
+
     $count = 0;
-    list($fn,$ln) = ['' , ''];
+    $fn = $ln = '';
     foreach(explode('&',$l[1]) as $a){
         $a = trim($a);
         if (!strpos($a,',')) $a .= ',';
@@ -36,7 +36,7 @@ foreach(explode("\n",file_get_contents("/Users/yb/tmp/R_list.txt")) as $line){
     }
     if ($name === ',')  continue;
 
-    $lines[trim($l[0])] = [$l[0], $name, $l[2], $l[3]];
+    $lines[$l[0]] = [ $l[0], $name, $l[2], $l[3] ];
     if (empty($names[$name])) $names[$name] = 0;
     $names[$name]++;
     
@@ -44,16 +44,18 @@ foreach(explode("\n",file_get_contents("/Users/yb/tmp/R_list.txt")) as $line){
     if (($s=strlen($name)) > $length2) $length2 = $s+3;
     if (($s=strlen($l[2])) > $length3) $length3 = $s;
 }
-ksort($lines);
+//die("666\n");
 
+ksort($lines);
 foreach($lines as $key=>$l) {
-    if (SHOW_TIDY_LIST) {
-    printf("%-{$length1}s %-{$length2}s %-{$length3}s %s\n",
-           '"'.$l[0].'" .',
-           $l[1].' .',
-           $l[2].' .',
-           $l[3]);
+    if (SHOW_TIDY_R_LIST) {
+        printf("%-{$length1}s %-{$length2}s %-{$length3}s %s\n",
+               '"'.$l[0].'" .',
+               $l[1].' .',
+               $l[2].' .',
+               $l[3]);
     } else {
+        // Show "import friendly" line
         printf("%s,%s,%s,%s\n",
                $l[0], $l[1], $l[2], $l[3]);
     }
