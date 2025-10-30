@@ -6,7 +6,7 @@
 //require_once "/Users/yb/github/pw_profile_united.git/site-united/classes/functions.php";
 //require_once "/Users/yb/github/pw_profile_united.git/site-united/classes/debug.php";
 require_once __dir__ . "/Debug.php";
-require_once __dir__ . "/../index.php";
+require_once __dir__ . "/../../../Sites/sh/index.php";
 
 /*
  * Get page summary

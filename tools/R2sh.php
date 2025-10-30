@@ -7,14 +7,17 @@
 
 define("SHOW_TIDY_R_LIST", true);
 define("SHOW_AUTHORS", true);
+global $names, $lines;
 
 $R_list = __dir__ . "/R_list.txt";
 
 $length1 = $length2 = $length3 = 1;
-foreach(explode("\n",file_get_contents($R_list)) as $line){
-    if (empty(trim($line))) continue;
-    if (str_starts_with($line, '=======')) die("\n");
-    if (str_starts_with($line, '#'))       continue;
+foreach(explode("\n",file_get_contents($R_list)) as $line) {
+    if (($delim=str_starts_with($line, '=======')) || ($slogan=str_starts_with($line, '#')) || empty(trim($line))) {
+        if ($slogan) echo "$line\n";
+        //if ($delim)  break;
+        continue;
+    }
     if (substr_count($line, '.') < 2) die("Not enought dots in line:\n$line\nFix $R_list\n");
     
     $l = explode('.',str_replace('"','',$line));
@@ -36,15 +39,14 @@ foreach(explode("\n",file_get_contents($R_list)) as $line){
     }
     if ($name === ',')  continue;
 
-    $lines[$l[0]] = [ $l[0], $name, $l[2], $l[3] ];
+    $lines[$l[0].$name.$l[2].$l[3]] = [ $l[0], $name, $l[2], $l[3] ];
     if (empty($names[$name])) $names[$name] = 0;
     $names[$name]++;
     
-    if (($s=strlen($l[0])) > $length1) $length1 = $s+3;
-    if (($s=strlen($name)) > $length2) $length2 = $s+3;
-    if (($s=strlen($l[2])) > $length3) $length3 = $s;
+    if (($s=strlen($l[0])) > $length1) $length1 = $s+9;
+    if (($s=strlen($name)) > $length2) $length2 = $s+5;
+    if (($s=strlen($l[2])) > $length3) $length3 = $s+4;
 }
-//die("666\n");
 
 ksort($lines);
 foreach($lines as $key=>$l) {
