@@ -18,7 +18,7 @@
  *
  */
 
-if (!defined('cnf_CLI')) define('cnf_CLI',false);
+if (!defined('CLI_MODE')) define('CLI_MODE',false);
 
 /**
  *
@@ -54,7 +54,7 @@ function getValidSorts($context='artwork') {
 function x($tag, $text=''){
   if     ($text === Null) return 'Null';
   elseif (empty($tag))    return $text;
-  elseif (cnf_CLI)        return strip_tags($text);
+  elseif (CLI_MODE)        return strip_tags($text);
 
   // 'x' is an "empty" tag
   $tag_clean = preg_replace('/ .*/','',$tag);
@@ -192,14 +192,15 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
   $itemsByType = $items = [];
   $needle = sprintf("/_(%s)$/",join('|',$config->groupListItemBy));
   foreach($pages as $object) {
-    $renderedObject = renderObjectListItem($object, $context, $key);
-    $type='';foreach($object->fields as $f) if(preg_match($needle,$f) && count($o=$object->$f)) $type = substr($o->each(", {title}"),2);
-    if ($type) foreach(explode(',',$type) as $t) $itemsByType[trim($t)][] = $renderedObject;
-    else  $items[] = $renderedObject;
+      if (empty($object->fields)) continue;
+      $renderedObject = renderObjectListItem($object, $context, $key);
+      $type='';foreach($object->fields as $f) if(preg_match($needle,$f) && count($o=$object->$f)) $type = substr($o->each(", {title}"),2);
+      if ($type) foreach(explode(',',$type) as $t) $itemsByType[trim($t)][] = $renderedObject;
+      else  $items[] = $renderedObject;
   }
   if (empty($items) && count($itemsByType)==1){
-    foreach($itemsByType as $k=>$v) $items = $v;
-    $itemsByType = [];
+      foreach($itemsByType as $k=>$v) $items = $v;
+      $itemsByType = [];
   }
   
   $selector = (string) $pages->getSelectors();
@@ -260,7 +261,7 @@ function renderObjectListItem(Page $page, $context='ul', $key=''){
     }
   }
   if (empty($caption) && !empty($page->parent)) $caption = $page->parent->get("title");
-  $out = files()->render("./includes/${context}-list-item$key.php", // say, ul-list-item.php
+  $out = files()->render("./includes/{$context}-list-item$key.php", // say, ul-list-item.php
 			 array('page' => $page,
 			       'img'  => $img,
 			       'caption' => @$caption,

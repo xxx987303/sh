@@ -5,7 +5,7 @@
  *   $pages       Related pages, the first image of those is drawn as page images (with links to the original)
  *   $related     Artworks that mention the same title in their body
  *   $width       Image(s) width
- *   $o           images on the right (default left)
+ *   $o           R - images on the right (default L - on the leftleft)
  *   $ncells      Number of cells in the row
  */
 
@@ -109,6 +109,7 @@ function o_p_main($c, $page, $related){
 }
 
 
+if(empty($related) || empty($related->id)) $related = [];
 echo "<div class='uk-grid uk-grid-medium'>\n";
 if ($o == 'L'){ o_p_images(c1, $page, $pages, $width); o_p_main  (c2, $page, $related);  }
 else          { o_p_main  (c2, $page, $related);       o_p_images(c1, $page, $pages, $width); }

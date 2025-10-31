@@ -1,13 +1,12 @@
-<?php
+<?php namespace ProcessWire;
 /*
  * Read "Rita's list", check and clean it.
  * Repack (<title> . <lastname>,<firstname> . <year> . <comment>) 
  * into   (<title> , <lastname>,<firstname> , <year> , <comment>)
  */
 
-define("SHOW_TIDY_R_LIST", true);
+define("SHOW_TIDY_R_LIST", false);
 define("SHOW_AUTHORS", true);
-global $names, $lines;
 
 $R_list = __dir__ . "/R_list.txt";
 
@@ -43,18 +42,20 @@ foreach(explode("\n",file_get_contents($R_list)) as $line) {
     if (empty($names[$name])) $names[$name] = 0;
     $names[$name]++;
     
-    if (($s=strlen($l[0])) > $length1) $length1 = $s+9;
-    if (($s=strlen($name)) > $length2) $length2 = $s+5;
-    if (($s=strlen($l[2])) > $length3) $length3 = $s+4;
+    if (($s=strlen($l[0])) > $length1) $length1 = $s+2;
+    if (($s=strlen($name)) > $length2) $length2 = $s+1;
+    if (($s=strlen($l[2])) > $length3) $length3 = $s+1;
 }
 
 ksort($lines);
+$n = 0;
 foreach($lines as $key=>$l) {
     if (SHOW_TIDY_R_LIST) {
-        printf("%-{$length1}s %-{$length2}s %-{$length3}s %s\n",
-               '"'.$l[0].'" .',
-               $l[1].' .',
-               $l[2].' .',
+        printf("%3s-%-{$length1}s %-{$length2}s %-{$length3}s %s\n",
+               ++$n,
+               $l[0].'.', //'"'.$l[0].'".',
+               $l[1].'.',
+               $l[2].'.',
                $l[3]);
     } else {
         // Show "import friendly" line
