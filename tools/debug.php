@@ -63,7 +63,7 @@ function abortIt($text = 'Shit...', $extras=[]) {
       ? sprintf("\n%s\n", `echo "$(tput bold)$(tput setaf 1)"`)
       : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
     if ($extras){
-        if(cnf_CLI) var_dump($extras);
+        if (cnf_CLI) var_dump($extras);
         else echo tidy_dump($extras,'extras');
     }
     debug_print_backtrace(); // DEBUG_BACKTRACE_IGNORE_ARGS

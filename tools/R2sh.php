@@ -1,71 +1,92 @@
 <?php namespace ProcessWire;
 /*
  * Read "Rita's list", check and clean it.
- * Repack (<title> . <lastname>,<firstname> . <year> . <comment>) 
+ * Repack (<><title> . <lastname>,<firstname> . <year> . <comment>) 
  * into   (<title> , <lastname>,<firstname> , <year> , <comment>)
  */
 
-define("SHOW_TIDY_R_LIST", false);
-define("SHOW_AUTHORS", true);
+define("SHOW_TIDY_R_LIST", true);
+define("SHOW_AUTHORS", false);
 
 $R_list = __dir__ . "/R_list.txt";
 
-$length1 = $length2 = $length3 = 1;
+$lengthP = $lengthT = $lengthA = $lengthY = 1;
+$Slogan = '';
 foreach(explode("\n",file_get_contents($R_list)) as $line) {
-    if (($delim=str_starts_with($line, '=======')) || ($slogan=str_starts_with($line, '#')) || empty(trim($line))) {
-        if ($slogan) echo "$line\n";
-        //if ($delim)  break;
+    if (($delim=str_starts_with($line, '=======')) || ($s=strpos($line, 'HERMES')) || empty(trim($line))) {
+        if ($s) $Slogan = $line;
         continue;
     }
     if (substr_count($line, '.') < 2) die("Not enought dots in line:\n$line\nFix $R_list\n");
     
     $l = explode('.',str_replace('"','',$line));
-    for ($k=0; $k<5; $k++) { if (empty($l[$k])) $l[$k]=''; $l[$k]=trim($l[$k]); }
+    for ($k=0; $k<5; $k++) { if (empty($l[$k])) $l[$k]=''; $l[$k]=encodeToUtf8(trim($l[$k])); }
 
     $count = 0;
     $fn = $ln = '';
-    foreach(explode('&',$l[1]) as $a){
+    foreach(explode('&',$l[2]) as $a){
         $a = trim($a);
         if (!strpos($a,',')) $a .= ',';
         if ($multyAuthor = !empty($ln)) {
-            if (++$count > 1) die("$l[1]\ntoo many authors, improve the script...\n");
+            if (++$count > 1) die("$l[2]\ntoo many authors, improve the script...\n");
             list($ln2,$fn2) = explode(',',$a);
-            $name = sprintf("%s&%s,%s&%s", trim($ln), trim($ln2), trim($fn), trim($fn2));
+            $authorName = sprintf("%s&%s,%s&%s", trim($ln), trim($ln2), trim($fn), trim($fn2));
         } else {
             list($ln,$fn) = explode(',',$a);
-            $name = sprintf("%s,%s", trim($ln), trim($fn));
+            $authorName = sprintf("%s,%s", trim($ln), trim($fn));
         }
     }
-    if ($name === ',')  continue;
+    if ($authorName === ',')  continue;
 
-    $lines[$l[0].$name.$l[2].$l[3]] = [ $l[0], $name, $l[2], $l[3] ];
-    if (empty($names[$name])) $names[$name] = 0;
-    $names[$name]++;
+    $lines[$l[0].$authorName.$l[2].$l[3].$l[4]] = [ $l[0], $l[1], $authorName, $l[3], $l[4] ];
+    if (empty($authorNames[$authorName])) $authorNames[$authorName] = 0;
+    $authorNames[$authorName]++;
     
-    if (($s=strlen($l[0])) > $length1) $length1 = $s+2;
-    if (($s=strlen($name)) > $length2) $length2 = $s+1;
-    if (($s=strlen($l[2])) > $length3) $length3 = $s+1;
+    if (($s=strlen($l[0])) > $lengthP) $lengthP = $s+2;
+    if (($s=strlen($l[1])) > $lengthT) $lengthT = $s+1;
+    if (($s=strlen($l[3])) > $lengthY) $lengthY = $s+2;
+    if (($s=strlen($authorName)) > $lengthA) $lengthA = $s+1;
 }
 
 ksort($lines);
 $n = 0;
+if (SHOW_TIDY_R_LIST) {
+    echo "$Slogan\n#\n";
+    printf("#     %-{$lengthP}s %-{$lengthT}s %-{$lengthA}s %-{$lengthY}s %s\n",
+           //mb_convert_encoding('Прибытие',   'UTF-8', 'auto'),
+           encodeToUtf8('Прибытие'),
+           mb_convert_encoding('Название','UTF-8', 'auto'),
+           mb_convert_encoding('Автор ',  'UTF-8', 'auto'),
+           mb_convert_encoding('Сделан ', 'UTF-8', 'auto'),
+           mb_convert_encoding('Коммент', 'UTF-8', 'auto'));
+}
+
 foreach($lines as $key=>$l) {
     if (SHOW_TIDY_R_LIST) {
-        printf("%3s-%-{$length1}s %-{$length2}s %-{$length3}s %s\n",
+        printf("%3s - %-{$lengthP}s %-{$lengthT}s %-{$lengthA}s %-{$lengthY}s %s\n",
                ++$n,
-               $l[0].'.', //'"'.$l[0].'".',
-               $l[1].'.',
-               $l[2].'.',
-               $l[3]);
+               $l[0].'.', // P
+               $l[1].'.', // T
+               $l[2].'.', // A
+               $l[3].'.', // Y
+               $l[4]);    // C
     } else {
         // Show "import friendly" line
-        printf("%s,%s,%s,%s\n",
-               $l[0], $l[1], $l[2], $l[3]);
+        printf("%s,%s,%s,%s,%s\n",
+               $l[0], $l[1], $l[2], $l[3], $l[4]);
     }
 }
 
 if (SHOW_AUTHORS) {
-    //arsort($names);
-    ksort($names);
-    print_r($names);
+    //arsort($authorNames);
+    ksort($authorNames);
+    print_r($authorNames);
+}
+
+function encodeToUtf8($string) {
+    return mb_convert_encoding($string, "UTF-8", mb_detect_encoding($string, "UTF-8, ISO-8859-1, ISO-8859-15", true));
+}
+
+function encodeToIso($string) {
+    return mb_convert_encoding($string, "ISO-8859-1", mb_detect_encoding($string, "UTF-8, ISO-8859-1, ISO-8859-15", true));
 }

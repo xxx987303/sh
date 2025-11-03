@@ -1,5 +1,7 @@
 .DS_Store?
 .DS_Store
+*~
+*#
 *.old
 *.old/*
 *.new
@@ -22,6 +24,7 @@ site/assets/sessions
 site-skyscrapers
 .htaccess
 tmp
+test*.php
 upgrade.php
 .idea
 .svn
