@@ -6,10 +6,15 @@
 #
 
 WEBP='NO!!'
-dryRun='y'
+dryRun=
 
 # ProcessWire images location
-R=$(cd $(dirname $0)/../site/assets/files; pwd -P)
+R=$(cd $(dirname $0); pwd -P | sed s,/tools.*$,,)/site/assets/files
+echo $R | sed s,/site.*$,,
+echo $R | sed s,/site.*$,,
+echo $R | sed s,/site.*$,,
+echo
+sleep 3
 
 # Returns number of dots in the input string
 function countDots() {
@@ -26,20 +31,18 @@ function countDots() {
 
 for parentDir in $(ls -1 $R); do
     cd $R/$parentDir 2>/dev/null || continue
-# [ $parentDir != 1 ] && [ $parentDir != 5980 ] && [ $parentDir != 5907 ] && continue
+    [ $parentDir != 1 ] && [ $parentDir != 5980 ] && [ $parentDir != 5907 ] && \
+	[ $parentDir != 5830 ] && [ $parentDir != 5839 ] && [ $parentDir != 5835 ] && [ $parentDir != 6087 ] && continue
     echo ==========================$parentDir
     for item in $(ls -1); do
-	#echo "---$item"
 	if [[ -d $item ]]; then
-	    echo "  --dir  $item"
+	    [ -n "$dryRun" ] && echo "  --dir  $item"
 	elif [[ -h "$item" ]]; then
-	    echo "  --link $item"
+	    [ -n "$dryRun" ] && echo "  --link $item"
 	elif [[ -f "$item" ]]; then
-	    image=$(file "$item" 2>&1| grep --color image)
-	    json=$(file "$item" 2>&1| grep --color JSON)
-	    [ -n "$json" ] && continue
-	    [ -n "$image" ] && {
-		echo -n "  --img $item"
+	    [ -n "$(file "$item" 2>&1| grep JSON)" ] && continue
+	    [ -n "$(file "$item" 2>&1| grep image)" ] && {
+		[ -n "$dryRun" ] && echo -n "  --img $item"
 		
 		a=($(echo $item|sed 's/\./ /g'))
 		n=$(countDots $item)
@@ -63,12 +66,13 @@ for parentDir in $(ls -1 $R); do
 		
 		if [[ $item = $root ]]; then
 		    # We got the root file
-		    echo "    GOT ROOT $root"
+		    [ -n "$dryRun" ] && echo "    GOT ROOT $root"
 		elif [ $WEBP = 'y' ]; then
 		    echo -n
 		else
 		    # Remove the file to save space, replace it by a link
-		    echo; echo "    cd $R/$parentDir && rm -vf $item && ln -svf $root $item"; 
+		    [ -n "$dryRun" ] && { echo; echo "    cd $R/$parentDir && rm -vf $item && ln -svf $root $item";
+		    } ||                                { cd $R/$parentDir && rm -vf $item && ln -svf $root $item; }
 		fi
 	    }
 	else

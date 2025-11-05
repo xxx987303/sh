@@ -66,6 +66,7 @@ foreach(explode("\n",file_get_contents('R_list_for_import.txt')) as $line){
                     ['template'=>'h_artwork',
                      'hook'    =>'title']);
     foreach($authors as $a) setKeyValue($p,'h_aw_person',$a,true);
+    // Set "Hermes" as the brand
     setKeyValue($p,'h_aw_brand',pages()->get(5835),true);
     setKeyValue($p,'h_aw_year',$y,true);
 }
