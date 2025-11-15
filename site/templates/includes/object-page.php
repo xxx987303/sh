@@ -28,34 +28,39 @@ if($width == 600){
 
 function o_p_images($c, $page, $pages, $width){
 
-  echo "<div class='object-images uk-width-medium-$c uk-text-center'>\n";
-  if (!($pages instanceof PageArray)) $pages = [];
-  foreach(count($pages) ? $pages : [$page] as $p){
-    if(!empty($images=$p->get('images'))){
-      foreach($images as $image){
-	$thumb = $image->width($width);
-	echo x("div class='object-image uk-margin-small'",
-	       x("a href='$image->url' data-uk-lightbox=\"{group:'photos'}\"",
-		 x("img src='$thumb->url' alt='$image->description'")).
-	       ($image->description ? x("div class='caption uk-text-small uk-text-muted'",
-					x("span",$image->description)) : ""));
-	if (count($pages)) break;
-      }
-    }else{
-      echo x("div class='object-image uk-margin-small'",
-	     x("img src='".urls()->templates."styles/images/photo_placeholder.png' alt=''").
-	     x("div class='caption uk-text-small uk-text-muted'",x("span","Photo not available")));
+    echo "<div class='object-images uk-width-medium-$c uk-text-center'>\n";
+    if (!($pages instanceof PageArray)) $pages = [];
+    foreach(count($pages) ? $pages : [$page] as $p){
+        if(!empty($images=$p->get('images'))){
+            foreach($images as $image){
+                $thumb = $image->width($width);
+                echo x("div class='object-image uk-margin-small'",
+                       x("a href='$image->url' data-uk-lightbox=\"{group:'photos'}\"",
+                         x("img src='$thumb->url' alt='$image->description'")).
+                       ($image->description ? x("div class='caption uk-text-small uk-text-muted'",
+                                                x("span",$image->description)) : ""));
+                if (count($pages)) break;
+            }
+        }else{
+            echo x("div class='object-image uk-margin-small'",
+                   x("img src='".urls()->templates."styles/images/photo_placeholder.png' alt=''").
+                   x("div class='caption uk-text-small uk-text-muted'",x("span","Photo not available")));
+        }
     }
-  }
-  echo"  </div>\n";
+    echo"  </div>\n";
 }
 
 function o_p_tr_line($label,$items){
-  if (empty($items)) return;
-  if ($items instanceof PageArray && count($items))
-    echo x("tr",x("th",$label).x("td",x("ul class='uk-list uk-margin-remove'",$items->each("<li><a href='{url}'>{title}</a></li>"))));
-  else foreach($items as $i)
-	 echo $i['comment'].x("tr",x("th",$i['label']).x("td",x("a href='$i[url]'",$i['value'])));
+    if (!empty($items)) {
+        if ($items instanceof PageArray && count($items)) {
+            echo x("tr",x("th",$label).x("td",x("ul class='uk-list uk-margin-remove'",
+                                                $items->each("<li><a href='{url}'>{title}</a></li>"))));
+        } elseif(!$items->id) {
+            foreach($items as $i) {
+                if (is_array($i)) echo $i['comment'].x("tr",x("th",$i['label']).x("td",x("a href='$i[url]'",$i['value'])));
+            }
+        }
+    }
 }
 
 function o_p_main($c, $page, $related){
@@ -81,7 +86,7 @@ function o_p_main($c, $page, $related){
       o_p_tr_line($f->getLabel(),$page->$f);
     }
 
-    // Table of tagged fields
+    // Table of 'page' tagged fields
     o_p_tr_line('',$taggedFields);
     echo "</tbody></table>\n";
   }

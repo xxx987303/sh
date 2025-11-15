@@ -849,7 +849,7 @@ class b_debug
         } elseif (is_bool($arg) || ($arg === null)) {
             $arg = var_export($arg, true);
         } elseif (is_string($arg)) {
-            $arg = str_replace(SITE_ROOT, '', $arg);
+            if (defined('SITE_ROOT')) $arg = str_replace(SITE_ROOT, '', $arg);
             $arg = (strlen($arg)>$max_s_l?substr($arg, 0, $max_s_l).' ...' : $arg);
             if (strip_tags(trim($arg)) !== trim($arg)) {
                 $arg = b_fmt::escape($arg);

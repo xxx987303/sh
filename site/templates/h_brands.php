@@ -4,5 +4,5 @@
  */
 
 // include("./browse.php"); 
-region('content', renderObjectList(findObjects('','h_brand'),2,false));
+region('content', renderObjectList(findObjects('','h_brand'),3,false));
 

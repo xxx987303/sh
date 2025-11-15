@@ -14,6 +14,8 @@ sess_*
 *.cache
 *.swp
 *.swo
+extractPhotos.log
+__pycache__
 site-default/config-dev.php
 site-default/assets/logs
 site-default/assets/files

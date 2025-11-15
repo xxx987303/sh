@@ -26,7 +26,7 @@ if (!defined('CLI_MODE')) define('CLI_MODE',false);
 function getValidSorts($context='artwork') {
 
   return [];
-  
+
   foreach (array('brand'          => 'A-Z|Z-A',
 		 'year'           => 'Oldest|Newest',
 		 'rarity'         => 'A-Z|Z-A',
@@ -173,7 +173,7 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
   if (!count($pages)) return;
   $pagination = '';
   $sortSelect = '';
-  
+
   // includes name
   if (!is_numeric($cols)){
     $context = $cols;
@@ -182,13 +182,13 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
   }else{
     $context = 'ul';
   }
-  
+
   if($showPagination && $pages->count()) {
     $headline = $pages->getPaginationString('Objects'); // i.e. Objects 1-10 of 500
     $pagination = renderPagination($pages); // pagination links
     $sortSelect = renderObjectListSort($pages->first->template->name);
   }
-  
+
   $itemsByType = $items = [];
   $needle = sprintf("/_(%s)$/",join('|',$config->groupListItemBy));
   foreach($pages as $object) {
@@ -202,10 +202,10 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
       foreach($itemsByType as $k=>$v) $items = $v;
       $itemsByType = [];
   }
-  
+
   $selector = (string) $pages->getSelectors();
   //if($selector) $selector = makePrettySelector($selector);
-  
+
   $out = files()->render("./includes/$context-list.php",
 			 array('context'=> $context,
 			       'cols'   => $cols,
@@ -217,7 +217,7 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
 			       'sortSelect' => $sortSelect,
 			       'selector' => $selector,
 			       ));
-  
+
   return $out;
 }
 
@@ -229,10 +229,10 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
  *
  */
 function renderObjectListItem(Page $page, $context='ul', $key=''){
-  
+
   /** @var Pageimages $images */
   $images = $page->get('images');
-  
+
   // make a thumbnail if the first object image
   if(!empty($images) && ($image = $images->first())) {
     // our thumbnail is 200px wide with proportional height
@@ -241,12 +241,12 @@ function renderObjectListItem(Page $page, $context='ul', $key=''){
   } else {
     $img = config()->urls->templates . "styles/images/photo_placeholder.png";
   }
-  
+
   // here's a fun trick, set what gets displayed when value isn't available.
   // the property "unknown" is just something we made up and are setting to the page.
   $page->set('unknown', '??');
-  
-  // Object caption
+
+  // Object caption (tag 'caption')
   foreach (getTaggedFields($page,'caption') as $f){ // av_duty|br_duty|aw_brand etc
     $v = $page->get($f);
     if ($v instanceof PageArray){
@@ -267,7 +267,7 @@ function renderObjectListItem(Page $page, $context='ul', $key=''){
 			       'caption' => @$caption,
 			       'summary' => summarizeText(strip_tags($page->get('body')), 100)
 			       ));
-  
+
   return $out;
 }
 
@@ -399,22 +399,28 @@ function getSpotURLs(){
  */
 function getTaggedFields($page,$context='page'){
   global $SPOT_search;
+  global $dejaVuFields, $dejaVuTags;
+
+  $debug = false;
+  $debug = true;
+
   $reply = WireArray();
+  if (empty($dejaVuFields)) $dejaVuFields = [];
   if (!empty($page) && !empty($page->fields)){
     foreach ($page->fields as $f) {
       if(!$f->hasTag($context))         continue;
       if(empty($v=$page->get($f->name)))continue;
       if ($f->type instanceof FieldtypeOptions){
-	if (!count($v)) continue;
-	$value = substr($v->each(", {title}"),2);
-    //}elseif ($f->type instanceof FieldtypeURL){
-    //  $value = x("a href='$v'",$v);
+          if (!count($v)) continue;
+          $value = substr($v->each(", {title}"),2);
+      }elseif ($f->type instanceof FieldtypeURL || strpos($f->name, '_url')) {
+          $value = x("a href=$v",__('Click to see'));
       }elseif ($f->type instanceof FieldtypeDatetime){
-	$value = date("Y-m-d",(int)$v);
+          $value = date("Y-m-d",(int)$v);
       }elseif (strpos($f->name,'price')){
-	$value = number_format($v,0,","," ").' SEK';
+          $value = number_format($v,0,","," ").' SEK';
       }else{
-	$value = $v;
+          $value = $v;
       }
       if (empty(trim($value))) continue;
       // printf("%s=%s %s <br>\n",$f->name,$value,t_dump($page->get($f->name),'get_object_name'));
@@ -423,7 +429,19 @@ function getTaggedFields($page,$context='page'){
 			'value' => $value,
 			'url'   => sprintf("%s?%s=%s",$SPOT_search,$f->name,$value),
 			'comment'=> "<!-- $f->name  ------------------------------------>\n"));
+      if (!in_array($f->name, $dejaVuFields)) $dejaVuFields[] = $f->name;
     }
+  }
+  if (!$reply->count) {
+      $reply->add([ 'label' => "<em>".__("No data for tag")." \"$context\"</em>",
+                    'value' => "",
+                    'url' => "",
+                    'comment'=> "<!-- DUMMY ------------------------------------>\n"]);
+  }
+  if ($debug) {
+      $i = $context . ($fields=implode(', ', $dejaVuFields));
+      if (empty($dejaVuTags[$i])) echo "tag \"$context\": $fields<br>";
+      $dejaVuTags[$i] = true;
   }
   return $reply;
 }

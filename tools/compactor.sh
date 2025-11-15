@@ -2,7 +2,7 @@
 # YB 2025-11-04
 #
 # Replace by symbolic liks the image files.
-# Would be nice to replace JPEG fils by WEBP, but native ProcessWire rejects those 
+# Would be nice to replace JPEG fils by WEBP, but native ProcessWire rejects those
 #
 
 WEBP='NO!!'
@@ -31,8 +31,14 @@ function countDots() {
 
 for parentDir in $(ls -1 $R); do
     cd $R/$parentDir 2>/dev/null || continue
-    [ $parentDir != 1 ] && [ $parentDir != 5980 ] && [ $parentDir != 5907 ] && \
-	[ $parentDir != 5830 ] && [ $parentDir != 5839 ] && [ $parentDir != 5835 ] && [ $parentDir != 6087 ] && continue
+    [ $R = /Users/yb/github/sh.git/site/assets/files ] && {
+	if [[ -z "$dryRun" ]]; then
+	    [ $parentDir != 1 ] && [ $parentDir != 5980 ] && [ $parentDir != 5907 ] && \
+		[ $parentDir != 5830 ] && [ $parentDir != 5839 ] && [ $parentDir != 5840 ] && \
+		[ $parentDir != 5835 ] && [ $parentDir != 6087 ] && [ $parentDir != 5900 ] && \
+		[ $parentDir != 6106 ] && [ $parentDir != 5841 ] && continue
+	fi
+    }
     echo ==========================$parentDir
     for item in $(ls -1); do
 	if [[ -d $item ]]; then
@@ -51,7 +57,7 @@ for parentDir in $(ls -1 $R); do
 		[ $WEBP = 'y' ] && {
 		    if [ ${a[$n]} = "webp" ]; then continue; fi
 		    root=$rootW
-		    if [ ! -f $rootW ]; then ln -svf $rootO $rootW; fi 
+		    if [ ! -f $rootW ]; then ln -svf $rootO $rootW; fi
 		    itemW=$(echo $item|sed s/${a[$n]}/webp/)
 		    echo "        $itemW"
 		} || {

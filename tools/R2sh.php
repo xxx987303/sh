@@ -5,7 +5,7 @@
  * into   (<title> , <lastname>,<firstname> , <year> , <comment>)
  */
 
-define("SHOW_TIDY_R_LIST", true);
+define("SHOW_TIDY_R_LIST", false);
 define("SHOW_AUTHORS", false);
 
 $R_list = __dir__ . "/R_list.txt";
@@ -13,15 +13,22 @@ $R_list = __dir__ . "/R_list.txt";
 $lengthP = $lengthT = $lengthA = $lengthY = 1;
 $Slogan = '';
 foreach(explode("\n",file_get_contents($R_list)) as $line) {
-    if (($delim=str_starts_with($line, '=======')) || ($s=strpos($line, 'HERMES')) || empty(trim($line))) {
+    if (($cmt=str_starts_with($line, '=')) || ($s=strpos($line, 'roligare')) || empty(trim($line))) {
         if ($s) $Slogan = $line;
         continue;
     }
     if (substr_count($line, '.') < 2) die("Not enought dots in line:\n$line\nFix $R_list\n");
     
-    $l = explode('.',str_replace('"','',$line));
-    for ($k=0; $k<5; $k++) { if (empty($l[$k])) $l[$k]=''; $l[$k]=encodeToUtf8(trim($l[$k])); }
+    $l = explode('.',str_replace('"','',"$line..."));
+    for ($k=0; $k<5; $k++) { $l[$k] = empty($l[$k]) ? '' : encodeToUtf8(trim($l[$k])); }
 
+    if (0) {
+        $l0 = explode('-',"$l[0]---");
+        for ($k=0; $k<3; $k++) { $l0[$k] = (empty($l0[$k]) ? ($k==0?'20xx':'xx') : sprintf("%02d",$l0[$k])); }
+        for ($k=0; $k<3; $k++) { $l0[$k] = (empty($l0[$k]) ? ($k==0?'20xx':'xx') : sprintf("%02d",$l0[$k])); }
+        $l[0] = sprintf("%s-%s-%s",$l0[0],$l0[1],$l0[2]);
+    }
+    
     $count = 0;
     $fn = $ln = '';
     foreach(explode('&',$l[2]) as $a){

@@ -16,14 +16,31 @@ if (!defined('CONST_noname')) {
     define('CONST_cnfOptions', 'my_options');
 }
 
+/**
+ * Get the variable type
+ * Returns string, like "int", "string", "object|Template", etc
+ */
+function getType($o, $id=null) {
+    ob_start();
+    var_dump($o);
+    $result =str_replace(['(',')'], ['|',''],
+                         preg_replace(["/ProcessWire./",
+                                       "/(#| ).*/",
+                                       "/\([0-9]*\)/"],
+                                      '',
+                                      ($header=explode("\n",ob_get_clean())[0])));
+    if (!empty($id)) $result = "getType($id) =  $result";
+    return $result;
+}
+
 
 /**
  *
  */
 function pageName($item, $cleanOnly = false) {
     static $maxLength = 33;
-    $reply = trim(preg_replace("/ +/", " ",        
-                               str_ireplace(["(",")",".","*","?","&",","], " ",                     
+    $reply = trim(preg_replace("/ +/", " ",
+                               str_ireplace(["(",")",".","*","?","&",","], " ",
                                             preg_replace("/&[a-zA-Z]*;/", " ",
                                                          (is_array($item) ? $item['english'] : $item)
                                             ))));
@@ -45,7 +62,7 @@ function join_keys(Array &$a, String $delim=',') {
     foreach ($a as $key=>$value) {
         $reply[] = "$key=>$value";
     }
-    return '[' . join($delim, $reply) . ']'; 
+    return '[' . join($delim, $reply) . ']';
 }
 
 /**
@@ -57,11 +74,11 @@ function escape_uml($text, $direction='auto', $debug=false) {
 		'À' => '&Agrave;',   'Á' => '&Aacute;',	  'Â' => '&Acirc;',	    'Ã' => '&Atilde;',  '<' => '&lt;',
 		'Ä' => '&Auml;',     'Å' => '&Aring;',	  'à' => '&agrave;',	'á' => '&aacute;',  '>' => '&gt;',
 		'â' => '&acirc;',    'ã' => '&atilde;',	  'ä' => '&auml;',	    'å' => '&aring;',   ' ' => '&nbsp;',
-		'Æ' => '&AElig;',    'æ' => '&aelig;',	  'ß' => '&szlig;',	    'Ç' => '&Ccedil;',  
+		'Æ' => '&AElig;',    'æ' => '&aelig;',	  'ß' => '&szlig;',	    'Ç' => '&Ccedil;',
 		'ç' => '&ccedil;',   'È' => '&Egrave;',	  'É' => '&Eacute;',	'Ê' => '&Ecirc;',   '-' => '&#8209;', // '‑' => '&#8209;',
 		'Ë' => '&Euml;',     'è' => '&egrave;',	  'é' => '&eacute;',	'ê' => '&ecirc;',   '[' => '&#91;',
         'ë' => '&euml;',     'ƒ' => '&#131;',	  'Ì' => '&Igrave;',	'Í' => '&Iacute;',  ']' => '&#93;',
-		'Î' => '&Icirc;',    'Ï' => '&Iuml;',	  'ì' => '&igrave;',	'í' => '&iacute;',  
+		'Î' => '&Icirc;',    'Ï' => '&Iuml;',	  'ì' => '&igrave;',	'í' => '&iacute;',
 		'î' => '&icirc;',    'ï' => '&iuml;',	  'Ñ' => '&Ntilde;',	'ñ' => '&ntilde;',
 		'Ò' => '&Ograve;',   'Ó' => '&Oacute;',	  'Ô' => '&Ocirc;',	    'Õ' => '&Otilde;',
 		'Ö' => '&Ouml;',     'ò' => '&ograve;',	  'ó' => '&oacute;',	'ô' => '&ocirc;',
@@ -103,11 +120,11 @@ function escape_uml($text, $direction='auto', $debug=false) {
         "'" => '&#039;',
         //'&' => 'QampQ',
     ];
-    
+
     if ($direction === 'auto') {
         $direction = preg_grep('/&[#A-Za-z0-9]*;/', [$text]) ? 'decode' : 'encode';
     }
-    
+
     if ($direction === 'encode') {
         $reply = str_replace(['&'], ['&amp;'], $text, $count1);
         $reply = str_replace(array_keys($TT), array_values($TT), $reply, $count2);
@@ -124,21 +141,32 @@ function escape_uml($text, $direction='auto', $debug=false) {
             echo      htmlDiff($text,$reply);
             abortIt();
         }
-    return $reply; 
+    return $reply;
 }
 
 /**
  *
  */
-function setKeyValue(object $o, $key_arg, $value, $option = null) {
-    
-    b_debug::_dbg();
+function setKeyValue(object $o, $key_arg, $value, $dryRun = false) {
+
+    b_debug::_dbg($key_arg);
     if ($key_arg==='e_inst' && $value=='Home') { abortIt("!!!!!!!!!!!!!!!!!"); }
     if (empty($key_arg)) { abortIt("??? Empty key"); }
-    
+
     /**
      */
     $getKey = function ($key_arg, $expectObject = true) {
+        list($keyType, $keyName) = getType($key_arg);
+        if ($keyType == 'object') {
+            if (!$expectObject) abortIt("Argument if not supposed to be an object ".getType($o));
+            $key_name = $key->name;
+        } elseif (is_object($f=fields()->get($key_arg))) {
+            $key = $f;
+            $key_name = $key->name;
+        } else {
+            $key = $key_name = $key_arg;
+        }
+        return [$key,$key_name];
         if ($expectObject) {
             $key      = (is_object($key_arg) ? $key_arg : (is_object($f=fields()->get($key_arg)) ? $f : $key_arg));
             $key_name = (is_object($key)
@@ -157,16 +185,18 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
         //      b_debug::_dbg(is_object($key));
         return [$key,$key_name];
     };
-    
+
     /**
      */
-    $setKeyValue_simple = function (object $o, string $key, $value, $option) {
+    $setKeyValue_simple = function (object $o, string $key, $value, $dryRun) {
         global $dejaVu_key;
         if ($value == '<unset>') {
             $value = 0;
         }
         static $roles = ['viewRoles','editRoles','addRoles','createRoles'];
-        if (($tRoles = ($o instanceof Template) && in_array($key, $roles))) {
+        $got = $now = '';
+        list($oType,$oName) = explode('|', getType($o), 2);
+        if ($oType === 'object' && ($isTemplate = ($oName == 'Template')) && in_array($key, $roles)) {
             if (!$o->$key) {
                 $o->$key = [];
             }
@@ -176,15 +206,15 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
             if (!$o->hasRole($g=roles()->get('guest'))) {
                 $o->setRoles([$g->id]);
             }
-            if (!dryRun) $o->save();
+            if (!$dryRun) $o->save();
         }
         $id = (is_object($value) ? $value->id : null);
-        $got = $now = ($tRoles
+        $got = $now = ($isTemplate
                        ? (in_array($id, $o->$key) ? $value->name : null)
                        : $o->$key);
         if ($value === 'present') {
             b_debug::_dbg("Replace '$value' ==> ".($x="2037-01-01"));
-            $value = $x;
+                $value = $x;
         }
         $valid_date = (b_time::is_valid($value)==1 || b_time::$is_valid==2);
         if ($got == $value || ($valid_date && b_time::is_equil($got, $value))) {
@@ -192,51 +222,47 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
                 say::ok($o, $key, (is_object($value)?$value->name:$value));
             }
         } else {
-            if ($tRoles) {
+            if ($isTemplate) {
                 $o->setRoles(array_merge($o->$key, [$id]), str_replace('Roles', '', $key));
                 $got = (in_array($id, $o->$key) ? $value->name : null);
             } else {
                 $o->$key = $value;
                 $got = $o->$key;
-            }
-            if ($option !== false) {
-                if (!dryRun) $o->save();
-            }
+                }
+                if (!$dryRun) $o->save();
             say::add($o, $key, $value, $now, $got, $o->$key);
         }
         return [$now,$got];
     };
-    
+
     /**
      */
-    $setTags = function (object $o, $key, $value, $option) {
+    $setTags = function (object $o, $key, $value, $dryRun) {
         $got = $now = $o->getTags(true);
         if ($o->hasTag($value)) {
             say::ok($o, $key, $value);
         } else {
             $o->addTag($value);
-            if ($option !== false) {
-                if (!dryRun) $o->save();
-            }
+            if (!$dryRun) $o->save();
             say::add($o, $key, $value, $now, $got=$o->getTags(true), $o->$key);
         }
         return [$now,$got];
     };
-    
+
     //
     // Fields, Templates
     //
-    if ($o instanceof Field ||
-        $o instanceof Template) { // ==========================================================================================================================
+    list($oType,$oName) = explode('|', getType($o), 2);
+    if (in_array($oName, ['Field','Template'])) {// ==========================================================================================================================
         list($key,$key_name) = $getKey($key_arg, $expectObject=false);
         if ($key_name == 'tags') {
-            list($now,$got) = $setTags($o, $key_name, $value, $option);
+            list($now,$got) = $setTags($o, $key_name, $value, $dryRun);
         } else {
-            list($now,$got) = $setKeyValue_simple($o, $key, $value, $option);
+            list($now,$got) = $setKeyValue_simple($o, $key, $value, $dryRun);
         }
     } elseif ($o instanceof Role) {// ==========================================================================================================================
         list($key,$key_name) = $getKey($key_arg, $expectObject=false);
-        
+
         if ($key == 'permission') {
             if (!$value instanceof Permission) {
                 abortIt(_formatData($value)." is not instanceof Permission");
@@ -245,9 +271,7 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
                 say::ok($o, $key, $value->name);
             } else {
                 $result = $o->addPermission($value);
-                if ($option !== false) {
-                    if (!dryRun) $o->save();
-                }
+                if (!$dryRun) $o->save();
                 say::add($o, $key, $value->name, $now='', $got=($o->hasPermission($value)?$value->name:''));
                 if (!$result) {
                     say::warning(sprintf("%s(%s,$key,$value->name) can't be set", __function__, $o->name));
@@ -258,16 +282,16 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
         }
     } elseif ($o instanceof User) {// ==========================================================================================================================
         list($key,$key_name) = $getKey($key_arg, $expectObject=false);
-        
+
         if ($key == 'role') {
             if ($o->hasRole($value)) {
                 say::ok($o, $key, ($now=$got=$value));
             } else {
                 $result = $o->addRole($value);
-                if ($option !== false) {
+                if (!$dryRun) {
                     $of=$o->of();
                     $o->of(false);
-                    if (!dryRun) $o->save();
+                    $o->save();
                     $o->of($of);
                 }
                 say::add($o, $key, $value, $now='', $got=($o->hasRole($value)?$value:''));
@@ -276,22 +300,22 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
                 }
             }
         } else {
-            list($now,$got) = $setKeyValue_simple($o, $key, $value, $option);
+            list($now,$got) = $setKeyValue_simple($o, $key, $value, $dryRun);
         }
     } elseif ($o instanceof Page) {// ==========================================================================================================================
         list($key,$key_name) = $getKey($key_arg, $expectObject=true);
         $o->of(false);
-        
+
         if (!empty($o->av_current_er)&&count($o->av_current_er) && templates()->get('ea_emp_record')->fieldgroup->hasField($f=preg_replace("/^av_/", "er_", $key_name))) {
-          // Employment record has precedence over person
-            return setKeyValue($o->av_current_er->first, $f, $value, $option);
-        } elseif ($key instanceof FieldtypeDatetime) {                                    // FieldtypeDatetime ====================================================
+            // Employment record has precedence over person
+            return setKeyValue($o->av_current_er->first, $f, $value, $dryRun);
+        } elseif ($key instanceof FieldtypeDatetime)               // FieldtypeDatetime ====================================================
             list($now,$got) = $setKeyValue_simple(
                 $o,
                 $key,
                 ($key->hasTag('date')
-                         ? b_time::datetime2date($value)
-                         : b_time::txt2unix($value)),
+                 ? b_time::datetime2date($value)
+                 : b_time::txt2unix($value)),
                 $option
             );
         } elseif (is_object($key) && ($key->hasTag('country') || $key->tags=='country')) {// Field  'country' =====================================================
@@ -308,7 +332,7 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
                     $page_country->title = $value;
                     $page_country->template = 'country';
                     $page_country->parent = pages()->get('template=countries');
-                    if (!dryRun) $page_country->save();
+                    if (!$dryRun) $page_country->save();
                     b_debug::_dbg("Creating ".$page_country->title);
                 }
                 if ($o->$key instanceof PageArray) {
@@ -316,9 +340,7 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
                 } else {
                     $o->$key = $page_country;
                 }
-                if ($option !== false) {
-                    if (!dryRun) $o->save();
-                }
+                if (!$dryRun) $o->save();
                 say::load($o, $key, $value, (empty($now)?'':$now), $got=@$o->$key->title);
             }
         } elseif (is_object($key) && $key->type instanceof FieldtypePage) { // FieldtypePage  =====================================================
@@ -326,7 +348,7 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
                 $value = findPageByTitle($value, ['org_position']);
             }
             if (!is_object($value)) {
-                tidy_dump($key, $key_name);
+                echo tidy_dump($key, $key_name);
                 abortIt(var_export($value, true)." is not an object");
             }
             if ($o->id == $value->id) {
@@ -345,15 +367,13 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
                 */
                 if ($o->$key instanceof PageArray) {
                     $o->$key->add($value);
-                    if (!dryRun) $o->$key->save();
+                    if (!$dryRun) $o->$key->save();
                     $got = ($o->$key->has($value) ? $value->title : "?");
                 } else {
                     $o->$key = $value;
                     $got = (is_object($o->$key) ? $o->$key->title : null);
                 }
-                if ($option !== false) {
-                    if (!dryRun) $o->save();
-                }
+                if (!$dryRun) $o->save();
                 say::hook($o, $key, $value->title, $now="", $got, $o->$key);
             }
         } elseif ($o->$key instanceof LanguagesPageFieldValue) { // Languages  ==================================================================
@@ -368,12 +388,10 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
             if ($now == $value) {
                 say::ok($o, $fl, _formatData($now));
                 $o->set("status$pf", (empty($pf) ? 'unique' : 1));
-                if ($option !== false) {
-                    if (!dryRun) $o->save();
-                }
+                if (!$dryRun) $o->save();
             } else {
                 if (empty($value) && !empty($now)) {
-                        say::warning(sprintf(__function__."(%s,%s,%s,%s)", $o->name, $key_name, $value, $option)."\ncancels value $o->name.$key_name now==\"$now\"");
+                        say::warning(sprintf(__function__."(%s,%s,%s,%s)", $o->name, $key_name, $value, $dryRun)."\ncancels value $o->name.$key_name now==\"$now\"");
                 } else {
                     if ($langID == 0) {
                         $o->$key = $value;
@@ -381,24 +399,22 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
                         $o->$key->setLanguageValue($langID, $value);
                     }
                     $o->set("status$pf", 1);
-                    if ($option !== false) {
-                        if (!dryRun) $o->save();
-                    }
+                    if (!$dryRun) $o->save();
                     if (!is_object($o->$key)) {
                         $o->$key = new LanguagesPageFieldValue($o, $key); // Well...
                     }
                     say::load($o, $fl, $value, $now, $got=($langID==0?$o->$key->getDefaultValue():$o->$key->getLanguageValue($langID)));
                 }
             }
-        } elseif ($key_name == 'images') {                         // Images  =====================================================================
+        } elseif ($key_name == 'images') { // Images  =====================================================================
             $hasImage = function ($o, $fn, $verbose = false) {
                 if ($o->images->has($fn)) {
                     // echo "OK hasImage(has) $fn\n";
-                       return true;
+                    return true;
                 } else { // debug...
                     foreach ($o->images as $i) {
                         if (($x=basename($i->filename)) == $fn) {
-                  // echo "OK hasImage(img) $fn\n";
+                            // echo "OK hasImage(img) $fn\n";
                             return true;
                         } elseif ($verbose) {
                             if (!@$counter++) {
@@ -428,14 +444,12 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
             foreach (array_unique($value) as $image_path) {
                 $fn = $now = $got = $sani($image_path);
                 if ($hasImage($o, $fn, true)) {
-                        say::ok($o, $key_name, $fn);
+                    say::ok($o, $key_name, $fn);
                 } else {
-                        //echo "$fn does not exist\n"; return;
-                        $o->of(false);
-                        $o->images->add($image_path);
-                    if ($option !== false) {
-                        if (!dryRun) $o->save();
-                    }
+                    //echo "$fn does not exist\n"; return;
+                    $o->of(false);
+                    $o->images->add($image_path);
+                    if (!$dryRun) $o->save();
                     say::load($o, $key_name, $fn, $now="", $got=($hasImage($o, $fn, false) ? $fn : ""), $o->$key_name);
                 }
             }
@@ -447,53 +461,65 @@ function setKeyValue(object $o, $key_arg, $value, $option = null) {
                 say::ok($o, 'parent', $value->name);
             } else {
                 $o->parent = $value;
-                if ($option !== false) {
-                    if (!dryRun) $o->save();
-                }
+                if (!$dryRun) $o->save();
                 say::hl(sprintf(">> Hook %s.parent(%s) = %s", $o->name, $o->parent->id, ($got=$o->parent->name)), 'g');
             }
-        } elseif ($o->$key instanceof SelectableOptionArray) {  // Options =======================================================================
-            if (is_object($value)) {
-                abortIt("unexpected object "._formatData($value));
-            }
-            $f=fields()->get($key);
-            $Manager = new SelectableOptionManager();
-            if ($opt = $Manager->getOptions($f, ['value'=>$value])->last) {
-                $got = $now = getValue($f, $o);
-                if ($o->$key->hasValue($value)) {
-                    say::ok($o, $key, $value);
-                } else {
-                    $o->$key = new SelectableOptionArray();
-                    $o->$key->setField($f);
-                    $o->$key->add($opt);
-                    if ($option !== false) {
-                        if (!dryRun) $o->save();
-                        if (!dryRun) $o->$key->save();
-                    }
-                      say::load($o, $key, $value, $now, ($got = getValue($f, $o)), $o->$key);
-                }
+    } elseif ($o->$key instanceof SelectableOptionArray) {  // Options =======================================================================
+            if (is_object($value)) abortIt("unexpected 'value' argument "._formatData($value));
+
+            $getValue = function(SelectableOptionArray $f, $value) {
+                return $f->hasValue($value) ? $value : '';
+            };
+
+            $f = fields()->get($key);
+            b_debug::_dbg($f);
+            b_debug::_dbg(getType($o->$key));
+            if (empty($SelectableOptionManager)) $SelectableOptionManager = new SelectableOptionManager();
+            if ($o->$key->title == $value) {
+                say::ok($o, $key, $value);
+            } elseif ($opt = $SelectableOptionManager->getOptions($f, ['title'=>$value])->last) {
+                exit;
+
+                echo getType($opt, 'opt');
+                echo "_formatData(opt) = "._formatData($opt)."\n";
+                //                $got = $now = $opt->data->value;
+                //if ($o->$key->hasValue($value)) {
+                say::warning("'$value' is set BUT not detected in ".$o->$key->title);
+                exit;
+
+                $o->$key = new SelectableOptionArray();
+                $o->$key->setField($f);
+                $o->$key->add($opt);
+                if (!$dryRun) $o->save();
+                if (!$dryRun) $o->$key->save();
+                $o->save();$o->$key->save();
+                b_debug::_dbg("value=".$getValue($o->$key, $value));
+                echo tidy_dump($getValue($o->$key, $value));
+                //function load($p, $key, $data = '', $now = '', $reply = '', $p_key0 = '', $id = '>> Load') {}
+                //say::load($o, $key, $value, '', ($got = getValue($f, $o)), $o->$key);
+                say::load($o, $key, $value, '', $getValue($o->$key, $value), $o->$key);
+                exit; die();
             } else {
+                echo getType($f);
                 say::warning(sprintf("%s(%s,$key,$value) Option can't be set", __function__, $o->name));
+                die();
             }
-        } elseif ($key == 'tags') {                          // Tags ========================================================================
-            list($now,$got) = $setTags($o, $key, $value, $option);
-        } else {                                           // ===========================================================================
-            if ($key_name == 'title' && is_string($value)) {
-                $value = preg_replace("/^\d\d\d\d\d\d-/", "", trim(str_replace(
-                    ['[>]', '   ', '  '],
-                    ' ',
-                    escape_uml(strip_tags($v_orig=$value))
-                )));
-          // if($value != $v_orig) say::notice("fix title: \"$v_orig\" ==> \"$value\"");
-            }
-            list($now,$got) = $setKeyValue_simple($o, $key, $value, $option);
-        }
+    } elseif ($key == 'tags') {                           // Tags ========================================================================
+        list($now,$got) = $setTags($o, $key, $value, $dryRun);
+    } elseif ($key_name == 'title' && is_string($value)) { // ===========================================================================
+        $value = preg_replace("/^\d\d\d\d\d\d-/", "", trim(str_replace(
+            ['[>]', '   ', '  '],
+            ' ',
+            escape_uml(strip_tags($v_orig=$value))
+        )));
+        // if($value != $v_orig) say::notice("fix title: \"$v_orig\" ==> \"$value\"");
+        list($now,$got) = $setKeyValue_simple($o, $key, $value, $dryRun);
     } else {
         echo tidy_dump($o, $msg="Unexpected argument key_name=\"".var_export($key_name, true)."\"");
         abortIt($msg);
     }
     if (empty($got) && !empty($now) && $value!=='<unset>') {
-        abortIt(sprintf(__function__."(%s,%s,%s,%s)", $o->name, $key_name, $value, $option)."\ncancels value $o->name.$key now==\"$now\" got=\"\"");
+        abortIt(sprintf(__function__."(%s,%s,%s,%s)", $o->name, $key_name, $value, $dryRun)."\ncancels value $o->name.$key now==\"$now\" got=\"\"");
     }
 }
 

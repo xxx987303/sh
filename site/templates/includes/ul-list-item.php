@@ -1,4 +1,7 @@
 <?php namespace ProcessWire;
+/**
+ * Render fields with tag 'list'
+ */
 $url = $page->url;
 $ttl = $page->title;
 

@@ -10,9 +10,9 @@
 ."Brides de Gala".                  Grygkar,Hugo           .      1957/1967/2009
 ."Casse-noisette".              de Jacquelot,Antoine        .     1997
 ."Cavalcadour".                    d'Origny,Henri .1982/1992/2012.  2
-."Cavalcadour" .                   d'Origny,Henri .1982/1992/2012.  М-Twilly
-2009-11-09."Cavaliers peuls".                Fougerolles,Jean           .       1993
-."Charreada".                        Fougerolles,Jean.                 1993
+."Cavalcadour" .                   d'Origny,Henri .1982/1992/2012.  МaxTwilly
+2009-11-09."Cavaliers peuls".                Fougerolle,Jean           .       1993
+."Charreada".                        Fougerolle,Jean.                 1993
 2003-05-04."Cheval Turc".                       Vauzelles,Christiane.   2003. П М+A
 2003-10-02."Clefs".                                  Latham,Caty.                  1965/1980/2010
 ."Clic-clac".                           Abadie,Julie.                   1979/1997/2011
@@ -22,16 +22,16 @@
 ."Cuivreries".            de La Perrière,Françoise.                  1963.   Variant
 ."Eperon d'or".                         d'Origny,Henri            .       1974/1989.    2+(1)
 2017-05-15."Equitation japonaise".         de La Perrière,Françoise                .1969
-."Escuela Andaluza".              de Watrigant,Hubert .        1996/2000
+."Real Escuela Andaluza Del Arte Ecuestre".              de Watrigant,Hubert .        1996/2000
 2012-09-28."Etriers".                                 de La Perrière,Françoise .      1964/1990
 ."Ex-libris"        .    Grygkar,Hugo.           1946/1998. G EL
 ."Etude pour une parure".      Manlik,Florence.                  2017
 ."Farandole".                           Latham,Caty.               1977/1990/2006
-."Fesfival des amazones".     d'Origny,Henri            .    2013/2014
-2009-11-09."Flore".                                     Ledoux,Philippe .                  1967
+."Festival des amazones".     d'Origny,Henri            .    2013/2014
+2009-11-09."La Flore".                                     Ledoux,Philippe .                  1967
 ."Les Folies Du Ciel".                       Dubigeon,Loic        .    1984/1990
 ."Gibiers".                                 de Linares,Henri.              1966/1991/1997
-."Grand Cortège a Moscou".  Duchene,Michel.                 1992
+."Grand Cortège a Moscou".  Duchêne,Michèle.                 1992
 2008-03-12."Grand manege".                   d'Origny,Henri.                1990/1993.      2
 ."Grand tenue".                       d'Origny,Henri.                 1985/1998
 ."Grande venerie royale .         Hallo,Charles-Jean          .  1957
@@ -63,7 +63,7 @@
 ."Splendeur des maharadjas .   Baschet,Catherine.            1996/2001
 ."Springs".                                    Ledoux,Philippe.                1974/1981
 ."Sulfures & presse-papiers".      Latham,Caty.                         1979
-2013-04-04."Tambours".                               Metz,Joachim.                     1989/1990
+2013-04-04."Les Tambours".                               Metz,Joachim.                     1989/1990
 ."Tarot".                                        Faivre,Annie.                           1991
 ."Tribord".                                    Abadie,Julie.                       1968/1990
 ."Tropiques".                               Bourthoumieux,Laurence . 1987/1990
@@ -71,7 +71,7 @@
 ."Vive le vent".                            Bourthoumieux,Laurence . 1992/1995
 ."Les Voitures a Transformation".    de La Perrière,Françoise.            1965/1980.3
 ."Washington's carriage".          Latham,Caty.                     1979/1981
-."Zabavushka".                           Miroshnichenko,Evgenia.   2009. Såld
+."Zabavushka".                           Miro,Evgenia.   2009. Sold
 ."Le saut H".                                Diatkine,Cyrille.                            2016
 ."L'Hiver".                                    Ledoux,Philippe.               1969(1968?)
 ."Sacre du printems".                d'Origny,Henri.                          1986
@@ -103,36 +103,50 @@
 2022-10."Confidents des coeur".          Dubigeon,Loic.            2000 .G
 2022-11.1821 Hommage a L'Amite.            Abadie,Julie                    .   1993. EL
 2022-12."Ferronnerie".                            Latham,Caty.               1970. G
-2022-13."Modernisme Tropical.             Jardim,Filipe .                     2015
+2022-09-08."Modernisme Tropical.             Jardim,Filipe .                     2015
 2022-14."Circuit FSH 24".                       Emery,Benoit-Pierre.                 2018 . П Мини
 2022-15."Bolduc au carre".                    Latham,Caty.               2007/2020
-2022-16."Jeu de carte".                           Cassandre,.                           2018
+2022-12-08."Jeu De Cartes".                           Cassandre,.                           2018
 2023-01."Mountain Zebra".                    Shirley,Alice.                          2020 .ES
 2023-02."Panoplie Equestre".                Jamin,Virginie.              2018
 2023-03."L'art indien des plaines".       Koechlin,Sophie.    2001
-2023-04."Cheval de caractaire".          Rybaltchenko,Dimitri   .       2007
+2023-04-06."Cheval de Caractere".          Rybaltchenko,Dimitri   .       2007
 2023-05."Fleurs et Carlines".                 Rybaltchenko,Vladimir .1985 .П Юры
 2023-06."Chiens et Valets".                   Hallo,Charles-Jean.            1965
 2023-07."Sous Le Cèdre".                        Rybaltchenko,Dimitri.         1998
 2023-08."Tsubas".                                   Vauzelles,Christiane.    1998 .G
 2023-09."A Propos de Bottes".               de Poret,Xavier.             2008 .G
-2023-10."Feux d'Artifice".                      Duchene,Michel.                 1987. ES
-2024-01."Tresors du Nil".                        Metz,Joachim.             2003
-2024-02."Rencontre oceane".               	 Faivre,Annie.                   2001
+2023-10."Feux d'Artifice".                      Duchêne,Michèle.                 1987. ES
+2024-01-04."Tresors du Nil".                        Metz,Joachim.             2003
+2024-02."Rencontre oceane".               	 Faivre,Annie.                   2001 ..
 2024-03."Chorus stellarium".                    Nomura,Daiske .             2024 . B
 2024-04."Les Courses".                          Benoist Gironiere,Yves . 2004/2013
 2024-05."Braselets de Lumiere".           Faivre,Annie.                    2018
-2024-06."Quadrige".                               Peron,Pierre.                     2019(70)
-2024-07."En Liberte".                             Brancowitz,Carine      .      2020
-2024-08."Brazil II".                                    Bourthoumieux,Laurence . 2015 (70)
+2024-06-13."Quadrige".                               Peron,Pierre.                     2019
+2024-07-18."En Liberte".                             Brancowitz,Carine      .      2020
+2024-11-07."Brazil II".                                    Bourthoumieux,Laurence . 2015
 2025-01."Casques et Plumets".              Abadie,Julie.                     1989
-2025-02."Flot Fleurs et Frontaux  .         Jamin,Virginie               .    2017
+2025-02."Flots Fleurs et Frontaux  .         Jamin,Virginie               .    2017
 2025-03."Les Perles de Tourkana".       Alamin,Sefedin Ibrahim .  2002
 2025-04."Proues".                                    Ledoux,Philippe.               1973
 2025-05."Sangles".                                  Metz,Joachim.                      1984 .G
-2025-06."Le sacres d'Hiver".                 Pierre,Marie.                       2022-.G
-2025-07."The Savana Dance".             Ardmore Artists,.      2016 .G
-====================
+2025-06."Le sacres d'Hiver".                 Pierre,Marie.                       2022.G
+2025-10-09."The Savana Dance".             Ardmore Artists,.      2016 .G
+2025-11-06. A Vos Crayons. Cooke,Leigh. 2004
+2025-03-06. hidden title. author, hidden. year hidden
+
+
+=== 2025-11-06 SCARF, HERMÈS, A Vos Crayons, Leigh P. Cooke, 100% siden, 86x88 cm, beige, brun, gul, orange, fläckar, ask.
+=== 2025-10-09 SCARF, HERMÈS, The Savana Dance, Ardmore Artists, 100% siden, 42x42 cm, flerfärgad, ask.
+=== 2025-03-06 SCARF, HERMÈS, Flots; Fleurs et Frontaux, Virginie Jamin , 2015, 90x90 cm, mörklila, svart, blå, vit. 1 600 <- 1 500 kr
+=== 2024-11-07 SCARF, HERMÈS, Brazil II, Laurence Bourthoumieux, 100% siden, 66x70 cm, lila, blå, vit, grå, ask. 1400kr
+=== 2024-05-30 SCARF, HERMÈS, Bracelets De Lumiere, Annie Faivre, 100% siden, 90x90 cm, vinrött, grön, gult, rosa.
+=== 2024-01-04 SCARF, HERMÈS, Tresors Du Nil, Joachim Metz, 100% siden, 88x88 cm, svart, gul, blå, grön, röd, fläck. 2 000 <- 1 900
+=== 2023-04-06 SCARF, HERMÈS, Cheval de Caractere, Dimitri Rybaltchenko, 100 % siden, 90x90 cm, rosa, vit, ask. 2 000 <- 1 800
+=== 2022-12-08 SCARF, HERMÈS, Voyage en Etoffes, 100 % siden, 90x90 cm, orange, brun, originalask. 2 000 <- 2 000
+=== 2022-12-08 SCARF, HERMÈS Jeu De Cartes, Adolphe Jean-Marie Mouro dit Cassandre, 100 % siden, 90x90 cm, några fläckar, orginal ask.  1700 <- 1800
+=== 2022-09-08 SCARF, HERMÈS, Modernisme Tropical, Felipe Jardim, 100% siden, 90x90 cm, vvit, blå, grön, originalask.
+
 .Do Re Boucles. Manlik,Florence..Twilly
 .Collies de chiens. Jamin,Virginie..Twilly
 .Cuivreries . de La Perrière,Françoise .1963.  Scarf/vintage 2
