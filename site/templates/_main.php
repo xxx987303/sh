@@ -9,6 +9,10 @@
  */
 /** @var Config $config */
 /** @var Page $page */
+
+// Debugging...
+$CdP = true;
+
 ?><!DOCTYPE html>
 <html lang="<?=(empty($languages)?'en':_x('en', 'HTML language code'))?>">
   <head>
@@ -18,12 +22,20 @@
     <?=x('title',region('browserTitle').(input()->pageNum() > 1 ? " (Page ".input()->pageNum().")":""))."\n"?>
     
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-    
+<!--  CdP   <script src='<?=$config->urls->root?>includeHTML.js'></script> -->
+
+<!--  CdP -------------------------------- -->
+    <link rel="stylesheet" type='text/css' href='<?=$config->urls->root?>CdP.min.css'/>
+<!-- <link rel="stylesheet" type='text/css' href='<?=$config->urls->root?>customize-nav-menus.min.css'/>
+     <link rel="stylesheet" type='text/css' href='<?=$config->urls->root?>nav-menus.css'/> -->
+<!-- /CdP -->
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,400i,700' />
     <link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/uikit.gradient.min.css' />
     <link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/slidenav.gradient.min.css' />
     <link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/tooltip.min.css' />
+    <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.css' />
     <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/objects.css' />
+
 <?php
           // Are we in the spot?
           getSpotURLs();
@@ -36,36 +48,37 @@
           $in_search = (strpos($page->url,'search/') !== false);
 
           if (!empty($languages)){
-          // handle output of 'hreflang' link tags for multi-language (needed for SEO)
-          foreach($languages as $language) {
-	    if(!$page->viewable($language)) continue;
-	    // hreflang code for language uses language name from homepage
-	    $hreflang = $home->getLanguageValue($language, 'name');
-	    // output the <link> tag: note that this assumes your language names are the same as required by hreflang.
-	    $url = $page->localHttpUrl($language); // get the http URL for this page in the given language
+              // handle output of 'hreflang' link tags for multi-language (needed for SEO)
+              foreach($languages as $language) {
+                  if(!$page->viewable($language)) continue;
+                  // hreflang code for language uses language name from homepage
+                  $hreflang = $home->getLanguageValue($language, 'name');
+                  // output the <link> tag: note that this assumes your language names are the same as required by hreflang.
+                  $url = $page->localHttpUrl($language); // get the http URL for this page in the given language
 	    echo "\t<link rel='alternate' hreflang='$hreflang' href='$url' />\n";
+              }
           }
-	  }
-          include("./includes/google-analytics.php");
+include("./includes/google-analytics.php");
 ?>
   </head>
   
   <body>
+<!--  CdP <div w3-include-html='<?=$config->urls->root?>header1.html'></div> --> 
     <div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
       <div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
 	<h2 style='float:left;'>
 <?php
-          //$home->set('headline', 'Home');
-          //echo $page->parents->each("\t<a href='{url}'>{title}</a> <i class='uk-icon-angle-right'></i>\n ");
-          foreach($page->parents as $k=>$p) if($k>0)printf("\t<a href='%s'>%s</a> <i class='uk-icon-angle-right'></i>\n",$p->url,$p->title);
-	  echo region('headline');
+              echo "<!-- region(headline)  -->\n";
+            //$home->set('headline', 'Home');
+              foreach($page->parents as $k=>$p) if($k>0)printf("\t<a href='%s'>%s</a> <i class='uk-icon-angle-right'></i>\n",$p->url,$p->title);
+              echo region('headline');
 ?>
 	</h2>
-
-        <ul class='uk-navbar-nav' style='float:right;'>
-	  <?php	   // Search and login
+<!-- Search and login -->
+        <ul class='uk-navbar-nav' style='float:right; list-style-type:"";'>
+        <?php
 	    include './includes/search_form_short.php';
-            echo (user()->isGuest() 
+        echo (user()->isGuest() 
 		  ? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //        .' '.__('Login')))
 		  : (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit'))) : "").
 		  x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout')));
@@ -76,42 +89,68 @@
       <nav id='topnav' class='uk-navbar uk-navbar-attached uk-hidden-small'>
 	<div class='uk-container uk-container-center'>
 	  <ul class='uk-navbar-nav float_left'>
+<!-- Main navigation -->
 <?php
-	    foreach(($GLOBALS['SPOT_url'] ? $spot_home->and($spot_home->children) : $home->and($home->children)) as $item) {
-	      if (!$item->viewable()) continue;
-	      if (preg_match(";(countries|search)/;",$item->url) || empty($item->numChildren)) continue;
-	      if (preg_match(";(spot)/;",$item->url) && !$GLOBALS['SPOT_url'])  continue;
-	      $class = ($item->id==$page->rootParent->id || $item->id==$page->parent->id ? 'uk-active' : '');
-	      echo "\t\t<li class='$class'><a href='$item->url'>$item->title</a></li>\n";
-	    }
+   //echo "page=$page->title, spot_home=$spot_home->title, rootParent title=".$page->rootParent->title.", page parent=".$page->parent->title."<br>";
+    $items = [];
+    $root = false;
+    foreach(($GLOBALS['SPOT_url']
+      ? $spot_home->and($spot_home->children)
+      : $home->and($home->children)) as $item) {
+      if (!$item->viewable()) continue;
+      //if (preg_match(";(countries|search)/;",$item->url) || empty($item->numChildren)) continue;
+      if (preg_match(";(spot)/;",$item->url) && !$GLOBALS['SPOT_url'])  continue;
+      //if ($page->title == $page->rootParent->title) {
+      if ($root) {
+          $class = '';
+      } elseif ($page->id == $spot_home->id) {
+          $class = 'uk-active';
+          //echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! root active $page->title == $spot_home->title <br>";
+          $root = true;
+      } elseif ($item->id == $page->id) {
+          $class = 'uk-active';
+          $root = true;
+      } elseif ($item->id == $page->parent->id && $page->parent->id != $spot_home->id) {
+          //echo "??????????????????????????????  $item->title==".$page->parent->title."<br>";
+          $class = 'uk-active';
+      } else {
+          $class = '';
+      }
+      //echo "$item->title class=$class<br>"; 
+      $items[] = x("li class='menu-item $class'",x("a href='$item->url'",x("h3",$item->title)));
+    }
+    if ($CdP){
+        echo "<!--  CdP -->\n";
+        $items[]=x("li class='menu-item menu-item-type-post_type menu-item-object-page'",x("a href=https://carredeparis.me/",x("h3",'CdP')));
+        echo "<!--  CdP -->\n";
+    }
+    foreach ($items as $item) echo "$item\n";
 ?>
 	  </ul>
-<?php if (!empty($languages)){?>
-          <!-- language switcher  -->
-	      <!-- <div class='uk-navbar-flip' style='float:right;'> -->
-            <ul class='languages uk-navbar-nav' role='navigation' style='float:right;'>
 <?php
-	      static $flags = ['default'=>'gb', 'russian'=>'ru', 'swedish'=>'se', 'french'=>'fr'];
+          if (!empty($languages)){
+              echo "<!-- ---------------------------------------------------------- language switcher  -->\n".
+                  "<ul class='languages uk-navbar-nav' role='navigation' style='float:right;'>\n";
+              static $flags = ['default'=>'gb', 'russian'=>'ru', 'swedish'=>'se', 'french'=>'fr'];
               foreach($languages as $language) {
-		 if(!$page->viewable($language)) continue;
-                 $hreflang = $home->getLanguageValue($language, 'name');
-                 printf("\t\t\t<li%s><a hreflang='$hreflang' href='%s'>%s</a></li>\n",
-			($language->id==$user->language->id ? " class='uk-active'" : ""),
-			$page->localUrl($language),
-			x("div uk-tooltip=$language->title",x("img src=".urls('templates')."flags/".$flags[$language->name].".png"))); // $language->title);
-		 //echo "\t<li><a hreflang='$hreflang' href='$url'>".$language->title."</a></li>\n";
-	  }
+                  if($page->viewable($language))printf("<li%s><a hreflang='%s' href='%s'>%s</a></li>\n",
+                                                       ($language->id==$user->language->id ? " class='uk-active'" : ""),
+                                                       $home->getLanguageValue($language, 'name'),
+                                                       $page->localUrl($language),
+                                                       x("div uk-tooltip=$language->title",
+                                                         x("img src=".urls('templates')."flags/".$flags[$language->name].".png")));
+                  //echo "\t<li><a hreflang='$hreflang' href='$url'>".$language->title."</a></li>\n";
+              }
+          }
 ?>
             </ul>
-          <!-- </div> -->
-          <!-- language switcher / navigation end -->
-<?php } ?>
+          <!-- ---------------------------------------------------------- language switcher / navigation end -->
 	</div>	
       </nav>
     </div><!--/masthead-->
     
     <div id='main'>
-      <div class='uk-container uk-container-center'>
+                <div class='uk-container uk-container-center'>
 	<?=region('mainHeader')?>
 	<div class='uk-grid uk-grid-medium'>
 <!--	  <div id='content' class='uk-width-large-2-3 uk-margin-bottom'> -->
@@ -137,7 +176,7 @@
 	<div class='uk-text-muted uk-text-center'>
 <!--
 	  <span class='foot-text'>Powered by <a href='https://processwire.com'>ProcessWire Open Source CMS</a></span>
-	  <span class='foot-line uk-text-small'>Data and photos from Wikipedia and Freebase</span>
+	  <span class='foot-line uk-text-small'>Data and photos from Wikipedia and private sources</span>
 -->
 	</div>
       </div>
@@ -145,6 +184,7 @@
     
     <?php include("./includes/offcanvas.php"); ?>
     
+<!--  CdP  <script>  includeHTML(); </script> -->
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
     <script src='<?=$config->urls->root?>site/uikit/js/uikit.min.js'></script>
     <script src='<?=$config->urls->root?>site/uikit/js/components/lightbox.min.js'></script>

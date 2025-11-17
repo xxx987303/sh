@@ -7,7 +7,6 @@
     <li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_popularity=A,B&amp;sort=-h_aw_popularity'><?=__('Most popular scarves')?></a></li>
     <li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_year=<?php printf("%s-%s",date("Y")-10,date("Y")); ?>'><?=__('Artworks from the last decade')?></a></li>
     <li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_year=1900-1950&amp;sort=H_aw_year'><?=__('Early artworks')?></a></li>
-    <li><a href='<?=$GLOBALS['SPOT_search']?>all/'><?=__('All artworks')?> (A-Z)</a></li>
   </ul>
 </div>
 

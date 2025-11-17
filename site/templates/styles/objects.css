@@ -20,13 +20,14 @@
         height: auto;
 }
 
-
+/*
 html, body {
   font-size: 15px;
   line-height: 23px; }
-
+*/
 html, body, h1, h2, h3, h4, h5, h6 {
-  font-family: "Lato", Arial, sans-serif; }
+    font-family: 400 14px/20px "Montserrat", Arial, sans-serif;
+}
 
 em {
   color: #555; }

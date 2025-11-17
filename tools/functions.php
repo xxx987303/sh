@@ -318,7 +318,8 @@ function setKeyValue(object $o, $key_arg, $value, $dryRun = false) {
                  : b_time::txt2unix($value)),
                 $option
             );
-        } elseif (is_object($key) && ($key->hasTag('country') || $key->tags=='country')) {// Field  'country' =====================================================
+        } elseif (is_object($key) && ($key->hasTag('country') ||
+                                      $key->tags=='country')) {// Field  'country' =====================================================
             $value = b_cc::get($value);
             if (empty($value)) {
                 return;

@@ -414,7 +414,7 @@ function getTaggedFields($page,$context='page'){
           if (!count($v)) continue;
           $value = substr($v->each(", {title}"),2);
       }elseif ($f->type instanceof FieldtypeURL || strpos($f->name, '_url')) {
-          $value = x("a href=$v",__('Click to see'));
+          $value = x("a href='$v'",__('Click to see'));
       }elseif ($f->type instanceof FieldtypeDatetime){
           $value = date("Y-m-d",(int)$v);
       }elseif (strpos($f->name,'price')){
@@ -438,7 +438,7 @@ function getTaggedFields($page,$context='page'){
                     'url' => "",
                     'comment'=> "<!-- DUMMY ------------------------------------>\n"]);
   }
-  if ($debug) {
+  if(0)  if ($debug) {
       $i = $context . ($fields=implode(', ', $dejaVuFields));
       if (empty($dejaVuTags[$i])) echo "tag \"$context\": $fields<br>";
       $dejaVuTags[$i] = true;
