@@ -23,7 +23,7 @@
 ,Bride de cour,de La Perrière,Françoise,1970/1987,
 ,Brides de Gala,Grygkar,Hugo,1957/1967/2009,
 2010-02-02,Carpe Diem,Metz,Joachim,1994,
-2025-01-07,Casques et Plumets,Abadie,Julia,,,1800,,https://www.bukowskis.com/en/lots/1608792-hermes-scarf-helmets-and-plumes
+2025-01-07,Casques et Plumets,Abadie,Julie,,,1800,,https://www.bukowskis.com/en/lots/1608792-hermes-scarf-helmets-and-plumes
 2025-01-07,Casques et Plumets,Abadie,Julie,1989,
 ,Casse-noisette,de Jacquelot,Antoine,1997,
 ,Cavalcadour,d'Origny,Henri,1982/1992/2012,2
