@@ -147,7 +147,7 @@ function escape_uml($text, $direction='auto', $debug=false) {
 /**
  *
  */
-function setKeyValue(object $o, $key_arg, $value, $dryRun = false) {
+function setKeyValue(object $o, String $key_arg, $value, $dryRun = false) {
 
     b_debug::_dbg($key_arg);
     if ($key_arg==='e_inst' && $value=='Home') { abortIt("!!!!!!!!!!!!!!!!!"); }
@@ -166,6 +166,7 @@ function setKeyValue(object $o, $key_arg, $value, $dryRun = false) {
         } else {
             $key = $key_name = $key_arg;
         }
+/*
         return [$key,$key_name];
         if ($expectObject) {
             $key      = (is_object($key_arg) ? $key_arg : (is_object($f=fields()->get($key_arg)) ? $f : $key_arg));
@@ -182,7 +183,8 @@ function setKeyValue(object $o, $key_arg, $value, $dryRun = false) {
             }
             $key = $key_name = $key_arg;
         }
-        //      b_debug::_dbg(is_object($key));
+*/
+        b_debug::_dbg(is_object($key));
         return [$key,$key_name];
     };
 

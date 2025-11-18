@@ -1,0 +1,4 @@
+# day0, carreTitle, lastname, firstname, year, cmt, price, size, www
+2025-01-07,Casques et Plumets,Abadie,Julia,,,1800,,https://www.bukowskis.com/en/lots/1608792-hermes-scarf-helmets-and-plumes
+2024-05-26,Les Courses,,,,,1800,,https://www.bukowskis.com/en/auctions/E1084/lots/1567319-hermes-scarf-les-courses
+2018-04-18,Les Folies Du Ciel,Dubigeon,Loic,,,2300,,https://www.bukowskis.com/en/lots/1044067-hermes-scarf-les-folies-du-ciel

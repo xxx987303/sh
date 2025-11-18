@@ -1,34 +1,26 @@
 <?php namespace ProcessWire;
 /*
  * Read "Rita's list", check and clean it.
- * Repack (<><title> . <lastname>,<firstname> . <year> . <comment>) 
+ * Repack (<title> . <lastname>,<firstname> . <year> . <comment>) 
  * into   (<title> , <lastname>,<firstname> , <year> , <comment>)
+ *     list($day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www)
+ *
  */
 
 define("SHOW_TIDY_R_LIST", false);
 define("SHOW_AUTHORS", false);
 
-$R_list = __dir__ . "/R_list.txt";
+$arg = empty($argv[1]) ? "R_list.txt" : $argv[1]; 
+$R_list = __dir__ . "/$arg";
 
 $lengthP = $lengthT = $lengthA = $lengthY = 1;
-$Slogan = '';
 foreach(explode("\n",file_get_contents($R_list)) as $line) {
-    if (($cmt=str_starts_with($line, '=')) || ($s=strpos($line, 'roligare')) || empty(trim($line))) {
-        if ($s) $Slogan = $line;
-        continue;
-    }
+    if (($cmt=str_starts_with($line, '#')) || ($s=strpos($line, 'roligare')) || empty(trim($line))) continue;
     if (substr_count($line, '.') < 2) die("Not enought dots in line:\n$line\nFix $R_list\n");
     
-    $l = explode('.',str_replace('"','',"$line..."));
+    $l = explode('.',str_replace('"','',"$line....."));
     for ($k=0; $k<5; $k++) { $l[$k] = empty($l[$k]) ? '' : encodeToUtf8(trim($l[$k])); }
 
-    if (0) {
-        $l0 = explode('-',"$l[0]---");
-        for ($k=0; $k<3; $k++) { $l0[$k] = (empty($l0[$k]) ? ($k==0?'20xx':'xx') : sprintf("%02d",$l0[$k])); }
-        for ($k=0; $k<3; $k++) { $l0[$k] = (empty($l0[$k]) ? ($k==0?'20xx':'xx') : sprintf("%02d",$l0[$k])); }
-        $l[0] = sprintf("%s-%s-%s",$l0[0],$l0[1],$l0[2]);
-    }
-    
     $count = 0;
     $fn = $ln = '';
     foreach(explode('&',$l[2]) as $a){
@@ -58,7 +50,7 @@ foreach(explode("\n",file_get_contents($R_list)) as $line) {
 ksort($lines);
 $n = 0;
 if (SHOW_TIDY_R_LIST) {
-    echo "$Slogan\n#\n";
+    echo "# HERMES scarfar(väskor) är en investering,och mycket roligare än aktier!\n#\n";
     printf("#     %-{$lengthP}s %-{$lengthT}s %-{$lengthA}s %-{$lengthY}s %s\n",
            //mb_convert_encoding('Прибытие',   'UTF-8', 'auto'),
            encodeToUtf8('Прибытие'),
@@ -66,6 +58,8 @@ if (SHOW_TIDY_R_LIST) {
            mb_convert_encoding('Автор ',  'UTF-8', 'auto'),
            mb_convert_encoding('Сделан ', 'UTF-8', 'auto'),
            mb_convert_encoding('Коммент', 'UTF-8', 'auto'));
+}else{
+    echo "# day0, carreTitle, ln, fn, year, cmt, price, size, www\n";
 }
 
 foreach($lines as $key=>$l) {

@@ -103,7 +103,7 @@
 2022-10."Confidents des coeur".          Dubigeon,Loic.            2000 .G
 2022-11.1821 Hommage a L'Amite.            Abadie,Julie                    .   1993. EL
 2022-12."Ferronnerie".                            Latham,Caty.               1970. G
-2022-09-08."Modernisme Tropical.             Jardim,Filipe .                     2015
+2022-09-08."Modernisme Tropical.             Jardim,Filipe .                     2016
 2022-14."Circuit FSH 24".                       Emery,Benoit-Pierre.                 2018 . П Мини
 2022-15."Bolduc au carre".                    Latham,Caty.               2007/2020
 2022-12-08."Jeu De Cartes".                           Cassandre,.                           2018
@@ -121,11 +121,11 @@
 2024-02."Rencontre oceane".               	 Faivre,Annie.                   2001 ..
 2024-03."Chorus stellarium".                    Nomura,Daiske .             2024 . B
 2024-04."Les Courses".                          Benoist Gironiere,Yves . 2004/2013
-2024-05."Braselets de Lumiere".           Faivre,Annie.                    2018
+2024-06-01."Braselets de Lumiere".           Faivre,Annie.                    2018
 2024-06-13."Quadrige".                               Peron,Pierre.                     2019
 2024-07-18."En Liberte".                             Brancowitz,Carine      .      2020
 2024-11-07."Brazil II".                                    Bourthoumieux,Laurence . 2015
-2025-01."Casques et Plumets".              Abadie,Julie.                     1989
+2025-01-07."Casques et Plumets".              Abadie,Julie.                     1989
 2025-02."Flots Fleurs et Frontaux  .         Jamin,Virginie               .    2017
 2025-03."Les Perles de Tourkana".       Alamin,Sefedin Ibrahim .  2002
 2025-04."Proues".                                    Ledoux,Philippe.               1973
@@ -133,22 +133,15 @@
 2025-06."Le sacres d'Hiver".                 Pierre,Marie.                       2022.G
 2025-10-09."The Savana Dance".             Ardmore Artists,.      2016 .G
 2025-11-06. A Vos Crayons. Cooke,Leigh. 2004
-2025-03-06. hidden title. author, hidden. year hidden
+2025-03-06. hidden title. author, hidden. year hidden....
 
-
-=== 2025-11-06 SCARF, HERMÈS, A Vos Crayons, Leigh P. Cooke, 100% siden, 86x88 cm, beige, brun, gul, orange, fläckar, ask.
-=== 2025-10-09 SCARF, HERMÈS, The Savana Dance, Ardmore Artists, 100% siden, 42x42 cm, flerfärgad, ask.
-=== 2025-03-06 SCARF, HERMÈS, Flots; Fleurs et Frontaux, Virginie Jamin , 2015, 90x90 cm, mörklila, svart, blå, vit. 1 600 <- 1 500 kr
-=== 2024-11-07 SCARF, HERMÈS, Brazil II, Laurence Bourthoumieux, 100% siden, 66x70 cm, lila, blå, vit, grå, ask. 1400kr
-=== 2024-05-30 SCARF, HERMÈS, Bracelets De Lumiere, Annie Faivre, 100% siden, 90x90 cm, vinrött, grön, gult, rosa.
-=== 2024-01-04 SCARF, HERMÈS, Tresors Du Nil, Joachim Metz, 100% siden, 88x88 cm, svart, gul, blå, grön, röd, fläck. 2 000 <- 1 900
-=== 2023-04-06 SCARF, HERMÈS, Cheval de Caractere, Dimitri Rybaltchenko, 100 % siden, 90x90 cm, rosa, vit, ask. 2 000 <- 1 800
-=== 2022-12-08 SCARF, HERMÈS, Voyage en Etoffes, 100 % siden, 90x90 cm, orange, brun, originalask. 2 000 <- 2 000
-=== 2022-12-08 SCARF, HERMÈS Jeu De Cartes, Adolphe Jean-Marie Mouro dit Cassandre, 100 % siden, 90x90 cm, några fläckar, orginal ask.  1700 <- 1800
-=== 2022-09-08 SCARF, HERMÈS, Modernisme Tropical, Felipe Jardim, 100% siden, 90x90 cm, vvit, blå, grön, originalask.
-
-.Do Re Boucles. Manlik,Florence..Twilly
-.Collies de chiens. Jamin,Virginie..Twilly
-.Cuivreries . de La Perrière,Françoise .1963.  Scarf/vintage 2
-.Parade. Burton,Jonathan .. П Мини Twilly
-.Les Chemins Secrets. Henry,Christine .2015 . def 136/97
+# 2025-11-06 SCARF, HERMÈS, A Vos Crayons, Leigh P. Cooke, 100% siden, 86x88 cm, beige, brun, gul, orange, fläckar, ask.
+# 2025-10-09 SCARF, HERMÈS, The Savana Dance, Ardmore Artists, 100% siden, 42x42 cm, flerfärgad, ask.
+# 2025-03-06 SCARF, HERMÈS, Flots; Fleurs et Frontaux, Virginie Jamin , 2015, 90x90 cm, mörklila, svart, blå, vit. 1 600 <- 1 500 kr
+# 2024-11-07 SCARF, HERMÈS, Brazil II, Laurence Bourthoumieux, 100% siden, 66x70 cm, lila, blå, vit, grå, ask. 1400kr
+# 2024-05-30 SCARF, HERMÈS, Bracelets De Lumiere, Annie Faivre, 100% siden, 90x90 cm, vinrött, grön, gult, rosa.
+# 2024-01-04 SCARF, HERMÈS, Tresors Du Nil, Joachim Metz, 100% siden, 88x88 cm, svart, gul, blå, grön, röd, fläck. 2 000 <- 1 900
+# 2023-04-06 SCARF, HERMÈS, Cheval de Caractere, Dimitri Rybaltchenko, 100 % siden, 90x90 cm, rosa, vit, ask. 2 000 <- 1 800
+# 2022-12-08 SCARF, HERMÈS, Voyage en Etoffes, 100 % siden, 90x90 cm, orange, brun, originalask. 2 000 <- 2 000
+# 2022-12-08 SCARF, HERMÈS Jeu De Cartes, Adolphe Jean-Marie Mouro dit Cassandre, 100 % siden, 90x90 cm, några fläckar, orginal ask.  1700 <- 1800
+# 2022-09-08 SCARF, HERMÈS, Modernisme Tropical, Filipe Jardim, 100% siden, 90x90 cm, vvit, blå, grön, originalask.

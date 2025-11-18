@@ -4,58 +4,83 @@
 
 require_once __dir__ . '/debug.php';
 require_once "/Users/yb/Sites/sh/index.php";
-
-exit;
-/* ******************************************************************************************* */
-
-$p = pages()->get("name=The Savana Dance");
-print_r($p->title);
-print_r($p->size->title);
-$p = pages()->get(6165);
-//print_r($p->title);
-exit;
-
-$p = pages()->get("title~='The Savana Dance', template=h_artwork");
+/*
+#$sizes = pages()->get("template=sizes");
+$p = pages()->get("template=h_artwork");
+//print_r($p);
+print_r($p->size);
+setKeyValue($p, 'size', '40x40', $dryRun=true);
 print_r($p->size);
 
-$size = $p->size->get('title');
-printf('"%s"  "%s"'. "\n", $p->title, $size);
-
-setKeyValue($p, 'size', 'Gavroche', $dryRun=true);
-
-$size = $p->size->title;
-printf("\"%s\"  \"%s\"\n", $p->title, $size);
 exit;
+ */
+/* ******************************************************************************************* */
+
+if (0) {
+    $p = pages()->get("name=The Savana Dance");
+    print_r($p->title);
+    print_r($p->size);
+    $p = pages()->get(6165);
+    //print_r($p->title);
+    exit;
+}
 
 /* ******************************************************************************************* */
 
-foreach (['size','sizes','country','countries'] as $item) {
-    ob_start();
-
-    $tp = $templates->get($item);
-    echo "template $item\n";
-    print_r($tp);
-
-    $f  = $fields->get($item);
-    echo "field $item\n";
-    print_r($f);
-
-    foreach(pages()->find("limit=1, template=$item") as $page) {
-        echo "page $item $page->name\n";
-        if ($page->name == '90x90' && $page->parent != $pages->get('sizes')) {
-            die("??????????????$page->parent\n");
-            $page->parent = $pages->get('sizes');
-            //$page->save();
-        }
-        print_r($page);
-    }
-    $output = ob_get_clean();
-    file_put_contents("/tmp/$item.txt", $output);
+if (1) {
+    $p = pages()->get("template=h_person, title=Christiane Vauzelles");
+    setKeyValue($p, 'h_av_url', 'https://dn.se', $dryRun=true);
+    print_r($p->h_av_url);
+    echo "h_av_url = ".$p->h_av_url."\n";
+    exit;
+    $size = $p->size->get('title');
+    printf('"%s"  "%s"'. "\n", $p->title, $size);
+    
+    setKeyValue($p, 'size', 'Gavroche', $dryRun=true);
+    
+    $size = $p->size->title;
+    printf("\"%s\"  \"%s\"\n", $p->title, $size);
+    exit;
 }
 
-echo "sdiff -sbB /tmp/size.txt /tmp/country.txt\n";
-echo "sdiff -sbB /tmp/sizes.txt /tmp/countries.txt\n";
-exit;
+/* ******************************************************************************************* */
+if (1) {
+    //print_r(pages()->get(6163));
+    foreach (['size','sizes','country','countries'] as $item) {
+	ob_start();
+
+	if (in_array($item,['sizes','countries'])) print_r(pages()->get("template=$item"));
+	
+	$tp = $templates->get($item);
+	echo "template $item\n";
+	print_r($tp);
+	
+	$f  = $fields->get($item);
+	echo "field $item\n";
+	print_r($f);
+	
+	foreach(pages()->find("limit=1, template=$item") as $page) {
+            echo "page $item $page->name\n";
+            if ($page->name == '90x90' && $page->parent != $pages->get('sizes')) {
+		die("??????????????$page->parent\n");
+		$page->parent = $pages->get('sizes');
+		//$page->save();
+            }
+            print_r($page);
+	}
+	$output = ob_get_clean();
+	$output = str_replace(['countries','sizes'], 'NAMEs',$output);
+	$output = str_replace(['country',  'size'],  'NAME', $output);
+	$output = str_replace(['Countries',    'Sizes'],'Labels', $output);
+	$output = str_replace(['Country',      'Size'], 'Label', $output);
+	$output = str_replace(['90x90',    'france'],'page', $output);
+	file_put_contents("/tmp/$item.txt", $output);
+    }
+    
+    echo "sdiff -sbB /tmp/size.txt /tmp/country.txt\n";
+    echo "sdiff -sbB /tmp/sizes.txt /tmp/countries.txt\n";
+    exit;
+}
 
 /* ******************************************************************************************* */
 

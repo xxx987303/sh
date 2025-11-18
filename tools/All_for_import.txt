@@ -1,0 +1,175 @@
+# day0, carreTitle, lastname, firstname, year, cmt, price, size, www
+# day0, carreTitle, ln, fn, year, cmt, price, size, www
+# day0, carreTitle, ln, fn, year, cmt, price, size, www
+2022-11,1821 Hommage a L'Amite,Abadie,Julie,1993,EL
+2023-09,A Propos de Bottes,de Poret,Xavier,2008,G
+2025-11-06,A Vos Crayons,Cooke,Leigh,2004,
+2025-11-08,A Vos Crayons,Cooke,Leigh,2004,,2690,86x88,https://www.kaplans.se/sv/auktioner/4617/vara/2049773
+2018-09-11,Afrika,Dallet,Robert,1997,
+2021-09-11,Alliances du Monde,Faivre,Annie,2004,,2090,90x90,https://www.kaplans.se/sv/auktioner/3963/vara/1770303
+,Alliances du monde,Faivre,Annie,2005,
+,Armes de Paris,Grygkar,Hugo,1954/1992,П Юры
+,Armes de chasse,Ledoux,Philippe,1970/1981,
+2021-05-04,Art des steppes,Faivre,Annie,,,1850,90x90,https://www.kaplans.se/sv/auktioner/3894/vara/1734562
+,Astrologie nouvelle,Faconnet&Diatkine,Marie-Françoise&Cyrille,2012,ES
+2004-03,Avenue des acacias,Ledoux,Philippe,1964,
+,Azuejos,Baschet,Catherine,1992,
+2022-15,Bolduc au carre,Latham,Caty,2007/2020,
+2024-06-01,Bracelets De Lumiere,Faivre,Annie,2018,,1970,90x90,https://www.kaplans.se/sv/auktioner/4392/vara/2000712
+2024-06-01,Braselets de Lumiere,Faivre,Annie,2018,
+2024-11-07,Brazil II,Bourthoumieux,Laurence,2015,
+2024-11-09,Brazil II,Bourthoumieux,Laurence,2015,,1730,66x70,https://www.kaplans.se/sv/auktioner/4463/vara/2019718
+2008-03-06,Brazil,Bourthoumieux,Laurence,1988/1991,2
+,Bride de cour,de La Perrière,Françoise,1970/1987,
+,Brides de Gala,Grygkar,Hugo,1957/1967/2009,
+2010-02-02,Carpe Diem,Metz,Joachim,1994,
+2025-01-07,Casques et Plumets,Abadie,Julia,,,1800,,https://www.bukowskis.com/en/lots/1608792-hermes-scarf-helmets-and-plumes
+2025-01-07,Casques et Plumets,Abadie,Julie,1989,
+,Casse-noisette,de Jacquelot,Antoine,1997,
+,Cavalcadour,d'Origny,Henri,1982/1992/2012,2
+,Cavalcadour,d'Origny,Henri,1982/1992/2012,МaxTwilly
+2009-11-09,Cavaliers peuls,Fougerolle,Jean,1993,
+,Charreada,Fougerolle,Jean,1993,
+2003-05-04,Cheval Turc,Vauzelles,Christiane,2003,П М+A
+2023-04-06,Cheval de Caractere,Rybaltchenko,Dimitri,2007,
+2023-04-11,Cheval de Caractere,Rybaltchenko,Dimitri,2007/2009,,2450,90x90,https://www.kaplans.se/sv/auktioner/4230/vara/1920665
+2023-06,Chiens et Valets,Hallo,Charles-Jean,1965,
+2024-03,Chorus stellarium,Nomura,Daiske,2024,B
+2019-10-21,Christian Dior,,,,Dior,553,70x70,https://www.metropol.se/auctions/detail.asp?og={46637C34-4C76-4A35-A074-9E9819C36E87}
+2022-14,Circuit FSH 24,Emery,Benoit-Pierre,2018,П Мини
+2003-10-02,Clefs,Latham,Caty,1965/1980/2010,
+,Clic-clac,Abadie,Julie,1979/1997/2011,
+,Collies de chiens,Jamin,Virginie,,Twilly
+2022-10,Confidents des coeur,Dubigeon,Loic,2000,G
+,Coqs,La Torre,,1964,
+,Couvee d'Hermès,Latham,Caty,1994,
+,Cuillers d'Afrique,Latham,Caty,1997,
+,Cuivreries,de La Perrière,Françoise,1963,Scarf/vintage 2
+,Cuivreries,de La Perrière,Françoise,1963,Variant
+,Do Re Boucles,Manlik,Florence,,Twilly
+2024-07-18,En Liberte,Brancowitz,Carine,2020,
+2024-07-22,En Liberte,Brancowitz,Carine,2020,,2450,88x88,https://www.kaplans.se/sv/auktioner/4405/vara/2008341
+,Eperon d'or,d'Origny,Henri,1974/1989,2+(1)
+2017-05-15,Equitation japonaise,de La Perrière,Françoise,1969,
+2012-09-28,Etriers,de La Perrière,Françoise,1964/1990,
+,Etude pour une parure,Manlik,Florence,2017,
+,Ex-libris,Grygkar,Hugo,1946/1998,G EL
+2022-06,Face au large,Jarlegant,Dominik,2000,
+,Farandole,Latham,Caty,1977/1990/2006,
+2022-12,Ferronnerie,Latham,Caty,1970,G
+,Festival des amazones,d'Origny,Henri,2013/2014,
+2023-10,Feux d'Artifice,Duchêne,Michèle,1987,ES
+2023-05-01,Fleurs et Carlines,,,,Hermes,2350,,https://www.metropol.se/auctions/detail.asp?og={ECFAFD13-0DF1-42A1-A507-7FC09290EF56}
+2023-05,Fleurs et Carlines,Rybaltchenko,Vladimir,1985,П Юры
+2025-03-07,Flots Fleurs et Frontaux,Faivre,Annie,2004,,1970,90x90,https://www.kaplans.se/sv/auktioner/4521/vara/2030702
+2025-02,Flots Fleurs et Frontaux,Jamin,Virginie,2017,
+,Geometrie Cretoise,Abadie,Julie,2012,
+,Gibiers,de Linares,Henri,1966/1991/1997,
+,Grand Cortège a Moscou,Duchêne,Michèle,1992,
+2008-03-12,Grand manege,d'Origny,Henri,1990/1993,2
+,Grand tenue,d'Origny,Henri,1985/1998,
+,Grande venerie royale,Hallo,Charles-Jean,1957,
+,Hermès-sellier,Emery,Benoit-Pierre,2009/2012,G
+,India,Latham,Caty,1986,
+2021-08-20,India,Latham,Caty,2008,,1490,90x90,https://www.kaplans.se/sv/auktioner/3924/vara/1768635
+,Insectes,Grygkar&La Torre,Hugo&,1958,
+2021-07-22,Jardins des metamorphose,Houtin,Francois,,,1610,,https://www.kaplans.se/sv/auktioner/3923/vara/1761308
+,Jardins des métamorphoses,Houtin,François,2010,
+2022-12-09,Jeu De Cartes,Cassandre,,2013/2024,,2090,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1895851
+2022-12-08,Jeu De Cartes,Cassandre,,2018,
+,Jeu de Omnibus et DameBlanche,Pagni,Gianpaolo,2018,Remix
+,L'Hiver,Ledoux,Philippe,1969(1968?),
+,L'art des steppes,Faivre,Annie,1991/1997/2000,
+2023-03,L'art indien des plaines,Koechlin,Sophie,2001,
+2009-11-09,La Flore,Ledoux,Philippe,1967,
+,La mecanique des idees,Henry,Christine,2004,
+,Le Carnaval de Venise,de Watrigant,Hubert,1993/1997,
+2020-01-17,Le Saut H,Diatkine,Cyrille,,,1490,90x90,https://www.kaplans.se/sv/auktioner/3680/vara/1616319
+2025-06,Le sacres d'Hiver,Pierre,Marie,2022,G
+,Le saut H,Diatkine,Cyrille,2016,
+,Le temps des marionnettes,Faivre,Annie,1996,
+,Les Chemins Secrets,Henry,Christine,2015,def 136/97
+2024-05-26,Les Courses,,,,,1800,,https://www.bukowskis.com/en/auctions/E1084/lots/1567319-hermes-scarf-les-courses
+2024-04,Les Courses,Benoist Gironiere,Yves,2004/2013,
+2018-04-18,Les Folies Du Ciel,Dubigeon,Loic,,,2300,,https://www.bukowskis.com/en/lots/1044067-hermes-scarf-les-folies-du-ciel
+,Les Folies Du Ciel,Dubigeon,Loic,1984/1990,
+,Les Nouveaux Amoureux de Paris,Pierre,Marie,2021,B
+2025-03,Les Perles de Tourkana,Alamin,Sefedin Ibrahim,2002,
+2013-04-04,Les Tambours,Metz,Joachim,1989/1990,
+,Les Voitures a Transformation,de La Perrière,Françoise,1965/1980,3
+,Levriers,de Poret,Xavier,1957/1970/2002,
+2022-02,Libre comme l'air,Faivre,Annie,2003,
+2022-08,Ludovicus Magnus,de La Perrière,Françoise,1963,
+2020-02-14,L´Hiver,Ledoux,Philippe,,,1250,90x90,https://www.kaplans.se/sv/auktioner/3696/vara/1622195
+2013-02-14,Magic Kelly,Rybaltchenko,Dimitri,2011,EL
+,Maillons,Latham,Caty,1973,
+,Marche Flottant du Lac Inle II,Rybaltchenko,Dimitri,1998/2001,
+,Mare aux canards,Duchesne,Daphne,1981,
+,Marine et cavalerie,Ledoux,Philippe,1966/1984,
+2022-07,Mega chariot,Nomura,Daiske,2022,G
+2022-09-08,Modernisme Tropical,Jardim,Filipe,2016,
+2022-09-09,Modernisme Tropical,Jardim,Filipe,2016,,2450,90x90,https://www.kaplans.se/sv/auktioner/4125/vara/1863693
+,Monsieur et Madame ll,Barret&Dallet,Bali&Robert,2013,Aне
+,Monsieur et Madame,Barret,Bali,2020(70),
+2022-03,Mors a jouets chemise,d'Origny,Henri,2019/2021,
+,Mors a la conetable,d'Origny,Henri,1970/1985,
+2022-04-09,Mors à Jouets,d'Origny,Henri,1982/2017,,2570,90x90,https://www.kaplans.se/sv/auktioner/4062/vara/1830363
+2023-01,Mountain Zebra,Shirley,Alice,2020,ES
+2012-11-01,Mozart,Abadie,Julie,1991,
+2005-05-05,Muzerolles,Vauzelles,Christiane,1986,
+,Napoleon,Ledoux,Philippe,1963/1985,
+,Palefroi,de La Perrière,Françoise,1965/1983,
+2023-02,Panoplie Equestre,Jamin,Virginie,2018,
+2022-04,Paperoles,Stuhlhofer-Mayr,Claudia,2000,G
+,Parade,Burton,Jonathan,,П Мини Twilly
+2017-05-05,Parures de Samouraïs,Honore,Aline,2017,
+,Passementerie,Heron,Marie-Francoise,1960/1981,
+2022-09,Peinture fraiche,Rybaltchenko,Dimitri,2012,
+,Petits chevaux,Eudel,Jacques,1974,G
+2022-05,Plumes,de Linares,Henri,1953,G
+2016-04-30,Plumes,de Linares,Henri,1953/1964,
+2023-09-18,Pochette Hermès,,,,Hermes,850,42x42,https://www.metropol.se/auctions/detail.asp?og={9421ADB5-1605-4F6A-9C27-EF745DE6D959}
+,Printemps-Ete 69 A-H 70,Archives Hermès,,2010,G
+,Promenade de Longchamp,Ledoux,Philippe,1965/1970,
+2025-04,Proues,Ledoux,Philippe,1973,
+2022-00,Qalamdan,Baschet,Catherine,1999,
+2024-06-13,Quadrige,Peron,Pierre,2019,
+2024-06-15,Quadrige,Peron,Pierre,2019,,2210,66x66,https://www.kaplans.se/sv/auktioner/4391/vara/2005318
+2020-01-31,RADO,,,,RADO,620,90x90,https://www.kaplans.se/sv/auktioner/3674/vara/1603887
+,Real Escuela Andaluza Del Arte Ecuestre,de Watrigant,Hubert,1996/2000,
+,Reale,Grygkar,Hugo,1953/1990,
+,Regina,Menchari,Leila,1972,
+2021-10-09,Regina,Menchari,Leila,1972/1977/2002,,2210,90x90,https://www.kaplans.se/sv/auktioner/3973/vara/1778227
+2024-02,Rencontre oceane,Faivre,Annie,2001,
+,Reprise,Ledoux,Philippe,1970/1993,
+,Reveries japonaises,Latham,Caty,1991,
+,Rose de vents,Metz,Joachim,1984/2012,
+,Ryton,Swildens,Karin,1978,
+,Sacre du printems,d'Origny,Henri,1986,
+2025-05,Sangles,Metz,Joachim,1984,G
+,Selles a housse,Vauzelles,Christiane,1968/1989,
+2023-07,Sous Le Cèdre,Rybaltchenko,Dimitri,1998,
+2023-08-14,Sous le Cédre,,,,Hermes,1975,,https://www.metropol.se/auctions/detail.asp?og={14E976BF-1214-402E-9ED4-2E5498C2B7AC}
+,Splendeur des maharadjas,Baschet,Catherine,1996/2001,
+,Springs,Ledoux,Philippe,1974/1981,
+,Sulfures & presse-papiers,Latham,Caty,1979,
+,Tarot,Faivre,Annie,1991,
+2025-10-09,The Savana Dance,Ardmore Artists,,2016,G
+2025-10-10,The Savana Dance,Ardmore Artists,,2016,G,1970,42x42,https://www.kaplans.se/sv/auktioner/4601/vara/2048705
+2022-04-02,The sign of excellence,,,,Omega,830,90x90,https://www.kaplans.se/sv/auktioner/4044/vara/1818388
+2021-03-17,Torana,Faivre,Annie,,G,1010,42x42,https://www.kaplans.se/sv/auktioner/3872
+2022-01,Torana,Faivre,Annie,1987/1990/2000,
+,Torana,Faivre,Annie,1987/1990/2000,G
+2024-01-05,Tresors Du Nil,Metz,Joachim,2003,,2450,88x88,https://www.kaplans.se/sv/auktioner/4341/vara/1988429
+2024-01-04,Tresors du Nil,Metz,Joachim,2003,
+,Tribord,Abadie,Julie,1968/1990,
+,Tropiques,Bourthoumieux,Laurence,1987/1990,
+2023-08,Tsubas,Vauzelles,Christiane,1998,G
+,Tuileries,Metz,Joachim,1996,
+2019-10-21,Unknown Hermes1,,,,Hermes,553,89x89,https://www.metropol.se/auctions/detail.asp?og={46637C34-4C76-4A35-A074-9E9819C36E87}
+2019-10-21,Unknown Hermes2,,,,Hermes,553,89x89,https://www.metropol.se/auctions/detail.asp?og={46637C34-4C76-4A35-A074-9E9819C36E87}
+,Vive le vent,Bourthoumieux,Laurence,1992/1995,
+2022-12-09,Voyage en Etoffes,Faivre,Annie,2009,,2450,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1883715
+,Washington's carriage,Latham,Caty,1979/1981,
+,Zabavushka,Miro,Evgenia,2009,Sold
+2025-03-06,hidden title,author,hidden,year hidden,

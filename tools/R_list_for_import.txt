@@ -1,3 +1,4 @@
+# day0, carreTitle, ln, fn, year, cmt, price, size, www
 2003-05-04,Cheval Turc,Vauzelles,Christiane,2003,П М+A
 2003-10-02,Clefs,Latham,Caty,1965/1980/2010,
 2004-03,Avenue des acacias,Ledoux,Philippe,1964,
@@ -24,7 +25,7 @@
 2022-06,Face au large,Jarlegant,Dominik,2000,
 2022-07,Mega chariot,Nomura,Daiske,2022,G
 2022-08,Ludovicus Magnus,de La Perrière,Françoise,1963,
-2022-09-08,Modernisme Tropical,Jardim,Filipe,2015,
+2022-09-08,Modernisme Tropical,Jardim,Filipe,2016,
 2022-09,Peinture fraiche,Rybaltchenko,Dimitri,2012,
 2022-10,Confidents des coeur,Dubigeon,Loic,2000,G
 2022-11,1821 Hommage a L'Amite,Abadie,Julie,1993,EL
@@ -46,11 +47,11 @@
 2024-02,Rencontre oceane,Faivre,Annie,2001,
 2024-03,Chorus stellarium,Nomura,Daiske,2024,B
 2024-04,Les Courses,Benoist Gironiere,Yves,2004/2013,
-2024-05,Braselets de Lumiere,Faivre,Annie,2018,
+2024-06-01,Braselets de Lumiere,Faivre,Annie,2018,
 2024-06-13,Quadrige,Peron,Pierre,2019,
 2024-07-18,En Liberte,Brancowitz,Carine,2020,
 2024-11-07,Brazil II,Bourthoumieux,Laurence,2015,
-2025-01,Casques et Plumets,Abadie,Julie,1989,
+2025-01-07,Casques et Plumets,Abadie,Julie,1989,
 2025-02,Flots Fleurs et Frontaux,Jamin,Virginie,2017,
 2025-03-06,hidden title,author,hidden,year hidden,
 2025-03,Les Perles de Tourkana,Alamin,Sefedin Ibrahim,2002,
@@ -69,7 +70,6 @@
 ,Splendeur des maharadjas,Baschet,Catherine,1996/2001,
 ,Tropiques,Bourthoumieux,Laurence,1987/1990,
 ,Vive le vent,Bourthoumieux,Laurence,1992/1995,
-,Parade,Burton,Jonathan,,П Мини Twilly
 ,Le saut H,Diatkine,Cyrille,2016,
 ,Les Folies Du Ciel,Dubigeon,Loic,1984/1990,
 ,Mare aux canards,Duchesne,Daphne,1981,
@@ -90,10 +90,8 @@
 ,Brides de Gala,Grygkar,Hugo,1957/1967/2009,
 ,Grande venerie royale,Hallo,Charles-Jean,1957,
 ,La mecanique des idees,Henry,Christine,2004,
-,Les Chemins Secrets,Henry,Christine,2015,def 136/97
 ,Passementerie,Heron,Marie-Francoise,1960/1981,
 ,Jardins des métamorphoses,Houtin,François,2010,
-,Collies de chiens,Jamin,Virginie,,Twilly
 ,Coqs,La Torre,,1964,
 ,Maillons,Latham,Caty,1973,
 ,Farandole,Latham,Caty,1977/1990/2006,
@@ -111,7 +109,6 @@
 ,Reprise,Ledoux,Philippe,1970/1993,
 ,Springs,Ledoux,Philippe,1974/1981,
 ,Etude pour une parure,Manlik,Florence,2017,
-,Do Re Boucles,Manlik,Florence,,Twilly
 ,Regina,Menchari,Leila,1972,
 ,Rose de vents,Metz,Joachim,1984/2012,
 ,Tuileries,Metz,Joachim,1996,
@@ -129,7 +126,6 @@
 ,Sacre du printems,d'Origny,Henri,1986,
 ,Festival des amazones,d'Origny,Henri,2013/2014,
 ,Casse-noisette,de Jacquelot,Antoine,1997,
-,Cuivreries,de La Perrière,Françoise,1963,Scarf/vintage 2
 ,Cuivreries,de La Perrière,Françoise,1963,Variant
 ,Les Voitures a Transformation,de La Perrière,Françoise,1965/1980,3
 ,Palefroi,de La Perrière,Françoise,1965/1983,
@@ -138,3 +134,9 @@
 ,Levriers,de Poret,Xavier,1957/1970/2002,
 ,Le Carnaval de Venise,de Watrigant,Hubert,1993/1997,
 ,Real Escuela Andaluza Del Arte Ecuestre,de Watrigant,Hubert,1996/2000,
+# day0, carreTitle, ln, fn, year, cmt, price, size, www
+,Parade,Burton,Jonathan,,П Мини Twilly
+,Les Chemins Secrets,Henry,Christine,2015,def 136/97
+,Collies de chiens,Jamin,Virginie,,Twilly
+,Do Re Boucles,Manlik,Florence,,Twilly
+,Cuivreries,de La Perrière,Françoise,1963,Scarf/vintage 2

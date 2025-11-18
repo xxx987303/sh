@@ -1,0 +1,849 @@
+[34mNOTICE: dryRun = true(B[m
+[31mgetPage(): FAIL 1 - template=h_person(B[m
+
+=======================
+2025-01-07 Helmets and Plumes                                                                   ???????? AUTHOR PAGE
+[31mcreatePage(): $data=[title]=>,[h_av_firstname]=>,[h_av_lastname]=>,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): FAIL empty(data[title])(B[m
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Helmets Plumes(B[m
+[31mcreatePage(): $data=[title]=>Helmets and Plumes,[h_aw_day0]=>2025-01-07,[h_aw_brand]=>5835,[h_aw_more]=>,[h_aw_year]=>(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Helmets and Plumes(B[m
+[31msetKeyValue(): title(B[m
+[31msetKeyValue(): h_aw_day0(B[m
+[31msetKeyValue(): h_aw_brand(B[m
+[31mcreatePage(): WARNING empty(data[h_aw_more](B[m
+[31mcreatePage(): WARNING empty(data[h_aw_year](B[m
+[31msetKeyValue(): h_aw_person(B[m
+
+=======================
+2024-05-26 Les Courses                                                                          ???????? AUTHOR PAGE
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Courses(B[m
+
+=======================
+2018-04-18 Les Folies Du Ciel                                                                   ???????? AUTHOR PAGE
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Folies Du Ciel(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Cooke, h_av_firstname~=Leigh(B[m
+
+=======================
+2025-11-08 A Vos Crayons                  Leigh Cooke               2004                        !!!!!!!! Leigh Cooke
+[31mcreatePage(): $data=[title]=>Leigh Cooke,[h_av_firstname]=>Leigh,[h_av_lastname]=>Cooke,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Leigh Cooke(B[m
+[31msetKeyValue(): h_av_firstname(B[m
+[31msetKeyValue(): h_av_lastname(B[m
+[31msetKeyValue(): h_av_duty(B[m
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Crayons(B[m
+[31mcreatePage(): $data=[title]=>A Vos Crayons,[h_aw_day0]=>2025-11-08,[h_aw_brand]=>5835,[h_aw_more]=>,[h_aw_year]=>2004(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=A Vos Crayons(B[m
+[31msetKeyValue(): h_aw_year(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Ardmore Artists(B[m
+
+=======================
+2025-10-10 The Savana Dance                Ardmore Artists          2016            'G'         !!!!!!!! Ardmore Artists
+[31mcreatePage(): $data=[title]=>Ardmore Artists,[h_av_firstname]=>,[h_av_lastname]=>Ardmore Artists,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Ardmore Artists(B[m
+[31mcreatePage(): WARNING empty(data[h_av_firstname](B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=The Savana Dance(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Faivre, h_av_firstname~=Annie(B[m
+
+=======================
+2025-03-07 Flots Fleurs et Frontaux       Annie Faivre              2004                        !!!!!!!! Annie Faivre
+[31mcreatePage(): $data=[title]=>Annie Faivre,[h_av_firstname]=>Annie,[h_av_lastname]=>Faivre,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Annie Faivre(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Flots Fleurs et Frontaux(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Bourthoumieux, h_av_firstname~=Laurence(B[m
+
+=======================
+2024-11-09 Brazil II                      Laurence Bourthoumieux    2015                        !!!!!!!! Laurence Bourthoumieux
+[31mcreatePage(): $data=[title]=>Laurence Bourthoumieux,[h_av_firstname]=>Laurence,[h_av_lastname]=>Bourthoumieux,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Laurence Bourthoumieux(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Brazil II(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Brancowitz, h_av_firstname~=Carine(B[m
+
+=======================
+2024-07-22 En Liberte                     Carine Brancowitz         2020                        !!!!!!!! Carine Brancowitz
+[31mcreatePage(): $data=[title]=>Carine Brancowitz,[h_av_firstname]=>Carine,[h_av_lastname]=>Brancowitz,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Carine Brancowitz(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=En Liberte(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Peron, h_av_firstname~=Pierre(B[m
+
+=======================
+2024-06-15 Quadrige                       Pierre Peron              2019                        !!!!!!!! Pierre Peron
+[31mcreatePage(): $data=[title]=>Pierre Peron,[h_av_firstname]=>Pierre,[h_av_lastname]=>Peron,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Pierre Peron(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Quadrige(B[m
+
+=======================
+2024-06-01 Bracelets De Lumiere           Annie Faivre              2018                        !!!!!!!! Annie Faivre
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Bracelets Lumiere(B[m
+[31mcreatePage(): $data=[title]=>Bracelets De Lumiere,[h_aw_day0]=>2024-06-01,[h_aw_brand]=>5835,[h_aw_more]=>,[h_aw_year]=>2018(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Bracelets De Lumiere(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Metz, h_av_firstname~=Joachim(B[m
+
+=======================
+2024-01-05 Tresors Du Nil                 Joachim Metz              2003                        !!!!!!!! Joachim Metz
+[31mcreatePage(): $data=[title]=>Joachim Metz,[h_av_firstname]=>Joachim,[h_av_lastname]=>Metz,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Joachim Metz(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tresors Du Nil(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Rybaltchenko, h_av_firstname~=Dimitri(B[m
+
+=======================
+2023-04-11 Cheval de Caractere            Dimitri Rybaltchenko      2007/2009                   !!!!!!!! Dimitri Rybaltchenko
+[31mcreatePage(): $data=[title]=>Dimitri Rybaltchenko,[h_av_firstname]=>Dimitri,[h_av_lastname]=>Rybaltchenko,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Dimitri Rybaltchenko(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cheval de Caractere(B[m
+
+=======================
+2022-12-09 Voyage en Etoffes              Annie Faivre              2009                        !!!!!!!! Annie Faivre
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Voyage Etoffes(B[m
+[31mcreatePage(): $data=[title]=>Voyage en Etoffes,[h_aw_day0]=>2022-12-09,[h_aw_brand]=>5835,[h_aw_more]=>,[h_aw_year]=>2009(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Voyage en Etoffes(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Cassandre(B[m
+
+=======================
+2022-12-09 Jeu De Cartes                   Cassandre                2013/2024                   !!!!!!!! Cassandre
+[31mcreatePage(): $data=[title]=>Cassandre,[h_av_firstname]=>,[h_av_lastname]=>Cassandre,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Cassandre(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Jeu De Cartes(B[m
+[31mgetPage(): FAIL 3 - template=h_person, title~=Jardim , title~=Felipe(B[m
+
+=======================
+2022-09-09 Modernisme Tropical            Felipe Jardim             2016                        ???????? AUTHOR PAGE
+[31mcreatePage(): $data=[title]=>Felipe Jardim,[h_av_firstname]=>Felipe,[h_av_lastname]=>Jardim,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_person, title=Felipe Jardim(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Modernisme Tropical(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=d'Origny, h_av_firstname~=Henri(B[m
+
+=======================
+2022-04-09 Mors à Jouets                 Henri d'Origny            1982/2017                   !!!!!!!! Henri d'Origny
+[31mcreatePage(): $data=[title]=>Henri d'Origny,[h_av_firstname]=>Henri,[h_av_lastname]=>d'Origny,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title="Henri d'Origny"(B[m
+[31mgetPage(): OK 2 - template=h_artwork, title~=Mors Jouets(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Menchari, h_av_firstname~=Leila(B[m
+
+=======================
+2021-10-09 Regina                         Leila Menchari            1972/1977/2002              !!!!!!!! Leila Menchari
+[31mcreatePage(): $data=[title]=>Leila Menchari,[h_av_firstname]=>Leila,[h_av_lastname]=>Menchari,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Leila Menchari(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Regina(B[m
+
+=======================
+2021-09-11 Alliances du Monde             Annie Faivre              2004                        !!!!!!!! Annie Faivre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Alliances du Monde(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Latham, h_av_firstname~=Caty(B[m
+
+=======================
+2021-08-20 India                          Caty Latham               2008                        !!!!!!!! Caty Latham
+[31mcreatePage(): $data=[title]=>Caty Latham,[h_av_firstname]=>Caty,[h_av_lastname]=>Latham,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Caty Latham(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=India(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Houtin, h_av_firstname~=Francois(B[m
+
+=======================
+2021-07-22 Jardins des metamorphose       Francois Houtin                                       !!!!!!!! François Houtin
+[31mcreatePage(): $data=[title]=>Francois Houtin,[h_av_firstname]=>Francois,[h_av_lastname]=>Houtin,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Francois Houtin(B[m
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Jardins metamorphose(B[m
+[31mcreatePage(): $data=[title]=>Jardins des metamorphose,[h_aw_day0]=>2021-07-22,[h_aw_brand]=>5835,[h_aw_more]=>,[h_aw_year]=>(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Jardins des metamorphose(B[m
+
+=======================
+2021-05-04 Art des steppes                Annie Faivre                                          !!!!!!!! Annie Faivre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Art des steppes(B[m
+
+=======================
+2021-03-17 Torana                         Annie Faivre                              'G'         !!!!!!!! Annie Faivre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Torana(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Ledoux, h_av_firstname~=Philippe(B[m
+
+=======================
+2020-02-14 L´Hiver                       Philippe Ledoux                                       !!!!!!!! Philippe Ledoux
+[31mcreatePage(): $data=[title]=>Philippe Ledoux,[h_av_firstname]=>Philippe,[h_av_lastname]=>Ledoux,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Philippe Ledoux(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=L´Hiver(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Diatkine, h_av_firstname~=Cyrille(B[m
+
+=======================
+2020-01-17 Le Saut H                      Cyrille Diatkine                                      !!!!!!!! Cyrille Diatkine
+[31mcreatePage(): $data=[title]=>Cyrille Diatkine,[h_av_firstname]=>Cyrille,[h_av_lastname]=>Diatkine,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Cyrille Diatkine(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Le Saut H(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Vauzelles, h_av_firstname~=Christiane(B[m
+
+=======================
+2003-05-04 Cheval Turc                    Christiane Vauzelles      2003            'П М+A'   !!!!!!!! Christiane Vauzelles
+[31mcreatePage(): $data=[title]=>Christiane Vauzelles,[h_av_firstname]=>Christiane,[h_av_lastname]=>Vauzelles,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Christiane Vauzelles(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cheval Turc(B[m
+
+=======================
+2003-10-02 Clefs                          Caty Latham               1965/1980/2010              !!!!!!!! Caty Latham
+[31mgetPage(): OK 1 - template=h_artwork, title~=Clefs(B[m
+
+=======================
+2004-03    Avenue des acacias             Philippe Ledoux           1964                        !!!!!!!! Philippe Ledoux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Avenue des acacias(B[m
+
+=======================
+2005-05-05 Muzerolles                     Christiane Vauzelles      1986                        !!!!!!!! Christiane Vauzelles
+[31mgetPage(): OK 1 - template=h_artwork, title~=Muzerolles(B[m
+
+=======================
+2008-03-06 Brazil                         Laurence Bourthoumieux    1988/1991       '2'         !!!!!!!! Laurence Bourthoumieux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Brazil(B[m
+
+=======================
+2008-03-12 Grand manege                   Henri d'Origny            1990/1993       '2'         !!!!!!!! Henri d'Origny
+[31mgetPage(): OK 1 - template=h_artwork, title~=Grand manege(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Fougerolle, h_av_firstname~=Jean(B[m
+
+=======================
+2009-11-09 Cavaliers peuls                Jean Fougerolle           1993                        !!!!!!!! Jean de Fougerolle
+[31mcreatePage(): $data=[title]=>Jean Fougerolle,[h_av_firstname]=>Jean,[h_av_lastname]=>Fougerolle,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_person, title=Jean Fougerolle(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cavaliers peuls(B[m
+
+=======================
+2009-11-09 La Flore                       Philippe Ledoux           1967                        !!!!!!!! Philippe Ledoux
+[31mgetPage(): OK 1 - template=h_artwork, title~=La Flore(B[m
+
+=======================
+2010-02-02 Carpe Diem                     Joachim Metz              1994                        !!!!!!!! Joachim Metz
+[31mgetPage(): OK 1 - template=h_artwork, title~=Carpe Diem(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=de La Perrière, h_av_firstname~=Françoise(B[m
+
+=======================
+2012-09-28 Etriers                        Françoise de La Perrière 1964/1990                   !!!!!!!! Françoise de La Perrière
+[31mcreatePage(): $data=[title]=>Françoise de La Perrière,[h_av_firstname]=>Françoise,[h_av_lastname]=>de La Perrière,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Françoise de La Perrière(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Etriers(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Abadie, h_av_firstname~=Julie(B[m
+
+=======================
+2012-11-01 Mozart                         Julie Abadie              1991                        !!!!!!!! Julie Abadie
+[31mcreatePage(): $data=[title]=>Julie Abadie,[h_av_firstname]=>Julie,[h_av_lastname]=>Abadie,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Julie Abadie(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mozart(B[m
+
+=======================
+2013-02-14 Magic Kelly                    Dimitri Rybaltchenko      2011            'EL'        !!!!!!!! Dimitri Rybaltchenko
+[31mgetPage(): OK 1 - template=h_artwork, title~=Magic Kelly(B[m
+
+=======================
+2013-04-04 Les Tambours                   Joachim Metz              1989/1990                   !!!!!!!! Joachim Metz
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Tambours(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=de Linares, h_av_firstname~=Henri(B[m
+
+=======================
+2016-04-30 Plumes                         Henri de Linares          1953/1964                   !!!!!!!! Henri de Linares
+[31mcreatePage(): $data=[title]=>Henri de Linares,[h_av_firstname]=>Henri,[h_av_lastname]=>de Linares,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Henri de Linares(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Plumes(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Honore, h_av_firstname~=Aline(B[m
+
+=======================
+2017-05-05 Parures de Samouraïs          Aline Honore              2017                        !!!!!!!! Aline Honore
+[31mcreatePage(): $data=[title]=>Aline Honore,[h_av_firstname]=>Aline,[h_av_lastname]=>Honore,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Aline Honore(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Parures de Samouraïs(B[m
+
+=======================
+2017-05-15 Equitation japonaise           Françoise de La Perrière 1969                        !!!!!!!! Françoise de La Perrière
+[31mgetPage(): OK 1 - template=h_artwork, title~=Equitation japonaise(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Dallet, h_av_firstname~=Robert(B[m
+
+=======================
+2018-09-11 Afrika                         Robert Dallet             1997                        !!!!!!!! Robert Dallet
+[31mcreatePage(): $data=[title]=>Robert Dallet,[h_av_firstname]=>Robert,[h_av_lastname]=>Dallet,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Robert Dallet(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Afrika(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Baschet, h_av_firstname~=Catherine(B[m
+
+=======================
+2022-00    Qalamdan                       Catherine Baschet         1999                        !!!!!!!! Catherine Baschet
+[31mcreatePage(): $data=[title]=>Catherine Baschet,[h_av_firstname]=>Catherine,[h_av_lastname]=>Baschet,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Catherine Baschet(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Qalamdan(B[m
+
+=======================
+2022-01    Torana                         Annie Faivre              1987/1990/2000              !!!!!!!! Annie Faivre
+
+=======================
+2022-02    Libre comme l'air              Annie Faivre              2003                        !!!!!!!! Annie Faivre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Libre comme l'air(B[m
+
+=======================
+2022-03    Mors a jouets chemise          Henri d'Origny            2019/2021                   !!!!!!!! Henri d'Origny
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mors a jouets chemise(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Stuhlhofer-Mayr, h_av_firstname~=Claudia(B[m
+
+=======================
+2022-04    Paperoles                      Claudia Stuhlhofer-Mayr   2000            'G'         !!!!!!!! Claudia Stuhlhofer-Mayr
+[31mcreatePage(): $data=[title]=>Claudia Stuhlhofer-Mayr,[h_av_firstname]=>Claudia,[h_av_lastname]=>Stuhlhofer-Mayr,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Claudia Stuhlhofer-Mayr(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Paperoles(B[m
+
+=======================
+2022-05    Plumes                         Henri de Linares          1953            'G'         !!!!!!!! Henri de Linares
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Jarlegant, h_av_firstname~=Dominik(B[m
+
+=======================
+2022-06    Face au large                  Dominik Jarlegant         2000                        !!!!!!!! Dominik Jarlegant
+[31mcreatePage(): $data=[title]=>Dominik Jarlegant,[h_av_firstname]=>Dominik,[h_av_lastname]=>Jarlegant,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Dominik Jarlegant(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Face au large(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Nomura, h_av_firstname~=Daiske(B[m
+
+=======================
+2022-07    Mega chariot                   Daiske Nomura             2022            'G'         !!!!!!!! Daiske Nomura
+[31mcreatePage(): $data=[title]=>Daiske Nomura,[h_av_firstname]=>Daiske,[h_av_lastname]=>Nomura,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Daiske Nomura(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mega chariot(B[m
+
+=======================
+2022-08    Ludovicus Magnus               Françoise de La Perrière 1963                        !!!!!!!! Françoise de La Perrière
+[31mgetPage(): OK 1 - template=h_artwork, title~=Ludovicus Magnus(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Jardim, h_av_firstname~=Filipe(B[m
+
+=======================
+2022-09-08 Modernisme Tropical            Filipe Jardim             2015                        !!!!!!!! Filipe Jardim
+[31mcreatePage(): $data=[title]=>Filipe Jardim,[h_av_firstname]=>Filipe,[h_av_lastname]=>Jardim,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Filipe Jardim(B[m
+
+=======================
+2022-09    Peinture fraiche               Dimitri Rybaltchenko      2012                        !!!!!!!! Dimitri Rybaltchenko
+[31mgetPage(): OK 1 - template=h_artwork, title~=Peinture fraiche(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Dubigeon, h_av_firstname~=Loic(B[m
+
+=======================
+2022-10    Confidents des coeur           Loic Dubigeon             2000            'G'         !!!!!!!! Loic Dubigeon
+[31mcreatePage(): $data=[title]=>Loic Dubigeon,[h_av_firstname]=>Loic,[h_av_lastname]=>Dubigeon,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Loic Dubigeon(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Confidents des coeur(B[m
+
+=======================
+2022-11    1821 Hommage a L'Amite         Julie Abadie              1993            'EL'        !!!!!!!! Julie Abadie
+[31mgetPage(): OK 1 - template=h_artwork, title~=1821 Hommage a L'Amite(B[m
+
+=======================
+2022-12-08 Jeu De Cartes                   Cassandre                2018                        !!!!!!!! Cassandre
+
+=======================
+2022-12    Ferronnerie                    Caty Latham               1970            'G'         !!!!!!!! Caty Latham
+[31mgetPage(): OK 1 - template=h_artwork, title~=Ferronnerie(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Emery, h_av_firstname~=Benoit-Pierre(B[m
+
+=======================
+2022-14    Circuit FSH 24                 Benoit-Pierre Emery       2018            'П Мини'  !!!!!!!! Benoit-Pierre Emery
+[31mcreatePage(): $data=[title]=>Benoit-Pierre Emery,[h_av_firstname]=>Benoit-Pierre,[h_av_lastname]=>Emery,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Benoit-Pierre Emery(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Circuit FSH 24(B[m
+
+=======================
+2022-15    Bolduc au carre                Caty Latham               2007/2020                   !!!!!!!! Caty Latham
+[31mgetPage(): OK 1 - template=h_artwork, title~=Bolduc au carre(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Shirley, h_av_firstname~=Alice(B[m
+
+=======================
+2023-01    Mountain Zebra                 Alice Shirley             2020            'ES'        !!!!!!!! Alice Shirley
+[31mcreatePage(): $data=[title]=>Alice Shirley,[h_av_firstname]=>Alice,[h_av_lastname]=>Shirley,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Alice Shirley(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mountain Zebra(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Jamin, h_av_firstname~=Virginie(B[m
+
+=======================
+2023-02    Panoplie Equestre              Virginie Jamin            2018                        !!!!!!!! Virginie Jamin
+[31mcreatePage(): $data=[title]=>Virginie Jamin,[h_av_firstname]=>Virginie,[h_av_lastname]=>Jamin,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Virginie Jamin(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Panoplie Equestre(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Koechlin, h_av_firstname~=Sophie(B[m
+
+=======================
+2023-03    L'art indien des plaines       Sophie Koechlin           2001                        !!!!!!!! Sophie Koechlin
+[31mcreatePage(): $data=[title]=>Sophie Koechlin,[h_av_firstname]=>Sophie,[h_av_lastname]=>Koechlin,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Sophie Koechlin(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=L'art indien des plaines(B[m
+
+=======================
+2023-04-06 Cheval de Caractere            Dimitri Rybaltchenko      2007                        !!!!!!!! Dimitri Rybaltchenko
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Rybaltchenko, h_av_firstname~=Vladimir(B[m
+
+=======================
+2023-05    Fleurs et Carlines             Vladimir Rybaltchenko     1985            'П Юры'  !!!!!!!! Vladimir Rybaltchenko
+[31mcreatePage(): $data=[title]=>Vladimir Rybaltchenko,[h_av_firstname]=>Vladimir,[h_av_lastname]=>Rybaltchenko,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Vladimir Rybaltchenko(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Fleurs et Carlines(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Hallo, h_av_firstname~=Charles-Jean(B[m
+
+=======================
+2023-06    Chiens et Valets               Charles-Jean Hallo        1965                        !!!!!!!! Charles-Jean Hallo
+[31mcreatePage(): $data=[title]=>Charles-Jean Hallo,[h_av_firstname]=>Charles-Jean,[h_av_lastname]=>Hallo,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Charles-Jean Hallo(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Chiens et Valets(B[m
+
+=======================
+2023-07    Sous Le Cèdre                 Dimitri Rybaltchenko      1998                        !!!!!!!! Dimitri Rybaltchenko
+[31mgetPage(): OK 1 - template=h_artwork, title~=Sous Le Cèdre(B[m
+
+=======================
+2023-08    Tsubas                         Christiane Vauzelles      1998            'G'         !!!!!!!! Christiane Vauzelles
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tsubas(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=de Poret, h_av_firstname~=Xavier(B[m
+
+=======================
+2023-09    A Propos de Bottes             Xavier de Poret           2008            'G'         !!!!!!!! Xavier de Poret
+[31mcreatePage(): $data=[title]=>Xavier de Poret,[h_av_firstname]=>Xavier,[h_av_lastname]=>de Poret,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Xavier de Poret(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=A Propos de Bottes(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Duchêne, h_av_firstname~=Michèle(B[m
+
+=======================
+2023-10    Feux d'Artifice                Michèle Duchêne         1987            'ES'        !!!!!!!! Michèle Duchêne
+[31mcreatePage(): $data=[title]=>Michèle Duchêne,[h_av_firstname]=>Michèle,[h_av_lastname]=>Duchêne,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Michèle Duchêne(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Feux d'Artifice(B[m
+
+=======================
+2024-01-04 Tresors du Nil                 Joachim Metz              2003                        !!!!!!!! Joachim Metz
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tresors du Nil(B[m
+
+=======================
+2024-02    Rencontre oceane               Annie Faivre              2001                        !!!!!!!! Annie Faivre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Rencontre oceane(B[m
+
+=======================
+2024-03    Chorus stellarium              Daiske Nomura             2024            'B'         !!!!!!!! Daiske Nomura
+[31mgetPage(): OK 1 - template=h_artwork, title~=Chorus stellarium(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Benoist Gironiere, h_av_firstname~=Yves(B[m
+
+=======================
+2024-04    Les Courses                    Yves Benoist Gironiere    2004/2013                   !!!!!!!! Yves Benoist Gironiere
+[31mcreatePage(): $data=[title]=>Yves Benoist Gironiere,[h_av_firstname]=>Yves,[h_av_lastname]=>Benoist Gironiere,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Yves Benoist Gironiere(B[m
+
+=======================
+2024-05    Braselets de Lumiere           Annie Faivre              2018                        !!!!!!!! Annie Faivre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Braselets de Lumiere(B[m
+
+=======================
+2024-06-13 Quadrige                       Pierre Peron              2019                        !!!!!!!! Pierre Peron
+
+=======================
+2024-07-18 En Liberte                     Carine Brancowitz         2020                        !!!!!!!! Carine Brancowitz
+
+=======================
+2024-11-07 Brazil II                      Laurence Bourthoumieux    2015                        !!!!!!!! Laurence Bourthoumieux
+
+=======================
+2025-01    Casques et Plumets             Julie Abadie              1989                        !!!!!!!! Julie Abadie
+[31mgetPage(): OK 1 - template=h_artwork, title~=Casques et Plumets(B[m
+
+=======================
+2025-02    Flots Fleurs et Frontaux       Virginie Jamin            2017                        !!!!!!!! Virginie Jamin
+[31mgetPage(): FAIL 3 - template=h_person, title~=author , title~=hidden(B[m
+
+=======================
+2025-03-06 hidden title                   hidden author             year hidden                 ???????? AUTHOR PAGE
+[31mcreatePage(): $data=[title]=>hidden author,[h_av_firstname]=>hidden,[h_av_lastname]=>author,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_person, title=hidden author(B[m
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=hidden title(B[m
+[31mcreatePage(): $data=[title]=>hidden title,[h_aw_day0]=>2025-03-06,[h_aw_brand]=>5835,[h_aw_more]=>,[h_aw_year]=>year hidden(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=hidden title(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Alamin, h_av_firstname~=Sefedin Ibrahim(B[m
+
+=======================
+2025-03    Les Perles de Tourkana         Sefedin Ibrahim Alamin    2002                        !!!!!!!! Sefedin Ibrahim Alamin
+[31mcreatePage(): $data=[title]=>Sefedin Ibrahim Alamin,[h_av_firstname]=>Sefedin Ibrahim,[h_av_lastname]=>Alamin,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Sefedin Ibrahim Alamin(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Perles de Tourkana(B[m
+
+=======================
+2025-04    Proues                         Philippe Ledoux           1973                        !!!!!!!! Philippe Ledoux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Proues(B[m
+
+=======================
+2025-05    Sangles                        Joachim Metz              1984            'G'         !!!!!!!! Joachim Metz
+[31mgetPage(): OK 1 - template=h_artwork, title~=Sangles(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Pierre, h_av_firstname~=Marie(B[m
+
+=======================
+2025-06    Le sacres d'Hiver              Marie Pierre              2022            'G'         !!!!!!!! Marie Pierre
+[31mcreatePage(): $data=[title]=>Marie Pierre,[h_av_firstname]=>Marie,[h_av_lastname]=>Pierre,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Marie Pierre(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Le sacres d'Hiver(B[m
+
+=======================
+2025-10-09 The Savana Dance                Ardmore Artists          2016            'G'         !!!!!!!! Ardmore Artists
+
+=======================
+2025-11-06 A Vos Crayons                  Leigh Cooke               2004                        !!!!!!!! Leigh Cooke
+[31mcreatePage(): $data=[title]=>A Vos Crayons,[h_aw_day0]=>2025-11-06,[h_aw_brand]=>5835,[h_aw_more]=>,[h_aw_year]=>2004(B[m
+
+=======================
+           Tribord                        Julie Abadie              1968/1990                   !!!!!!!! Julie Abadie
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tribord(B[m
+
+=======================
+           Clic-clac                      Julie Abadie              1979/1997/2011              !!!!!!!! Julie Abadie
+[31mgetPage(): OK 1 - template=h_artwork, title~=Clic-clac(B[m
+
+=======================
+           Geometrie Cretoise             Julie Abadie              2012                        !!!!!!!! Julie Abadie
+[31mgetPage(): OK 1 - template=h_artwork, title~=Geometrie Cretoise(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Archives Hermès(B[m
+
+=======================
+           Printemps-Ete 69 A-H 70         Archives Hermès         2010            'G'         !!!!!!!! Archives Hermès
+[31mcreatePage(): $data=[title]=>Archives Hermès,[h_av_firstname]=>,[h_av_lastname]=>Archives Hermès,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Archives Hermès(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Printemps-Ete 69 A-H 70(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Barret, h_av_firstname~=Bali(B[m
+
+=======================
+           Monsieur et Madame ll          Bali&Robert Barret&Dallet 2013            'Aне'     !!!!!!!! Bali Barret
+[31mcreatePage(): $data=[title]=>Bali Barret,[h_av_firstname]=>Bali,[h_av_lastname]=>Barret,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Bali Barret(B[m
+
+=======================
+           Monsieur et Madame ll          Bali&Robert Barret&Dallet 2013            'Aне'     !!!!!!!! Robert Dallet
+[31mgetPage(): OK 1 - template=h_artwork, title~=Monsieur et Madame ll(B[m
+
+=======================
+           Monsieur et Madame             Bali Barret               2020(70)                    !!!!!!!! Bali Barret
+[31mgetPage(): OK 1 - template=h_artwork, title~=Monsieur et Madame(B[m
+
+=======================
+           Azuejos                        Catherine Baschet         1992                        !!!!!!!! Catherine Baschet
+[31mgetPage(): OK 1 - template=h_artwork, title~=Azuejos(B[m
+
+=======================
+           Splendeur des maharadjas       Catherine Baschet         1996/2001                   !!!!!!!! Catherine Baschet
+[31mgetPage(): OK 1 - template=h_artwork, title~=Splendeur des maharadjas(B[m
+
+=======================
+           Tropiques                      Laurence Bourthoumieux    1987/1990                   !!!!!!!! Laurence Bourthoumieux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tropiques(B[m
+
+=======================
+           Vive le vent                   Laurence Bourthoumieux    1992/1995                   !!!!!!!! Laurence Bourthoumieux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Vive le vent(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Burton, h_av_firstname~=Jonathan(B[m
+
+=======================
+           Parade                         Jonathan Burton                           'П Мини Twilly'  !!!!!!!! Jonathan Burton
+[31mcreatePage(): $data=[title]=>Jonathan Burton,[h_av_firstname]=>Jonathan,[h_av_lastname]=>Burton,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Jonathan Burton(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Parade(B[m
+
+=======================
+           Le saut H                      Cyrille Diatkine          2016                        !!!!!!!! Cyrille Diatkine
+[31mgetPage(): OK 1 - template=h_artwork, title~=Le saut H(B[m
+
+=======================
+           Les Folies Du Ciel             Loic Dubigeon             1984/1990                   !!!!!!!! Loic Dubigeon
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Duchesne, h_av_firstname~=Daphne(B[m
+
+=======================
+           Mare aux canards               Daphne Duchesne           1981                        !!!!!!!! Daphne Duchesne
+[31mcreatePage(): $data=[title]=>Daphne Duchesne,[h_av_firstname]=>Daphne,[h_av_lastname]=>Duchesne,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Daphne Duchesne(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mare aux canards(B[m
+
+=======================
+           Grand Cortège a Moscou        Michèle Duchêne         1992                        !!!!!!!! Michèle Duchêne
+[31mgetPage(): OK 1 - template=h_artwork, title~=Grand Cortège a Moscou(B[m
+
+=======================
+           Hermès-sellier                Benoit-Pierre Emery       2009/2012       'G'         !!!!!!!! Benoit-Pierre Emery
+[31mgetPage(): OK 1 - template=h_artwork, title~=Hermès-sellier(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Eudel, h_av_firstname~=Jacques(B[m
+
+=======================
+           Petits chevaux                 Jacques Eudel             1974            'G'         !!!!!!!! Jacques Eudel
+[31mcreatePage(): $data=[title]=>Jacques Eudel,[h_av_firstname]=>Jacques,[h_av_lastname]=>Eudel,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Jacques Eudel(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Petits chevaux(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Faconnet, h_av_firstname~=Marie-Françoise(B[m
+
+=======================
+           Astrologie nouvelle            Marie-Françoise&Cyrille Faconnet&Diatkine 2012            'ES'        !!!!!!!! Marie-Françoise Faconnet
+[31mcreatePage(): $data=[title]=>Marie-Françoise Faconnet,[h_av_firstname]=>Marie-Françoise,[h_av_lastname]=>Faconnet,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Marie-Françoise Faconnet(B[m
+
+=======================
+           Astrologie nouvelle            Marie-Françoise&Cyrille Faconnet&Diatkine 2012            'ES'        !!!!!!!! Cyrille Diatkine
+[31mgetPage(): OK 1 - template=h_artwork, title~=Astrologie nouvelle(B[m
+
+=======================
+           Torana                         Annie Faivre              1987/1990/2000  'G'         !!!!!!!! Annie Faivre
+
+=======================
+           Tarot                          Annie Faivre              1991                        !!!!!!!! Annie Faivre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tarot(B[m
+
+=======================
+           L'art des steppes              Annie Faivre              1991/1997/2000              !!!!!!!! Annie Faivre
+[31mgetPage(): OK 1 - template=h_artwork, title~=L'art des steppes(B[m
+
+=======================
+           Le temps des marionnettes      Annie Faivre              1996                        !!!!!!!! Annie Faivre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Le temps des marionnettes(B[m
+
+=======================
+           Alliances du monde             Annie Faivre              2005                        !!!!!!!! Annie Faivre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Alliances du monde(B[m
+
+=======================
+           Charreada                      Jean Fougerolle           1993                        !!!!!!!! Jean de Fougerolle
+[31mgetPage(): OK 1 - template=h_artwork, title~=Charreada(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Grygkar, h_av_firstname~=Hugo(B[m
+
+=======================
+           Insectes                       Hugo& Grygkar&La Torre    1958                        !!!!!!!! Hugo Grygkar
+[31mcreatePage(): $data=[title]=>Hugo Grygkar,[h_av_firstname]=>Hugo,[h_av_lastname]=>Grygkar,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Hugo Grygkar(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=La Torre(B[m
+
+=======================
+           Insectes                       Hugo& Grygkar&La Torre    1958                        !!!!!!!! La Torre
+[31mcreatePage(): $data=[title]=>La Torre,[h_av_firstname]=>,[h_av_lastname]=>La Torre,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=La Torre(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Insectes(B[m
+
+=======================
+           Ex-libris                      Hugo Grygkar              1946/1998       'G EL'      !!!!!!!! Hugo Grygkar
+[31mgetPage(): OK 1 - template=h_artwork, title~=Ex-libris(B[m
+
+=======================
+           Reale                          Hugo Grygkar              1953/1990                   !!!!!!!! Hugo Grygkar
+[31mgetPage(): OK 1 - template=h_artwork, title~=Reale(B[m
+
+=======================
+           Armes de Paris                 Hugo Grygkar              1954/1992       'П Юры'  !!!!!!!! Hugo Grygkar
+[31mgetPage(): OK 1 - template=h_artwork, title~=Armes de Paris(B[m
+
+=======================
+           Brides de Gala                 Hugo Grygkar              1957/1967/2009              !!!!!!!! Hugo Grygkar
+[31mgetPage(): OK 1 - template=h_artwork, title~=Brides de Gala(B[m
+
+=======================
+           Grande venerie royale          Charles-Jean Hallo        1957                        !!!!!!!! Charles-Jean Hallo
+[31mgetPage(): OK 1 - template=h_artwork, title~=Grande venerie royale(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Henry, h_av_firstname~=Christine(B[m
+
+=======================
+           La mecanique des idees         Christine Henry           2004                        !!!!!!!! Christine Henry
+[31mcreatePage(): $data=[title]=>Christine Henry,[h_av_firstname]=>Christine,[h_av_lastname]=>Henry,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Christine Henry(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=La mecanique des idees(B[m
+
+=======================
+           Les Chemins Secrets            Christine Henry           2015            'def 136/97'  !!!!!!!! Christine Henry
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Chemins Secrets(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Heron, h_av_firstname~=Marie-Francoise(B[m
+
+=======================
+           Passementerie                  Marie-Francoise Heron     1960/1981                   !!!!!!!! Marie-Francoise Heron
+[31mcreatePage(): $data=[title]=>Marie-Francoise Heron,[h_av_firstname]=>Marie-Francoise,[h_av_lastname]=>Heron,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Marie-Francoise Heron(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Passementerie(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Houtin, h_av_firstname~=François(B[m
+
+=======================
+           Jardins des métamorphoses     François Houtin          2010                        !!!!!!!! François Houtin
+[31mcreatePage(): $data=[title]=>François Houtin,[h_av_firstname]=>François,[h_av_lastname]=>Houtin,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=François Houtin(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Jardins des métamorphoses(B[m
+
+=======================
+           Collies de chiens              Virginie Jamin                            'Twilly'    !!!!!!!! Virginie Jamin
+[31mgetPage(): OK 1 - template=h_artwork, title~=Collies de chiens(B[m
+
+=======================
+           Coqs                            La Torre                 1964                        !!!!!!!! La Torre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Coqs(B[m
+
+=======================
+           Maillons                       Caty Latham               1973                        !!!!!!!! Caty Latham
+[31mgetPage(): OK 1 - template=h_artwork, title~=Maillons(B[m
+
+=======================
+           Farandole                      Caty Latham               1977/1990/2006              !!!!!!!! Caty Latham
+[31mgetPage(): OK 1 - template=h_artwork, title~=Farandole(B[m
+
+=======================
+           Sulfures & presse-papiers      Caty Latham               1979                        !!!!!!!! Caty Latham
+[31mgetPage(): OK 1 - template=h_artwork, title~=Sulfures & presse-papiers(B[m
+
+=======================
+           Washington's carriage          Caty Latham               1979/1981                   !!!!!!!! Caty Latham
+[31mgetPage(): OK 1 - template=h_artwork, title~=Washington's carriage(B[m
+
+=======================
+           India                          Caty Latham               1986                        !!!!!!!! Caty Latham
+
+=======================
+           Reveries japonaises            Caty Latham               1991                        !!!!!!!! Caty Latham
+[31mgetPage(): OK 1 - template=h_artwork, title~=Reveries japonaises(B[m
+
+=======================
+           Couvee d'Hermès               Caty Latham               1994                        !!!!!!!! Caty Latham
+[31mgetPage(): OK 1 - template=h_artwork, title~=Couvee d'Hermès(B[m
+
+=======================
+           Cuillers d'Afrique             Caty Latham               1997                        !!!!!!!! Caty Latham
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cuillers d'Afrique(B[m
+
+=======================
+           Napoleon                       Philippe Ledoux           1963/1985                   !!!!!!!! Philippe Ledoux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Napoleon(B[m
+
+=======================
+           Promenade de Longchamp         Philippe Ledoux           1965/1970                   !!!!!!!! Philippe Ledoux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Promenade de Longchamp(B[m
+
+=======================
+           Marine et cavalerie            Philippe Ledoux           1966/1984                   !!!!!!!! Philippe Ledoux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Marine et cavalerie(B[m
+
+=======================
+           L'Hiver                        Philippe Ledoux           1969(1968?)                 !!!!!!!! Philippe Ledoux
+[31mgetPage(): OK 1 - template=h_artwork, title~=L'Hiver(B[m
+
+=======================
+           Armes de chasse                Philippe Ledoux           1970/1981                   !!!!!!!! Philippe Ledoux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Armes de chasse(B[m
+
+=======================
+           Reprise                        Philippe Ledoux           1970/1993                   !!!!!!!! Philippe Ledoux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Reprise(B[m
+
+=======================
+           Springs                        Philippe Ledoux           1974/1981                   !!!!!!!! Philippe Ledoux
+[31mgetPage(): OK 1 - template=h_artwork, title~=Springs(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Manlik, h_av_firstname~=Florence(B[m
+
+=======================
+           Etude pour une parure          Florence Manlik           2017                        !!!!!!!! Florence Manlik
+[31mcreatePage(): $data=[title]=>Florence Manlik,[h_av_firstname]=>Florence,[h_av_lastname]=>Manlik,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Florence Manlik(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Etude pour une parure(B[m
+
+=======================
+           Do Re Boucles                  Florence Manlik                           'Twilly'    !!!!!!!! Florence Manlik
+[31mgetPage(): OK 1 - template=h_artwork, title~=Do Re Boucles(B[m
+
+=======================
+           Regina                         Leila Menchari            1972                        !!!!!!!! Leila Menchari
+
+=======================
+           Rose de vents                  Joachim Metz              1984/2012                   !!!!!!!! Joachim Metz
+[31mgetPage(): OK 1 - template=h_artwork, title~=Rose de vents(B[m
+
+=======================
+           Tuileries                      Joachim Metz              1996                        !!!!!!!! Joachim Metz
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tuileries(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Miro, h_av_firstname~=Evgenia(B[m
+
+=======================
+           Zabavushka                     Evgenia Miro              2009            'Sold'      !!!!!!!! Evgenia Miro (Miroshnichenko)
+[31mcreatePage(): $data=[title]=>Evgenia Miro,[h_av_firstname]=>Evgenia,[h_av_lastname]=>Miro,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_person, title=Evgenia Miro(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Zabavushka(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Pagni, h_av_firstname~=Gianpaolo(B[m
+
+=======================
+           Jeu de Omnibus et DameBlanche  Gianpaolo Pagni           2018            'Remix'     !!!!!!!! Gianpaolo Pagni
+[31mcreatePage(): $data=[title]=>Gianpaolo Pagni,[h_av_firstname]=>Gianpaolo,[h_av_lastname]=>Pagni,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Gianpaolo Pagni(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Jeu de Omnibus et DameBlanche(B[m
+
+=======================
+           Les Nouveaux Amoureux de Paris Marie Pierre              2021            'B'         !!!!!!!! Marie Pierre
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Nouveaux Amoureux de Paris(B[m
+
+=======================
+           Marche Flottant du Lac Inle II Dimitri Rybaltchenko      1998/2001                   !!!!!!!! Dimitri Rybaltchenko
+[31mgetPage(): OK 1 - template=h_artwork, title~=Marche Flottant du Lac Inle II(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Swildens, h_av_firstname~=Karin(B[m
+
+=======================
+           Ryton                          Karin Swildens            1978                        !!!!!!!! Karin Swildens
+[31mcreatePage(): $data=[title]=>Karin Swildens,[h_av_firstname]=>Karin,[h_av_lastname]=>Swildens,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Karin Swildens(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Ryton(B[m
+
+=======================
+           Selles a housse                Christiane Vauzelles      1968/1989                   !!!!!!!! Christiane Vauzelles
+[31mgetPage(): OK 1 - template=h_artwork, title~=Selles a housse(B[m
+
+=======================
+           Mors a la conetable            Henri d'Origny            1970/1985                   !!!!!!!! Henri d'Origny
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mors a la conetable(B[m
+
+=======================
+           Eperon d'or                    Henri d'Origny            1974/1989       '2+(1)'     !!!!!!!! Henri d'Origny
+[31mgetPage(): OK 1 - template=h_artwork, title~=Eperon d'or(B[m
+
+=======================
+           Cavalcadour                    Henri d'Origny            1982/1992/2012  '2'         !!!!!!!! Henri d'Origny
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cavalcadour(B[m
+
+=======================
+           Cavalcadour                    Henri d'Origny            1982/1992/2012  'МaxTwilly'  !!!!!!!! Henri d'Origny
+
+=======================
+           Grand tenue                    Henri d'Origny            1985/1998                   !!!!!!!! Henri d'Origny
+[31mgetPage(): OK 1 - template=h_artwork, title~=Grand tenue(B[m
+
+=======================
+           Sacre du printems              Henri d'Origny            1986                        !!!!!!!! Henri d'Origny
+[31mgetPage(): OK 1 - template=h_artwork, title~=Sacre du printems(B[m
+
+=======================
+           Festival des amazones          Henri d'Origny            2013/2014                   !!!!!!!! Henri d'Origny
+[31mgetPage(): OK 1 - template=h_artwork, title~=Festival des amazones(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=de Jacquelot, h_av_firstname~=Antoine(B[m
+
+=======================
+           Casse-noisette                 Antoine de Jacquelot      1997                        !!!!!!!! Antoine de Jacquelot
+[31mcreatePage(): $data=[title]=>Antoine de Jacquelot,[h_av_firstname]=>Antoine,[h_av_lastname]=>de Jacquelot,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Antoine de Jacquelot(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Casse-noisette(B[m
+
+=======================
+           Cuivreries                     Françoise de La Perrière 1963            'Scarf/vintage 2'  !!!!!!!! Françoise de La Perrière
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cuivreries(B[m
+
+=======================
+           Cuivreries                     Françoise de La Perrière 1963            'Variant'   !!!!!!!! Françoise de La Perrière
+
+=======================
+           Les Voitures a Transformation  Françoise de La Perrière 1965/1980       '3'         !!!!!!!! Françoise de La Perrière
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Voitures a Transformation(B[m
+
+=======================
+           Palefroi                       Françoise de La Perrière 1965/1983                   !!!!!!!! Françoise de La Perrière
+[31mgetPage(): OK 1 - template=h_artwork, title~=Palefroi(B[m
+
+=======================
+           Bride de cour                  Françoise de La Perrière 1970/1987                   !!!!!!!! Françoise de La Perrière
+[31mgetPage(): OK 1 - template=h_artwork, title~=Bride de cour(B[m
+
+=======================
+           Gibiers                        Henri de Linares          1966/1991/1997              !!!!!!!! Henri de Linares
+[31mgetPage(): OK 1 - template=h_artwork, title~=Gibiers(B[m
+
+=======================
+           Levriers                       Xavier de Poret           1957/1970/2002              !!!!!!!! Xavier de Poret
+[31mgetPage(): OK 1 - template=h_artwork, title~=Levriers(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=de Watrigant, h_av_firstname~=Hubert(B[m
+
+=======================
+           Le Carnaval de Venise          Hubert de Watrigant       1993/1997                   !!!!!!!! Hubert de Watrigant
+[31mcreatePage(): $data=[title]=>Hubert de Watrigant,[h_av_firstname]=>Hubert,[h_av_lastname]=>de Watrigant,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Hubert de Watrigant(B[m
+[31mgetPage(): OK 1 - template=h_artwork, title~=Le Carnaval de Venise(B[m
+
+=======================
+           Real Escuela Andaluza Del Arte Ecuestre Hubert de Watrigant       1996/2000                   !!!!!!!! Hubert de Watrigant
+[31mgetPage(): OK 1 - template=h_artwork, title~=Real Escuela Andaluza Del Arte Ecuestre(B[m

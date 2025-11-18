@@ -1,21 +1,23 @@
-2025-11-08,A Vos Crayons,Cooke,Leigh,2004,,2690,86x88 cm,https://www.kaplans.se/sv/auktioner/4617/vara/2049773
-2025-10-10,The Savana Dance,Ardmore Artists,,2016,G,1970,42x42 cm,https://www.kaplans.se/sv/auktioner/4601/vara/2048705
-2025-03-07,Flots Fleurs et Frontaux,Faivre,Annie,2004,,1970,90x90 cm,https://www.kaplans.se/sv/auktioner/4521/vara/2030702
-2024-11-09,Brazil II,Bourthoumieux,Laurence,2015,,1730,66x70 cm,https://www.kaplans.se/sv/auktioner/4463/vara/2019718
-2024-07-22,En Liberte,Brancowitz,Carine,2020,,2450,88x88 cm,https://www.kaplans.se/sv/auktioner/4405/vara/2008341
-2024-06-15,Quadrige,Peron,Pierre,2019,,2210,66x66 cm,https://www.kaplans.se/sv/auktioner/4391/vara/2005318
-2024-06-01,Bracelets De Lumiere,Faivre,Annie,2018,,1970,90x90 cm,https://www.kaplans.se/sv/auktioner/4392/vara/2000712
-2024-01-05,Tresors Du Nil,Metz,Joachim,2003,,2450,88x88 cm,https://www.kaplans.se/sv/auktioner/4341/vara/1988429
-2023-04-11,Cheval de Caractere,Rybaltchenko,Dimitri,2007/2009,,2450,90x90 cm,https://www.kaplans.se/sv/auktioner/4230/vara/1920665
-2022-12-09,Voyage en Etoffes,Faivre,Annie,2009,,2450,90x90 cm,https://www.kaplans.se/sv/auktioner/4171/vara/1883715
-2022-12-09,Jeu De Cartes,Cassandre,,2013/2024,,2090,90x90 cm,https://www.kaplans.se/sv/auktioner/4171/vara/1895851
-2022-09-09,Modernisme Tropical,Jardim,Felipe,2016,,2450,90x90 cm,https://www.kaplans.se/sv/auktioner/4125/vara/1863693
-2022-04-09,Mors à Jouets,d'Origny,Henri,1982/2017,,2570,90x90 cm,https://www.kaplans.se/sv/auktioner/4062/vara/1830363
-2021-10-09,Regina,Menchari,Leila,1972/1977/2002,,2210,90x90 cm,https://www.kaplans.se/sv/auktioner/3973/vara/1778227
-2021-09-11,Alliances du Monde,Faivre,Annie,2004,,2090,90x90 cm,https://www.kaplans.se/sv/auktioner/3963/vara/1770303
-2021-08-20,India,Latham,Cathy,2008,,1490,90x90 cm,https://www.kaplans.se/sv/auktioner/3924/vara/1768635
+2025-11-08,A Vos Crayons,Cooke,Leigh,2004,,2690,86x88,https://www.kaplans.se/sv/auktioner/4617/vara/2049773
+2025-10-10,The Savana Dance,Ardmore Artists,,2016,G,1970,42x42,https://www.kaplans.se/sv/auktioner/4601/vara/2048705
+2025-03-07,Flots Fleurs et Frontaux,Faivre,Annie,2004,,1970,90x90,https://www.kaplans.se/sv/auktioner/4521/vara/2030702
+2024-11-09,Brazil II,Bourthoumieux,Laurence,2015,,1730,66x70,https://www.kaplans.se/sv/auktioner/4463/vara/2019718
+2024-07-22,En Liberte,Brancowitz,Carine,2020,,2450,88x88,https://www.kaplans.se/sv/auktioner/4405/vara/2008341
+2024-06-15,Quadrige,Peron,Pierre,2019,,2210,66x66,https://www.kaplans.se/sv/auktioner/4391/vara/2005318
+2024-06-01,Bracelets De Lumiere,Faivre,Annie,2018,,1970,90x90,https://www.kaplans.se/sv/auktioner/4392/vara/2000712
+2024-01-05,Tresors Du Nil,Metz,Joachim,2003,,2450,88x88,https://www.kaplans.se/sv/auktioner/4341/vara/1988429
+2023-04-11,Cheval de Caractere,Rybaltchenko,Dimitri,2007/2009,,2450,90x90,https://www.kaplans.se/sv/auktioner/4230/vara/1920665
+2022-12-09,Voyage en Etoffes,Faivre,Annie,2009,,2450,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1883715
+2022-12-09,Jeu De Cartes,Cassandre,,2013/2024,,2090,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1895851
+2022-09-09,Modernisme Tropical,Jardim,Filipe,2016,,2450,90x90,https://www.kaplans.se/sv/auktioner/4125/vara/1863693
+2022-04-09,Mors à Jouets,d'Origny,Henri,1982/2017,,2570,90x90,https://www.kaplans.se/sv/auktioner/4062/vara/1830363
+2022-04-02,The sign of excellence,,,,Omega,830,90x90,https://www.kaplans.se/sv/auktioner/4044/vara/1818388
+2021-10-09,Regina,Menchari,Leila,1972/1977/2002,,2210,90x90,https://www.kaplans.se/sv/auktioner/3973/vara/1778227
+2021-09-11,Alliances du Monde,Faivre,Annie,2004,,2090,90x90,https://www.kaplans.se/sv/auktioner/3963/vara/1770303
+2021-08-20,India,Latham,Caty,2008,,1490,90x90,https://www.kaplans.se/sv/auktioner/3924/vara/1768635
 2021-07-22,Jardins des metamorphose,Houtin,Francois,,,1610,,https://www.kaplans.se/sv/auktioner/3923/vara/1761308
-2021-05-04,Art des steppes,Faivre,Annie,,,1850,90x90 cm,https://www.kaplans.se/sv/auktioner/3894/vara/1734562
-2021-03-17,Torana,Faivre,Annie,,G,1010,42x42 cm,https://www.kaplans.se/sv/auktioner/3872
-2020-02-14,L´Hiver,Ledoux,Philippe,,,1250,90x90 cm,https://www.kaplans.se/sv/auktioner/3696/vara/1622195
-2020-01-17,Le Saut H,Diatkine,Cyrille,,,1490,90x90 cm,https://www.kaplans.se/sv/auktioner/3680/vara/1616319
+2021-05-04,Art des steppes,Faivre,Annie,,,1850,90x90,https://www.kaplans.se/sv/auktioner/3894/vara/1734562
+2021-03-17,Torana,Faivre,Annie,,G,1010,42x42,https://www.kaplans.se/sv/auktioner/3872
+2020-02-14,L´Hiver,Ledoux,Philippe,,,1250,90x90,https://www.kaplans.se/sv/auktioner/3696/vara/1622195
+2020-01-31,RADO,,,,RADO,620,90x90,https://www.kaplans.se/sv/auktioner/3674/vara/1603887
+2020-01-17,Le Saut H,Diatkine,Cyrille,,,1490,90x90,https://www.kaplans.se/sv/auktioner/3680/vara/1616319
