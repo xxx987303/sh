@@ -49,6 +49,8 @@ foreach(explode("\n",file_get_contents($K_list)) as $line) {
 		echo "$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www\n";
 	    }
 	}
+    }elseif(str_starts_with($line, 'Artist')) {
+        list($ln,$fn) = explode(',',($n=explode(' ',$line)[1]));
     }elseif(str_starts_with($line, 'http')) {
 	$www = $line;
         // echo " www = $www\n";
