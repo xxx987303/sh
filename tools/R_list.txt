@@ -35,7 +35,7 @@
 2008-03-12."Grand manege".                   d'Origny,Henri.                1990/1993.      2
 ."Grand tenue".                       d'Origny,Henri.                 1985/1998
 ."Grande venerie royale .         Hallo,Charles-Jean          .  1957
-."Hermès-sellier".                   Emery,Benoit-Pierre.    2009/2012 . G
+."Hermès-sellier".                   Emery,Benoît-Pierre.    2009/2012 . G
 ."Insectes".                              Grygkar,Hugo & La Torre  .  1958
 ."Levriers".                                de Poret,Xavier            .        1957/1970/2002
 ."Maillons".                               Latham,Caty               .         1973
@@ -50,7 +50,7 @@
 ."Napoleon".                             Ledoux,Philippe       .         1963/1985
 ."Palefroi".                                 de La Perrière,Françoise .           1965/1983
 2017-05-05."Parures de Samouraïs".        Honore,Aline.                          2017
-."Passementerie".                     Heron,Marie-Francoise .   1960/1981
+."Passementerie".                     Héron,Marie-Françoise .   1960/1981
 ."Petits chevaux".                     Eudel,Jacques.                   1974. G
 2016-04-30."Plumes".                                   de Linares,Henri.                     1953/1964
 ."Promenade de Longchamp". Ledoux,Philippe    .            1965/1970.
@@ -104,7 +104,7 @@
 2022-11.1821 Hommage a L'Amite.            Abadie,Julie                    .   1993. EL
 2022-12."Ferronnerie".                            Latham,Caty.               1970. G
 2022-09-08."Modernisme Tropical.             Jardim,Filipe .                     2016
-2022-14."Circuit FSH 24".                       Emery,Benoit-Pierre.                 2018 . П Мини
+2022-14."Circuit FSH 24".                       Emery,Benoît-Pierre.                 2018 . П Мини
 2022-15."Bolduc au carre".                    Latham,Caty.               2007/2020
 2022-12-08."Jeu De Cartes".                           Cassandre,.                           2018
 2023-01."Mountain Zebra".                    Shirley,Alice.                          2020 .ES
