@@ -63,7 +63,7 @@ function o_p_tr_line($label,$items){
             foreach($items as $i) {
                 if (is_array($i)) echo $i['comment'].x("tr",x("th",$i['label']).
                                                        x("td",
-                                                         x("a href=$i[url]'",$i['value'])));
+                                                         x("a href='$i[url]'",$i['value'])));
             }
         }
     }

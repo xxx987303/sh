@@ -53,7 +53,7 @@
 2024-11-07,Brazil II,Bourthoumieux,Laurence,2015,
 2025-01-07,Casques et Plumets,Abadie,Julie,1989,
 2025-02,Flots Fleurs et Frontaux,Jamin,Virginie,2017,
-2025-03-06,hidden title,author,hidden,year hidden,
+2025-03-06,hidden title,hidden author,,hidden year,
 2025-03,Les Perles de Tourkana,Alamin,Sefedin Ibrahim,2002,
 2025-04,Proues,Ledoux,Philippe,1973,
 2025-05,Sangles,Metz,Joachim,1984,G

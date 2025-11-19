@@ -4,12 +4,16 @@
  */
 function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
 
-  //  b_debug::_dbg();
+    //  b_debug::_dbg();
     if ($o instanceof NullPage || $value instanceof NullPage) {
 	say::notice("Trying to set/assign NullPage, skip");
 	return;
     }
-	
+    if (is_object($value)  && $value->id == 0) {
+	say::notice("Trying to assign empty object $key_arg, skip");
+	return;
+    }
+
     if ($key_arg==='e_inst' && $value=='Home') { abortIt("!!!!!!!!!!!!!!!!!"); }
     if (empty($key_arg)) { abortIt("??? Empty key"); }
 
@@ -18,12 +22,8 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
     $getKey = function ($key_arg, $expectObject = true) {
         if ($expectObject) {
             $key      = (is_object($key_arg) ? $key_arg : (is_object($f=fields()->get($key_arg)) ? $f : $key_arg));
-            $key_name = (is_object($key)
-             ? $key->name
-             : $key);
-            if (!is_object($key)) {
-                say::notice("setKeyValue(): \"$key\" is not a field");
-            }
+            $key_name = (is_object($key) ? $key->name : $key);
+            if (!is_object($key)) say::notice("setKeyValue(): \"$key\" is not an object as expected");
         } else {
             if (is_object($key_arg)) {
                 echo tidy_dump($key_arg);
@@ -122,7 +122,6 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
                 if ($saveToDB !== false) $o->save();
                 say::add($o, $key, $value->name, $now='', $got=($o->hasPermission($value)?$value->name:''));
                 if (!$result) {
-                    say::error  (sprintf("%s(%s,$key,$value->name) can't be set", __function__, $o->name));
                     say::notice (sprintf("%s(%s,$key,$value->name) can't be set", __function__, $o->name));
                 }
             }
@@ -146,7 +145,6 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
                 say::add($o, $key, $value, $now='', $got=($o->hasRole($value)?$value:''));
                 if (!$result) {
                     say::notice (sprintf("%s(%s,$key,$value) can't be set", __function__, $o->name));
-                    say::warning(sprintf("%s(%s,$key,$value) can't be set", __function__, $o->name));
                 }
             }
         } else {
@@ -202,7 +200,8 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
                 abortIt(var_export($value, true)." is not an object");
             }
             if ($o->id == $value->id) {
-		echo tidy_dump($o);
+		echo "setKeyValue(object $o->name, $key_arg, $value->name(id=$value->id))\n";
+		echo $o->title.": ".tidy_dump($o);
                 abortIt("Linking '".$value->name."' to itself");
             }
             if ($ok=($o->$key instanceof PageArray)
@@ -210,12 +209,6 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
             : !empty($o->$key) && (($got=$now=$o->$key->title) == $value->title)) {
                 say::ok($o, $key_name, $now);
             } else {
-          /**  Later...
-               if($value->template=='ea_emp_record' && (time() > $o->timestamp+48*3600)){ // Reset the timestamp every 2 days
-                $o->timestamp = time();
-                $o->$key = new PageArray();
-               }
-          */
                 if ($o->$key instanceof PageArray) {
                     $o->$key->add($value);
                     $o->$key->save();

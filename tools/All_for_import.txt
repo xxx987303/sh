@@ -172,4 +172,4 @@
 2022-12-09,Voyage en Etoffes,Faivre,Annie,2009,,2450,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1883715
 ,Washington's carriage,Latham,Caty,1979/1981,
 ,Zabavushka,Miro,Evgenia,2009,Sold
-2025-03-06,hidden title,author,hidden,year hidden,
+2025-03-06,hidden title,hidden author,,hidden year,

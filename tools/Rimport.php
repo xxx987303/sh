@@ -174,7 +174,6 @@ function createPage(Array $dataArg=[], Array $skipFields=[], Array $args=[], $sa
         }
         if (!in_array($k,$skipFields)) setKeyValue($page, $k, $v, $saveToDB);
     }
-    echo tidy_dump($page);
     if ($saveToDB) $page->save();                         
     return $page;
 }
