@@ -1,5 +1,5 @@
 2023-09-18,Pochette Hermès,,,,Hermes,850,42x42,https://www.metropol.se/auctions/detail.asp?og={9421ADB5-1605-4F6A-9C27-EF745DE6D959}
-2023-08-14,Sous le Cédre,,,,Hermes,1975,,https://www.metropol.se/auctions/detail.asp?og={14E976BF-1214-402E-9ED4-2E5498C2B7AC}
+2023-08-14,Sous le Cédre,Rybaltchenko,Dimitri,,Hermes,1975,,https://www.metropol.se/auctions/detail.asp?og={14E976BF-1214-402E-9ED4-2E5498C2B7AC}
 2023-05-01,Fleurs et Carlines,,,,Hermes,2350,,https://www.metropol.se/auctions/detail.asp?og={ECFAFD13-0DF1-42A1-A507-7FC09290EF56}
 2019-10-21,Christian Dior,,,,Dior,553,70x70,https://www.metropol.se/auctions/detail.asp?og={46637C34-4C76-4A35-A074-9E9819C36E87}
 2019-10-21,Unknown Hermes1,,,,Hermes,553,89x89,https://www.metropol.se/auctions/detail.asp?og={46637C34-4C76-4A35-A074-9E9819C36E87}

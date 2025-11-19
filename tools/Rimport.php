@@ -4,13 +4,13 @@
  *     list($day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www)
  */
 
-define("dryRun", true);
+define("saveToDB", false);
 define('R_list', empty($argv[1]) ? "All_for_import.txt" : $argv[1]); 
 
 require_once __dir__ . '/debug.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
-say::notice("dryRun = ".var_export(dryRun,true));
+say::notice("saveToDB = ".var_export(saveToDB,true));
 
 function joinX(Array $a){
     $r = "";
@@ -64,7 +64,6 @@ if(count($pages=pages()->find("template=h_artwork, title~=$carreTitle"))){
 foreach(explode("\n",file_get_contents(R_list)) as $line){
     if (empty(trim($line)) || str_starts_with($line, '#')) continue;
     list($day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www) = explode(',', $line.',,,,,,,,');
-    //$carreTitle = str_replace(';', ',', $carreTitle); // comma breaks the selector
 
     $gavroche = in_array('G', preg_split("/\s/", $cmt)) ? true : false;
     $output = sprintf("\n=======================\n%-10s %-30s %-25s %-15s %-10s ",
@@ -96,7 +95,27 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
                          'hook'          =>'title']);
         $authors[] = $p;
     }
-    
+
+    //
+    // Lookup brand
+    //
+    $brand = 5835;   // Hermes
+    foreach(['Chanel', 'Dior', 'RADO', 'Omega'] as $b) {
+	if (preg_match("/\b$b\b/i", $line)) {
+	    if (($p = getPage('h_brand', ['title'=>$b]))->id) {
+		say::notice("Detected brand ".$p->title);
+	    } else {
+		$p = createPage(['title' => $b],
+				[],
+				['template'  =>'h_brand',
+				 'hook'      =>'title'],
+				true); // SIC! writing to DB
+	    }
+	    $brand = $p->id;
+	}
+    }
+	
+
     //
     // Lookup Scarves
     //
@@ -105,14 +124,18 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
     if (!($p = getPage("h_artwork", ["title" => $carreTitle]))->id) {
         $p = createPage(['title' => $carreTitle,
                          'h_aw_day0' => ((int)$day0 ? $day0 : ''),
-                         'h_aw_brand'=> pages()->get(5835),       // Set "Hermes" as the brand
+                         'h_aw_brand'=> pages()->get($brand),
+			 'h_aw_day0' => $day0,
                          'h_aw_more' => $cmt,
+			 'h_aw_price'=> $price,
+			 'h_aw_size' => $size,
+			 'size'      => pages()->get("template=size, title~=$size"),
                          'h_aw_year' => $year],
                         [],
                         ['template'=>'h_artwork',
                          'hook'    =>'title']);
     }
-    foreach($authors as $a) setKeyValue($p,'h_aw_person',$a,dryRun);
+    foreach($authors as $a) setKeyValue($p,'h_aw_person',$a,saveToDB);
 }
 
 /**
@@ -123,7 +146,8 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
  * @param $args array
  * return page|nullPage
  */
-function createPage(Array $data=[], Array $skipFields=[], Array $args=[]){
+function createPage(Array $dataArg=[], Array $skipFields=[], Array $args=[], $saveToDB=saveToDB){
+    $data = []; foreach($dataArg as $k=>$v) if (!empty($v) || $v==0) $data[$k] = $v;
     b_debug::_dbg('$data='.joinX($data));
     if (empty($data['title'])) {
         b_debug::_dbg("FAIL empty(data[title])");
@@ -148,8 +172,9 @@ function createPage(Array $data=[], Array $skipFields=[], Array $args=[]){
             b_debug::_dbg("WARNING empty(data[$k]");
             continue;
         }
-        if (!in_array($k,$skipFields)) setKeyValue($page, $k, $v, dryRun);
+        if (!in_array($k,$skipFields)) setKeyValue($page, $k, $v, $saveToDB);
     }
-    if (!dryRun) $page->save();                         
+    echo tidy_dump($page);
+    if ($saveToDB) $page->save();                         
     return $page;
 }

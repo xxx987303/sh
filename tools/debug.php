@@ -77,6 +77,7 @@ function abortIt($text = 'Shit...', $extras=[]) {
  * Compact version of print_r, mostly for debuging 
  */
 function tidy_dump($object, $title = 'tidy_dump', $trim = false, $skip_empty = true) {
+    if (empty(@$GLOBALS['debug_messages'])) $GLOBALS['debug_messages'] = "";
     if ($title == 'return') { $return=true; $trim='do'; } else { $return = false; }
     if (!DEBUG && !input::get('show_tidy') && $trim !== 'do') { return ''; }
     if ($trim === 'do') { $trim = true; }
@@ -102,6 +103,7 @@ function tidy_dump($object, $title = 'tidy_dump', $trim = false, $skip_empty = t
     print_r($object);
     $output = ob_get_clean();
     $reply = preg_replace(array_keys($tt), array_values($tt), $output);
+    if(true) $reply = preg_replace('/.* => \n/', "", $reply);
     if ($title === 'get_object_name') {
         return "Object ".trim(str_replace(['ProcessWire','\\','Object'], '', $reply));
     }
@@ -443,6 +445,7 @@ class say
       /** Compare 2 values which might be in different formats */
         $eq = function ($value, $expect) {
             $t = function ($v) {
+		if (empty($v)) return false;
                 return !is_array($v) && preg_match("/^\d\d\d\d-\d\d-\d\d/", $v);
             };
             if ($t($value) && $t($expect)) {
@@ -480,12 +483,12 @@ class say
                       ? "" : (empty($p_key0)||empty($p_key0->id) ? $z : " SICK: $w=>$z")));
         $n = (empty($m3) ? 99 : 24);
         $m2 = (empty($now)||$eq($now, $reply)?"":"$now -> ").sprintf("%-".($n-1)."s", (empty($_=_formatData($reply, $n)) ? '""' : $_));
-        $line = sprintf("$id %-45s %s\n", $m1, $m2.$m3);
+        $line = trim(sprintf("$id %-45s %s", $m1, $m2.$m3))."\n";
         if (cnf_CLI) {
             if (empty($color)) {
                 fwrite(STDERR, $line);
             } else {
-                fwrite(STDERR, say::color(sprintf("$id %-45s %s\n", $m1, $m2.$m3), $color)."\n");
+                fwrite(STDERR, say::color(trim(sprintf("$id %-45s %s\n", $m1, $m2.$m3)), $color)."\n");
             }
         } else {
             b_debug::_dbg($line, 'm', null, 1);

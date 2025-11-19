@@ -2,7 +2,7 @@
 /*
  *
  */
-
+include_once __dir__.'/setKeyValue.php';
 /**
  * Frequently used constants
  */
@@ -147,9 +147,8 @@ function escape_uml($text, $direction='auto', $debug=false) {
 /**
  *
  */
-function setKeyValue(object $o, String $key_arg, $value, $dryRun = false) {
+function sKV(object $o, String $key_arg, $value, $dryRun = false) {
 
-    b_debug::_dbg($key_arg);
     if ($key_arg==='e_inst' && $value=='Home') { abortIt("!!!!!!!!!!!!!!!!!"); }
     if (empty($key_arg)) { abortIt("??? Empty key"); }
 
@@ -174,7 +173,7 @@ function setKeyValue(object $o, String $key_arg, $value, $dryRun = false) {
                          ? $key->name
                          : $key);
             if (!is_object($key)) {
-                say::notice("setKeyValue(): \"$key\" is not a field");
+                say::notice("sKV(): \"$key\" is not a field");
             }
         } else {
             if (is_object($key_arg)) {
@@ -190,7 +189,7 @@ function setKeyValue(object $o, String $key_arg, $value, $dryRun = false) {
 
     /**
      */
-    $setKeyValue_simple = function (object $o, string $key, $value, $dryRun) {
+    $sKV_simple = function (object $o, string $key, $value, $dryRun) {
         global $dejaVu_key;
         if ($value == '<unset>') {
             $value = 0;
@@ -260,7 +259,7 @@ function setKeyValue(object $o, String $key_arg, $value, $dryRun = false) {
         if ($key_name == 'tags') {
             list($now,$got) = $setTags($o, $key_name, $value, $dryRun);
         } else {
-            list($now,$got) = $setKeyValue_simple($o, $key, $value, $dryRun);
+            list($now,$got) = $sKV_simple($o, $key, $value, $dryRun);
         }
     } elseif ($o instanceof Role) {// ==========================================================================================================================
         list($key,$key_name) = $getKey($key_arg, $expectObject=false);
@@ -302,7 +301,7 @@ function setKeyValue(object $o, String $key_arg, $value, $dryRun = false) {
                 }
             }
         } else {
-            list($now,$got) = $setKeyValue_simple($o, $key, $value, $dryRun);
+            list($now,$got) = $sKV_simple($o, $key, $value, $dryRun);
         }
     } elseif ($o instanceof Page) {// ==========================================================================================================================
         list($key,$key_name) = $getKey($key_arg, $expectObject=true);
@@ -310,9 +309,9 @@ function setKeyValue(object $o, String $key_arg, $value, $dryRun = false) {
 
         if (!empty($o->av_current_er)&&count($o->av_current_er) && templates()->get('ea_emp_record')->fieldgroup->hasField($f=preg_replace("/^av_/", "er_", $key_name))) {
             // Employment record has precedence over person
-            return setKeyValue($o->av_current_er->first, $f, $value, $dryRun);
+            return sKV($o->av_current_er->first, $f, $value, $dryRun);
         } elseif ($key instanceof FieldtypeDatetime)               // FieldtypeDatetime ====================================================
-            list($now,$got) = $setKeyValue_simple(
+            list($now,$got) = $sKV_simple(
                 $o,
                 $key,
                 ($key->hasTag('date')
@@ -493,9 +492,7 @@ function setKeyValue(object $o, String $key_arg, $value, $dryRun = false) {
                 $o->$key = new SelectableOptionArray();
                 $o->$key->setField($f);
                 $o->$key->add($opt);
-                if (!$dryRun) $o->save();
-                if (!$dryRun) $o->$key->save();
-                $o->save();$o->$key->save();
+                if (!$dryRun) { $o->save(); $o->$key->save(); }
                 b_debug::_dbg("value=".$getValue($o->$key, $value));
                 echo tidy_dump($getValue($o->$key, $value));
                 //function load($p, $key, $data = '', $now = '', $reply = '', $p_key0 = '', $id = '>> Load') {}
@@ -516,7 +513,7 @@ function setKeyValue(object $o, String $key_arg, $value, $dryRun = false) {
             escape_uml(strip_tags($v_orig=$value))
         )));
         // if($value != $v_orig) say::notice("fix title: \"$v_orig\" ==> \"$value\"");
-        list($now,$got) = $setKeyValue_simple($o, $key, $value, $dryRun);
+        list($now,$got) = $sKV_simple($o, $key, $value, $dryRun);
     } else {
         echo tidy_dump($o, $msg="Unexpected argument key_name=\"".var_export($key_name, true)."\"");
         abortIt($msg);
