@@ -5,6 +5,21 @@
 require_once __dir__ . '/debug.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
+foreach([
+    //"template=h_artwork, h_aw_rarity=3",
+    "template=h_artwork, h_aw_rarity=R|1|2",
+    "template=h_artwork, h_aw_rarity%=R 1 2",
+    "template=h_artwork, h_aw_rarity~|=R 1 2",
+    //"template=h_artwork, h_aw_brand=hermes",
+    //"template=h_brand, title=Dior"
+    ] as $selector) {
+echo "----------------------- selector = $selector\n";
+    foreach($pages->find($selector) as $p) {
+//        echo tidy_dump($p);
+	printf("%s = '%s' %s\n", 'h_aw_rarity', $p->h_aw_rarity->title, $p->title); 
+    }
+}
+exit;
 $page = $pages->get("template=h_person");
 echo tidy_dump($page->h_av_duty);
 setKeyValue($page, 'h_av_duty', 'Artist', false);
