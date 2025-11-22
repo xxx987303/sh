@@ -54,9 +54,9 @@ year:2009
 Betalt: 2 450 kr
 Köpt: 2022-12-09
 https://www.kaplans.se/sv/auktioner/4171/vara/1895851
-SCARF,HERMÈS,Jeu De Cartes,Cassandre,,100% siden,90x90 cm
+SCARF,HERMÈS,Jeu De Cartes,Cassandre,Anne Marie,100% siden,90x90 cm
 Betalt: 2 090 kr
-year:2013/2024
+year:2018
 Köpt: 2022-12-09
 https://www.kaplans.se/sv/auktioner/4125/vara/1863693
 SCARF,HERMÈS,Modernisme Tropical,Jardim,Filipe,100% siden,90x90 cm

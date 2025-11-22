@@ -106,7 +106,7 @@
 2022-09-08."Modernisme Tropical.             Jardim,Filipe .                     2016
 2022-14."Circuit FSH 24".                       Emery,Benoît-Pierre.                 2018 . П Мини
 2022-15."Bolduc au carre".                    Latham,Caty.               2007/2020
-2022-12-08."Jeu De Cartes".                           Cassandre,.                           2018
+2022-12-08."Jeu De Cartes".                           Cassandre,Anne Marie.                           2018
 2023-01."Mountain Zebra".                    Shirley,Alice.                          2020 .ES
 2023-02."Panoplie Equestre".                Jamin,Virginie.              2018
 2023-03."L'art indien des plaines".       Koechlin,Sophie.    2001
@@ -134,14 +134,3 @@
 2025-10-09."The Savana Dance".             Ardmore Artists,.      2016 .G
 2025-11-06. A Vos Crayons. Cooke,Leigh. 2004
 2025-03-06. hidden title. hidden author,. hidden year....
-
-# 2025-11-06 SCARF, HERMÈS, A Vos Crayons, Leigh P. Cooke, 100% siden, 86x88 cm, beige, brun, gul, orange, fläckar, ask.
-# 2025-10-09 SCARF, HERMÈS, The Savana Dance, Ardmore Artists, 100% siden, 42x42 cm, flerfärgad, ask.
-# 2025-03-06 SCARF, HERMÈS, Flots; Fleurs et Frontaux, Virginie Jamin , 2015, 90x90 cm, mörklila, svart, blå, vit. 1 600 <- 1 500 kr
-# 2024-11-07 SCARF, HERMÈS, Brazil II, Laurence Bourthoumieux, 100% siden, 66x70 cm, lila, blå, vit, grå, ask. 1400kr
-# 2024-05-30 SCARF, HERMÈS, Bracelets De Lumiere, Annie Faivre, 100% siden, 90x90 cm, vinrött, grön, gult, rosa.
-# 2024-01-04 SCARF, HERMÈS, Tresors Du Nil, Joachim Metz, 100% siden, 88x88 cm, svart, gul, blå, grön, röd, fläck. 2 000 <- 1 900
-# 2023-04-06 SCARF, HERMÈS, Cheval de Caractere, Dimitri Rybaltchenko, 100 % siden, 90x90 cm, rosa, vit, ask. 2 000 <- 1 800
-# 2022-12-08 SCARF, HERMÈS, Voyage en Etoffes, 100 % siden, 90x90 cm, orange, brun, originalask. 2 000 <- 2 000
-# 2022-12-08 SCARF, HERMÈS Jeu De Cartes, Adolphe Jean-Marie Mouro dit Cassandre, 100 % siden, 90x90 cm, några fläckar, orginal ask.  1700 <- 1800
-# 2022-09-08 SCARF, HERMÈS, Modernisme Tropical, Filipe Jardim, 100% siden, 90x90 cm, vvit, blå, grön, originalask.

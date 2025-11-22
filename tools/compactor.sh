@@ -31,7 +31,7 @@ function countDots() {
 
 for parentDir in $(ls -1 $R); do
     cd $R/$parentDir 2>/dev/null || continue
-    [ $R = /Users/yb/github/sh.git/site/assets/files ] && {
+    [ $R = /Users/yb/github/sh.git/site/assets/filesX ] && {
 	if [[ -z "$dryRun" ]]; then
 	    [ $parentDir != 1 ] && [ $parentDir != 5980 ] && [ $parentDir != 5907 ] && \
 		[ $parentDir != 5830 ] && [ $parentDir != 5839 ] && [ $parentDir != 5840 ] && \
