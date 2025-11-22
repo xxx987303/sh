@@ -30,5 +30,5 @@ region('content+',
        (($p=pages('/spot/collections/'))
 	? renderObjectList($p->children(), 2, false, __($page->template->name.'_collections'))
 	: renderObjectList(pages('/spot/aptworks/')->children(), 2, false, __($page->template->name.'_artworks'))).
-       (($c=count($items_spots)) ? renderObjectList($items_spots, $c, false, __('More Collections')):""));
+       count($items_spots) ? renderObjectList($items_spots, 2, false, __('More Collections')):"");
 

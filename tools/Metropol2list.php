@@ -38,10 +38,8 @@ foreach(explode("\n",file_get_contents($K_list)) as $line) {
 		$price = (int)($price/3);
 		foreach($sizes as $k=>$size) {
 		    list($carreTitle,$cmt) = ($k==0
-			? ['Christian Dior', 'Dior']
-					    : ["Unknown Hermes$k", 'Hermes']);
-		    
-		    
+			? ['Dior', 'Dior']
+			: ["Unknown Hermes$k", 'Hermes']);
 		    $cmt = ($k==0) ? "Dior" : "Hermes";
 		    echo "$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$sizes[$k],$www\n";
 		}

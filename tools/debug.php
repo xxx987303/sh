@@ -845,7 +845,7 @@ class b_debug
                 if (count($a) < count($arg)) {
                     $a[''] = '...';
                 }
-                $arg = sprintf('&#91;%s&#93;', b_fmt::joinX(',', $a));
+                $arg = sprintf('&#91;%s&#93;', b_fmt::joinX($a));
             }
         } elseif (is_numeric($arg)) {
           // keep as is

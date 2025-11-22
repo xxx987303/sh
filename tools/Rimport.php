@@ -12,12 +12,6 @@ require_once "/Users/yb/Sites/sh/index.php";
 
 say::notice("saveToDB = ".var_export(saveToDB,true));
 
-function joinX(Array $a){
-    $r = "";
-    foreach($a as $k=>$v) $r .= "[$k]=>$v,";
-    return trim($r,',');
-}
-
 $desc = function(Page $p) {
     return escape_uml(sprintf("%s . %s . %s . %s\n",
                               $p->h_aw_brand->each("{title}"),

@@ -5,6 +5,31 @@
 require_once __dir__ . '/debug.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
+$page = $pages->get("template=h_person");
+echo tidy_dump($page->h_av_duty);
+setKeyValue($page, 'h_av_duty', 'Artist', false);
+setKeyValue($page, 'h_av_duty', 'Artist', false);
+setKeyValue($page, 'h_av_duty', 'Unnown', false);
+setKeyValue($page, 'h_av_duty', 'Owner', true);
+echo tidy_dump($page->h_av_duty);
+exit;
+/*
+// Find the option by title OR by value OR by id
+$option = $page->h_av_duty->getOptions()->get("title=Artist");
+echo tidy_dump($option);
+
+if(!$option) {
+    $field = $fields->get('h_av_duty');
+    $option = $field->addOption('Artist'); // creates new option
+    $field->save();
+}
+
+// Assign the option
+$page->h_av_duty = [$option->id]; // array of option IDs
+echo tidy_dump($p);
+
+exit;
+*/
 #$sizes = pages()->get("template=sizes");
 $p = pages()->get("template=h_artwork");
 echo tidy_dump($p); exit;
@@ -44,6 +69,7 @@ echo tidy_dump($p);exit;
 }
 
 /* ******************************************************************************************* */
+
 if (1) {
     //echo tidy_dump(pages()->get(6163));
     foreach (['size','sizes','country','countries'] as $item) {

@@ -11,7 +11,7 @@
 /** @var Page $page */
 
 // Debugging...
-$CdP = true;
+$CdP = false;
 
 ?><!DOCTYPE html>
 <html lang="<?=(empty($languages)?'en':_x('en', 'HTML language code'))?>">
@@ -93,39 +93,48 @@ $CdP = true;
 		  <!-- Main navigation -->
 <?php
 //echo "page=$page->title, spot_home=$spot_home->title, rootParent title=".$page->rootParent->title.", page parent=".$page->parent->title."<br>";
-$items = [];
+
 $root = false;
+$itemCount = 0;
+$items = [];
 foreach(($GLOBALS['SPOT_url']
-    ? $spot_home->and($spot_home->children)
+       ? $spot_home->and($spot_home->children)
        : $home->and($home->children)) as $item) {
     if (!$item->viewable()) continue;
-    //if (preg_match(";(countries|search)/;",$item->url) || empty($item->numChildren)) continue;
     if (preg_match(";(spot)/;",$item->url) && !$GLOBALS['SPOT_url'])  continue;
     //if ($page->title == $page->rootParent->title) {
+    // Detect the active tab
     if ($root) {
-        $class = '';
+	$class = '';
     } elseif ($page->id == $spot_home->id) {
         $class = 'uk-active';
-        //echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! root active $page->title == $spot_home->title <br>";
         $root = true;
     } elseif ($item->id == $page->id) {
         $class = 'uk-active';
         $root = true;
     } elseif ($item->id == $page->parent->id && $page->parent->id != $spot_home->id) {
-        //echo "??????????????????????????????  $item->title==".$page->parent->title."<br>";
         $class = 'uk-active';
     } else {
         $class = '';
     }
-    //echo "$item->title class=$class<br>";
-    $items[] = x("li class='menu-item $class'",x("a href='$item->url'",x("h3",$item->title)));
+    $line = x("li class='menu-item $class'", x("a href='$item->url'", x("h3",$item->title)));
+
+    // Impose the menu items order
+    ++$itemCount;
+    $position = (strpos($item->template, 'artworks') !== false
+	? 110
+	: (strpos($item->template, 'persons') !== false
+	    ? 120
+	 : (strpos($item->template, 'brands') !== false
+	     ? 130
+	     : 100 * $itemCount)));
+    $items[$position] = $line;
 }
-if ($CdP){
-    echo "<!--  CdP -->\n";
-    $items[]=x("li class='menu-item menu-item-type-post_type menu-item-object-page'",x("a href=https://carredeparis.me/",x("h3",'CdP')));
-    echo "<!--  CdP -->\n";
-}
-foreach ($items as $item) echo "$item\n";
+ksort($items);
+foreach($items as $k=>$v) echo $v;
+if($CdP)echo x("li class='menu-item menu-item-type-post_type menu-item-object-page'",
+	       x("a href=https://carredeparis.me/",
+		 x("h3",'CdP')));
 ?>
 	      </ul>
 	      <?php

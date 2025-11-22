@@ -5,5 +5,5 @@
 
 region('content',
        page()->body .
-       renderObjectList(page()->children, $cols=2,false)); // ,__('Sellers')));
+       renderObjectList(page()->children, $cols=3,false)); // ,__('Sellers')));
 

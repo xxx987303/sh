@@ -35,7 +35,6 @@
 2023-04-11,Cheval de Caractere,Rybaltchenko,Dimitri,2007/2009,,2450,90x90,https://www.kaplans.se/sv/auktioner/4230/vara/1920665
 2023-06,Chiens et Valets,Hallo,Charles-Jean,1965,
 2024-03,Chorus stellarium,Nomura,Daiske,2024,B
-2019-10-21,Christian Dior,,,,Dior,553,70x70,https://www.metropol.se/auctions/detail.asp?og={46637C34-4C76-4A35-A074-9E9819C36E87}
 2022-14,Circuit FSH 24,Emery,Benoît-Pierre,2018,П Мини
 2003-10-02,Clefs,Latham,Caty,1965/1980/2010,
 ,Clic-clac,Abadie,Julie,1979/1997/2011,
@@ -46,6 +45,7 @@
 ,Cuillers d'Afrique,Latham,Caty,1997,
 ,Cuivreries,de La Perrière,Françoise,1963,Scarf/vintage 2
 ,Cuivreries,de La Perrière,Françoise,1963,Variant
+2019-10-21,Dior,,,,Dior,553,70x70,https://www.metropol.se/auctions/detail.asp?og={46637C34-4C76-4A35-A074-9E9819C36E87}
 ,Do Re Boucles,Manlik,Florence,,Twilly
 2024-07-18,En Liberte,Brancowitz,Carine,2020,
 2024-07-22,En Liberte,Brancowitz,Carine,2020,,2450,88x88,https://www.kaplans.se/sv/auktioner/4405/vara/2008341
@@ -75,8 +75,8 @@
 ,Insectes,Grygkar&La Torre,Hugo&,1958,
 2021-07-22,Jardins des metamorphose,Houtin,Francois,,,1610,,https://www.kaplans.se/sv/auktioner/3923/vara/1761308
 ,Jardins des métamorphoses,Houtin,François,2010,
-2022-12-09,Jeu De Cartes,Cassandre,,2013/2024,,2090,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1895851
-2022-12-08,Jeu De Cartes,Cassandre,,2018,
+2022-12-08,Jeu De Cartes,Cassandre,Anne Marie,2018,
+2022-12-09,Jeu De Cartes,Cassandre,Anne Marie,2018,,2090,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1895851
 ,Jeu de Omnibus et DameBlanche,Pagni,Gianpaolo,2018,Remix
 ,L'Hiver,Ledoux,Philippe,1969(1968?),
 ,L'art des steppes,Faivre,Annie,1991/1997/2000,

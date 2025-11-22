@@ -1,6 +1,7 @@
 <?php namespace ProcessWire;
+
 /**
- *
+ * Set field values in CLI mode
  */
 function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
 
@@ -21,8 +22,8 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
    */
     $getKey = function ($key_arg, $expectObject = true) {
         if ($expectObject) {
-            $key      = (is_object($key_arg) ? $key_arg : (is_object($f=fields()->get($key_arg)) ? $f : $key_arg));
-            $key_name = (is_object($key) ? $key->name : $key);
+            $key      = (is_object($key_arg) ? $key_arg  : (is_object($f=fields()->get($key_arg)) ? $f : $key_arg));
+            $key_name = (is_object($key)     ? $key->name : $key);
             if (!is_object($key)) say::notice("setKeyValue(): \"$key\" is not an object as expected");
         } else {
             if (is_object($key_arg)) {
@@ -290,9 +291,9 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
                 if ($hasImage($o, $fn, true)) {
                         say::ok($o, $key_name, $fn);
                 } else {
-                        //echo "$fn does not exist\n"; return;
-                        $o->of(false);
-                        $o->images->add($image_path);
+                    //echo "$fn does not exist\n"; return;
+                    $o->of(false);
+                    $o->images->add($image_path);
                     if ($saveToDB !== false) $o->save();
                     say::load($o, $key_name, $fn, $now="", $got=($hasImage($o, $fn, false) ? $fn : ""), $o->$key_name);
                 }
@@ -309,29 +310,44 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
                 say::hl(sprintf(">> Hook %s.parent(%s) = %s", $o->name, $o->parent->id, ($got=$o->parent->name)), 'g');
             }
         } elseif ($o->$key instanceof SelectableOptionArray) {  // Options =======================================================================
+	    /**
+	     * Sets only 1 option, not goot if there several options...
+	     */
             if (is_object($value)) {
-                abortIt("unexpected object "._formatData($value));
-            }
-            $f=fields()->get($key);
-            $Manager = new SelectableOptionManager();
-            if ($opt = $Manager->getOptions($f, ['value'=>$value])->last) {
-                $got = $now = getValue($f, $o);
-                if ($o->$key->hasValue($value)) {
-                    say::ok($o, $key, $value);
-                } else {
-                    $o->$key = new SelectableOptionArray();
-                    $o->$key->setField($f);
-                    $o->$key->add($opt);
-                    if ($saveToDB !== false) {
-                        $o->save();
-                        $o->$key->save();
+		abortIt("unexpected object "._formatData($value));
+	    //}elseif (($p=$o->$key->hasTitle($value)) || ($p=$o->$key->hasValue($value))) {
+	    //}elseif (($p=$o->$key->getByTitle($value)) && $p->value>0) {
+	    } elseif ($o->$key->title == $value) {
+                say::ok($o, $key, $value);
+	    } else {
+		$f=fields()->get($key);
+		// Check that the value is legal
+		foreach(wire('modules')->get('FieldtypeOptions')->getOptions($f) as $opt) {
+		    if($opt->title === $value) { $optOK = $opt; break; }
+		}
+		if (!isset($optOK) || !$optOK->id) {
+                    say::error(sprintf("%s(%s,$key,$value) Option can't be set", __function__, "Unexpected option \"$value\""));
+		    return;
+		}
+		$now = $got = $o->$key->title;
+		
+		$Manager = new SelectableOptionManager();
+		foreach ($Manager->getOptions($f, ['title'=>$value]) as $option) {
+                    if ($o->$key->hasTitle($value) || $o->$key->hasValue($value)) {
+			say::ok($o, $key, $value);
+                    } else {
+			$o->$key = new SelectableOptionArray();
+			$o->$key->setField($f);
+			$o->$key->add($option);
+			if ($saveToDB !== false) { $o->save(); $o->$key->save(); }
+			say::load($o, $key, $value, $now, ($got = $o->$key->title), $o->$key);
                     }
-                      say::load($o, $key, $value, $now, ($got = getValue($f, $o)), $o->$key);
-                }
-            } else {
-                say::error  (sprintf("%s(%s,$key,$value) Option can't be set", __function__, $o->name));
-                say::notice (sprintf("%s(%s,$key,$value) Option can't be set", __function__, $o->name));
-            }
+		}
+		if (empty($option)){
+                    say::error  (sprintf("%s(%s,$key,$value) Option can't be set", __function__, $o->name));
+                    say::notice (sprintf("%s(%s,$key,$value) Option can't be set", __function__, $o->name));
+		}
+	    }
         } elseif ($key == 'tags') {                          // Tags ========================================================================
             list($now,$got) = $setTags($o, $key, $value, $saveToDB);
         } else {                                           // ===========================================================================

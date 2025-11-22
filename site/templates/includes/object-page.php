@@ -57,14 +57,17 @@ function o_p_images($c, $page, $pages, $width){
  */
 function o_p_tr_line($label,$items){
     if (!empty($items)) {
-        if ($items instanceof PageArray && count($items))
+        if ($items instanceof PageArray && count($items)){
             echo x("tr",x("th",$label).x("td",x("ul class='uk-list uk-margin-remove'",$items->each("<li><a href='{url}'>{title}</a></li>"))));
-        elseif(!$items->id) {
+        } elseif (!$items->id) {
             foreach($items as $i) {
-                if (is_array($i)) echo $i['comment'].x("tr",x("th",$i['label']).
-                                                       x("td",
-                                                         x("a href='$i[url]'",$i['value'])));
-            }
+		if (is_array($i)) echo $i['comment'].		    
+				       x("tr",
+					 x("th", $i['label']).
+					 x("td", (strpos($i['value'], 'a href=') === false			     
+					     ? x("a href='$i[url]'",$i['value'])
+				             : $i['value'])));
+	    }
         }
     }
 }

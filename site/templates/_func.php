@@ -9,10 +9,10 @@
  */
 
 /**
- * Returns an array of valid artwork sort properties
+ * Returns an array of valid artwork sort propertie
  *
- * The keys for the array are normally the field names
- * The values for the array are the printable labels
+ * The keys for the array are normally the field name
+ * The values for the array are the printable label
  *
  * @return array
  *
@@ -48,8 +48,8 @@ function getValidSorts($context='artwork') {
   return (empty($reply) ? array() : $reply);
 }
 
-/*
- * Brackets
+/**
+ * Bracket
  */
 function x($tag, $text=''){
   if     ($text === Null) return 'Null';
@@ -60,10 +60,10 @@ function x($tag, $text=''){
   $tag_clean = preg_replace('/ .*/','',$tag);
   if ($tag_clean === 'x') return $text;
 
-  // Usual brackets
+  // Usual bracket
   if(in_array($tag_clean,array('input','img'))) return "<$tag $text />\n";
 
-  // Usual brackets
+  // Usual bracket
   switch($tag_clean){
   case '"':  if (!isset($reply))  $reply = '"'.str_replace('"',"'",$text).'"'; return $reply;
   case "'":  if (!isset($reply))  $reply = "'".str_replace("'",'"',$text)."'"; return $reply;
@@ -95,7 +95,7 @@ function findObjects($selector,$template_name='artwork',$limit=20) {
 
   $validSorts = getValidSorts($template_name);
 
-  // check if there is a valid 'sort' var in the GET variables
+  // check if there is a valid 'sort' var in the GET variable
   $sort = sanitizer('name', input()->get('sort'));
 
   // if no valid sort, then use 'title' as a default
@@ -104,7 +104,7 @@ function findObjects($selector,$template_name='artwork',$limit=20) {
   // whitelist the sort value so that it is retained in pagination
   if($sort != 'name') input()->whitelist('sort', $sort);
 
-  // expand on the provided selector to limit it to $limit sorted objects
+  // expand on the provided selector to limit it to $limit sorted object
   $selector = (empty($template_name)?"":"template=$template_name, ")."limit=$limit, " . trim($selector, ", ");
 
   // check if there are any keyword searches in the selector by looking for the presence of ~= operator.
@@ -112,7 +112,7 @@ function findObjects($selector,$template_name='artwork',$limit=20) {
   // relevance when no sort specified.
   if(strpos($selector, "~=") === false) $selector .= ", sort=$sort";
 
-  // now call upon ProcessWire to find the objects for us
+  // now call upon ProcessWire to find the objects for u
   return pages($selector);
 }
 
@@ -124,38 +124,36 @@ function findObjects($selector,$template_name='artwork',$limit=20) {
  */
 function renderObjectListSort($template_name='artwork') {
 
-	// query string that will be used to retain other GET variables in searches
-	input()->whitelist->remove('sort');
-	$queryString = input()->whitelist->queryString();
-	if($queryString) $queryString = sanitizer('entities', "&$queryString");
-
-	// get the 'sort' property, if it's present
-	$sort = input()->get('sort');
-	$validSorts = getValidSorts($template_name);
-
-	// validate the 'sort' pulled from input
-	if(!$sort || !isset($validSorts[$sort])) $sort = 'name';
-
-	$options = array();
-	$selectedLabel = '';
-
-	// generate options
-	foreach($validSorts as $key => $label) {
-		if($key === $sort) $selectedLabel = $label;
-		$options["./?sort=$key$queryString"] = $label;
-	}
-
-	// render output
-	$out = files()->render('./includes/ul-list-sort.php',
-			       array('options' => $options,
-				     'selectedLabel' => $selectedLabel
-				     ));
-	
-	return $out;
+    // query string that will be used to retain other GET variables in searche
+    input()->whitelist->remove('sort');
+    $queryString = input()->whitelist->queryString();
+    if($queryString) $queryString = sanitizer('entities', "&$queryString");
+    
+    // get the 'sort' property, if it's present
+    $sort = input()->get('sort');
+    $validSorts = getValidSorts($template_name);
+    
+    // validate the 'sort' pulled from input
+    if(!$sort || !isset($validSorts[$sort])) $sort = 'name';
+    
+    $options = array();
+    $selectedLabel = '';
+    
+    // generate option
+    foreach($validSorts as $key => $label) {
+	if($key === $sort) $selectedLabel = $label;
+	$options["./?sort=$key$queryString"] = $label;
+    }
+    
+    // render output
+    $out = files()->render('./includes/ul-list-sort.php',
+			   ['options' => $options,
+			    'selectedLabel' => $selectedLabel]);
+    return $out;
 }
 
 /**
- * Render a list of pages
+ * Render a list of page
  *
  * @param PageArray $pages Objects to render
  * @param string $cols Number of columns OR (if not numeric) context
@@ -165,7 +163,7 @@ function renderObjectListSort($template_name='artwork') {
  *
  */
 function renderImageList(PageArray $pages, $cols=1, $showPagination=true, $headline='') {
-  return renderObjectList($pages,$cols,$showPagination,$headline,'_image');
+    return renderObjectList($pages,$cols,$showPagination,$headline,'_image');
 }
 function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $headline='', $key='') {
   global $config;
@@ -185,7 +183,7 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
 
   if($showPagination && $pages->count()) {
     $headline = $pages->getPaginationString('Objects'); // i.e. Objects 1-10 of 500
-    $pagination = renderPagination($pages); // pagination links
+    $pagination = renderPagination($pages); // pagination link
     $sortSelect = renderObjectListSort($pages->first->template->name);
   }
 
@@ -274,39 +272,39 @@ function renderObjectListItem(Page $page, $context='ul', $key=''){
 /**
  * ProcessWire pagination nav for UIkit
  *
- * @param PageArray $items
+ * @param PageArray $item
  * @return string
  *
  */
 function renderPagination(PageArray $items) {
 
-        if(!$items->getLimit() || $items->getTotal() <= $items->getLimit()) return '';
-        $page = page();
-        if(!$page->template->allowPageNum) {
-                return "Pagination is not enabled for this template";
-        }
-
-        // customize the MarkupPagerNav to output in Foundation-style pagination links
-        $options = array(
-                'numPageLinks' => 5,
-                'nextItemLabel' => '<i class="uk-icon-angle-double-right"></i>',
-                'nextItemClass' => '',
-                'previousItemLabel' => '<span><i class="uk-icon-angle-double-left"></i></span>',
-                'previousItemClass' => '',
-                'lastItemClass' => '',
-                'currentItemClass' => 'uk-active',
-                'separatorItemLabel' => '<span>&hellip;</span>',
-                'separatorItemClass' => 'uk-disabled',
-                'listMarkup' => "<ul class='uk-pagination uk-text-left'>{out}</ul>",
-                'itemMarkup' => "<li class='{class}'>{out}</li>",
-                'linkMarkup' => "<a href='{url}'>{out}</a>",
-                'currentLinkMarkup' => "<span>{out}</span>"
-        );
-
-        $pager = modules('MarkupPagerNav');
-        $pager->setBaseUrl($page->url);
-
-        return $pager->render($items, $options);
+    if(!$items->getLimit() || $items->getTotal() <= $items->getLimit()) return '';
+    $page = page();
+    if(!$page->template->allowPageNum) {
+        return "Pagination is not enabled for this template";
+    }
+    
+    // customize the MarkupPagerNav to output in Foundation-style pagination link
+    $options = array(
+        'numPageLinks' => 5,
+        'nextItemLabel' => '<i class="uk-icon-angle-double-right"></i>',
+        'nextItemClass' => '',
+        'previousItemLabel' => '<span><i class="uk-icon-angle-double-left"></i></span>',
+        'previousItemClass' => '',
+        'lastItemClass' => '',
+        'currentItemClass' => 'uk-active',
+        'separatorItemLabel' => '<span>&hellip;</span>',
+        'separatorItemClass' => 'uk-disabled',
+        'listMarkup' => "<ul class='uk-pagination uk-text-left'>{out}</ul>",
+        'itemMarkup' => "<li class='{class}'>{out}</li>",
+        'linkMarkup' => "<a href='{url}'>{out}</a>",
+        'currentLinkMarkup' => "<span>{out}</span>"
+    );
+    
+    $pager = modules('MarkupPagerNav');
+    $pager->setBaseUrl($page->url);
+    
+    return $pager->render($items, $options);
 }
 
 /**
@@ -445,3 +443,118 @@ function getTaggedFields($page,$context='page'){
   }
   return $reply;
 }
+
+/**
+ * Get the variable type
+ * Returns string, like "int", "string", "object|Template", etc
+ */
+function getType($o, $id=null) {
+    ob_start();
+    var_dump($o);
+    $result =str_replace(['(',')'], ['|',''],
+                         preg_replace(["/ProcessWire./",
+                                       "/(#| ).*/",
+                                       "/\([0-9]*\)/"],
+                                      '',
+                                      ($header=explode("\n",ob_get_clean())[0])));
+    if (!empty($id)) $result = "getType($id) =  $result";
+    return $result;
+}
+
+/**
+ * Return value or title of the page field
+ * ER data (if available) has presedence over "person"
+ *
+ * @param $f_name string
+ * @param $page  page
+ * @param $returnValue bool (default "true")
+ * @return string
+ */
+function getValue(string $f_name, $page_arg, bool $returnValue = true, bool $silent = true) {
+
+    if ( $page_arg instanceof BasicClass) { $page_arg = $page_arg->page(); }
+    if (!$page_arg instanceof Page)       { return null; }
+    if (in_array($f_name,['id','title'])) { return $page_arg->$f_name; }
+    if (function_exists('config_getFieldAttrs')) {
+	if (($access=config_getFieldAttrs($f_name, 'access')) == 'admin' && !ORG_admin_here ||
+	    ($access == 'auth') && !bAuth::authenticated()) {
+            return null;
+	}
+    }
+
+    if (in_array($f_name, ['url','name','parent'])) {
+        $field = $f_name; // 'name' and others are built-in field
+    } else {
+        $field = ($f_name instanceof Field ? $f_name : fields()->get($f_name));
+        if (!$field instanceof Field) { $reply = []; }
+    }
+
+    if (!isset($reply) || $page_arg->template == 'person') {
+	if (empty($reply)) { $reply = []; }
+        switch ($page_arg->template) {
+            case 'person':
+                if (!empty($page_arg->av_current_er)) {
+            // Implement precedense of "ER" over "person"
+                    foreach ($page_arg->av_current_er as $er) {
+                        foreach ([preg_replace('/^av_/', 'er_', $f_name), $f_name] as $fn) {
+                            if (!empty($f=fields()->get($fn)) && $er->hasField($f)) {
+                                      $pages[] = [$er, $f];
+                                      break;
+                            }
+                        }
+                    }
+                }
+                break;
+            case 'ea_emp_record':
+                // There are 2 position fields in the page: er_position & er_org_position
+                if (strpos($f_name, '_position') && !empty($page_arg->er_type) && count($page_arg->er_type)) {
+                    $field = fields()->get(strpos(@$page_arg->er_type->last->value, '_org') ? 'er_org_position' : 'er_position');
+                }
+                $pages = [[$page_arg, $field]];
+                break;
+        }
+
+        $reply = [];
+        if (empty($pages)) {
+            $pages = (is_object($field) ? [[$page_arg, $field]] : []);
+        }
+        foreach ($pages as list($page,$field)) {
+            if ($field->name != $f_name) {
+                $fname_changed = 1;
+            }
+            if ($field->name != $f_name && ($page_arg->template == 'person')) {
+                $reply[] = getValue($field->name, $page, $returnValue);
+            } elseif (!empty($page) && !empty($page->$field)) {
+                if ($page->$field instanceof WireArray && count($page->$field)) {
+		    $each = ($returnValue ? 'value' : 'title');
+                    $reply = array_merge($reply, $page->$field->each("{$each}"));
+                } elseif ($field->type == 'FieldtypeYaml') {
+		    return $page->$field;
+		} elseif ($field->type == 'FieldtypeDatetime') {
+                    // Convert "Y" to "Y-01-01 12:00:00"
+                    if (($date=$page->$field) > 1900 && $date < 2100) { $date = b_time::noon($date, 1, 1); }
+                    $reply[] = ($returnValue ? $date : date("Y-m-d", $date));
+                } elseif ($field->hasTag('date')) {
+                    $reply[] = b_time::datetime2date($page->$field);
+                } elseif ($sf=$field->searchFields) {
+                    $reply[] = $page->$field->$sf;
+                } else {
+                    $reply[] = $page->$field;
+                }
+            }
+        }
+        $reply = array_unique($reply);
+        sort($reply);
+    }
+
+    if (!defined('VALUES_SEPARATOR')) define('VALUES_SEPARATOR','/');
+    if (!$silent && !(DEBUG<2 && empty($reply))) {
+        if (DEBUG>1 || @$fname_changed || count($reply)>1) {
+            if (DEBUG>1) {
+                b_debug::_dbg(var_export(join(VALUES_SEPARATOR, $reply), true) . (is_object($field) && @$fname_changed ? " (".@$field->name.")" : ""), 'y');
+            }
+        }
+    }
+    return join(VALUES_SEPARATOR, $reply);
+}
+

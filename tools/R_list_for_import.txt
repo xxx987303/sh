@@ -29,7 +29,7 @@
 2022-09,Peinture fraiche,Rybaltchenko,Dimitri,2012,
 2022-10,Confidents des coeur,Dubigeon,Loic,2000,G
 2022-11,1821 Hommage a L'Amite,Abadie,Julie,1993,EL
-2022-12-08,Jeu De Cartes,Cassandre,,2018,
+2022-12-08,Jeu De Cartes,Cassandre,Anne Marie,2018,
 2022-12,Ferronnerie,Latham,Caty,1970,G
 2022-14,Circuit FSH 24,Emery,Benoît-Pierre,2018,П Мини
 2022-15,Bolduc au carre,Latham,Caty,2007/2020,

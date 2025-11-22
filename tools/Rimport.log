@@ -1,0 +1,1782 @@
+[34mNOTICE: saveToDB = false(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Abadie, h_av_firstname~=Julie(B[m
+
+=======================
+2022-11    1821 Hommage a L'Amite         Julie Abadie              1993            'EL'        !!!!!!!! Julie Abadie
+[31mcreatePage(): $data=[title]=>Julie Abadie,[h_av_firstname]=>Julie,[h_av_lastname]=>Abadie,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Julie Abadie(B[m
+>>>  OK 313-julia-abadie.title                        Julie Abadie
+>>>  OK 313-julia-abadie.h_av_firstname               Julie
+>>>  OK 313-julia-abadie.h_av_lastname                Abadie
+>>>  OK 313-julia-abadie.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=1821 Hommage a L'Amite(B[m
+>>>  OK 1821-hommage-a-lamite.h_aw_person             313-julia-abadie
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=de Poret, h_av_firstname~=Xavier(B[m
+
+=======================
+2023-09    A Propos de Bottes             Xavier de Poret           2008            'G'         !!!!!!!! Xavier de Poret
+[31mcreatePage(): $data=[title]=>Xavier de Poret,[h_av_firstname]=>Xavier,[h_av_lastname]=>de Poret,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Xavier de Poret(B[m
+>>>  OK 318-xavier-de-poret.title                     Xavier de Poret
+>>>  OK 318-xavier-de-poret.h_av_firstname            Xavier
+>>>  OK 318-xavier-de-poret.h_av_lastname             de Poret
+>>>  OK 318-xavier-de-poret.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=A Propos de Bottes(B[m
+>>>  OK a-propos-de-bottes.h_aw_person                318-xavier-de-poret
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Cooke, h_av_firstname~=Leigh(B[m
+
+=======================
+2025-11-06 A Vos Crayons                  Leigh Cooke               2004                        !!!!!!!! Leigh Cooke
+[31mcreatePage(): $data=[title]=>Leigh Cooke,[h_av_firstname]=>Leigh,[h_av_lastname]=>Cooke,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Leigh Cooke(B[m
+>>>  OK leigh-cooke.title                             Leigh Cooke
+>>>  OK leigh-cooke.h_av_firstname                    Leigh
+>>>  OK leigh-cooke.h_av_lastname                     Cooke
+>>>  OK leigh-cooke.h_av_duty                         Artist
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Crayons(B[m
+[31mcreatePage(): $data=[title]=>A Vos Crayons,[h_aw_day0]=>2025-11-06,[h_aw_brand]=>5835,[h_aw_year]=>2004(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=A Vos Crayons(B[m
+>> Load a-vos-crayons.title                           A Vos Crayons
+>> Load a-vos-crayons.h_aw_day0                       2025-11-06
+[1m[32m>> Hook a-vos-crayons.h_aw_brand                      Object LanguagesPageFieldValue(B[m
+[34mNOTICE: Trying to set/assign NullPage, skip(B[m
+>> Load a-vos-crayons.h_aw_year                       2004
+[1m[32m>> Hook a-vos-crayons.h_aw_person                     Object LanguagesPageFieldValue(B[m
+
+=======================
+2025-11-08 A Vos Crayons                  Leigh Cooke               2004                        !!!!!!!! Leigh Cooke
+>>>  OK leigh-cooke.title                             Leigh Cooke
+>>>  OK leigh-cooke.h_av_firstname                    Leigh
+>>>  OK leigh-cooke.h_av_lastname                     Cooke
+>>>  OK leigh-cooke.h_av_duty                         Artist
+[31mcreatePage(): $data=[title]=>A Vos Crayons,[h_aw_day0]=>2025-11-08,[h_aw_brand]=>5835,[h_aw_price]=>2690,[h_aw_size]=>86x88,[h_aw_year]=>2004(B[m
+>> Load a-vos-crayons.title                           A Vos Crayons
+>> Load a-vos-crayons.h_aw_day0                       2025-11-08
+[1m[32m>> Hook a-vos-crayons.h_aw_brand                      Object LanguagesPageFieldValue(B[m
+[34mNOTICE: setKeyValue(): "h_aw_price" is not an object as expected(B[m
+>> Load a-vos-crayons.h_aw_price                      2690
+>> Load a-vos-crayons.h_aw_size                       86x88
+>> Load a-vos-crayons.h_aw_year                       2004
+[1m[32m>> Hook a-vos-crayons.h_aw_person                     Object LanguagesPageFieldValue(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Dallet, h_av_firstname~=Robert(B[m
+
+=======================
+2018-09-11 Afrika                         Robert Dallet             1997                        !!!!!!!! Robert Dallet
+[31mcreatePage(): $data=[title]=>Robert Dallet,[h_av_firstname]=>Robert,[h_av_lastname]=>Dallet,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Robert Dallet(B[m
+>>>  OK robert-dallet.title                           Robert Dallet
+>>>  OK robert-dallet.h_av_firstname                  Robert
+>>>  OK robert-dallet.h_av_lastname                   Dallet
+>>>  OK robert-dallet.h_av_duty                       Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Afrika(B[m
+>>>  OK afrika.h_aw_person                            robert-dallet
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Faivre, h_av_firstname~=Annie(B[m
+
+=======================
+2021-09-11 Alliances du Monde             Annie Faivre              2004                        !!!!!!!! Annie Faivre
+[31mcreatePage(): $data=[title]=>Annie Faivre,[h_av_firstname]=>Annie,[h_av_lastname]=>Faivre,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Annie Faivre(B[m
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Alliances du Monde(B[m
+>>>  OK alliances-du-monde.h_aw_person                329-annie-faivre
+
+=======================
+           Alliances du monde             Annie Faivre              2005                        !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Alliances du monde(B[m
+>>>  OK alliances-du-monde.h_aw_person                329-annie-faivre
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Grygkar, h_av_firstname~=Hugo(B[m
+
+=======================
+           Armes de Paris                 Hugo Grygkar              1954/1992       'П Юры'  !!!!!!!! Hugo Grygkar
+[31mcreatePage(): $data=[title]=>Hugo Grygkar,[h_av_firstname]=>Hugo,[h_av_lastname]=>Grygkar,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Hugo Grygkar(B[m
+>>>  OK 199-hugo-grygkar.title                        Hugo Grygkar
+>>>  OK 199-hugo-grygkar.h_av_firstname               Hugo
+>>>  OK 199-hugo-grygkar.h_av_lastname                Grygkar
+>>>  OK 199-hugo-grygkar.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Armes de Paris(B[m
+>>>  OK armes-de-paris.h_aw_person                    199-hugo-grygkar
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Ledoux, h_av_firstname~=Philippe(B[m
+
+=======================
+           Armes de chasse                Philippe Ledoux           1970/1981                   !!!!!!!! Philippe Ledoux
+[31mcreatePage(): $data=[title]=>Philippe Ledoux,[h_av_firstname]=>Philippe,[h_av_lastname]=>Ledoux,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Philippe Ledoux(B[m
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Armes de chasse(B[m
+>>>  OK armes-de-chasse.h_aw_person                   224-philippe-ledoux
+
+=======================
+2021-05-04 Art des steppes                Annie Faivre                                          !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Art des steppes(B[m
+>>>  OK lart-des-steppes.h_aw_person                  329-annie-faivre
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Faconnet, h_av_firstname~=Marie-Françoise(B[m
+
+=======================
+           Astrologie nouvelle            Marie-Françoise&Cyrille Faconnet&Diatkine 2012            'ES'        !!!!!!!! Marie-Françoise Faconnet
+[31mcreatePage(): $data=[title]=>Marie-Françoise Faconnet,[h_av_firstname]=>Marie-Françoise,[h_av_lastname]=>Faconnet,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Marie-Françoise Faconnet(B[m
+>>>  OK marie-francoise-faconn.title                  Marie-Françoise Faconnet
+>>>  OK marie-francoise-faconn.h_av_firstname         Marie-Françoise
+>>>  OK marie-francoise-faconn.h_av_lastname          Faconnet
+>>>  OK marie-francoise-faconn.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Diatkine, h_av_firstname~=Cyrille(B[m
+
+=======================
+           Astrologie nouvelle            Marie-Françoise&Cyrille Faconnet&Diatkine 2012            'ES'        !!!!!!!! Cyrille Diatkine
+[31mcreatePage(): $data=[title]=>Cyrille Diatkine,[h_av_firstname]=>Cyrille,[h_av_lastname]=>Diatkine,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Cyrille Diatkine(B[m
+>>>  OK 309-cyrille-diatkine.title                    Cyrille Diatkine
+>>>  OK 309-cyrille-diatkine.h_av_firstname           Cyrille
+>>>  OK 309-cyrille-diatkine.h_av_lastname            Diatkine
+>>>  OK 309-cyrille-diatkine.h_av_duty                Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Astrologie nouvelle(B[m
+>>>  OK astrologie-nouvelle.h_aw_person               marie-francoise-faconnet
+>>>  OK astrologie-nouvelle.h_aw_person               309-cyrille-diatkine
+
+=======================
+2004-03    Avenue des acacias             Philippe Ledoux           1964                        !!!!!!!! Philippe Ledoux
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Avenue des acacias(B[m
+>>>  OK avenue-des-acacias.h_aw_person                224-philippe-ledoux
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Baschet, h_av_firstname~=Catherine(B[m
+
+=======================
+           Azuejos                        Catherine Baschet         1992                        !!!!!!!! Catherine Baschet
+[31mcreatePage(): $data=[title]=>Catherine Baschet,[h_av_firstname]=>Catherine,[h_av_lastname]=>Baschet,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Catherine Baschet(B[m
+>>>  OK 322-catherine-baschet.title                   Catherine Baschet
+>>>  OK 322-catherine-baschet.h_av_firstname          Catherine
+>>>  OK 322-catherine-baschet.h_av_lastname           Baschet
+>>>  OK 322-catherine-baschet.h_av_duty               Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Azuejos(B[m
+>>>  OK azuejos.h_aw_person                           322-catherine-baschet
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Latham, h_av_firstname~=Caty(B[m
+
+=======================
+2022-15    Bolduc au carre                Caty Latham               2007/2020                   !!!!!!!! Caty Latham
+[31mcreatePage(): $data=[title]=>Caty Latham,[h_av_firstname]=>Caty,[h_av_lastname]=>Latham,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Caty Latham(B[m
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Bolduc au carre(B[m
+>>>  OK bolduc-au-carre.h_aw_person                   168-cathy-latham-audibert
+
+=======================
+2024-06-01 Bracelets De Lumiere           Annie Faivre              2018                        !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Bracelets Lumiere(B[m
+[31mcreatePage(): $data=[title]=>Bracelets De Lumiere,[h_aw_day0]=>2024-06-01,[h_aw_brand]=>5835,[h_aw_price]=>1970,[h_aw_size]=>90x90,[size]=>6164,[h_aw_year]=>2018(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Bracelets De Lumiere(B[m
+>> Load bracelets-de-lumiere.title                    Bracelets De Lumiere
+>> Load bracelets-de-lumiere.h_aw_day0                2024-06-01
+[1m[32m>> Hook bracelets-de-lumiere.h_aw_brand               Object LanguagesPageFieldValue(B[m
+>> Load bracelets-de-lumiere.h_aw_price               1970
+>> Load bracelets-de-lumiere.h_aw_size                90x90
+[1m[32m>> Hook bracelets-de-lumiere.size                     Object LanguagesPageFieldValue(B[m
+>> Load bracelets-de-lumiere.h_aw_year                2018
+[1m[32m>> Hook bracelets-de-lumiere.h_aw_person              Object LanguagesPageFieldValue(B[m
+
+=======================
+2024-06-01 Braselets de Lumiere           Annie Faivre              2018                        !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Braselets de Lumiere(B[m
+>>>  OK braselets-de-lumiere.h_aw_person              329-annie-faivre
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Bourthoumieux, h_av_firstname~=Laurence(B[m
+
+=======================
+2024-11-07 Brazil II                      Laurence Bourthoumieux    2015                        !!!!!!!! Laurence Bourthoumieux
+[31mcreatePage(): $data=[title]=>Laurence Bourthoumieux,[h_av_firstname]=>Laurence,[h_av_lastname]=>Bourthoumieux,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Laurence Bourthoumieux(B[m
+>>>  OK 323-laurence-bourthoum.title                  Laurence Bourthoumieux
+>>>  OK 323-laurence-bourthoum.h_av_firstname         Laurence
+>>>  OK 323-laurence-bourthoum.h_av_lastname          Bourthoumieux
+>>>  OK 323-laurence-bourthoum.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Brazil II(B[m
+>>>  OK brazil-ii.h_aw_person                         323-laurence-bourthoumieux
+
+=======================
+2024-11-09 Brazil II                      Laurence Bourthoumieux    2015                        !!!!!!!! Laurence Bourthoumieux
+>>>  OK 323-laurence-bourthoum.title                  Laurence Bourthoumieux
+>>>  OK 323-laurence-bourthoum.h_av_firstname         Laurence
+>>>  OK 323-laurence-bourthoum.h_av_lastname          Bourthoumieux
+>>>  OK 323-laurence-bourthoum.h_av_duty              Artist
+>>>  OK brazil-ii.h_aw_person                         323-laurence-bourthoumieux
+
+=======================
+2008-03-06 Brazil                         Laurence Bourthoumieux    1988/1991       '2'         !!!!!!!! Laurence Bourthoumieux
+>>>  OK 323-laurence-bourthoum.title                  Laurence Bourthoumieux
+>>>  OK 323-laurence-bourthoum.h_av_firstname         Laurence
+>>>  OK 323-laurence-bourthoum.h_av_lastname          Bourthoumieux
+>>>  OK 323-laurence-bourthoum.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Brazil(B[m
+>>>  OK brazil.h_aw_person                            323-laurence-bourthoumieux
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=de La Perrière, h_av_firstname~=Françoise(B[m
+
+=======================
+           Bride de cour                  Françoise de La Perrière 1970/1987                   !!!!!!!! Françoise de La Perrière
+[31mcreatePage(): $data=[title]=>Françoise de La Perrière,[h_av_firstname]=>Françoise,[h_av_lastname]=>de La Perrière,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Françoise de La Perrière(B[m
+>>>  OK 282-franoise-de-la-per.title                  Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_firstname         Françoise
+>>>  OK 282-franoise-de-la-per.h_av_lastname          de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Bride de cour(B[m
+>>>  OK bride-de-cour.h_aw_person                     282-franoise-de-la-perrire
+
+=======================
+           Brides de Gala                 Hugo Grygkar              1957/1967/2009              !!!!!!!! Hugo Grygkar
+>>>  OK 199-hugo-grygkar.title                        Hugo Grygkar
+>>>  OK 199-hugo-grygkar.h_av_firstname               Hugo
+>>>  OK 199-hugo-grygkar.h_av_lastname                Grygkar
+>>>  OK 199-hugo-grygkar.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Brides de Gala(B[m
+>>>  OK 284-brides-de-gala.h_aw_person                199-hugo-grygkar
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Metz, h_av_firstname~=Joachim(B[m
+
+=======================
+2010-02-02 Carpe Diem                     Joachim Metz              1994                        !!!!!!!! Joachim Metz
+[31mcreatePage(): $data=[title]=>Joachim Metz,[h_av_firstname]=>Joachim,[h_av_lastname]=>Metz,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Joachim Metz(B[m
+>>>  OK 316-joachim-metz.title                        Joachim Metz
+>>>  OK 316-joachim-metz.h_av_firstname               Joachim
+>>>  OK 316-joachim-metz.h_av_lastname                Metz
+>>>  OK 316-joachim-metz.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Carpe Diem(B[m
+>>>  OK carpe-diem.h_aw_person                        316-joachim-metz
+
+=======================
+2025-01-07 Casques et Plumets             Julie Abadie                                          !!!!!!!! Julie Abadie
+>>>  OK 313-julia-abadie.title                        Julie Abadie
+>>>  OK 313-julia-abadie.h_av_firstname               Julie
+>>>  OK 313-julia-abadie.h_av_lastname                Abadie
+>>>  OK 313-julia-abadie.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Casques et Plumets(B[m
+>>>  OK casques-et-plumets.h_aw_person                313-julia-abadie
+
+=======================
+2025-01-07 Casques et Plumets             Julie Abadie              1989                        !!!!!!!! Julie Abadie
+>>>  OK 313-julia-abadie.title                        Julie Abadie
+>>>  OK 313-julia-abadie.h_av_firstname               Julie
+>>>  OK 313-julia-abadie.h_av_lastname                Abadie
+>>>  OK 313-julia-abadie.h_av_duty                    Artist
+>>>  OK casques-et-plumets.h_aw_person                313-julia-abadie
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=de Jacquelot, h_av_firstname~=Antoine(B[m
+
+=======================
+           Casse-noisette                 Antoine de Jacquelot      1997                        !!!!!!!! Antoine de Jacquelot
+[31mcreatePage(): $data=[title]=>Antoine de Jacquelot,[h_av_firstname]=>Antoine,[h_av_lastname]=>de Jacquelot,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Antoine de Jacquelot(B[m
+>>>  OK 324-antoine-de-jacquel.title                  Antoine de Jacquelot
+>>>  OK 324-antoine-de-jacquel.h_av_firstname         Antoine
+>>>  OK 324-antoine-de-jacquel.h_av_lastname          de Jacquelot
+>>>  OK 324-antoine-de-jacquel.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Casse-noisette(B[m
+>>>  OK casse-noisette.h_aw_person                    324-antoine-de-jacquelot
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=d'Origny, h_av_firstname~=Henri(B[m
+
+=======================
+           Cavalcadour                    Henri d'Origny            1982/1992/2012  '2'         !!!!!!!! Henri d'Origny
+[31mcreatePage(): $data=[title]=>Henri d'Origny,[h_av_firstname]=>Henri,[h_av_lastname]=>d'Origny,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title="Henri d'Origny"(B[m
+>>>  OK 314-henri-dorigny.title                       Henri d'Origny
+>>>  OK 314-henri-dorigny.h_av_firstname              Henri
+>>>  OK 314-henri-dorigny.h_av_lastname               d'Origny
+>>>  OK 314-henri-dorigny.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cavalcadour(B[m
+>>>  OK cavalcadur.h_aw_person                        314-henri-dorigny
+
+=======================
+           Cavalcadour                    Henri d'Origny            1982/1992/2012  'МaxTwilly'  !!!!!!!! Henri d'Origny
+>>>  OK 314-henri-dorigny.title                       Henri d'Origny
+>>>  OK 314-henri-dorigny.h_av_firstname              Henri
+>>>  OK 314-henri-dorigny.h_av_lastname               d'Origny
+>>>  OK 314-henri-dorigny.h_av_duty                   Artist
+>>>  OK cavalcadur.h_aw_person                        314-henri-dorigny
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Fougerolle, h_av_firstname~=Jean(B[m
+
+=======================
+2009-11-09 Cavaliers peuls                Jean Fougerolle           1993                        !!!!!!!! Jean de Fougerolle
+[31mcreatePage(): $data=[title]=>Jean Fougerolle,[h_av_firstname]=>Jean,[h_av_lastname]=>Fougerolle,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Jean Fougerolle(B[m
+>>>  OK jean-fougerolle.title                         Jean Fougerolle
+>>>  OK jean-fougerolle.h_av_firstname                Jean
+>>>  OK jean-fougerolle.h_av_lastname                 Fougerolle
+>>>  OK jean-fougerolle.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cavaliers peuls(B[m
+[1m[32m>> Hook cavaliers-peuls.h_aw_person                   Object LanguagesPageFieldValue(B[m
+
+=======================
+           Charreada                      Jean Fougerolle           1993                        !!!!!!!! Jean de Fougerolle
+>>>  OK jean-fougerolle.title                         Jean Fougerolle
+>>>  OK jean-fougerolle.h_av_firstname                Jean
+>>>  OK jean-fougerolle.h_av_lastname                 Fougerolle
+>>>  OK jean-fougerolle.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Charreada(B[m
+[1m[32m>> Hook charreada.h_aw_person                         Object LanguagesPageFieldValue(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Vauzelles, h_av_firstname~=Christiane(B[m
+
+=======================
+2003-05-04 Cheval Turc                    Christiane Vauzelles      2003            'П М+A'   !!!!!!!! Christiane Vauzelles
+[31mcreatePage(): $data=[title]=>Christiane Vauzelles,[h_av_firstname]=>Christiane,[h_av_lastname]=>Vauzelles,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Christiane Vauzelles(B[m
+>>>  OK 167-christiane-vauzell.title                  Christiane Vauzelles
+>>>  OK 167-christiane-vauzell.h_av_firstname         Christiane
+>>>  OK 167-christiane-vauzell.h_av_lastname          Vauzelles
+>>>  OK 167-christiane-vauzell.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cheval Turc(B[m
+>>>  OK 169-cheval-turc.h_aw_person                   167-christiane-vauzelles
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Rybaltchenko, h_av_firstname~=Dimitri(B[m
+
+=======================
+2023-04-06 Cheval de Caractere            Dimitri Rybaltchenko      2007                        !!!!!!!! Dimitri Rybaltchenko
+[31mcreatePage(): $data=[title]=>Dimitri Rybaltchenko,[h_av_firstname]=>Dimitri,[h_av_lastname]=>Rybaltchenko,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Dimitri Rybaltchenko(B[m
+>>>  OK 186-dimitri-rybaltchen.title                  Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_firstname         Dimitri
+>>>  OK 186-dimitri-rybaltchen.h_av_lastname          Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cheval de Caractere(B[m
+>>>  OK cheval-de-caractaire.h_aw_person              186-dimitri-rybaltchenko
+
+=======================
+2023-04-11 Cheval de Caractere            Dimitri Rybaltchenko      2007/2009                   !!!!!!!! Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.title                  Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_firstname         Dimitri
+>>>  OK 186-dimitri-rybaltchen.h_av_lastname          Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_duty              Artist
+>>>  OK cheval-de-caractaire.h_aw_person              186-dimitri-rybaltchenko
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Hallo, h_av_firstname~=Charles-Jean(B[m
+
+=======================
+2023-06    Chiens et Valets               Charles-Jean Hallo        1965                        !!!!!!!! Charles-Jean Hallo
+[31mcreatePage(): $data=[title]=>Charles-Jean Hallo,[h_av_firstname]=>Charles-Jean,[h_av_lastname]=>Hallo,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Charles-Jean Hallo(B[m
+>>>  OK charles-jean-hallo.title                      Charles-Jean Hallo
+>>>  OK charles-jean-hallo.h_av_firstname             Charles-Jean
+>>>  OK charles-jean-hallo.h_av_lastname              Hallo
+>>>  OK charles-jean-hallo.h_av_duty                  Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Chiens et Valets(B[m
+>>>  OK chiens-et-valets.h_aw_person                  charles-jean-hallo
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Nomura, h_av_firstname~=Daiske(B[m
+
+=======================
+2024-03    Chorus stellarium              Daiske Nomura             2024            'B'         !!!!!!!! Daiske Nomura
+[31mcreatePage(): $data=[title]=>Daiske Nomura,[h_av_firstname]=>Daiske,[h_av_lastname]=>Nomura,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Daiske Nomura(B[m
+>>>  OK daiske-nomura-4.title                         Daiske Nomura
+>>>  OK daiske-nomura-4.h_av_firstname                Daiske
+>>>  OK daiske-nomura-4.h_av_lastname                 Nomura
+>>>  OK daiske-nomura-4.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Chorus stellarium(B[m
+>>>  OK chorus-stellarium.h_aw_person                 daiske-nomura-4
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Emery, h_av_firstname~=Benoît-Pierre(B[m
+
+=======================
+2022-14    Circuit FSH 24                 Benoît-Pierre Emery      2018            'П Мини'  !!!!!!!! Benoît-Pierre Emery
+[31mcreatePage(): $data=[title]=>Benoît-Pierre Emery,[h_av_firstname]=>Benoît-Pierre,[h_av_lastname]=>Emery,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Benoît-Pierre Emery(B[m
+>>>  OK 320-benot-pierre-emery.title                  Benoît-Pierre Emery
+>>>  OK 320-benot-pierre-emery.h_av_firstname         Benoît-Pierre
+>>>  OK 320-benot-pierre-emery.h_av_lastname          Emery
+>>>  OK 320-benot-pierre-emery.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Circuit FSH 24(B[m
+>>>  OK circuit-fsh-24.h_aw_person                    320-benot-pierre-emery
+
+=======================
+2003-10-02 Clefs                          Caty Latham               1965/1980/2010              !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Clefs(B[m
+>>>  OK clefs.h_aw_person                             168-cathy-latham-audibert
+
+=======================
+           Clic-clac                      Julie Abadie              1979/1997/2011              !!!!!!!! Julie Abadie
+>>>  OK 313-julia-abadie.title                        Julie Abadie
+>>>  OK 313-julia-abadie.h_av_firstname               Julie
+>>>  OK 313-julia-abadie.h_av_lastname                Abadie
+>>>  OK 313-julia-abadie.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Clic-clac(B[m
+>>>  OK clic-clac.h_aw_person                         313-julia-abadie
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Jamin, h_av_firstname~=Virginie(B[m
+
+=======================
+           Collies de chiens              Virginie Jamin                            'Twilly'    !!!!!!!! Virginie Jamin
+[31mcreatePage(): $data=[title]=>Virginie Jamin,[h_av_firstname]=>Virginie,[h_av_lastname]=>Jamin,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Virginie Jamin(B[m
+>>>  OK virginie-jamin.title                          Virginie Jamin
+>>>  OK virginie-jamin.h_av_firstname                 Virginie
+>>>  OK virginie-jamin.h_av_lastname                  Jamin
+>>>  OK virginie-jamin.h_av_duty                      Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Collies de chiens(B[m
+>>>  OK collies-de-chiens.h_aw_person                 virginie-jamin
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Dubigeon, h_av_firstname~=Loic(B[m
+
+=======================
+2022-10    Confidents des coeur           Loic Dubigeon             2000            'G'         !!!!!!!! Loic Dubigeon
+[31mcreatePage(): $data=[title]=>Loic Dubigeon,[h_av_firstname]=>Loic,[h_av_lastname]=>Dubigeon,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Loic Dubigeon(B[m
+>>>  OK 226-loc-dubigeon.title                        Loic Dubigeon
+>>>  OK 226-loc-dubigeon.h_av_firstname               Loic
+>>>  OK 226-loc-dubigeon.h_av_lastname                Dubigeon
+>>>  OK 226-loc-dubigeon.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Confidents des coeur(B[m
+>>>  OK confidents-des-coeur.h_aw_person              226-loc-dubigeon
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=La Torre(B[m
+
+=======================
+           Coqs                            La Torre                 1964                        !!!!!!!! Gabriella La Torre
+[31mcreatePage(): $data=[title]=>La Torre,[h_av_lastname]=>La Torre,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=La Torre(B[m
+>>>  OK la-torre-1.title                              La Torre
+>>>  OK la-torre-1.h_av_lastname                      La Torre
+>>>  OK la-torre-1.h_av_duty                          Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Coqs(B[m
+[1m[32m>> Hook coqs.h_aw_person                              Object LanguagesPageFieldValue(B[m
+
+=======================
+           Couvee d'Hermès               Caty Latham               1994                        !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Couvee d'Hermès(B[m
+>>>  OK couvee-d-hermes.h_aw_person                   168-cathy-latham-audibert
+
+=======================
+           Cuillers d'Afrique             Caty Latham               1997                        !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cuillers d'Afrique(B[m
+>>>  OK cuillers-d-afrique.h_aw_person                168-cathy-latham-audibert
+
+=======================
+           Cuivreries                     Françoise de La Perrière 1963            'Scarf/vintage 2'  !!!!!!!! Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.title                  Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_firstname         Françoise
+>>>  OK 282-franoise-de-la-per.h_av_lastname          de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Cuivreries(B[m
+>>>  OK cuivreries-variant.h_aw_person                282-franoise-de-la-perrire
+
+=======================
+           Cuivreries                     Françoise de La Perrière 1963            'Variant'   !!!!!!!! Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.title                  Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_firstname         Françoise
+>>>  OK 282-franoise-de-la-per.h_av_lastname          de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_duty              Artist
+>>>  OK cuivreries-variant.h_aw_person                282-franoise-de-la-perrire
+[31mgetPage(): FAIL 1 - template=h_person(B[m
+
+=======================
+2019-10-21 Dior                                                                     'Dior'      ???????? AUTHOR PAGE
+[31mcreatePage(): $data=[h_av_duty]=>Artist(B[m
+[31mcreatePage(): FAIL empty(data[title])(B[m
+[31mgetPage(): OK 1 - template=h_brand, title~=Dior(B[m
+[34mNOTICE: Detected brand Dior(B[m
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Dior(B[m
+[31mcreatePage(): $data=[title]=>Dior,[h_aw_day0]=>2019-10-21,[h_aw_brand]=>5841,[h_aw_more]=>Dior,[h_aw_price]=>553,[h_aw_size]=>70x70(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Dior(B[m
+>> Load dior.title                                    Dior
+>> Load dior.h_aw_day0                                2019-10-21
+[1m[32m>> Hook dior.h_aw_brand                               Object LanguagesPageFieldValue(B[m
+>> Load dior.h_aw_more                                Dior
+>> Load dior.h_aw_price                               553
+>> Load dior.h_aw_size                                70x70
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Manlik, h_av_firstname~=Florence(B[m
+
+=======================
+           Do Re Boucles                  Florence Manlik                           'Twilly'    !!!!!!!! Florence Manlik
+[31mcreatePage(): $data=[title]=>Florence Manlik,[h_av_firstname]=>Florence,[h_av_lastname]=>Manlik,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Florence Manlik(B[m
+>>>  OK florence-manlik.title                         Florence Manlik
+>>>  OK florence-manlik.h_av_firstname                Florence
+>>>  OK florence-manlik.h_av_lastname                 Manlik
+>>>  OK florence-manlik.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Do Re Boucles(B[m
+>>>  OK do-re-boucles.h_aw_person                     florence-manlik
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Brancowitz, h_av_firstname~=Carine(B[m
+
+=======================
+2024-07-18 En Liberte                     Carine Brancowitz         2020                        !!!!!!!! Carine Brancowitz
+[31mcreatePage(): $data=[title]=>Carine Brancowitz,[h_av_firstname]=>Carine,[h_av_lastname]=>Brancowitz,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Carine Brancowitz(B[m
+>>>  OK carine-brancowitz.title                       Carine Brancowitz
+>>>  OK carine-brancowitz.h_av_firstname              Carine
+>>>  OK carine-brancowitz.h_av_lastname               Brancowitz
+>>>  OK carine-brancowitz.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=En Liberte(B[m
+>>>  OK en-liberte.h_aw_person                        carine-brancowitz
+
+=======================
+2024-07-22 En Liberte                     Carine Brancowitz         2020                        !!!!!!!! Carine Brancowitz
+>>>  OK carine-brancowitz.title                       Carine Brancowitz
+>>>  OK carine-brancowitz.h_av_firstname              Carine
+>>>  OK carine-brancowitz.h_av_lastname               Brancowitz
+>>>  OK carine-brancowitz.h_av_duty                   Artist
+>>>  OK en-liberte.h_aw_person                        carine-brancowitz
+
+=======================
+           Eperon d'or                    Henri d'Origny            1974/1989       '2+(1)'     !!!!!!!! Henri d'Origny
+>>>  OK 314-henri-dorigny.title                       Henri d'Origny
+>>>  OK 314-henri-dorigny.h_av_firstname              Henri
+>>>  OK 314-henri-dorigny.h_av_lastname               d'Origny
+>>>  OK 314-henri-dorigny.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Eperon d'or(B[m
+>>>  OK eperon-d-or.h_aw_person                       314-henri-dorigny
+
+=======================
+2017-05-15 Equitation japonaise           Françoise de La Perrière 1969                        !!!!!!!! Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.title                  Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_firstname         Françoise
+>>>  OK 282-franoise-de-la-per.h_av_lastname          de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Equitation japonaise(B[m
+>>>  OK equitation-japonaise.h_aw_person              282-franoise-de-la-perrire
+
+=======================
+2012-09-28 Etriers                        Françoise de La Perrière 1964/1990                   !!!!!!!! Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.title                  Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_firstname         Françoise
+>>>  OK 282-franoise-de-la-per.h_av_lastname          de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Etriers(B[m
+>>>  OK etriers.h_aw_person                           282-franoise-de-la-perrire
+
+=======================
+           Etude pour une parure          Florence Manlik           2017                        !!!!!!!! Florence Manlik
+>>>  OK florence-manlik.title                         Florence Manlik
+>>>  OK florence-manlik.h_av_firstname                Florence
+>>>  OK florence-manlik.h_av_lastname                 Manlik
+>>>  OK florence-manlik.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Etude pour une parure(B[m
+>>>  OK etude-pour-une-parure.h_aw_person             florence-manlik
+
+=======================
+           Ex-libris                      Hugo Grygkar              1946/1998       'G EL'      !!!!!!!! Hugo Grygkar
+>>>  OK 199-hugo-grygkar.title                        Hugo Grygkar
+>>>  OK 199-hugo-grygkar.h_av_firstname               Hugo
+>>>  OK 199-hugo-grygkar.h_av_lastname                Grygkar
+>>>  OK 199-hugo-grygkar.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Ex-libris(B[m
+>>>  OK ex-libris-gavroche.h_aw_person                199-hugo-grygkar
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Jarlegant, h_av_firstname~=Dominik(B[m
+
+=======================
+2022-06    Face au large                  Dominik Jarlegant         2000                        !!!!!!!! Dominik Jarlegant
+[31mcreatePage(): $data=[title]=>Dominik Jarlegant,[h_av_firstname]=>Dominik,[h_av_lastname]=>Jarlegant,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Dominik Jarlegant(B[m
+>>>  OK dominik-jarlegant.title                       Dominik Jarlegant
+>>>  OK dominik-jarlegant.h_av_firstname              Dominik
+>>>  OK dominik-jarlegant.h_av_lastname               Jarlegant
+>>>  OK dominik-jarlegant.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Face au large(B[m
+>>>  OK face-au-large.h_aw_person                     dominik-jarlegant
+
+=======================
+           Farandole                      Caty Latham               1977/1990/2006              !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Farandole(B[m
+>>>  OK farandole.h_aw_person                         168-cathy-latham-audibert
+
+=======================
+2022-12    Ferronnerie                    Caty Latham               1970            'G'         !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Ferronnerie(B[m
+>>>  OK ferronnerie.h_aw_person                       168-cathy-latham-audibert
+
+=======================
+           Festival des amazones          Henri d'Origny            2013/2014                   !!!!!!!! Henri d'Origny
+>>>  OK 314-henri-dorigny.title                       Henri d'Origny
+>>>  OK 314-henri-dorigny.h_av_firstname              Henri
+>>>  OK 314-henri-dorigny.h_av_lastname               d'Origny
+>>>  OK 314-henri-dorigny.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Festival des amazones(B[m
+>>>  OK festival-des-amazones.h_aw_person             314-henri-dorigny
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Duchêne, h_av_firstname~=Michèle(B[m
+
+=======================
+2023-10    Feux d'Artifice                Michèle Duchêne         1987            'ES'        !!!!!!!! Michèle Duchêne
+[31mcreatePage(): $data=[title]=>Michèle Duchêne,[h_av_firstname]=>Michèle,[h_av_lastname]=>Duchêne,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Michèle Duchêne(B[m
+>>>  OK 301-michel-duchne.title                       Michèle Duchêne
+>>>  OK 301-michel-duchne.h_av_firstname              Michèle
+>>>  OK 301-michel-duchne.h_av_lastname               Duchêne
+>>>  OK 301-michel-duchne.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Feux d'Artifice(B[m
+>>>  OK feux-dartifice.h_aw_person                    301-michel-duchne
+
+=======================
+2023-05-01 Fleurs et Carlines                                                       'Hermes'    ???????? AUTHOR PAGE
+[31mgetPage(): OK 1 - template=h_artwork, title~=Fleurs et Carlines(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Rybaltchenko, h_av_firstname~=Vladimir(B[m
+
+=======================
+2023-05    Fleurs et Carlines             Vladimir Rybaltchenko     1985            'П Юры'  !!!!!!!! Vladimir Rybaltchenko
+[31mcreatePage(): $data=[title]=>Vladimir Rybaltchenko,[h_av_firstname]=>Vladimir,[h_av_lastname]=>Rybaltchenko,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Vladimir Rybaltchenko(B[m
+>>>  OK 188-vladimir-rybaltche.title                  Vladimir Rybaltchenko
+>>>  OK 188-vladimir-rybaltche.h_av_firstname         Vladimir
+>>>  OK 188-vladimir-rybaltche.h_av_lastname          Rybaltchenko
+>>>  OK 188-vladimir-rybaltche.h_av_duty              Artist
+>>>  OK fleurs-et-carlines.h_aw_person                188-vladimir-rybaltchenko
+
+=======================
+2025-03-07 Flots Fleurs et Frontaux       Annie Faivre              2004                        !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Flots Fleurs et Frontaux(B[m
+[1m[32m>> Hook flot-fleurs-et-frontau.h_aw_person            Object LanguagesPageFieldValue(B[m
+
+=======================
+2025-02    Flots Fleurs et Frontaux       Virginie Jamin            2017                        !!!!!!!! Virginie Jamin
+>>>  OK virginie-jamin.title                          Virginie Jamin
+>>>  OK virginie-jamin.h_av_firstname                 Virginie
+>>>  OK virginie-jamin.h_av_lastname                  Jamin
+>>>  OK virginie-jamin.h_av_duty                      Artist
+>>>  OK flot-fleurs-et-frontau.h_aw_person            virginie-jamin
+
+=======================
+           Geometrie Cretoise             Julie Abadie              2012                        !!!!!!!! Julie Abadie
+>>>  OK 313-julia-abadie.title                        Julie Abadie
+>>>  OK 313-julia-abadie.h_av_firstname               Julie
+>>>  OK 313-julia-abadie.h_av_lastname                Abadie
+>>>  OK 313-julia-abadie.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Geometrie Cretoise(B[m
+>>>  OK geometrie-cretoise.h_aw_person                313-julia-abadie
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=de Linares, h_av_firstname~=Henri(B[m
+
+=======================
+           Gibiers                        Henri de Linares          1966/1991/1997              !!!!!!!! Henri de Linares
+[31mcreatePage(): $data=[title]=>Henri de Linares,[h_av_firstname]=>Henri,[h_av_lastname]=>de Linares,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Henri de Linares(B[m
+>>>  OK 315-henri-de-linars.title                     Henri de Linares
+>>>  OK 315-henri-de-linars.h_av_firstname            Henri
+>>>  OK 315-henri-de-linars.h_av_lastname             de Linares
+>>>  OK 315-henri-de-linars.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Gibiers(B[m
+>>>  OK gibiers.h_aw_person                           315-henri-de-linars
+
+=======================
+           Grand Cortège a Moscou        Michèle Duchêne         1992                        !!!!!!!! Michèle Duchêne
+>>>  OK 301-michel-duchne.title                       Michèle Duchêne
+>>>  OK 301-michel-duchne.h_av_firstname              Michèle
+>>>  OK 301-michel-duchne.h_av_lastname               Duchêne
+>>>  OK 301-michel-duchne.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Grand Cortège a Moscou(B[m
+>>>  OK 298-grand-cortge-a-mos.h_aw_person            301-michel-duchne
+
+=======================
+2008-03-12 Grand manege                   Henri d'Origny            1990/1993       '2'         !!!!!!!! Henri d'Origny
+>>>  OK 314-henri-dorigny.title                       Henri d'Origny
+>>>  OK 314-henri-dorigny.h_av_firstname              Henri
+>>>  OK 314-henri-dorigny.h_av_lastname               d'Origny
+>>>  OK 314-henri-dorigny.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Grand manege(B[m
+>>>  OK grand-manege.h_aw_person                      314-henri-dorigny
+
+=======================
+           Grand tenue                    Henri d'Origny            1985/1998                   !!!!!!!! Henri d'Origny
+>>>  OK 314-henri-dorigny.title                       Henri d'Origny
+>>>  OK 314-henri-dorigny.h_av_firstname              Henri
+>>>  OK 314-henri-dorigny.h_av_lastname               d'Origny
+>>>  OK 314-henri-dorigny.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Grand tenue(B[m
+>>>  OK grand-tenue.h_aw_person                       314-henri-dorigny
+
+=======================
+           Grande venerie royale          Charles-Jean Hallo        1957                        !!!!!!!! Charles-Jean Hallo
+>>>  OK charles-jean-hallo.title                      Charles-Jean Hallo
+>>>  OK charles-jean-hallo.h_av_firstname             Charles-Jean
+>>>  OK charles-jean-hallo.h_av_lastname              Hallo
+>>>  OK charles-jean-hallo.h_av_duty                  Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Grande venerie royale(B[m
+>>>  OK grande-venerie-royale.h_aw_person             charles-jean-hallo
+
+=======================
+           Hermès-sellier                Benoît-Pierre Emery      2009/2012       'G'         !!!!!!!! Benoît-Pierre Emery
+>>>  OK 320-benot-pierre-emery.title                  Benoît-Pierre Emery
+>>>  OK 320-benot-pierre-emery.h_av_firstname         Benoît-Pierre
+>>>  OK 320-benot-pierre-emery.h_av_lastname          Emery
+>>>  OK 320-benot-pierre-emery.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Hermès-sellier(B[m
+>>>  OK hermes-sellier.h_aw_person                    320-benot-pierre-emery
+
+=======================
+           India                          Caty Latham               1986                        !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=India(B[m
+>>>  OK india.h_aw_person                             168-cathy-latham-audibert
+
+=======================
+2021-08-20 India                          Caty Latham               2008                        !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+>>>  OK india.h_aw_person                             168-cathy-latham-audibert
+
+=======================
+           Insectes                       Hugo& Grygkar&La Torre    1958                        !!!!!!!! Hugo Grygkar
+>>>  OK 199-hugo-grygkar.title                        Hugo Grygkar
+>>>  OK 199-hugo-grygkar.h_av_firstname               Hugo
+>>>  OK 199-hugo-grygkar.h_av_lastname                Grygkar
+>>>  OK 199-hugo-grygkar.h_av_duty                    Artist
+
+=======================
+           Insectes                       Hugo& Grygkar&La Torre    1958                        !!!!!!!! Gabriella La Torre
+>>>  OK la-torre-1.title                              La Torre
+>>>  OK la-torre-1.h_av_lastname                      La Torre
+>>>  OK la-torre-1.h_av_duty                          Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Insectes(B[m
+>>>  OK insectes.h_aw_person                          199-hugo-grygkar
+[1m[32m>> Hook insectes.h_aw_person                          Object LanguagesPageFieldValue(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Houtin, h_av_firstname~=Francois(B[m
+
+=======================
+2021-07-22 Jardins des metamorphose       Francois Houtin                                       !!!!!!!! François Houtin
+[31mcreatePage(): $data=[title]=>Francois Houtin,[h_av_firstname]=>Francois,[h_av_lastname]=>Houtin,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Francois Houtin(B[m
+>> Load francois-houtin.title                         François Houtin -> Francois Houtin
+>> Load francois-houtin.h_av_firstname                François -> Francois
+>>>  OK francois-houtin.h_av_lastname                 Houtin
+>>>  OK francois-houtin.h_av_duty                     Artist
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Jardins metamorphose(B[m
+[31mcreatePage(): $data=[title]=>Jardins des metamorphose,[h_aw_day0]=>2021-07-22,[h_aw_brand]=>5835,[h_aw_price]=>1610(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Jardins des metamorphose(B[m
+>> Load jardins-des-metamorpho.title                  Jardins des metamorphose
+>> Load jardins-des-metamorpho.h_aw_day0              2021-07-22
+[1m[32m>> Hook jardins-des-metamorpho.h_aw_brand             Object LanguagesPageFieldValue(B[m
+>> Load jardins-des-metamorpho.h_aw_price             1610
+[1m[32m>> Hook jardins-des-metamorpho.h_aw_person            Object LanguagesPageFieldValue(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Houtin, h_av_firstname~=François(B[m
+
+=======================
+           Jardins des métamorphoses     François Houtin          2010                        !!!!!!!! Francois Houtin
+[31mcreatePage(): $data=[title]=>François Houtin,[h_av_firstname]=>François,[h_av_lastname]=>Houtin,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=François Houtin(B[m
+>> Load francois-houtin.title                         Francois Houtin -> François Houtin
+>> Load francois-houtin.h_av_firstname                Francois -> François
+>>>  OK francois-houtin.h_av_lastname                 Houtin
+>>>  OK francois-houtin.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Jardins des métamorphoses(B[m
+>>>  OK jardins-des-metamorpho.h_aw_person            francois-houtin
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Cassandre, h_av_firstname~=Anne Marie(B[m
+
+=======================
+2022-12-08 Jeu De Cartes                  Anne Marie Cassandre      2018                        !!!!!!!! Anne Marie Cassandre
+[31mcreatePage(): $data=[title]=>Anne Marie Cassandre,[h_av_firstname]=>Anne Marie,[h_av_lastname]=>Cassandre,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Anne Marie Cassandre(B[m
+>>>  OK anne-marie-cassandre.title                    Anne Marie Cassandre
+>>>  OK anne-marie-cassandre.h_av_firstname           Anne Marie
+>>>  OK anne-marie-cassandre.h_av_lastname            Cassandre
+>>>  OK anne-marie-cassandre.h_av_duty                Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Jeu De Cartes(B[m
+>>>  OK jeu-de-cartes.h_aw_person                     anne-marie-cassandre
+
+=======================
+2022-12-09 Jeu De Cartes                  Anne Marie Cassandre      2018                        !!!!!!!! Anne Marie Cassandre
+>>>  OK anne-marie-cassandre.title                    Anne Marie Cassandre
+>>>  OK anne-marie-cassandre.h_av_firstname           Anne Marie
+>>>  OK anne-marie-cassandre.h_av_lastname            Cassandre
+>>>  OK anne-marie-cassandre.h_av_duty                Artist
+>>>  OK jeu-de-cartes.h_aw_person                     anne-marie-cassandre
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Pagni, h_av_firstname~=Gianpaolo(B[m
+
+=======================
+           Jeu de Omnibus et DameBlanche  Gianpaolo Pagni           2018            'Remix'     !!!!!!!! Gianpaolo Pagni
+[31mcreatePage(): $data=[title]=>Gianpaolo Pagni,[h_av_firstname]=>Gianpaolo,[h_av_lastname]=>Pagni,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Gianpaolo Pagni(B[m
+>>>  OK gianpaolo-pagni.title                         Gianpaolo Pagni
+>>>  OK gianpaolo-pagni.h_av_firstname                Gianpaolo
+>>>  OK gianpaolo-pagni.h_av_lastname                 Pagni
+>>>  OK gianpaolo-pagni.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Jeu de Omnibus et DameBlanche(B[m
+>>>  OK 202-jeu-de-omnibus-et-.h_aw_person            gianpaolo-pagni
+
+=======================
+           L'Hiver                        Philippe Ledoux           1969(1968?)                 !!!!!!!! Philippe Ledoux
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=L'Hiver(B[m
+>>>  OK lhiver.h_aw_person                            224-philippe-ledoux
+
+=======================
+           L'art des steppes              Annie Faivre              1991/1997/2000              !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=L'art des steppes(B[m
+>>>  OK lart-des-steppes.h_aw_person                  329-annie-faivre
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Koechlin, h_av_firstname~=Sophie(B[m
+
+=======================
+2023-03    L'art indien des plaines       Sophie Koechlin           2001                        !!!!!!!! Sophie Koechlin
+[31mcreatePage(): $data=[title]=>Sophie Koechlin,[h_av_firstname]=>Sophie,[h_av_lastname]=>Koechlin,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Sophie Koechlin(B[m
+>>>  OK sophie-koechlin.title                         Sophie Koechlin
+>>>  OK sophie-koechlin.h_av_firstname                Sophie
+>>>  OK sophie-koechlin.h_av_lastname                 Koechlin
+>>>  OK sophie-koechlin.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=L'art indien des plaines(B[m
+>>>  OK lart-indien-des-plaine.h_aw_person            sophie-koechlin
+
+=======================
+2009-11-09 La Flore                       Philippe Ledoux           1967                        !!!!!!!! Philippe Ledoux
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=La Flore(B[m
+>>>  OK flore.h_aw_person                             224-philippe-ledoux
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Henry, h_av_firstname~=Christine(B[m
+
+=======================
+           La mecanique des idees         Christine Henry           2004                        !!!!!!!! Christine Henry
+[31mcreatePage(): $data=[title]=>Christine Henry,[h_av_firstname]=>Christine,[h_av_lastname]=>Henry,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Christine Henry(B[m
+>>>  OK christine-henry.title                         Christine Henry
+>>>  OK christine-henry.h_av_firstname                Christine
+>>>  OK christine-henry.h_av_lastname                 Henry
+>>>  OK christine-henry.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=La mecanique des idees(B[m
+>>>  OK la-mecanique-des-idees.h_aw_person            christine-henry
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=de Watrigant, h_av_firstname~=Hubert(B[m
+
+=======================
+           Le Carnaval de Venise          Hubert de Watrigant       1993/1997                   !!!!!!!! Hubert de Watrigant
+[31mcreatePage(): $data=[title]=>Hubert de Watrigant,[h_av_firstname]=>Hubert,[h_av_lastname]=>de Watrigant,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Hubert de Watrigant(B[m
+>>>  OK 326-hubert-de-watrigan.title                  Hubert de Watrigant
+>>>  OK 326-hubert-de-watrigan.h_av_firstname         Hubert
+>>>  OK 326-hubert-de-watrigan.h_av_lastname          de Watrigant
+>>>  OK 326-hubert-de-watrigan.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Le Carnaval de Venise(B[m
+>>>  OK le-carnaval-de-venise.h_aw_person             326-hubert-de-watrigant
+
+=======================
+2020-01-17 Le Saut H                      Cyrille Diatkine                                      !!!!!!!! Cyrille Diatkine
+>>>  OK 309-cyrille-diatkine.title                    Cyrille Diatkine
+>>>  OK 309-cyrille-diatkine.h_av_firstname           Cyrille
+>>>  OK 309-cyrille-diatkine.h_av_lastname            Diatkine
+>>>  OK 309-cyrille-diatkine.h_av_duty                Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Le Saut H(B[m
+>>>  OK le-saut-h.h_aw_person                         309-cyrille-diatkine
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Pierre, h_av_firstname~=Marie(B[m
+
+=======================
+2025-06    Le sacres d'Hiver              Marie Pierre              2022            'G'         !!!!!!!! Marie Pierre
+[31mcreatePage(): $data=[title]=>Marie Pierre,[h_av_firstname]=>Marie,[h_av_lastname]=>Pierre,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Marie Pierre(B[m
+>>>  OK marie-pierre.title                            Marie Pierre
+>>>  OK marie-pierre.h_av_firstname                   Marie
+>>>  OK marie-pierre.h_av_lastname                    Pierre
+>>>  OK marie-pierre.h_av_duty                        Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Le sacres d'Hiver(B[m
+>>>  OK le-sacres-dhiver.h_aw_person                  marie-pierre
+
+=======================
+           Le saut H                      Cyrille Diatkine          2016                        !!!!!!!! Cyrille Diatkine
+>>>  OK 309-cyrille-diatkine.title                    Cyrille Diatkine
+>>>  OK 309-cyrille-diatkine.h_av_firstname           Cyrille
+>>>  OK 309-cyrille-diatkine.h_av_lastname            Diatkine
+>>>  OK 309-cyrille-diatkine.h_av_duty                Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Le saut H(B[m
+>>>  OK le-saut-h.h_aw_person                         309-cyrille-diatkine
+
+=======================
+           Le temps des marionnettes      Annie Faivre              1996                        !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Le temps des marionnettes(B[m
+>>>  OK le-temps-des-marionnet.h_aw_person            329-annie-faivre
+
+=======================
+           Les Chemins Secrets            Christine Henry           2015            'def 136/97'  !!!!!!!! Christine Henry
+>>>  OK christine-henry.title                         Christine Henry
+>>>  OK christine-henry.h_av_firstname                Christine
+>>>  OK christine-henry.h_av_lastname                 Henry
+>>>  OK christine-henry.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Chemins Secrets(B[m
+>>>  OK les-chemins-secrets.h_aw_person               christine-henry
+
+=======================
+2024-05-26 Les Courses                                                                          ???????? AUTHOR PAGE
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Courses(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Benoist Gironiere, h_av_firstname~=Yves(B[m
+
+=======================
+2024-04    Les Courses                    Yves Benoist Gironiere    2004/2013                   !!!!!!!! Yves Benoist Gironiere
+[31mcreatePage(): $data=[title]=>Yves Benoist Gironiere,[h_av_firstname]=>Yves,[h_av_lastname]=>Benoist Gironiere,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Yves Benoist Gironiere(B[m
+>>>  OK yves-benoist-gironiere.title                  Yves Benoist Gironiere
+>>>  OK yves-benoist-gironiere.h_av_firstname         Yves
+>>>  OK yves-benoist-gironiere.h_av_lastname          Benoist Gironiere
+>>>  OK yves-benoist-gironiere.h_av_duty              Artist
+>>>  OK les-courses.h_aw_person                       yves-benoist-gironiere
+
+=======================
+2018-04-18 Les Folies Du Ciel             Loic Dubigeon                                         !!!!!!!! Loic Dubigeon
+>>>  OK 226-loc-dubigeon.title                        Loic Dubigeon
+>>>  OK 226-loc-dubigeon.h_av_firstname               Loic
+>>>  OK 226-loc-dubigeon.h_av_lastname                Dubigeon
+>>>  OK 226-loc-dubigeon.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Folies Du Ciel(B[m
+>>>  OK 227-les-folies-du-ciel.h_aw_person            226-loc-dubigeon
+
+=======================
+           Les Folies Du Ciel             Loic Dubigeon             1984/1990                   !!!!!!!! Loic Dubigeon
+>>>  OK 226-loc-dubigeon.title                        Loic Dubigeon
+>>>  OK 226-loc-dubigeon.h_av_firstname               Loic
+>>>  OK 226-loc-dubigeon.h_av_lastname                Dubigeon
+>>>  OK 226-loc-dubigeon.h_av_duty                    Artist
+>>>  OK 227-les-folies-du-ciel.h_aw_person            226-loc-dubigeon
+
+=======================
+           Les Nouveaux Amoureux de Paris Marie Pierre              2021            'B'         !!!!!!!! Marie Pierre
+>>>  OK marie-pierre.title                            Marie Pierre
+>>>  OK marie-pierre.h_av_firstname                   Marie
+>>>  OK marie-pierre.h_av_lastname                    Pierre
+>>>  OK marie-pierre.h_av_duty                        Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Nouveaux Amoureux de Paris(B[m
+>>>  OK les-nouveaux-amoureux-.h_aw_person            marie-pierre
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Alamin, h_av_firstname~=Sefedin Ibrahim(B[m
+
+=======================
+2025-03    Les Perles de Tourkana         Sefedin Ibrahim Alamin    2002                        !!!!!!!! Sefedin Ibrahim Alamin
+[31mcreatePage(): $data=[title]=>Sefedin Ibrahim Alamin,[h_av_firstname]=>Sefedin Ibrahim,[h_av_lastname]=>Alamin,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Sefedin Ibrahim Alamin(B[m
+>>>  OK sefedin-ibrahim-alamin.title                  Sefedin Ibrahim Alamin
+>>>  OK sefedin-ibrahim-alamin.h_av_firstname         Sefedin Ibrahim
+>>>  OK sefedin-ibrahim-alamin.h_av_lastname          Alamin
+>>>  OK sefedin-ibrahim-alamin.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Perles de Tourkana(B[m
+>>>  OK les-perles-de-tourkana.h_aw_person            sefedin-ibrahim-alamin
+
+=======================
+2013-04-04 Les Tambours                   Joachim Metz              1989/1990                   !!!!!!!! Joachim Metz
+>>>  OK 316-joachim-metz.title                        Joachim Metz
+>>>  OK 316-joachim-metz.h_av_firstname               Joachim
+>>>  OK 316-joachim-metz.h_av_lastname                Metz
+>>>  OK 316-joachim-metz.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Tambours(B[m
+>>>  OK tambours.h_aw_person                          316-joachim-metz
+
+=======================
+           Les Voitures a Transformation  Françoise de La Perrière 1965/1980       '3'         !!!!!!!! Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.title                  Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_firstname         Françoise
+>>>  OK 282-franoise-de-la-per.h_av_lastname          de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Les Voitures a Transformation(B[m
+>>>  OK 281-les-voitures-trans.h_aw_person            282-franoise-de-la-perrire
+
+=======================
+           Levriers                       Xavier de Poret           1957/1970/2002              !!!!!!!! Xavier de Poret
+>>>  OK 318-xavier-de-poret.title                     Xavier de Poret
+>>>  OK 318-xavier-de-poret.h_av_firstname            Xavier
+>>>  OK 318-xavier-de-poret.h_av_lastname             de Poret
+>>>  OK 318-xavier-de-poret.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Levriers(B[m
+>>>  OK levriers.h_aw_person                          318-xavier-de-poret
+
+=======================
+2022-02    Libre comme l'air              Annie Faivre              2003                        !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Libre comme l'air(B[m
+>>>  OK libre-comme-lair.h_aw_person                  329-annie-faivre
+
+=======================
+2022-08    Ludovicus Magnus               Françoise de La Perrière 1963                        !!!!!!!! Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.title                  Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_firstname         Françoise
+>>>  OK 282-franoise-de-la-per.h_av_lastname          de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Ludovicus Magnus(B[m
+>>>  OK ludovicus-magnus.h_aw_person                  282-franoise-de-la-perrire
+
+=======================
+2020-02-14 L´Hiver                       Philippe Ledoux                                       !!!!!!!! Philippe Ledoux
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=L´Hiver(B[m
+>>>  OK lhiver.h_aw_person                            224-philippe-ledoux
+
+=======================
+2013-02-14 Magic Kelly                    Dimitri Rybaltchenko      2011            'EL'        !!!!!!!! Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.title                  Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_firstname         Dimitri
+>>>  OK 186-dimitri-rybaltchen.h_av_lastname          Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Magic Kelly(B[m
+>>>  OK magic-kelly.h_aw_person                       186-dimitri-rybaltchenko
+
+=======================
+           Maillons                       Caty Latham               1973                        !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Maillons(B[m
+>>>  OK maillons.h_aw_person                          168-cathy-latham-audibert
+
+=======================
+           Marche Flottant du Lac Inle II Dimitri Rybaltchenko      1998/2001                   !!!!!!!! Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.title                  Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_firstname         Dimitri
+>>>  OK 186-dimitri-rybaltchen.h_av_lastname          Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Marche Flottant du Lac Inle II(B[m
+>>>  OK marche-flottant-du-lac.h_aw_person            186-dimitri-rybaltchenko
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Duchesne, h_av_firstname~=Daphne(B[m
+
+=======================
+           Mare aux canards               Daphne Duchesne           1981                        !!!!!!!! Daphne Duchesne
+[31mcreatePage(): $data=[title]=>Daphne Duchesne,[h_av_firstname]=>Daphne,[h_av_lastname]=>Duchesne,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Daphne Duchesne(B[m
+>>>  OK 317-daphne-duchesne.title                     Daphne Duchesne
+>>>  OK 317-daphne-duchesne.h_av_firstname            Daphne
+>>>  OK 317-daphne-duchesne.h_av_lastname             Duchesne
+>>>  OK 317-daphne-duchesne.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mare aux canards(B[m
+>>>  OK mare-aux-canards.h_aw_person                  317-daphne-duchesne
+
+=======================
+           Marine et cavalerie            Philippe Ledoux           1966/1984                   !!!!!!!! Philippe Ledoux
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Marine et cavalerie(B[m
+>>>  OK marine-et-cavalerie.h_aw_person               224-philippe-ledoux
+
+=======================
+2022-07    Mega chariot                   Daiske Nomura             2022            'G'         !!!!!!!! Daiske Nomura
+>>>  OK daiske-nomura-4.title                         Daiske Nomura
+>>>  OK daiske-nomura-4.h_av_firstname                Daiske
+>>>  OK daiske-nomura-4.h_av_lastname                 Nomura
+>>>  OK daiske-nomura-4.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mega chariot(B[m
+>>>  OK mega-chariot.h_aw_person                      daiske-nomura-4
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Jardim, h_av_firstname~=Filipe(B[m
+
+=======================
+2022-09-08 Modernisme Tropical            Filipe Jardim             2016                        !!!!!!!! Filipe Jardim
+[31mcreatePage(): $data=[title]=>Filipe Jardim,[h_av_firstname]=>Filipe,[h_av_lastname]=>Jardim,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Filipe Jardim(B[m
+>>>  OK filipe-jardim.title                           Filipe Jardim
+>>>  OK filipe-jardim.h_av_firstname                  Filipe
+>>>  OK filipe-jardim.h_av_lastname                   Jardim
+>>>  OK filipe-jardim.h_av_duty                       Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Modernisme Tropical(B[m
+>>>  OK modernisme-tropical.h_aw_person               filipe-jardim
+
+=======================
+2022-09-09 Modernisme Tropical            Filipe Jardim             2016                        !!!!!!!! Filipe Jardim
+>>>  OK filipe-jardim.title                           Filipe Jardim
+>>>  OK filipe-jardim.h_av_firstname                  Filipe
+>>>  OK filipe-jardim.h_av_lastname                   Jardim
+>>>  OK filipe-jardim.h_av_duty                       Artist
+>>>  OK modernisme-tropical.h_aw_person               filipe-jardim
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Barret, h_av_firstname~=Bali(B[m
+
+=======================
+           Monsieur et Madame ll          Bali&Robert Barret&Dallet 2013            'Aне'     !!!!!!!! Bali Barret
+[31mcreatePage(): $data=[title]=>Bali Barret,[h_av_firstname]=>Bali,[h_av_lastname]=>Barret,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Bali Barret(B[m
+>>>  OK 319-bali-barret.title                         Bali Barret
+>>>  OK 319-bali-barret.h_av_firstname                Bali
+>>>  OK 319-bali-barret.h_av_lastname                 Barret
+>>>  OK 319-bali-barret.h_av_duty                     Artist
+
+=======================
+           Monsieur et Madame ll          Bali&Robert Barret&Dallet 2013            'Aне'     !!!!!!!! Robert Dallet
+>>>  OK robert-dallet.title                           Robert Dallet
+>>>  OK robert-dallet.h_av_firstname                  Robert
+>>>  OK robert-dallet.h_av_lastname                   Dallet
+>>>  OK robert-dallet.h_av_duty                       Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Monsieur et Madame ll(B[m
+>>>  OK monsieur-et-madame-ll.h_aw_person             319-bali-barret
+>>>  OK monsieur-et-madame-ll.h_aw_person             robert-dallet
+
+=======================
+           Monsieur et Madame             Bali Barret               2020(70)                    !!!!!!!! Bali Barret
+>>>  OK 319-bali-barret.title                         Bali Barret
+>>>  OK 319-bali-barret.h_av_firstname                Bali
+>>>  OK 319-bali-barret.h_av_lastname                 Barret
+>>>  OK 319-bali-barret.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Monsieur et Madame(B[m
+>>>  OK monsieur-et-madame.h_aw_person                319-bali-barret
+
+=======================
+2022-03    Mors a jouets chemise          Henri d'Origny            2019/2021                   !!!!!!!! Henri d'Origny
+>>>  OK 314-henri-dorigny.title                       Henri d'Origny
+>>>  OK 314-henri-dorigny.h_av_firstname              Henri
+>>>  OK 314-henri-dorigny.h_av_lastname               d'Origny
+>>>  OK 314-henri-dorigny.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mors a jouets chemise(B[m
+>>>  OK mors-a-jouets-chemise.h_aw_person             314-henri-dorigny
+
+=======================
+           Mors a la conetable            Henri d'Origny            1970/1985                   !!!!!!!! Henri d'Origny
+>>>  OK 314-henri-dorigny.title                       Henri d'Origny
+>>>  OK 314-henri-dorigny.h_av_firstname              Henri
+>>>  OK 314-henri-dorigny.h_av_lastname               d'Origny
+>>>  OK 314-henri-dorigny.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mors a la conetable(B[m
+>>>  OK mors-a-la-conetable.h_aw_person               314-henri-dorigny
+
+=======================
+2022-04-09 Mors à Jouets                 Henri d'Origny            1982/2017                   !!!!!!!! Henri d'Origny
+>>>  OK 314-henri-dorigny.title                       Henri d'Origny
+>>>  OK 314-henri-dorigny.h_av_firstname              Henri
+>>>  OK 314-henri-dorigny.h_av_lastname               d'Origny
+>>>  OK 314-henri-dorigny.h_av_duty                   Artist
+[31mgetPage(): OK 2 - template=h_artwork, title~=Mors Jouets(B[m
+>>>  OK mors-a-jouets-chemise.h_aw_person             314-henri-dorigny
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Shirley, h_av_firstname~=Alice(B[m
+
+=======================
+2023-01    Mountain Zebra                 Alice Shirley             2020            'ES'        !!!!!!!! Alice Shirley
+[31mcreatePage(): $data=[title]=>Alice Shirley,[h_av_firstname]=>Alice,[h_av_lastname]=>Shirley,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Alice Shirley(B[m
+>>>  OK 325-alice-shirley.title                       Alice Shirley
+>>>  OK 325-alice-shirley.h_av_firstname              Alice
+>>>  OK 325-alice-shirley.h_av_lastname               Shirley
+>>>  OK 325-alice-shirley.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mountain Zebra(B[m
+>>>  OK mountain-zebra.h_aw_person                    325-alice-shirley
+
+=======================
+2012-11-01 Mozart                         Julie Abadie              1991                        !!!!!!!! Julie Abadie
+>>>  OK 313-julia-abadie.title                        Julie Abadie
+>>>  OK 313-julia-abadie.h_av_firstname               Julie
+>>>  OK 313-julia-abadie.h_av_lastname                Abadie
+>>>  OK 313-julia-abadie.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Mozart(B[m
+>>>  OK mozart.h_aw_person                            313-julia-abadie
+
+=======================
+2005-05-05 Muzerolles                     Christiane Vauzelles      1986                        !!!!!!!! Christiane Vauzelles
+>>>  OK 167-christiane-vauzell.title                  Christiane Vauzelles
+>>>  OK 167-christiane-vauzell.h_av_firstname         Christiane
+>>>  OK 167-christiane-vauzell.h_av_lastname          Vauzelles
+>>>  OK 167-christiane-vauzell.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Muzerolles(B[m
+>>>  OK muzerolles.h_aw_person                        167-christiane-vauzelles
+
+=======================
+           Napoleon                       Philippe Ledoux           1963/1985                   !!!!!!!! Philippe Ledoux
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Napoleon(B[m
+>>>  OK napoleon.h_aw_person                          224-philippe-ledoux
+
+=======================
+           Palefroi                       Françoise de La Perrière 1965/1983                   !!!!!!!! Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.title                  Françoise de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_firstname         Françoise
+>>>  OK 282-franoise-de-la-per.h_av_lastname          de La Perrière
+>>>  OK 282-franoise-de-la-per.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Palefroi(B[m
+>>>  OK palefroi.h_aw_person                          282-franoise-de-la-perrire
+
+=======================
+2023-02    Panoplie Equestre              Virginie Jamin            2018                        !!!!!!!! Virginie Jamin
+>>>  OK virginie-jamin.title                          Virginie Jamin
+>>>  OK virginie-jamin.h_av_firstname                 Virginie
+>>>  OK virginie-jamin.h_av_lastname                  Jamin
+>>>  OK virginie-jamin.h_av_duty                      Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Panoplie Equestre(B[m
+>>>  OK panoplie-equestre.h_aw_person                 virginie-jamin
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Stuhlhofer-Mayr, h_av_firstname~=Claudia(B[m
+
+=======================
+2022-04    Paperoles                      Claudia Stuhlhofer-Mayr   2000            'G'         !!!!!!!! Claudia Stuhlhofer-Mayr
+[31mcreatePage(): $data=[title]=>Claudia Stuhlhofer-Mayr,[h_av_firstname]=>Claudia,[h_av_lastname]=>Stuhlhofer-Mayr,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Claudia Stuhlhofer-Mayr(B[m
+>>>  OK claudia-stuhlhofer-may.title                  Claudia Stuhlhofer-Mayr
+>>>  OK claudia-stuhlhofer-may.h_av_firstname         Claudia
+>>>  OK claudia-stuhlhofer-may.h_av_lastname          Stuhlhofer-Mayr
+>>>  OK claudia-stuhlhofer-may.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Paperoles(B[m
+>>>  OK paperoles.h_aw_person                         claudia-stuhlhofer-mayr
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Burton, h_av_firstname~=Jonathan(B[m
+
+=======================
+           Parade                         Jonathan Burton                           'П Мини Twilly'  !!!!!!!! Jonathan Burton
+[31mcreatePage(): $data=[title]=>Jonathan Burton,[h_av_firstname]=>Jonathan,[h_av_lastname]=>Burton,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Jonathan Burton(B[m
+>>>  OK jonathan-burton.title                         Jonathan Burton
+>>>  OK jonathan-burton.h_av_firstname                Jonathan
+>>>  OK jonathan-burton.h_av_lastname                 Burton
+>>>  OK jonathan-burton.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Parade(B[m
+>>>  OK parade.h_aw_person                            jonathan-burton
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Honore, h_av_firstname~=Aline(B[m
+
+=======================
+2017-05-05 Parures de Samouraïs          Aline Honore              2017                        !!!!!!!! Aline Honore
+[31mcreatePage(): $data=[title]=>Aline Honore,[h_av_firstname]=>Aline,[h_av_lastname]=>Honore,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Aline Honore(B[m
+>>>  OK aline-honore.title                            Aline Honore
+>>>  OK aline-honore.h_av_firstname                   Aline
+>>>  OK aline-honore.h_av_lastname                    Honore
+>>>  OK aline-honore.h_av_duty                        Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Parures de Samouraïs(B[m
+>>>  OK parures-de-samourais.h_aw_person              aline-honore
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Héron, h_av_firstname~=Marie-Françoise(B[m
+
+=======================
+           Passementerie                  Marie-Françoise Héron   1960/1981                   !!!!!!!! Marie-Françoise Héron
+[31mcreatePage(): $data=[title]=>Marie-Françoise Héron,[h_av_firstname]=>Marie-Françoise,[h_av_lastname]=>Héron,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Marie-Françoise Héron(B[m
+>>>  OK 321-franoise-heron.title                      Marie-Françoise Héron
+>>>  OK 321-franoise-heron.h_av_firstname             Marie-Françoise
+>>>  OK 321-franoise-heron.h_av_lastname              Héron
+>>>  OK 321-franoise-heron.h_av_duty                  Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Passementerie(B[m
+>>>  OK passementerie.h_aw_person                     321-franoise-heron
+
+=======================
+2022-09    Peinture fraiche               Dimitri Rybaltchenko      2012                        !!!!!!!! Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.title                  Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_firstname         Dimitri
+>>>  OK 186-dimitri-rybaltchen.h_av_lastname          Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Peinture fraiche(B[m
+>>>  OK peinture-fraiche.h_aw_person                  186-dimitri-rybaltchenko
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Eudel, h_av_firstname~=Jacques(B[m
+
+=======================
+           Petits chevaux                 Jacques Eudel             1974            'G'         !!!!!!!! Jacques Eudel
+[31mcreatePage(): $data=[title]=>Jacques Eudel,[h_av_firstname]=>Jacques,[h_av_lastname]=>Eudel,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Jacques Eudel(B[m
+>>>  OK jacques-eudel.title                           Jacques Eudel
+>>>  OK jacques-eudel.h_av_firstname                  Jacques
+>>>  OK jacques-eudel.h_av_lastname                   Eudel
+>>>  OK jacques-eudel.h_av_duty                       Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Petits chevaux(B[m
+>>>  OK petits-chevaux.h_aw_person                    jacques-eudel
+
+=======================
+2022-05    Plumes                         Henri de Linares          1953            'G'         !!!!!!!! Henri de Linares
+>>>  OK 315-henri-de-linars.title                     Henri de Linares
+>>>  OK 315-henri-de-linars.h_av_firstname            Henri
+>>>  OK 315-henri-de-linars.h_av_lastname             de Linares
+>>>  OK 315-henri-de-linars.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Plumes(B[m
+>>>  OK plumes.h_aw_person                            315-henri-de-linars
+
+=======================
+2016-04-30 Plumes                         Henri de Linares          1953/1964                   !!!!!!!! Henri de Linares
+>>>  OK 315-henri-de-linars.title                     Henri de Linares
+>>>  OK 315-henri-de-linars.h_av_firstname            Henri
+>>>  OK 315-henri-de-linars.h_av_lastname             de Linares
+>>>  OK 315-henri-de-linars.h_av_duty                 Artist
+>>>  OK plumes.h_aw_person                            315-henri-de-linars
+
+=======================
+2023-09-18 Pochette Hermès                                                         'Hermes'    ???????? AUTHOR PAGE
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Pochette Hermès(B[m
+[31mcreatePage(): $data=[title]=>Pochette Hermès,[h_aw_day0]=>2023-09-18,[h_aw_brand]=>5835,[h_aw_more]=>Hermes,[h_aw_price]=>850,[h_aw_size]=>42x42(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Pochette Hermès(B[m
+>> Load pochette-hermes.title                         Pochette Hermès
+>> Load pochette-hermes.h_aw_day0                     2023-09-18
+[1m[32m>> Hook pochette-hermes.h_aw_brand                    Object LanguagesPageFieldValue(B[m
+>> Load pochette-hermes.h_aw_more                     Hermes
+>> Load pochette-hermes.h_aw_price                    850
+>> Load pochette-hermes.h_aw_size                     42x42
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Archives Hermès(B[m
+
+=======================
+           Printemps-Ete 69 A-H 70         Archives Hermès         2010            'G'         !!!!!!!! Archives Hermès
+[31mcreatePage(): $data=[title]=>Archives Hermès,[h_av_lastname]=>Archives Hermès,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Archives Hermès(B[m
+>>>  OK archives-hermes.title                         Archives Hermès
+>>>  OK archives-hermes.h_av_lastname                 Archives Hermès
+>>>  OK archives-hermes.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Printemps-Ete 69 A-H 70(B[m
+>>>  OK printemps-ete-69-a-h-7.h_aw_person            archives-hermes
+
+=======================
+           Promenade de Longchamp         Philippe Ledoux           1965/1970                   !!!!!!!! Philippe Ledoux
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Promenade de Longchamp(B[m
+>>>  OK promenade-de-longchamp.h_aw_person            224-philippe-ledoux
+
+=======================
+2025-04    Proues                         Philippe Ledoux           1973                        !!!!!!!! Philippe Ledoux
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Proues(B[m
+>>>  OK proues.h_aw_person                            224-philippe-ledoux
+
+=======================
+2022-00    Qalamdan                       Catherine Baschet         1999                        !!!!!!!! Catherine Baschet
+>>>  OK 322-catherine-baschet.title                   Catherine Baschet
+>>>  OK 322-catherine-baschet.h_av_firstname          Catherine
+>>>  OK 322-catherine-baschet.h_av_lastname           Baschet
+>>>  OK 322-catherine-baschet.h_av_duty               Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Qalamdan(B[m
+>>>  OK qalamdan.h_aw_person                          322-catherine-baschet
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Peron, h_av_firstname~=Pierre(B[m
+
+=======================
+2024-06-13 Quadrige                       Pierre Peron              2019                        !!!!!!!! Pierre Peron
+[31mcreatePage(): $data=[title]=>Pierre Peron,[h_av_firstname]=>Pierre,[h_av_lastname]=>Peron,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Pierre Peron(B[m
+>>>  OK pierre-peron.title                            Pierre Peron
+>>>  OK pierre-peron.h_av_firstname                   Pierre
+>>>  OK pierre-peron.h_av_lastname                    Peron
+>>>  OK pierre-peron.h_av_duty                        Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Quadrige(B[m
+>>>  OK quadrige.h_aw_person                          pierre-peron
+
+=======================
+2024-06-15 Quadrige                       Pierre Peron              2019                        !!!!!!!! Pierre Peron
+>>>  OK pierre-peron.title                            Pierre Peron
+>>>  OK pierre-peron.h_av_firstname                   Pierre
+>>>  OK pierre-peron.h_av_lastname                    Peron
+>>>  OK pierre-peron.h_av_duty                        Artist
+>>>  OK quadrige.h_aw_person                          pierre-peron
+
+=======================
+2020-01-31 RADO                                                                     'RADO'      ???????? AUTHOR PAGE
+[31mgetPage(): OK 1 - template=h_brand, title~=RADO(B[m
+[34mNOTICE: Detected brand RADO(B[m
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=RADO(B[m
+[31mcreatePage(): $data=[title]=>RADO,[h_aw_day0]=>2020-01-31,[h_aw_brand]=>6172,[h_aw_more]=>RADO,[h_aw_price]=>620,[h_aw_size]=>90x90,[size]=>6164(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=RADO(B[m
+>> Load rado.title                                    RADO
+>> Load rado.h_aw_day0                                2020-01-31
+[1m[32m>> Hook rado.h_aw_brand                               Object LanguagesPageFieldValue(B[m
+>> Load rado.h_aw_more                                RADO
+>> Load rado.h_aw_price                               620
+>> Load rado.h_aw_size                                90x90
+[1m[32m>> Hook rado.size                                     Object LanguagesPageFieldValue(B[m
+
+=======================
+           Real Escuela Andaluza Del Arte Ecuestre Hubert de Watrigant       1996/2000                   !!!!!!!! Hubert de Watrigant
+>>>  OK 326-hubert-de-watrigan.title                  Hubert de Watrigant
+>>>  OK 326-hubert-de-watrigan.h_av_firstname         Hubert
+>>>  OK 326-hubert-de-watrigan.h_av_lastname          de Watrigant
+>>>  OK 326-hubert-de-watrigan.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Real Escuela Andaluza Del Arte Ecuestre(B[m
+>>>  OK escuela-andaluza.h_aw_person                  326-hubert-de-watrigant
+
+=======================
+           Reale                          Hugo Grygkar              1953/1990                   !!!!!!!! Hugo Grygkar
+>>>  OK 199-hugo-grygkar.title                        Hugo Grygkar
+>>>  OK 199-hugo-grygkar.h_av_firstname               Hugo
+>>>  OK 199-hugo-grygkar.h_av_lastname                Grygkar
+>>>  OK 199-hugo-grygkar.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Reale(B[m
+>>>  OK reale.h_aw_person                             199-hugo-grygkar
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Menchari, h_av_firstname~=Leila(B[m
+
+=======================
+           Regina                         Leila Menchari            1972                        !!!!!!!! Leila Menchari
+[31mcreatePage(): $data=[title]=>Leila Menchari,[h_av_firstname]=>Leila,[h_av_lastname]=>Menchari,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Leila Menchari(B[m
+>>>  OK leila-menchari.title                          Leila Menchari
+>>>  OK leila-menchari.h_av_firstname                 Leila
+>>>  OK leila-menchari.h_av_lastname                  Menchari
+>>>  OK leila-menchari.h_av_duty                      Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Regina(B[m
+>>>  OK regina.h_aw_person                            leila-menchari
+
+=======================
+2021-10-09 Regina                         Leila Menchari            1972/1977/2002              !!!!!!!! Leila Menchari
+>>>  OK leila-menchari.title                          Leila Menchari
+>>>  OK leila-menchari.h_av_firstname                 Leila
+>>>  OK leila-menchari.h_av_lastname                  Menchari
+>>>  OK leila-menchari.h_av_duty                      Artist
+>>>  OK regina.h_aw_person                            leila-menchari
+
+=======================
+2024-02    Rencontre oceane               Annie Faivre              2001                        !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Rencontre oceane(B[m
+>>>  OK rencontre-oceane.h_aw_person                  329-annie-faivre
+
+=======================
+           Reprise                        Philippe Ledoux           1970/1993                   !!!!!!!! Philippe Ledoux
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Reprise(B[m
+>>>  OK reprise.h_aw_person                           224-philippe-ledoux
+
+=======================
+           Reveries japonaises            Caty Latham               1991                        !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Reveries japonaises(B[m
+>>>  OK reveries-japonaises.h_aw_person               168-cathy-latham-audibert
+
+=======================
+           Rose de vents                  Joachim Metz              1984/2012                   !!!!!!!! Joachim Metz
+>>>  OK 316-joachim-metz.title                        Joachim Metz
+>>>  OK 316-joachim-metz.h_av_firstname               Joachim
+>>>  OK 316-joachim-metz.h_av_lastname                Metz
+>>>  OK 316-joachim-metz.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Rose de vents(B[m
+>>>  OK rose-de-vents.h_aw_person                     316-joachim-metz
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Swildens, h_av_firstname~=Karin(B[m
+
+=======================
+           Ryton                          Karin Swildens            1978                        !!!!!!!! Karin Swildens
+[31mcreatePage(): $data=[title]=>Karin Swildens,[h_av_firstname]=>Karin,[h_av_lastname]=>Swildens,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Karin Swildens(B[m
+>>>  OK karin-swildens.title                          Karin Swildens
+>>>  OK karin-swildens.h_av_firstname                 Karin
+>>>  OK karin-swildens.h_av_lastname                  Swildens
+>>>  OK karin-swildens.h_av_duty                      Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Ryton(B[m
+>>>  OK ryton.h_aw_person                             karin-swildens
+
+=======================
+           Sacre du printems              Henri d'Origny            1986                        !!!!!!!! Henri d'Origny
+>>>  OK 314-henri-dorigny.title                       Henri d'Origny
+>>>  OK 314-henri-dorigny.h_av_firstname              Henri
+>>>  OK 314-henri-dorigny.h_av_lastname               d'Origny
+>>>  OK 314-henri-dorigny.h_av_duty                   Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Sacre du printems(B[m
+>>>  OK sacre-du-printems.h_aw_person                 314-henri-dorigny
+
+=======================
+2025-05    Sangles                        Joachim Metz              1984            'G'         !!!!!!!! Joachim Metz
+>>>  OK 316-joachim-metz.title                        Joachim Metz
+>>>  OK 316-joachim-metz.h_av_firstname               Joachim
+>>>  OK 316-joachim-metz.h_av_lastname                Metz
+>>>  OK 316-joachim-metz.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Sangles(B[m
+>>>  OK sangles.h_aw_person                           316-joachim-metz
+
+=======================
+           Selles a housse                Christiane Vauzelles      1968/1989                   !!!!!!!! Christiane Vauzelles
+>>>  OK 167-christiane-vauzell.title                  Christiane Vauzelles
+>>>  OK 167-christiane-vauzell.h_av_firstname         Christiane
+>>>  OK 167-christiane-vauzell.h_av_lastname          Vauzelles
+>>>  OK 167-christiane-vauzell.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Selles a housse(B[m
+>>>  OK selles-a-housse.h_aw_person                   167-christiane-vauzelles
+
+=======================
+2023-07    Sous Le Cèdre                 Dimitri Rybaltchenko      1998                        !!!!!!!! Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.title                  Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_firstname         Dimitri
+>>>  OK 186-dimitri-rybaltchen.h_av_lastname          Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Sous Le Cèdre(B[m
+>>>  OK sous-le-cedre.h_aw_person                     186-dimitri-rybaltchenko
+
+=======================
+2023-08-14 Sous le Cédre                 Dimitri Rybaltchenko                      'Hermes'    !!!!!!!! Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.title                  Dimitri Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_firstname         Dimitri
+>>>  OK 186-dimitri-rybaltchen.h_av_lastname          Rybaltchenko
+>>>  OK 186-dimitri-rybaltchen.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Sous le Cédre(B[m
+>>>  OK sous-le-cedre.h_aw_person                     186-dimitri-rybaltchenko
+
+=======================
+           Splendeur des maharadjas       Catherine Baschet         1996/2001                   !!!!!!!! Catherine Baschet
+>>>  OK 322-catherine-baschet.title                   Catherine Baschet
+>>>  OK 322-catherine-baschet.h_av_firstname          Catherine
+>>>  OK 322-catherine-baschet.h_av_lastname           Baschet
+>>>  OK 322-catherine-baschet.h_av_duty               Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Splendeur des maharadjas(B[m
+>>>  OK splendeur-des-maharadj.h_aw_person            322-catherine-baschet
+
+=======================
+           Springs                        Philippe Ledoux           1974/1981                   !!!!!!!! Philippe Ledoux
+>>>  OK 224-philippe-ledoux.title                     Philippe Ledoux
+>>>  OK 224-philippe-ledoux.h_av_firstname            Philippe
+>>>  OK 224-philippe-ledoux.h_av_lastname             Ledoux
+>>>  OK 224-philippe-ledoux.h_av_duty                 Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Springs(B[m
+>>>  OK springs.h_aw_person                           224-philippe-ledoux
+
+=======================
+           Sulfures & presse-papiers      Caty Latham               1979                        !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Sulfures & presse-papiers(B[m
+>>>  OK sulfures-presse-papier.h_aw_person            168-cathy-latham-audibert
+
+=======================
+           Tarot                          Annie Faivre              1991                        !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tarot(B[m
+>>>  OK tarot.h_aw_person                             329-annie-faivre
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Ardmore Artists(B[m
+
+=======================
+2025-10-09 The Savana Dance                Ardmore Artists          2016            'G'         !!!!!!!! Ardmore Artists
+[31mcreatePage(): $data=[title]=>Ardmore Artists,[h_av_lastname]=>Ardmore Artists,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Ardmore Artists(B[m
+>>>  OK ardmore-artists.title                         Ardmore Artists
+>>>  OK ardmore-artists.h_av_lastname                 Ardmore Artists
+>>>  OK ardmore-artists.h_av_duty                     Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=The Savana Dance(B[m
+>>>  OK the-savana-dance.h_aw_person                  ardmore-artists
+
+=======================
+2025-10-10 The Savana Dance                Ardmore Artists          2016            'G'         !!!!!!!! Ardmore Artists
+>>>  OK ardmore-artists.title                         Ardmore Artists
+>>>  OK ardmore-artists.h_av_lastname                 Ardmore Artists
+>>>  OK ardmore-artists.h_av_duty                     Artist
+>>>  OK the-savana-dance.h_aw_person                  ardmore-artists
+
+=======================
+2022-04-02 The sign of excellence                                                   'Omega'     ???????? AUTHOR PAGE
+[31mgetPage(): OK 1 - template=h_brand, title~=Omega(B[m
+[34mNOTICE: Detected brand Omega(B[m
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=sign excellence(B[m
+[31mcreatePage(): $data=[title]=>The sign of excellence,[h_aw_day0]=>2022-04-02,[h_aw_brand]=>6171,[h_aw_more]=>Omega,[h_aw_price]=>830,[h_aw_size]=>90x90,[size]=>6164(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=The sign of excellence(B[m
+>> Load the-sign-of-excellence.title                  The sign of excellence
+>> Load the-sign-of-excellence.h_aw_day0              2022-04-02
+[1m[32m>> Hook the-sign-of-excellence.h_aw_brand             Object LanguagesPageFieldValue(B[m
+>> Load the-sign-of-excellence.h_aw_more              Omega
+>> Load the-sign-of-excellence.h_aw_price             830
+>> Load the-sign-of-excellence.h_aw_size              90x90
+[1m[32m>> Hook the-sign-of-excellence.size                   Object LanguagesPageFieldValue(B[m
+
+=======================
+2021-03-17 Torana                         Annie Faivre                              'G'         !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Torana(B[m
+>>>  OK torana.h_aw_person                            329-annie-faivre
+
+=======================
+2022-01    Torana                         Annie Faivre              1987/1990/2000              !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+>>>  OK torana.h_aw_person                            329-annie-faivre
+
+=======================
+           Torana                         Annie Faivre              1987/1990/2000  'G'         !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+>>>  OK torana.h_aw_person                            329-annie-faivre
+
+=======================
+2024-01-05 Tresors Du Nil                 Joachim Metz              2003                        !!!!!!!! Joachim Metz
+>>>  OK 316-joachim-metz.title                        Joachim Metz
+>>>  OK 316-joachim-metz.h_av_firstname               Joachim
+>>>  OK 316-joachim-metz.h_av_lastname                Metz
+>>>  OK 316-joachim-metz.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tresors Du Nil(B[m
+>>>  OK tresors-du-nil.h_aw_person                    316-joachim-metz
+
+=======================
+2024-01-04 Tresors du Nil                 Joachim Metz              2003                        !!!!!!!! Joachim Metz
+>>>  OK 316-joachim-metz.title                        Joachim Metz
+>>>  OK 316-joachim-metz.h_av_firstname               Joachim
+>>>  OK 316-joachim-metz.h_av_lastname                Metz
+>>>  OK 316-joachim-metz.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tresors du Nil(B[m
+>>>  OK tresors-du-nil.h_aw_person                    316-joachim-metz
+
+=======================
+           Tribord                        Julie Abadie              1968/1990                   !!!!!!!! Julie Abadie
+>>>  OK 313-julia-abadie.title                        Julie Abadie
+>>>  OK 313-julia-abadie.h_av_firstname               Julie
+>>>  OK 313-julia-abadie.h_av_lastname                Abadie
+>>>  OK 313-julia-abadie.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tribord(B[m
+>>>  OK tribord.h_aw_person                           313-julia-abadie
+
+=======================
+           Tropiques                      Laurence Bourthoumieux    1987/1990                   !!!!!!!! Laurence Bourthoumieux
+>>>  OK 323-laurence-bourthoum.title                  Laurence Bourthoumieux
+>>>  OK 323-laurence-bourthoum.h_av_firstname         Laurence
+>>>  OK 323-laurence-bourthoum.h_av_lastname          Bourthoumieux
+>>>  OK 323-laurence-bourthoum.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tropiques(B[m
+>>>  OK tropiques.h_aw_person                         323-laurence-bourthoumieux
+
+=======================
+2023-08    Tsubas                         Christiane Vauzelles      1998            'G'         !!!!!!!! Christiane Vauzelles
+>>>  OK 167-christiane-vauzell.title                  Christiane Vauzelles
+>>>  OK 167-christiane-vauzell.h_av_firstname         Christiane
+>>>  OK 167-christiane-vauzell.h_av_lastname          Vauzelles
+>>>  OK 167-christiane-vauzell.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tsubas(B[m
+>>>  OK tsubas.h_aw_person                            167-christiane-vauzelles
+
+=======================
+           Tuileries                      Joachim Metz              1996                        !!!!!!!! Joachim Metz
+>>>  OK 316-joachim-metz.title                        Joachim Metz
+>>>  OK 316-joachim-metz.h_av_firstname               Joachim
+>>>  OK 316-joachim-metz.h_av_lastname                Metz
+>>>  OK 316-joachim-metz.h_av_duty                    Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Tuileries(B[m
+>>>  OK tuileries.h_aw_person                         316-joachim-metz
+
+=======================
+2019-10-21 Unknown Hermes1                                                          'Hermes'    ???????? AUTHOR PAGE
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Unknown Hermes1(B[m
+[31mcreatePage(): $data=[title]=>Unknown Hermes1,[h_aw_day0]=>2019-10-21,[h_aw_brand]=>5835,[h_aw_more]=>Hermes,[h_aw_price]=>553,[h_aw_size]=>89x89(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Unknown Hermes1(B[m
+>> Load unknown-hermes1.title                         Unknown Hermes1
+>> Load unknown-hermes1.h_aw_day0                     2019-10-21
+[1m[32m>> Hook unknown-hermes1.h_aw_brand                    Object LanguagesPageFieldValue(B[m
+>> Load unknown-hermes1.h_aw_more                     Hermes
+>> Load unknown-hermes1.h_aw_price                    553
+>> Load unknown-hermes1.h_aw_size                     89x89
+
+=======================
+2019-10-21 Unknown Hermes2                                                          'Hermes'    ???????? AUTHOR PAGE
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Unknown Hermes2(B[m
+[31mcreatePage(): $data=[title]=>Unknown Hermes2,[h_aw_day0]=>2019-10-21,[h_aw_brand]=>5835,[h_aw_more]=>Hermes,[h_aw_price]=>553,[h_aw_size]=>89x89(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Unknown Hermes2(B[m
+>> Load unknown-hermes2.title                         Unknown Hermes2
+>> Load unknown-hermes2.h_aw_day0                     2019-10-21
+[1m[32m>> Hook unknown-hermes2.h_aw_brand                    Object LanguagesPageFieldValue(B[m
+>> Load unknown-hermes2.h_aw_more                     Hermes
+>> Load unknown-hermes2.h_aw_price                    553
+>> Load unknown-hermes2.h_aw_size                     89x89
+
+=======================
+           Vive le vent                   Laurence Bourthoumieux    1992/1995                   !!!!!!!! Laurence Bourthoumieux
+>>>  OK 323-laurence-bourthoum.title                  Laurence Bourthoumieux
+>>>  OK 323-laurence-bourthoum.h_av_firstname         Laurence
+>>>  OK 323-laurence-bourthoum.h_av_lastname          Bourthoumieux
+>>>  OK 323-laurence-bourthoum.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Vive le vent(B[m
+>>>  OK vive-le-vent.h_aw_person                      323-laurence-bourthoumieux
+
+=======================
+2022-12-09 Voyage en Etoffes              Annie Faivre              2009                        !!!!!!!! Annie Faivre
+>>>  OK 329-annie-faivre.title                        Annie Faivre
+>>>  OK 329-annie-faivre.h_av_firstname               Annie
+>>>  OK 329-annie-faivre.h_av_lastname                Faivre
+>>>  OK 329-annie-faivre.h_av_duty                    Artist
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=Voyage Etoffes(B[m
+[31mcreatePage(): $data=[title]=>Voyage en Etoffes,[h_aw_day0]=>2022-12-09,[h_aw_brand]=>5835,[h_aw_price]=>2450,[h_aw_size]=>90x90,[size]=>6164,[h_aw_year]=>2009(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=Voyage en Etoffes(B[m
+>> Load voyage-en-etoffes.title                       Voyage en Etoffes
+>> Load voyage-en-etoffes.h_aw_day0                   2022-12-09
+[1m[32m>> Hook voyage-en-etoffes.h_aw_brand                  Object LanguagesPageFieldValue(B[m
+>> Load voyage-en-etoffes.h_aw_price                  2450
+>> Load voyage-en-etoffes.h_aw_size                   90x90
+[1m[32m>> Hook voyage-en-etoffes.size                        Object LanguagesPageFieldValue(B[m
+>> Load voyage-en-etoffes.h_aw_year                   2009
+[1m[32m>> Hook voyage-en-etoffes.h_aw_person                 Object LanguagesPageFieldValue(B[m
+
+=======================
+           Washington's carriage          Caty Latham               1979/1981                   !!!!!!!! Caty Latham
+>>>  OK 168-cathy-latham-audib.title                  Caty Latham
+>>>  OK 168-cathy-latham-audib.h_av_firstname         Caty
+>>>  OK 168-cathy-latham-audib.h_av_lastname          Latham
+>>>  OK 168-cathy-latham-audib.h_av_duty              Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Washington's carriage(B[m
+>>>  OK washingtons-carriage.h_aw_person              168-cathy-latham-audibert
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=Miro, h_av_firstname~=Evgenia(B[m
+
+=======================
+           Zabavushka                     Evgenia Miro              2009            'Sold'      !!!!!!!! Evgenia Miro (Miroshnichenko)
+[31mcreatePage(): $data=[title]=>Evgenia Miro,[h_av_firstname]=>Evgenia,[h_av_lastname]=>Miro,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=Evgenia Miro(B[m
+>>>  OK evgenia-miro.title                            Evgenia Miro
+>>>  OK evgenia-miro.h_av_firstname                   Evgenia
+>>>  OK evgenia-miro.h_av_lastname                    Miro
+>>>  OK evgenia-miro.h_av_duty                        Artist
+[31mgetPage(): OK 1 - template=h_artwork, title~=Zabavushka(B[m
+[1m[32m>> Hook zabavushka.h_aw_person                        Object LanguagesPageFieldValue(B[m
+[31mgetPage(): OK 1 - template=h_person, h_av_lastname~=hidden author(B[m
+
+=======================
+2025-03-06 hidden title                    hidden author            hidden year                 !!!!!!!! hidden author
+[31mcreatePage(): $data=[title]=>hidden author,[h_av_lastname]=>hidden author,[h_av_duty]=>Artist(B[m
+[31mcreatePage(): PAGE ALREADY EXISTS selector:template=h_person, title=hidden author(B[m
+>>>  OK hidden-author.title                           hidden author
+>>>  OK hidden-author.h_av_lastname                   hidden author
+>>>  OK hidden-author.h_av_duty                       Artist
+[31mgetPage(): FAIL 3 - template=h_artwork, title~=hidden title(B[m
+[31mcreatePage(): $data=[title]=>hidden title,[h_aw_day0]=>2025-03-06,[h_aw_brand]=>5835,[h_aw_year]=>hidden year(B[m
+[31mcreatePage(): PAGE CREATED selector:template=h_artwork, title=hidden title(B[m
+>> Load hidden-title.title                            hidden title
+>> Load hidden-title.h_aw_day0                        2025-03-06
+[1m[32m>> Hook hidden-title.h_aw_brand                       Object LanguagesPageFieldValue(B[m
+>> Load hidden-title.h_aw_year                        hidden year
+[1m[32m>> Hook hidden-title.h_aw_person                      Object LanguagesPageFieldValue(B[m

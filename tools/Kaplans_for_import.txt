@@ -8,7 +8,7 @@
 2024-01-05,Tresors Du Nil,Metz,Joachim,2003,,2450,88x88,https://www.kaplans.se/sv/auktioner/4341/vara/1988429
 2023-04-11,Cheval de Caractere,Rybaltchenko,Dimitri,2007/2009,,2450,90x90,https://www.kaplans.se/sv/auktioner/4230/vara/1920665
 2022-12-09,Voyage en Etoffes,Faivre,Annie,2009,,2450,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1883715
-2022-12-09,Jeu De Cartes,Cassandre,,2013/2024,,2090,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1895851
+2022-12-09,Jeu De Cartes,Cassandre,Anne Marie,2018,,2090,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1895851
 2022-09-09,Modernisme Tropical,Jardim,Filipe,2016,,2450,90x90,https://www.kaplans.se/sv/auktioner/4125/vara/1863693
 2022-04-09,Mors à Jouets,d'Origny,Henri,1982/2017,,2570,90x90,https://www.kaplans.se/sv/auktioner/4062/vara/1830363
 2022-04-02,The sign of excellence,,,,Omega,830,90x90,https://www.kaplans.se/sv/auktioner/4044/vara/1818388
