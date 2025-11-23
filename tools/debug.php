@@ -1,13 +1,13 @@
 <?php namespace ProcessWire;
 
 /**
- * ProcessWire CAA(Computer Aided Admin) + nordita.org site by Iouri Belokopytov. Copyright 2020-2021 Nordita
+ * ProcessWire SH site by Iouri Belokopytov. Copyright 2020-2025 Iouri Belokopytov
  *
  * Debugging tools
  */
 
 if (is_file($f=__dir__.'/functions.php')) require_once $f;
-if (!defined('cnf_CLI')) define ('cnf_CLI', true);
+if (!defined('CLI_MODE')) define ('CLI_MODE', true);
 
 /**
  * Initialise internal debug
@@ -29,7 +29,7 @@ function initDebug(){
     if (defined('DEBUG')) {
         $_SESSION['DEBUG'] = DEBUG;
     } else {
-        define('DEBUG', (cnf_CLI ? 1 : (int)$_SESSION['DEBUG']));
+        define('DEBUG', (CLI_MODE ? 1 : (int)$_SESSION['DEBUG']));
     }
     
     // Who is logged in?
@@ -59,15 +59,15 @@ initDebug();
  * Error exit
  */
 function abortIt($text = 'Shit...', $extras=[]) {
-    echo (cnf_CLI
+    echo (CLI_MODE
       ? sprintf("\n%s\n", `echo "$(tput bold)$(tput setaf 1)"`)
       : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
     if ($extras){
-        if (cnf_CLI) var_dump($extras);
+        if (CLI_MODE) var_dump($extras);
         else echo tidy_dump($extras,'extras');
     }
     debug_print_backtrace(); // DEBUG_BACKTRACE_IGNORE_ARGS
-    echo (cnf_CLI
+    echo (CLI_MODE
       ? sprintf("\n%s\n%s\n", $text, `echo $(tput sgr0)`)
       : "</pre>\n");
     die("\n");
@@ -107,7 +107,7 @@ function tidy_dump($object, $title = 'tidy_dump', $trim = false, $skip_empty = t
     if ($title === 'get_object_name') {
         return "Object ".trim(str_replace(['ProcessWire','\\','Object'], '', $reply));
     }
-    list($o,$c) = (cnf_CLI ? ["",""] : ["<pre>","</pre>"]);
+    list($o,$c) = (CLI_MODE ? ["",""] : ["<pre>","</pre>"]);
     $reply = str_replace(['Array()','Array(',')'], ['[]','[',']'], sprintf(
         "$o\n%s%s$c\n",
         ($return ? "" : str_replace(__NAMESPACE__.'\\', "", $title).": "),
@@ -117,7 +117,7 @@ function tidy_dump($object, $title = 'tidy_dump', $trim = false, $skip_empty = t
     if (!$return && strpos(@$GLOBALS['debug_messages'], $reply)===false) {
         @$GLOBALS['debug_messages'] .= $reply;
     }
-    return ($return || cnf_CLI ? $reply : "");
+    return ($return || CLI_MODE ? $reply : "");
 }
 
 /**
@@ -379,7 +379,7 @@ class say
             return '';
         }
         self::hl($msg, "s");
-        if (!cnf_CLI || $imitateURI) {
+        if (!CLI_MODE || $imitateURI) {
             $msg = x("span style='color:red;font-weight:bold'", $msg);
             @$GLOBALS['debug_messages'] .= "$msg<br>";
             return '';
@@ -391,7 +391,7 @@ class say
         static $text_previous = '?';
         if ($text == $text_previous) return;
         $text_previous = $text;
-        if (cnf_CLI) {
+        if (CLI_MODE) {
             fwrite(STDERR, self::color($text, $c, $keepCR)."\n");
         } else {
             b_debug::_dbg($text, 'm', null, 2);
@@ -399,7 +399,7 @@ class say
     }
 
     static function hs($text) {
-        if (!cnf_CLI) {
+        if (!CLI_MODE) {
             return;
         }
         static $counter = 0;
@@ -408,7 +408,7 @@ class say
         fwrite(STDERR, "\n".self::color("Start ".$pf, 'M')."\n");
     }
     static function he() {
-        if (!cnf_CLI) {
+        if (!CLI_MODE) {
             return;
         }
         $pf = array_pop(self::$t);
@@ -484,7 +484,7 @@ class say
         $n = (empty($m3) ? 99 : 24);
         $m2 = (empty($now)||$eq($now, $reply)?"":"$now -> ").sprintf("%-".($n-1)."s", (empty($_=_formatData($reply, $n)) ? '""' : $_));
         $line = trim(sprintf("$id %-45s %s", $m1, $m2.$m3))."\n";
-        if (cnf_CLI) {
+        if (CLI_MODE) {
             if (empty($color)) {
                 fwrite(STDERR, $line);
             } else {
@@ -515,7 +515,7 @@ class say
             $t_say='';
         }
         $msg = sprintf("$s $act %-10s ".(empty($value)?"":"$t_say= ")."%s\n", (empty($s_key) ? $key : "$key.$s_key"), $value);
-        if (cnf_CLI) {
+        if (CLI_MODE) {
             fwrite(STDERR, $msg);
         } else {
             b_debug::_dbg($msg, 'm', null, 1);
@@ -676,7 +676,7 @@ class b_debug
         }
 
         if (self::$starting_exiting || !@self::$cache[$args.$text]++) {
-            if (cnf_CLI) {
+            if (CLI_MODE) {
                 say::hl($dbg_prefix.(empty($text)?"":": $text"));
             } else {
                 if (is_numeric($text) && ($d=date('Y', $text)) > 2000 && $d < 2040) {
@@ -691,7 +691,7 @@ class b_debug
         self::$noArgs = $noArgs;
     }
     public static function s_e_depth($extra_shift = 0) {
-        return (self::$s_e_depth > 0 ? str_repeat((cnf_CLI?' ':'&nbsp;'), 5*(self::$s_e_depth+$extra_shift)) : '');
+        return (self::$s_e_depth > 0 ? str_repeat((CLI_MODE?' ':'&nbsp;'), 5*(self::$s_e_depth+$extra_shift)) : '');
     }
 
   /**
