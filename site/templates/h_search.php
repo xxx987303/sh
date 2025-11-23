@@ -7,7 +7,7 @@
 /** @var WireInput $input */
 /** @var Sanitizer $sanitizer */
 
-/*
+/**
  * we are allowing these GET vars in the format of 999, 999-9999, or 999+
  * so we're using this loop to parse them into a selector
  */ 
@@ -16,7 +16,8 @@ function fieldSelector(WireInput $input, Field $field, Array &$summary) {
     $selector = "";
     if($value = $input->get($key)) {
         if(strpos($value, ',') !== false) { // see if the value is given as a list (i.e. items separated by a comma)
-            $selector .= "$key%=".($value=str_replace(',',' ',$value));
+	    // Operator "~|=" also works, but "%=" does not...
+            $selector .= "$key=". ($value=str_replace(',','|',$value));
             $summary[$key] = $value;
             $input->whitelist($key, $value);
         }elseif(strpos($value, '-') !== false) { // see if the value is given as a range (i.e. two numbers separated by a dash)
@@ -32,17 +33,17 @@ function fieldSelector(WireInput $input, Field $field, Array &$summary) {
             $summary[$key] = "$value and above";
             $input->whitelist($key, "$value+");
         }else{ // plain value that doesn't need further parsing
-            $value = (int) $value;
             $selector .= "$key=$value";
             $summary[$key] = $value;
             $input->whitelist($key, $value);
         }
         $selector .= ', ';
     }
+    if (!empty($selector)) echo x('pre',"fieldSelector($key): selector=$selector");
     return $selector;
 }
 
-// print'<pre>input:';print_r($input->get());print'</pre>';
+print'<pre>input:';print_r($input->get());print'</pre>';
 
 // most of the code in this template file is here to build this selector string
 // it will contain the h-search query that gets sent to $artworkList
@@ -93,16 +94,28 @@ foreach (['h_artwork','h_person'] as $tp) {
     }
 }
 
-foreach (templates()->get('h_artwork')->fields as $f) $selector .= fieldSelector($input, $f, $summary);
+foreach (templates()->get('h_artwork')->fields as $f) {
+    $selector .= fieldSelector($input, $f, $summary);
+}
 
-// if there are keywords, look in the title and body fields for the words
-//foreach(['keywords','tags'] as $key){
-foreach(['keywords'] as $key){
-    if($v=$input->get($key)) {
-        $value = $sanitizer->selectorValue($v);
-        $selector .= ($key=='keywords' ? "title|body%=$value, " : "tags=$value");
-        $summary[$key] = $sanitizer->entities($value);
-        $input->whitelist($key, $value);
+// input:ProcessWire\WireInputData Object
+// ([keywords] => h_aw_rarity=3
+//  [tags] => h
+//  [submit] =>)
+foreach(['keywords'] as $i){
+    if($v=$input->get($i)) {
+	if (strpos($v,'=') !== false) {
+	    list($k,$value) = explode('=',$v);
+            $selector .= "$k=$value,";
+            $summary[$k] = $sanitizer->entities($value);
+	} else {
+            $value = $sanitizer->selectorValue($v);
+            $selector .= ($i=='keywords' ? "title|body%=$value, " : "tags=$value");
+            $summary[$i] = $sanitizer->entities($value);
+	}
+	print x('pre', "value = $value");
+	    
+        $input->whitelist($i, $value);
     }
 }
 //tidy_dump($input,$selector);

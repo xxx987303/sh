@@ -54,7 +54,7 @@ $config->imageSizerOptions = array(
 $config->imageSizerOptions = array(
 	'upscaling' => false,
 	'cropping' => true, 
-	'quality' => 100,
+	'quality' => 90,
 	'sharpening' => 'medium',
 	);
 
