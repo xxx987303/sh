@@ -10,9 +10,6 @@
 /** @var Config $config */
 /** @var Page $page */
 
-// Debugging...
-$CdP = false;
-
 ?><!DOCTYPE html>
 <html lang="<?=(empty($languages)?'en':_x('en', 'HTML language code'))?>">
     <head>
@@ -22,13 +19,10 @@ $CdP = false;
 	<?=x('title',region('browserTitle').(input()->pageNum() > 1 ? " (Page ".input()->pageNum().")":""))."\n"?>
 
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-	<!--  CdP   <script src='<?=$config->urls->root?>includeHTML.js'></script> -->
-
-	<!--  CdP -------------------------------- -->
+	<!--  CdP
+	<script src='<?=$config->urls->root?>includeHTML.js'></script>
 	<link rel="stylesheet" type='text/css' href='<?=$config->urls->root?>CdP.min.css'/>
-	<!-- <link rel="stylesheet" type='text/css' href='<?=$config->urls->root?>customize-nav-menus.min.css'/>
-	     <link rel="stylesheet" type='text/css' href='<?=$config->urls->root?>nav-menus.css'/> -->
-	<!-- /CdP -->
+	/CdP -->
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,400i,700' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/uikit.gradient.min.css' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/slidenav.gradient.min.css' />
@@ -65,28 +59,29 @@ $CdP = false;
     <body>
 	<!--  CdP <div w3-include-html='<?=$config->urls->root?>header1.html'></div> -->
 	<div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
-      <div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
-	  <h2 style='float:left;'>
-	      <?php
-              echo "<!-- region(headline)  -->\n";
-              //$home->set('headline', 'Home');
-              foreach($page->parents as $k=>$p)if($k>0)printf("\t<a href='%s'>%s</a> <i class='uk-icon-angle-right'></i>\n",
-							      $p->url,$p->title);
-              echo region('headline');
-	      ?>
-	  </h2>
-	  <!-- Search and login -->
-          <ul class='uk-navbar-nav' style='float:right; list-style-type:"";'>
-              <?php
-	      include './includes/search_form_short.php';
-              echo (user()->isGuest()
-		  ? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //        .' '.__('Login')))
-		  : (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit'))) : "").
-		    x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout')));
-	      ?>
-          </ul>
-      </div>
-
+	    <div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
+		<h2 style='float:left;'>
+		    <?php
+		    echo "<!-- region(headline)  -->\n";
+		    //$home->set('headline', 'Home');
+		    foreach($page->parents as $k=>$p) if($k>0)
+			echo x("a href=".x("'",$p->url), $p->title).
+			     x("i class='uk-icon-angle-right'");
+		    echo region('headline');
+		    ?>
+		</h2>
+		<!-- Search and login -->
+		<ul class='uk-navbar-nav' style='float:right; list-style-type:"";'>
+		    <?php
+		    include './includes/search_form_short.php';
+		    echo (user()->isGuest()
+			? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //        .' '.__('Login')))
+			: (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit'))) : "").
+			  x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout')));
+		    ?>
+		</ul>
+	    </div>
+	    
       <nav id='topnav' class='uk-navbar uk-navbar-attached uk-hidden-small'>
 	  <div class='uk-container uk-container-center'>
 	      <ul class='uk-navbar-nav float_left'>
@@ -132,9 +127,9 @@ foreach(($GLOBALS['SPOT_url']
 }
 ksort($items);
 foreach($items as $k=>$v) echo $v;
-if($CdP)echo x("li class='menu-item menu-item-type-post_type menu-item-object-page'",
-	       x("a href=https://carredeparis.me/",
-		 x("h3",'CdP')));
+if(false && $CdP)echo x("li class='menu-item menu-item-type-post_type menu-item-object-page'",
+			x("a href=https://carredeparis.me/",
+			  x("h3",'CdP')));
 ?>
 	      </ul>
 	      <?php
@@ -157,49 +152,49 @@ if($CdP)echo x("li class='menu-item menu-item-type-post_type menu-item-object-pa
           <!-- ---------------------------------------------------------- language switcher / navigation end -->
 	  </div>
       </nav>
-    </div><!--/masthead-->
-
-    <div id='main'>
-                <div class='uk-container uk-container-center'>
-	<?=region('mainHeader')?>
-	<div class='uk-grid uk-grid-medium'>
-<!--	  <div id='content' class='uk-width-large-2-3 uk-margin-bottom'> -->
-	  <div id='content' class="uk-width-large-<?=($in_search?'3-4':'1-1')?> uk-margin-bottom">
-	    <?=region('content')?>
-	  </div>
-	    <?php
-	    if ($in_search) {
-	      echo "<div id='sidebar' class='uk-width-large-1-4'>\n";
-	      echo region('sidebarHeader');
-	      // include("./includes/search_form.php");
-	      echo region('sidebar');
-	      include("./includes/sidebar-links.php");
-	      echo "</div>\n";
-            }
-	    ?>
-	</div>
-      </div>
-    </div> <!--/main-->
-
-    <footer id='foot' class='uk-margin-large-top'>
-      <div class='uk-container uk-container-center uk-margin-bottom'>
-	<div class='uk-text-muted uk-text-center'>
-<!--
-	  <span class='foot-text'>Powered by <a href='https://processwire.com'>ProcessWire Open Source CMS</a></span>
-	  <span class='foot-line uk-text-small'>Data and photos from Wikipedia and private sources</span>
--->
-	</div>
-      </div>
-    </footer>
-
-    <?php include("./includes/offcanvas.php"); ?>
-
-<!--  CdP  <script>  includeHTML(); </script> -->
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-    <script src='<?=$config->urls->root?>site/uikit/js/uikit.min.js'></script>
-    <script src='<?=$config->urls->root?>site/uikit/js/components/lightbox.min.js'></script>
-    <script src='<?=$config->urls->root?>site/uikit/js/components/tooltip.min.js'></script>
-    <script src='<?=urls('templates')?>scripts/objects.js'></script>
-
-  </body>
+	</div><!--/masthead-->
+	
+	<div id='main'>
+            <div class='uk-container uk-container-center'>
+		<?=region('mainHeader')?>
+		<div class='uk-grid uk-grid-medium'>
+		    <!-- ---------------------------------------------------------- content -->
+		    <div id='content' class="uk-width-large-<?=($in_search?'3-4':'1-1')?> uk-margin-bottom">
+			<?=region('content')?>
+		    </div>
+		    <?php
+		    if ($in_search) {
+			echo "<div id='sidebar' class='uk-width-large-1-4'>\n";
+			echo region('sidebarHeader');
+			// include("./includes/search_form.php");
+			echo region('sidebar');
+			include("./includes/sidebar-links.php");
+			echo "</div>\n";
+		    }
+		    ?>
+		</div>
+	    </div>
+	</div> <!--/main-->
+	
+	<footer id='foot' class='uk-margin-large-top'>
+	    <div class='uk-container uk-container-center uk-margin-bottom'>
+		<div class='uk-text-muted uk-text-center'>
+		    <!--
+			 <span class='foot-text'>Powered by <a href='https://processwire.com'>ProcessWire Open Source CMS</a></span>
+			 <span class='foot-line uk-text-small'>Data and photos from Wikipedia and private sources</span>
+		    -->
+		</div>
+	    </div>
+	</footer>
+	
+	<?php include("./includes/offcanvas.php"); ?>
+	
+	<!--  CdP  <script>  includeHTML(); </script> -->
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+	<script src='<?=$config->urls->root?>site/uikit/js/uikit.min.js'></script>
+	<script src='<?=$config->urls->root?>site/uikit/js/components/lightbox.min.js'></script>
+	<script src='<?=$config->urls->root?>site/uikit/js/components/tooltip.min.js'></script>
+	<script src='<?=urls('templates')?>scripts/objects.js'></script>
+	
+    </body>
 </html>

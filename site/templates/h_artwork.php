@@ -8,11 +8,13 @@
 /** @var Page $page */
 
 // populate regions
-region('browserTitle', "$page->title, {$page->parent->title}");
+region('browserTitle',
+       "{$page->title}, {$page->parent->title}");
 
 // related h_artworks are those that mention the same title in their body copy
-region('content', files()->render('./includes/object-page.php',
-				  array('page'   => $page,
-					'related'=> pages("limit=20, id!=$page->id, body*=" . sanitizer()->selectorValue($page->title)),
-					'width'  => 600, // Images width
-					)));
+region('content',
+       files()->render('./includes/object-page.php',
+		       ['page'   => $page,
+			'related'=> pages("limit=20, id!=$page->id, body*=" . sanitizer()->selectorValue($page->title)),
+			'width'  => 600, // Images width
+]));

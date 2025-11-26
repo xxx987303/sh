@@ -5,6 +5,54 @@
 require_once __dir__ . '/debug.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
+tidy_dump(pages()->get(5844)->h_aw_popularity->value);
+tidy_dump(pages()->get(5850)->h_aw_rarity->value);
+exit;
+/*
+foreach([5844,5850] as $id){
+    echo "============================ id=$id\n";
+    foreach(pages()->get($id) as $pp) {
+	if (!is_object($pp)) continue;
+	foreach($pp as $p) {
+ */
+foreach(pages()->find("template=h_artwork") as $p) {	    
+    if (( empty($p->h_aw_popularity) &&  empty($p->h_aw_rarity) &&  empty($p->size) &&  empty($p->h_aw_size)) ||
+	(!count($p->h_aw_popularity) && !count($p->h_aw_rarity) && !count($p->size))) continue;
+    echo sprintf("%4d %-30s %-5s %-5s h_aw_popularity='%s' h_aw_rarity='%s'\n",
+		 $p->id,$p->title, (empty($s=$p->size)?"":$s->last->name), $p->aw_size, $p->h_aw_popularity, $p->h_aw_rarity);
+}
+
+exit;
+
+// size field...
+foreach(pages()->find("template=h_artwork, size=90x90") as $p) {
+    printf("%s\n", $p->title);
+}
+exit;
+
+if (0){
+$p = pages()->get("template=h_artwork");
+$c = 0;
+b_debug::_dbg("--------------------------------------------- ".(++$c));
+setKeyValue($p,'size', '90x90', false);
+b_debug::_dbg("--------------------------------------------- ".(++$c));
+setKeyValue($p,'size', '45x45', true);
+b_debug::_dbg("--------------------------------------------- ".(++$c));
+setKeyValue($p,'size', 'Twilly', false);
+b_debug::_dbg("--------------------------------------------- ".(++$c));
+setKeyValue($p,'size', 'Gavroche', false);
+b_debug::_dbg("--------------------------------------------- ".(++$c));
+setKeyValue($p,'size', 'gavroch', false);
+b_debug::_dbg("--------------------------------------------- ".(++$c));
+
+foreach(pages()->get("template=sizes")->children as $p){
+    echo ">>>>>>>>>>>>>>>>> ".$p->name."\n";
+    echo "                  ".$p->title."\n";
+}
+//tidy_dump(pages()->get("template=sizes")->children->each);
+exit;
+}
+
 foreach([
     //"template=h_artwork, h_aw_rarity=3",
     "template=h_artwork, h_aw_rarity=R|1|2",

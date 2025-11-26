@@ -396,11 +396,9 @@ function getSpotURLs(){
  *
  */
 function getTaggedFields($page,$context='page'){
-  global $SPOT_search;
-  global $dejaVuFields, $dejaVuTags;
+  global $config, $SPOT_search, $dejaVuFields, $dejaVuTags;
 
-  $debug = false;
-  $debug = true;
+  $debug = $config->debug;
 
   $reply = WireArray();
   if (empty($dejaVuFields)) $dejaVuFields = [];
@@ -410,7 +408,9 @@ function getTaggedFields($page,$context='page'){
       if(empty($v=$page->get($f->name)))continue;
       if ($f->type instanceof FieldtypeOptions){
           if (!count($v)) continue;
-          $value = substr($v->each(", {title}"),2);
+          $value = (in_array($f->name,$config->emojiFields)
+	      ? substr($v->each(", {value}"),2)
+	      : substr($v->each(", {title}"),2));
       }elseif ($f->type instanceof FieldtypeURL || strpos($f->name, '_url')) {
           $value = x("a href='$v'",__('Click to see'));
       }elseif ($f->type instanceof FieldtypeDatetime){
@@ -419,19 +419,21 @@ function getTaggedFields($page,$context='page'){
           $value = number_format($v,0,","," ").' SEK';
       }else{
           $value = $v;
+          //??? if (is_object($page->$f)) $value = $page->$f->value;
       }
-      if (empty(trim($value))) continue;
+      if (empty($value) || empty(trim($value))) continue;
       // printf("%s=%s %s <br>\n",$f->name,$value,t_dump($page->get($f->name),'get_object_name'));
       $reply->add(array('field' => $f->name,
 			'label' => $page->getField($f->name)->getLabel(),
 			'value' => $value,
 			'url'   => sprintf("%s?%s=%s",$SPOT_search,$f->name,$value),
-			'comment'=> "<!-- $f->name  ------------------------------------>\n"));
+			//'comment'=> "<!-- $f->name  ------------------------------------>\n"
+      ));
       if (!in_array($f->name, $dejaVuFields)) $dejaVuFields[] = $f->name;
     }
   }
   if (!$reply->count) {
-      $reply->add([ 'label' => "<em>".__("No data for tag")." \"$context\"</em>",
+      $reply->add([ 'label' => $debug ? "<em>".__("No data for tag")." \"$context\"</em>" : "",
                     'value' => "",
                     'url' => "",
                     'comment'=> "<!-- DUMMY ------------------------------------>\n"]);
@@ -558,3 +560,30 @@ function getValue(string $f_name, $page_arg, bool $returnValue = true, bool $sil
     return join(VALUES_SEPARATOR, $reply);
 }
 
+
+/**
+ */
+function joinX(Array $a, $skipEmpty=true){
+    $r = "";
+    foreach($a as $k=>$v) {
+	$v = trim($v);
+	if (true && empty($v) && $v !== 0 && $v !== '0') continue;
+	if (empty($v)||$k=='comment') continue;
+	$r .= "[$k]='$v',";
+    }
+    return trim($r,',');
+}
+
+/**
+ *  To be done better...
+ */
+function getEmoji(String $fieldName, String $fn, bool $returnImage=false) {
+    global $SPOT_search, $config;
+    $emojiDir = __dir__.'/../assets/files/0000/';
+    if (in_array($fieldName, $config->emojiFields) && file_exists($ph=realpath(str_replace(' ','',$emojiDir.$fn.".png")))) {
+	$treeRoot = '/sh/';
+	$anker = x("a href='$SPOT_search?$fieldName=$fn'",
+		   ($image = x("img src=".x("'",preg_replace(";.*{$treeRoot};",$treeRoot,$ph)))));
+    } else return false;
+    return $returnImage ? $image : $anker;
+}

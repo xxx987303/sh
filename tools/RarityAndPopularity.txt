@@ -1,0 +1,14 @@
+
+"New" rarity (field 143)    "New" popularity (field 142)
+1=Not uncommon              1=Common
+2=Quite rare		    2=Medium beloved  
+3=Rare                      3=Beloved
+4=Very rare                 4=Very beloved
+
+"Old" rarity                 "Old" popularity (to be continued)
+6=R|R - Exceptional
+1=1|1 - Very rare
+2=2|2 - Rare
+3=3|3 - Medium rare
+4=4|4 - Some uncommon
+5=5|5 - Uncommon

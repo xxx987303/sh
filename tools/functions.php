@@ -25,11 +25,13 @@ function pageName($item, $cleanOnly = false) {
                                str_ireplace(["(",")",".","*","?","&",","], " ",
                                             preg_replace("/&[a-zA-Z]*;/", " ",
                                                          (is_array($item) ? $item['english'] : $item)
-                                            ))));
+    ))));
     if (!$cleanOnly) {
         $reply = sanitizer()->pageName(sanitizer()->transliterate($reply));
         $reply = substr($reply, 0, $maxLength);
     }
+    b_debug::_dbg(sprintf("pageName(%s) = %s", $item, $reply));
+if ($item=='size') abortIt('????');
     return $reply;
 }
 
@@ -124,18 +126,6 @@ function escape_uml($text, $direction='auto', $debug=false) {
             abortIt();
         }
     return $reply;
-}
-
-/**
- */
-function joinX(Array $a, $skipEmpty=true){
-    $r = "";
-    foreach($a as $k=>$v) {
-	$v = trim($v);
-	if ($skipEmpty && empty($v) && $v !== 0 && $v !== '0') continue;
-	$r .= "[$k]=>$v,";
-    }
-    return trim($r,',');
 }
 
 /*

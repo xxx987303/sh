@@ -16,10 +16,52 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
     }
 
     if ($key_arg==='e_inst' && $value=='Home') { abortIt("!!!!!!!!!!!!!!!!!"); }
-    if (empty($key_arg)) { abortIt("??? Empty key"); }
+    if (empty($key_arg)) { abortIt('??? Empty $key_arg'); }
 
-  /**
-   */
+    /**
+     *
+     */
+    $createOptionPage = function(Object $o, Field $key, Object $donorPage, String $value, $saveToDB=false) { 
+	global $dummyID; if (empty($dummyID)) $dummyID = 10000;
+
+	b_debug::_dbg(sprintf("o=%s, key=%s, value=%s, donor=%s", $o->name, $key->name, $value, $donorPage->name)); 
+	tidy_dump($o->$key->each("id={id} name={name} title={title}, "),"value=$value");
+	if (0) foreach($o->$key as $p) {
+	    if ($p->name == 'size') {
+		echo "-------------got it!\n";
+		$p->delete();
+		$p->save();
+	    }
+	}
+
+	if ($o->$key && (pageName($now=$o->$key->last->title) == pageName($value))) {
+            say::ok($o, $key, ($got=$value));
+	} else {
+            if (!($page = pages()->get("name=".pageName($value)))->id) {
+		$page = new Page();
+		$page->name     = pageName($value);
+		$page->title    = $value;
+		$page->template = $donorPage->template;
+		$page->parent   = $donorPage->parent;
+		if ($saveToDB) $page->save();
+		else           $page->id = ++$dummyID;
+		b_debug::_dbg("Creating ".$page->title);
+		tidy_dump($page, "Created ".$page->title);
+            }
+            if ($o->$key instanceof PageArray) {
+say::notice('$o->$key is PageArray');
+		$o->$key->add($page);
+            } else {
+		$o->$key = $page;
+say::notice('$o->$key is NOT PageArray');
+            }
+            if ($saveToDB !== false) $o->save();
+            say::load($o, $key, $value, (empty($now)?'':$now), $page->name);
+	}
+    };
+
+    /**
+     */
     $getKey = function ($key_arg, $expectObject = true) {
         if ($expectObject) {
             $key      = (is_object($key_arg) ? $key_arg  : (is_object($f=fields()->get($key_arg)) ? $f : $key_arg));
@@ -32,7 +74,6 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
             }
             $key = $key_name = $key_arg;
         }
-      //      b_debug::_dbg(is_object($key));
         return [$key,$key_name];
     };
 
@@ -44,6 +85,7 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
         if ($value == '<unset>') {
             $value = 0;
         }
+	
         static $roles = ['viewRoles','editRoles','addRoles','createRoles'];
         if (($tRoles = ($o instanceof Template) && in_array($key, $roles))) {
             if (!$o->$key) {
@@ -172,9 +214,12 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
             if (empty($value)) {
                 return;
             }
-            if ($o->$key && (pageName(($now=$o->$key->title)) == pageName($value))) {
-                say::ok($o, $key, ($got=$value));
-            } else {
+	    
+	    $createOptionPage($o, $key, pages()->get("template=country"), $value, $saveToDB);;
+	    /*
+               if ($o->$key && (pageName(($now=$o->$key->title)) == pageName($value))) {
+               say::ok($o, $key, ($got=$value));
+               } else {
                 if (!($page_country = pages()->get("name=".pageName($value)))) {
                     $page_country = new Page();
                     $page_country->name  = pageName($key_name);
@@ -192,11 +237,46 @@ function setKeyValue(object $o, $key_arg, $value, $saveToDB = null) {
                 if ($saveToDB !== false) $o->save();
                 say::load($o, $key, $value, (empty($now)?'':$now), $got=@$o->$key->title);
             }
+	    */
         } elseif (is_object($key) && $key->type instanceof FieldtypePage) { // FieldtypePage  =====================================================
+	    
+
             if ($key_name == 'er_org_position' && !is_object($value)) {
                 $value = findPageByTitle($value, ['org_position']);
-            }
-            if (!is_object($value)) {
+            }elseif (is_string($value) && $key instanceof PageField) {
+		$pages = pages()->get("template=".$key->template_id);
+		foreach ($pages as $p){
+		    //if ($p->name == ($n=$key->template->name)) echo "??????????????????????? $n\n";
+		}
+		$createOptionPage($o, $key, pages()->get("template=".$key->template_id), $value, $saveToDB);
+		return;
+		// Check the current value
+		if ($o->$key->last->title == $value) {
+                    say::ok($o, $key_name, $value);
+		    return;
+		}
+
+		// Check that the option exists in the list
+		if (!($p = pages()->get($s=sprintf("template=%s, title=%s", $key->template_id, $value)))->id) {
+		}
+		exit;
+		if ($p->title == $value) {
+                    say::ok($o, $key_name, $value);
+		    return;
+		}
+		
+		tidy_dump($p,"s=$s");
+		tidy_dump($p->id,"id");
+		tidy_dump($p->name,"name");
+		tidy_dump($p->title,"title");
+		echo "s = $s\n";
+//		tidy_dump($key);
+tidy_dump($p);
+		exit;
+	    }
+
+
+	    if (!is_object($value)) {
                 tidy_dump($key, $key_name);
                 abortIt(var_export($value, true)." is not an object");
             }

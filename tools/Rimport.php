@@ -122,7 +122,7 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
 			 'h_aw_day0' => $day0,
                          'h_aw_more' => $cmt,
 			 'h_aw_price'=> $price,
-			 'h_aw_size' => $size,
+			 //'h_aw_size' => $size,
 			 'size'      => pages()->get("template=size, title~=$size"),
                          'h_aw_year' => $year],
                         [],

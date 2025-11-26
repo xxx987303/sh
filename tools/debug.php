@@ -6,7 +6,8 @@
  * Debugging tools
  */
 
-if (is_file($f=__dir__.'/functions.php')) require_once $f;
+require_once __dir__.'/functions.php';
+require_once __dir__.'/../site/templates/_debug.php';
 if (!defined('CLI_MODE')) define ('CLI_MODE', true);
 
 /**
@@ -72,134 +73,6 @@ function abortIt($text = 'Shit...', $extras=[]) {
       : "</pre>\n");
     die("\n");
 }
-
-/**
- * Compact version of print_r, mostly for debuging 
- */
-function tidy_dump($object, $title = 'tidy_dump', $trim = false, $skip_empty = true) {
-    if (empty(@$GLOBALS['debug_messages'])) $GLOBALS['debug_messages'] = "";
-    if ($title == 'return') { $return=true; $trim='do'; } else { $return = false; }
-    if (!DEBUG && !input::get('show_tidy') && $trim !== 'do') { return ''; }
-    if ($trim === 'do') { $trim = true; }
-
-    if ($title === 'get_object_name') {
-        $tt = array('/object.([^\)]*)\).(\d*).*/'=> '$1',
-        '/string\([0-9]*\) /'        => '',
-        '/\n.*/'                     => '');
-    } else {
-        $tt = [
-        '/(\[|\])/'     => '',
-        '/\n *(\(|\))/' => '$1',
-        '/\)\n\)/'      => '))', // (((( help emacs
-       //  '/\(\n *([^\)^\n]*\))\n/'  => '($1'."\n",
-        '/\n\n/'        => "\n",
-         //'/\)\n\)/'      => "))",
-        ];
-        if ($skip_empty) {
-            $tt = array_merge($tt, ['/\n[^=]*\>?\n/' => "\n"]);
-        }
-    }
-    ob_start();
-    print_r($object);
-    $output = ob_get_clean();
-    $reply = preg_replace(array_keys($tt), array_values($tt), $output);
-    if(true) $reply = preg_replace('/.* => \n/', "", $reply);
-    if ($title === 'get_object_name') {
-        return "Object ".trim(str_replace(['ProcessWire','\\','Object'], '', $reply));
-    }
-    list($o,$c) = (CLI_MODE ? ["",""] : ["<pre>","</pre>"]);
-    $reply = str_replace(['Array()','Array(',')'], ['[]','[',']'], sprintf(
-        "$o\n%s%s$c\n",
-        ($return ? "" : str_replace(__NAMESPACE__.'\\', "", $title).": "),
-        str_replace(__NAMESPACE__.'\\', "", $reply)
-    ));
-    if ($trim) { $reply = trim($reply)."\n"; }
-    if (!$return && strpos(@$GLOBALS['debug_messages'], $reply)===false) {
-        @$GLOBALS['debug_messages'] .= $reply;
-    }
-    return ($return || CLI_MODE ? $reply : "");
-}
-
-/**
- *
- */
-function _formatData($data, $maxLength = 66) {
-
-    static $tp = array("/\n/"          => '',
-             "/ => /"        => '=>',
-             "/ *\( */"      => '(',
-             "/ *\) */"      => ')',
-             "/[\s]+/"       => ' ',
-             "/ *\[\d*\]=>/" => ',',
-             "/ *\[0\]=>/"   => '',
-             "/\(,/"         => '(',
-             "/\)\[/"        => '),[',
-             "/".__NAMESPACE__."./"=> '');
-    static $ts = array("\n"            => ' ',
-             " => "          => '=>');
-
-    list($o,$c) = (!empty($_SERVER['TERM']) ? ["",""] : ["<pre>","</pre>"]);
-    list($o,$c) = ["",""];
-
-    if (is_array($data)) {
-        ob_start();
-        print_r($data);
-        $output = ob_get_clean();
-        return $o.shortText(str_replace(
-            array_keys($ts),
-            array_values($ts),
-            preg_replace(array_keys($tp), array_values($tp), $output),
-            $maxLength
-        )).$c;
-    } elseif ($data instanceof NullPage) {
-        return "NullPage";
-    } elseif (is_object($data)) {
-        return (empty($data->name)
-          ? tidy_dump($data, 'get_object_name')
-          : $data->name);
-    } elseif (is_bool($data)) {
-        return var_export($data, true);
-    } elseif (is_string($data)) {
-        return $o.shortText($data, $maxLength).$c;
-    } elseif (is_numeric($data)) {
-        return $data;
-    } elseif (is_null($data)) {
-        return 'NULL';
-    } else {
-        return 'UNKNOWN TYPE '. var_export($data, true);
-    }
-}
-
-/**
- *
- */
-function shortText($text, $maxLength = 500) {
-    if (!strlen($text)) {
-        return '';
-    }
-    $summary = trim(strip_tags($text));
-    if (strlen($summary) <= $maxLength) {
-        return $summary;
-    }
-    $summary = substr($summary, 0, $maxLength);
-    $lastPos = 0;
-    foreach (array('. ', '!', '?',' ') as $punct) {
-        $pos = strrpos($summary, $punct);
-        if ($pos > $lastPos) {
-            $lastPos = $pos;
-        }
-    }
-    if ($lastPos) {
-        $summary = substr($summary, 0, $lastPos + 1); // and truncate to last sentence
-    }
-    return trim($summary).'...';
-    return trim($summary);
-}
-
-/**
- *
- */
-
 
 
 /**
@@ -341,14 +214,14 @@ class say
         say::tbd($text);
     }
 
-    static function error($text, $only_one = false) {
+    static function error($text, $only_one = !CLI_MODE) {
         static $dejaVu=[];
         if (!$only_one || !@$dejaVu[$text]++) {
             self::hl("ERROR: $text", "R");
         }
     }
 
-    static function warning($text, $only_one = false) {
+    static function warning($text, $only_one = !CLI_MODE) {
         static $dejaVu=[];
         if (!$only_one || !@$dejaVu[$text]++) {
             self::hl("WARNING: $text", "m");
@@ -357,7 +230,7 @@ class say
 
   /**
    */
-    static function notice($text, $only_one = true) {
+    static function notice($text, $only_one = !CLI_MODE) {
         static $dejaVu=[];
         if (!$only_one || !@$dejaVu[preg_replace("/,.*$/", "", $text)]++) {
             self::hl("NOTICE: $text", "s");

@@ -15,9 +15,9 @@ function fieldSelector(WireInput $input, Field $field, Array &$summary) {
     $key = $field->name;
     $selector = "";
     if($value = $input->get($key)) {
-        if(strpos($value, ',') !== false) { // see if the value is given as a list (i.e. items separated by a comma)
+        if(preg_match(";[,/];", $value)) { // see if the value is given as a list (i.e. items separated by a comma)
 	    // Operator "~|=" also works, but "%=" does not...
-            $selector .= "$key=". ($value=str_replace(',','|',$value));
+            $selector .= "$key=". ($value=str_replace([',','/'],'|',$value));
             $summary[$key] = $value;
             $input->whitelist($key, $value);
         }elseif(strpos($value, '-') !== false) { // see if the value is given as a range (i.e. two numbers separated by a dash)
@@ -39,11 +39,11 @@ function fieldSelector(WireInput $input, Field $field, Array &$summary) {
         }
         $selector .= ', ';
     }
-    if (!empty($selector)) echo x('pre',"fieldSelector($key): selector=$selector");
+    // if (!empty($selector)) echo x('pre',"fieldSelector($key): selector=$selector");
     return $selector;
 }
 
-print'<pre>input:';print_r($input->get());print'</pre>';
+tidy_dump($input->get(), "input:");
 
 // most of the code in this template file is here to build this selector string
 // it will contain the h-search query that gets sent to $artworkList
@@ -113,7 +113,7 @@ foreach(['keywords'] as $i){
             $selector .= ($i=='keywords' ? "title|body%=$value, " : "tags=$value");
             $summary[$i] = $sanitizer->entities($value);
 	}
-	print x('pre', "value = $value");
+	echo x('pre', "$i: value = $value");
 	    
         $input->whitelist($i, $value);
     }

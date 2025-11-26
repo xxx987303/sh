@@ -32,7 +32,8 @@ if(!defined("PROCESSWIRE")) die();
  * @var bool
  *
  */
-$config->debug = false;
+$config->debug = true;
+define('DEBUG', $config->debug);
 
 $config->useFunctionsAPI = true; 
 $config->sessionFingerprint = true; 
@@ -62,6 +63,11 @@ $config->imageSizerOptions = array(
  * Group items list by object
  */
 $config->groupListItemBy = ['duty','brand'];
+
+/**
+ * Fields shown as emojis
+ */
+$config->emojiFields = ['h_aw_popularity', 'h_aw_rarity'];
 
 /*** INSTALLER CONFIG ********************************************************************/
 
