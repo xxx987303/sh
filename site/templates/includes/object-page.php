@@ -5,14 +5,14 @@
  *   $pages       Related pages, the first image of those is drawn as page images (with links to the original)
  *   $related     Artworks that mention the same title in their body
  *   $width       Image(s) width
- *   $o           R - images on the right (default L - on the leftleft)
+ *   $o           Orientation: R - images on the right (default L - on the left). Images have double width
  *   $ncells      Number of cells in the row
  */
 
 getSpotURLs();
 if (empty($o)) $o = 'L'; // images on the left (if not on the rigth) hand site
 
-// currently number of cells is 3 or 4 
+// currently number of cells is 3 or 4
 if (empty($ncells)) $ncells = 3;
 if ($width == 150)  $ncells = 4;
 if ($ncells == 4)   $width = 150;
@@ -58,35 +58,39 @@ function o_p_images($c, $page, $pages, $width){
 function o_p_tr_line($label,$items){
     if (!empty($items)) {
         if ($items instanceof PageArray && count($items)){
-            echo x("tr",x("th",$label).x("td",x("ul class='uk-list uk-margin-remove'",$items->each("<li><a href='{url}'>{title}</a></li>"))));
-        } elseif (!$items->id) {
-            foreach($items as $i) {
-		if (is_array($i)) echo $i['comment'].		    
-				       x("tr",
-					 x("th", $i['label']).
-					 x("td", (strpos($i['value'], 'a href=') === false			     
-					     ? x("a href='$i[url]'",$i['value'])
-				             : $i['value'])));
+	    $data = $items->each("<li><a href='{url}'>{title}</a></li>");
+            echo x("tr", x("th",$label) . x("td",x("ul class='uk-list uk-margin-remove'",$data)));
+	} elseif ($items instanceof WireArray) {
+	    foreach($items as $i) {
+		if (!is_array($i)) continue;
+		$data = (($e = getEmoji(@$i['field'], $i['value']))
+		       ? $e
+		       : (strpos($i['value'], 'a href=') === false
+			   ? x("a href='$i[url]'",$i['value'])
+		           : $i['value']));
+		echo x("tr", x("th",$i['label']) . x("td",$data));
 	    }
         }
     }
 }
 
-function o_p_main($c, $page, $related){
-  
+/**
+ */
+function o_p_text($c, $page, $related){
+
   $f_author = null; foreach ($page->fields as $f) if(strpos($f->name,'aw_person')!==false) $f_author=$f->name;
   $authors = $page->get($f_author);
-  if(empty($authors)) $authors = array();
-  if(empty($related) || empty($related->id)) $related = array();
-  
+  if(empty($authors)) $authors = [];
+  if(empty($related) || empty($related->id)) $related = [];
+
   echo"  <div class='uk-width-medium-$c'>\n";
-  
+
   echo x("h2",$page->title);
 
   if (!empty($taggedFields=getTaggedFields($page,'page')) || !empty($authors)){
     echo "<table class='uk-table object-info'> <tbody>\n";
 
-    // Author 
+    // Author
     o_p_tr_line(($t=templates()->get($f_author)) ? $t->label : __('Author'), $authors);
 
     // Author related pages
@@ -104,10 +108,10 @@ function o_p_main($c, $page, $related){
   // body
   //
   if (!empty($page->body)) echo $page->body;
-  
+
   if(!empty($related) || !empty($authors)){
     echo x("h2",__("See Also"));
-    
+
     echo "<ul class='uk-list uk-list-line uk-margin-bottom'>";
     foreach($related as $item){
       echo x("li",x("a href='$item->url'",$item->title.','.$item->parent->title));
@@ -125,6 +129,6 @@ function o_p_main($c, $page, $related){
 
 if(empty($related) || empty($related->id)) $related = [];
 echo "<div class='uk-grid uk-grid-medium'>\n";
-if ($o == 'L'){ o_p_images(c1, $page, $pages, $width); o_p_main  (c2, $page, $related);  }
-else          { o_p_main  (c2, $page, $related);       o_p_images(c1, $page, $pages, $width); }
+if ($o == 'L'){ o_p_images(c1, $page, $pages, $width); o_p_text  (c2, $page, $related);  }
+else          { o_p_text  (c2, $page, $related);       o_p_images(c1, $page, $pages, $width); }
 echo "</div>\n";

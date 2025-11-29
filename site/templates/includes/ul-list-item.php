@@ -6,10 +6,14 @@ $url = $page->url;
 $ttl = $page->title;
 
 $taggedFields = '';
-foreach(getTaggedFields($page,'list') as $f=>$i)
-  $taggedFields = $taggedFields . x("div class='uk-width-1-3 uk-width-small-1-5'",$i['value']."<br/>" .
-				    x("small class='uk-text-muted'",$i['label']));
+foreach(getTaggedFields($page,'list') as $f=>$i) {
 
+    $value = (!empty($i['field']) && in_array($i['field'],$config->emojiFields) && ($emoji=getEmoji($i['field'], $i['value'], true))
+	? $emoji
+	: $i['value']);
+    $taggedFields .= x("div class='uk-width-1-3 uk-width-small-1-5'",
+		       "$value<br>" . x("small class='uk-text-muted'",$i['label']));
+}
 $image = x("div class='uk-width-1-3 uk-width-small-1-5'",
 	   x("a href='$url'",
 	     x("img src='$img' alt='$ttl' class='rounded-corners'")));

@@ -262,8 +262,8 @@ function renderObjectListItem(Page $page, $context='ul', $key=''){
   $out = files()->render("./includes/{$context}-list-item$key.php", // say, ul-list-item.php
 			 array('page' => $page,
 			       'img'  => $img,
-			       'caption' => @$caption,
-			       'summary' => summarizeText(strip_tags($page->get('body')), 100)
+			       'caption' => empty($caption) ? "" : $caption,
+			       'summary' => summarizeText(strip_tags(empty($b=$page->get('body'))?"":$b), 100)
 			       ));
 
   return $out;
@@ -369,27 +369,19 @@ function summarizeText($text, $maxLength = 500) {
 }
 
 /**
- *
+ * http://localhost/sh/ru-home/h_spot/h_search/?h_aw_rarity=1
  */
 function getSpotURLs(){
-  global $page, $SPOT_id, $SPOT_url, $SPOT_search;
-  // Are we in the sub-site?
-  $uri = $_SERVER['REQUEST_URI'];
-  if(false){
-    preg_match(";(/[^/]*home)?(/([a-z]*)_?spot/);",$uri,$url_match);
+    global $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home;
+    
+    preg_match(";(/[a-z][a-z]-home\b)?(/([a-z]*)_?spot/);", $_SERVER['REQUEST_URI'], $url_match);
     list($SPOT_url,$SPOT_id) = (empty($url_match[0])
-				? (strpos($uri,'/h_')
-				   ? array('','h')
-				   : array('',''))
-				: array(substr($url_match[0],1), $url_match[3]));
-  }else{
-    preg_match(";(/([a-z]*)_?spot/);",$uri,$url_match);
-    list($SPOT_url,$SPOT_id) = (empty($url_match[0])
-				? ['','']
-				: [substr($url_match[0],1), $url_match[2]]);
-  }
-  $SPOT_search = config('urls')->root . $SPOT_url . $SPOT_id . "_search/";
-  //if(!@$GLOBALS[__function__]++)echo str_replace('</pre><pre>','; ',_formatData($uri)._formatData($url_match)._formatData("id=$SPOT_id, url=$SPOT_url, search=$SPOT_search"));
+	                      ? ['','']
+			      : [substr($url_match[0],1), $url_match[3]]);
+    $SPOT_search = config('urls')->root . $SPOT_url . $SPOT_id . "_search/";
+    // echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_search=$SPOT_search");
+    $site_home = pages("/");  
+    $spot_home = pages("/SPOT_url");
 }
 
 /**
@@ -569,15 +561,15 @@ function joinX(Array $a, $skipEmpty=true){
 	$v = trim($v);
 	if (true && empty($v) && $v !== 0 && $v !== '0') continue;
 	if (empty($v)||$k=='comment') continue;
-	$r .= "[$k]='$v',";
+	$r .= "$k=>$v ";
     }
-    return trim($r,',');
+    return x('[',trim($r));
 }
 
 /**
  *  To be done better...
  */
-function getEmoji(String $fieldName, String $fn, bool $returnImage=false) {
+function getEmoji($fieldName, String $fn, bool $returnImage=false) {
     global $SPOT_search, $config;
     $emojiDir = __dir__.'/../assets/files/0000/';
     if (in_array($fieldName, $config->emojiFields) && file_exists($ph=realpath(str_replace(' ','',$emojiDir.$fn.".png")))) {
@@ -587,3 +579,113 @@ function getEmoji(String $fieldName, String $fn, bool $returnImage=false) {
     } else return false;
     return $returnImage ? $image : $anker;
 }
+
+/**
+ * Output <div id='masthead'...</div>
+ */
+function masthead(Page $page) {
+    global $config, $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home, $languages;
+?>
+    <div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
+	<div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
+	    <h2 style='float:left;'>
+		<?php
+		echo "<!-- region(headline)  -->\n";
+		//$site_home->set('headline', 'Home');
+		$tmp = [];
+		foreach($page->parents as $k=>$p) {
+		    if ($k==0) continue;
+		    $tmp[] = $p->id;
+		    echo x("a href=".x("'",$p->url), $p->title).
+			 x("i class='uk-icon-angle-right'");
+		}
+		echo region('headline');
+		//static $normalHeadline;
+		//if (empty($normalHeadline)) $normalHeadline = $tmp;
+		?>
+	    </h2>
+	    <?php echo x("pre",joinX($tmp)); ?>
+	    <!-- Search and login -->
+	    <ul class='uk-navbar-nav' style='float:right; list-style-type:"";'>
+		<?php
+		require __dir__.'/includes/search_form_short.php';
+		echo (user()->isGuest()
+		    ? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //        .' '.__('Login')))
+		    : (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit'))) : "").
+		      x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout')));
+		?>
+	    </ul>
+	</div>
+	
+	<nav id='topnav' class='uk-navbar uk-navbar-attached uk-hidden-small'>
+	    <div class='uk-container uk-container-center'>
+		<ul class='uk-navbar-nav float_left'>
+		    <!-- Main navigation -->
+<?php
+//echo "page=$page->title, spot_home=$spot_home->title, rootParent title=".$page->rootParent->title.", page parent=".$page->parent->title."<br>";
+
+$root = false;
+$itemCount = 0;
+$items = [];
+foreach(($SPOT_url
+       ? $spot_home->and($spot_home->children)
+       : $site_home->and($site_home->children)) as $item) {
+    if (!$item->viewable()) continue;
+    if (preg_match(";spot/;",$item->url) && !$SPOT_url)  continue;
+    //if ($page->title == $page->rootParent->title) {
+    // Detect the active tab
+    if ($root) {
+	$class = '';
+    } elseif ($page->id == $spot_home->id) {
+        $class = 'uk-active';
+        $root = true;
+    } elseif ($item->id == $page->id) {
+        $class = 'uk-active';
+        $root = true;
+    } elseif ($item->id == $page->parent->id && $page->parent->id != $spot_home->id) {
+        $class = 'uk-active';
+    } else {
+        $class = '';
+    }
+
+    // Impose the menu items order,
+    // first "artworks", then "persons", then "brands"
+    ++$itemCount;
+    $position = (strpos($item->template, 'artworks') !== false
+	? 110
+	: (strpos($item->template, 'persons') !== false
+	    ? 120
+	    : (strpos($item->template, 'brands') !== false
+		? 130
+	        : 100 * $itemCount)));
+    $items[$position] = x("li class='menu-item $class'", x("a href='$item->url'", x("h3",$item->title)));
+}
+ksort($items);
+foreach($items as $k=>$v) echo $v;
+if(false)echo x("li class='menu-item menu-item-type-post_type menu-item-object-page'",x("a href=https://carredeparis.me/", x("h3",'CdP')));
+?>
+		</ul>
+		<?php
+		if (!empty($languages)){
+		    echo "<!-- ---------------------------------------------------------- language switcher  -->\n".
+			 "<ul class='languages uk-navbar-nav' role='navigation' style='float:right;'>\n";
+		    static $flags = ['default'=>'gb', 'russian'=>'ru', 'swedish'=>'se', 'french'=>'fr'];
+		    foreach($languages as $language) {
+			if($page->viewable($language))printf("<li%s><a hreflang='%s' href='%s'>%s</a></li>\n",
+							     ($language->id==$user->language->id ? " class='uk-active'" : ""),
+							     $site_home->getLanguageValue($language, 'name'),
+							     $page->localUrl($language),
+							     x("div uk-tooltip=$language->title",
+							       x("img src=".urls('templates')."flags/".$flags[$language->name].".png")));
+			//echo "\t<li><a hreflang='$hreflang' href='$url'>".$language->title."</a></li>\n";
+		    }
+		}
+		?>
+	    </ul>
+	    <!-- ---------------------------------------------------------- language switcher / navigation end -->
+	    </div>
+	</nav>
+    </div><!--/masthead-->
+<?php
+}
+

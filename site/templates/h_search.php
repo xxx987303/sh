@@ -20,7 +20,8 @@ function fieldSelector(WireInput $input, Field $field, Array &$summary) {
             $selector .= "$key=". ($value=str_replace([',','/'],'|',$value));
             $summary[$key] = $value;
             $input->whitelist($key, $value);
-        }elseif(strpos($value, '-') !== false) { // see if the value is given as a range (i.e. two numbers separated by a dash)
+        }elseif((strpos($value, '-') !== false) &&  // see if the value is given as a range (i.e. two numbers separated by a dash)
+		!preg_match("/\d\d\d\d-\d\d-\d\d/",$value)) {
             list($min, $max) = explode('-', $value);
             $min = (int) $min;	
             $max = (int) $max;

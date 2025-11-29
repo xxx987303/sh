@@ -8,5 +8,4 @@
 region('content',
        page()->body .
        files()->render('./includes/items-list.php',
-		       array('items' => page()->children)));
-
+		       ['items' => page()->children]));

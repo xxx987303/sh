@@ -7,14 +7,11 @@
 
 $uri = explode('/', $page->url);
 
-//var_dump(region('*'));
-
 region('headline',
        __("Scarves of size ".$uri[3]));
 
 region('content',
        page()->body .
-       //"<pre>".$_SERVER['REQUEST_URI']."</pre>".
-       renderImageList(pages()->find("template=h_artwork, size=$uri[3]"), $cols=3,false,__('Scarves')));
+       renderImageList(pages()->find("template=h_artwork, h_aw_size=$uri[3]"), $cols=3,false,__('Scarves')));
 
 
