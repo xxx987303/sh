@@ -156,17 +156,17 @@ function createPage(Array $dataArg=[], Array $args=[], $saveToDB=saveToDB){
     if ($page->id){
         b_debug::_dbg('PAGE ALREADY EXISTS selector="'.$selector.'"');
     }else{
-        if (empty($parent1 = pages()->get($args['parent'])->id) &&
-            empty($parent2 = pages()->get("template=".$args['template']."s")->id)) {
-            tidy_dump($parent1);
-            tidy_dump($parent2);
+        if (empty($parent1 = pages()->get("template=".$args['template']."s")->id) &&
+	    empty($parent2 = pages()->get($args['parent'])->id)) {
+            tidy_dump(@$parent1,'parent1');
+            tidy_dump(@$parent2,'parent2');
             die("??? parent\n");
         }
         $page = new Page();
         if (empty($args['name'])) $args['name'] = pageName($data['title'], true);
         $page->name     = $args['name'];
         $page->template = $args['template'];
-        $page->parent   = ($parent = (empty($parent1) ? $parent2 : $parent1));;
+        $page->parent   = (empty($parent1) ? $parent2 : $parent1);
         b_debug::_dbg("PAGE CREATED selector:$selector");
     }
     foreach($data as $k=>$v){
