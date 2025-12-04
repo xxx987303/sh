@@ -690,16 +690,16 @@ if(false)echo x("li class='menu-item menu-item-type-post_type menu-item-object-p
  */
 function abortIt($text = 'Shit...', $extras=[]) {
     echo (CLI_MODE
-      ? sprintf("\n%s\n", `echo "$(tput bold)$(tput setaf 1)"`)
-      : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
+          ? sprintf("\n%s\n", shell_exec("tput bold").shell_exec("tput setaf 1"))
+          : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
     if ($extras){
         if (CLI_MODE) var_dump($extras);
         else echo tidy_dump($extras,'extras');
     }
     debug_print_backtrace(); // DEBUG_BACKTRACE_IGNORE_ARGS
     echo (CLI_MODE
-      ? sprintf("\n%s\n%s\n", $text, `echo $(tput sgr0)`)
-      : "</pre>\n");
+          ? sprintf("\n%s\n%s\n", $text, shell_exec("tput sgr0"))
+          : "</pre>\n");
     die("\n");
 }
 

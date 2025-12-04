@@ -412,9 +412,10 @@ class say
             }
         }
 
-        $cmd = (in_array('B', $args) ? "\$(tput bold)":"")."\$(tput setaf $c)";
+      //$cmd = (in_array('B', $args) ? "\$(tput bold)":"")."\$(tput setaf $c)";
+        $cmd = (in_array('B', $args) ? "tput bold;":"")."tput setaf $c";
       // echo __function__." color=$c bold=".var_export(in_array('B',$args),true)." cmd=$cmd\n";
-        $reply = `echo "$cmd"` . $text . `echo $(tput sgr0)`;
+        $reply = shell_exec($cmd) . $text . shell_exec("tput sgr0");
         if (!$keepCR) {
             $reply = str_replace("\n", "", $reply);
             $reply = preg_replace("/\s/", " ", $reply);
@@ -635,8 +636,8 @@ class b_debug
             $t->showLineCounter = false;
             foreach ($callStack as $k => $call) {
                 $t->prt(array('n'=>x('tt class=smaller-text', "$k"),
-                             'b'=>x('tt class=smaller-text', self::parse_tb_entry($call)),
-                             'l'=>x('tt class=smaller-text', preg_replace(';(.*/caa|'.trim(`pwd`).')/;', '', @$call['file'].'#'.@$call['line']))));
+                              'b'=>x('tt class=smaller-text', self::parse_tb_entry($call)),
+                              'l'=>x('tt class=smaller-text', preg_replace(';(.*/caa|'.trim(shell_exec("pwd")).')/;', '', @$call['file'].'#'.@$call['line']))));
             }
             $t->close();
             $tb = array(x('strong', (empty($id) ? 'TraceBack:' : $id)), ob_get_clean());
