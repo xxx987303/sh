@@ -1,5 +1,4 @@
 <?php namespace ProcessWire;
-
 /***************************************************************************************
  * SHARED ARTWORK FUNCTIONS
  *
@@ -443,15 +442,9 @@ function getTaggedFields($page,$context='page'){
  * Returns string, like "int", "string", "object|Template", etc
  */
 function getType($o, $id=null) {
-    ob_start();
-    var_dump($o);
-    $result =str_replace(['(',')'], ['|',''],
-                         preg_replace(["/ProcessWire./",
-                                       "/(#| ).*/",
-                                       "/\([0-9]*\)/"],
-                                      '',
-                                      ($header=explode("\n",ob_get_clean())[0])));
-    if (!empty($id)) $result = "getType($id) =  $result";
+    ob_start(); print_r($o); $out = ob_get_clean();
+    $result = trim(str_replace('ProcessWire\\', '', ($header=explode("\n",$out)[0])));
+    if (!empty($id)) $result = "getType($id) =  $result\n";
     return $result;
 }
 
@@ -559,11 +552,13 @@ function joinX(Array $a, $skipEmpty=true){
     $r = "";
     foreach($a as $k=>$v) {
 	$v = trim($v);
-	if (true && empty($v) && $v !== 0 && $v !== '0') continue;
-	if (empty($v)||$k=='comment') continue;
-	$r .= "$k=>$v ";
+	if ($skipEmpty) {
+	    if (empty($v) && $v !== 0 && $v !== '0') continue;
+	    if (empty($v)||$k=='comment') continue;
+	}
+	$r .= "$k=>$v,";
     }
-    return x('[',trim($r));
+    return '['.trim($r,',').']';
 }
 
 /**
@@ -688,4 +683,24 @@ if(false)echo x("li class='menu-item menu-item-type-post_type menu-item-object-p
     </div><!--/masthead-->
 <?php
 }
+
+
+/**
+ * Error exit
+ */
+function abortIt($text = 'Shit...', $extras=[]) {
+    echo (CLI_MODE
+      ? sprintf("\n%s\n", `echo "$(tput bold)$(tput setaf 1)"`)
+      : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
+    if ($extras){
+        if (CLI_MODE) var_dump($extras);
+        else echo tidy_dump($extras,'extras');
+    }
+    debug_print_backtrace(); // DEBUG_BACKTRACE_IGNORE_ARGS
+    echo (CLI_MODE
+      ? sprintf("\n%s\n%s\n", $text, `echo $(tput sgr0)`)
+      : "</pre>\n");
+    die("\n");
+}
+
 

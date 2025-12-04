@@ -17,12 +17,12 @@
 
 $K_list = __dir__ . "/Buk.txt";
 
-echo "# day0, carreTitle, lastname, firstname, year, cmt, price, size, www\n";
+echo "# day0, carreTitle, lastname, firstname, year, cmt, price, size, www, base\n";
 foreach(explode("\n",file_get_contents($K_list)) as $line) {
     //echo "----'$line'\n";
     
     if (preg_match("/^[0-9]*$/", $line)) {
-        $day0 = $carreTitle = $ln = $fn = $year = $cmt = $price = $size = $www = "";
+        $base = $day0 = $carreTitle = $ln = $fn = $year = $cmt = $price = $size = $www = "";
         $serialNumber = (int)$line;
         //echo " serialNumber = $serialNumber\n";
     }elseif(preg_match("/^Herm/i", $line)) {
@@ -41,6 +41,6 @@ foreach(explode("\n",file_get_contents($K_list)) as $line) {
         //echo " estimate = $estimate\n";
     }elseif(preg_match("/^2[0-9]*-[0-9]*-[0-9]*/", $line)) {
         $day0 = $line;
-        echo "$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www\n";
+        echo "$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www,$base\n";
     }
 }

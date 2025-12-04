@@ -55,7 +55,8 @@ function o_p_images($c, $page, $pages, $width){
  * http://localhost/h_spot/h_search/?h_av_duty=Collector
  * http://localhost/sh/h_spot/h_search/?keywords=collector&tags=h&submit=
  */
-function o_p_tr_line($label,$items){
+function o_p_tr_line($label,$items,$field=null){
+    global $SPOT_search;
     if (!empty($items)) {
         if ($items instanceof PageArray && count($items)){
 	    $data = $items->each("<li><a href='{url}'>{title}</a></li>");
@@ -70,7 +71,19 @@ function o_p_tr_line($label,$items){
 		           : $i['value']));
 		echo x("tr", x("th",$i['label']) . x("td",$data));
 	    }
-        }
+        } elseif ($field instanceof PageField) {
+	    $data="";
+	    switch ($v=$field->derefAsPage) {
+		case 2:
+		case 1:
+		    $data = x("a href='$SPOT_search?{$field->name}={$items->title}&sort={$field->name}'",$items->title);
+		    break;
+		default: abortIt();
+	    }
+	    echo x("tr", x("th",$field->label) . x("td",$data));
+        } else {
+	    tidy_dump($items);
+	}
     }
 }
 
@@ -95,8 +108,8 @@ function o_p_text($c, $page, $related){
 
     // Author related pages
     foreach ($page->fields as $f){
-      if(strpos($f->name,'aw_person')!==false || $f->type != 'FieldtypePage') continue;
-      o_p_tr_line($f->getLabel(),$page->$f);
+	if(strpos($f->name,'aw_person')!==false || $f->type != 'FieldtypePage') continue;
+	o_p_tr_line($f->getLabel(),$page->$f,$f);
     }
 
     // Table of 'page' tagged fields

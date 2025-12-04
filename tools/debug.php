@@ -55,26 +55,6 @@ function initDebug(){
 }
 initDebug();
 
-
-/**
- * Error exit
- */
-function abortIt($text = 'Shit...', $extras=[]) {
-    echo (CLI_MODE
-      ? sprintf("\n%s\n", `echo "$(tput bold)$(tput setaf 1)"`)
-      : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
-    if ($extras){
-        if (CLI_MODE) var_dump($extras);
-        else echo tidy_dump($extras,'extras');
-    }
-    debug_print_backtrace(); // DEBUG_BACKTRACE_IGNORE_ARGS
-    echo (CLI_MODE
-      ? sprintf("\n%s\n%s\n", $text, `echo $(tput sgr0)`)
-      : "</pre>\n");
-    die("\n");
-}
-
-
 /**
  *
  */
@@ -216,23 +196,26 @@ class say
 
     static function error($text, $only_one = !CLI_MODE) {
         static $dejaVu=[];
-        if (!$only_one || !@$dejaVu[$text]++) {
+        if (!($only_one && @$dejaVu[$text]++)) {
             self::hl("ERROR: $text", "R");
         }
     }
 
     static function warning($text, $only_one = !CLI_MODE) {
         static $dejaVu=[];
-        if (!$only_one || !@$dejaVu[$text]++) {
+        if (!($only_one && @$dejaVu[$text]++)) {
+            //if (!$only_one || !@$dejaVu[$text]++) {
             self::hl("WARNING: $text", "m");
         }
     }
 
   /**
    */
-    static function notice($text, $only_one = !CLI_MODE) {
+    static function notice($text, $only_one = true) {
         static $dejaVu=[];
-        if (!$only_one || !@$dejaVu[preg_replace("/,.*$/", "", $text)]++) {
+        //if (!$only_one || !@$dejaVu[preg_replace("/,.*$/", "", $text)]++) {
+        //if (!$only_one || !@$dejaVu[preg_replace("/,.*$/", "", $text)]++) {
+        if (!($only_one && @$dejaVu[$text]++)) {
             self::hl("NOTICE: $text", "s");
         }
     }
@@ -290,52 +273,53 @@ class say
 
   /**
    */
-    static function hook($p, $key, $data = '', $now = '', $reply = '', $p_key0 = '?') {
-        $now = $reply = $data;
-        self::load($p, $key, $data, $now, $reply, $p_key0, '>> Hook');
+    static function hook($p, $key, $expect = '', $now = '', $reply = '', $p_key0 = '?') {
+        $now = $reply = $expect;
+        self::load($p, $key, $expect, $now, $reply, $p_key0, '>> Hook');
     }
 
-    static function drop($p, $key = '', $data = '', $now = '', $reply = '', $p_key0 = '?') {
-        self::load($p, $key, $data, $now, $reply, $p_key0, '>> Drop');
+    static function drop($p, $key = '', $expect = '', $now = '', $reply = '', $p_key0 = '?') {
+        self::load($p, $key, $expect, $now, $reply, $p_key0, '>> Drop');
     }
 
-    static function ok($p, $key, $data = '', $now = '', $reply = '', $p_key0 = '?') {
-        $now = $reply = $data;
-        self::load($p, $key, $data, $now, $reply, $p_key0, '>>>  OK');
+    static function ok($p, $key, $expect = '', $now = '', $reply = '', $p_key0 = '?') {
+        $now = $reply = $expect;
+        self::load($p, $key, $expect, $now, $reply, $p_key0, '>>>  OK');
     }
 
-    static function add($p, $key, $data = '', $now = '?', $reply = '?', $p_key0 = '?') {
-        if ($now==='?')   { $now   = $data; }
-        if ($reply==='?') { $reply = $data; }
-        self::load($p, $key, $data, $now, $reply, $p_key0, '>>> Add');
+    static function add($p, $key, $expect = '', $now = '?', $reply = '?', $p_key0 = '?') {
+        if ($now==='?')   { $now   = $expect; }
+        if ($reply==='?') { $reply = $expect; }
+        self::load($p, $key, $expect, $now, $reply, $p_key0, '>>> Add');
     }
 
   /**
    * Show variable load progress
    */
-    static function load($p, $key, $data = '', $now = '', $reply = '', $p_key0 = '', $id = '>> Load') {
-
-      /** Compare 2 values which might be in different formats */
+    static function load(Object $p, $key, $expect = '', $now = '', $reply = '', $p_key0 = '', $id = '>> Load') {
+	//say::notice(sprintf(__function__."(p=%s, key=%s, expect=%s, now=%s, got=%s)", $p->name, $key, $expect, $now, $reply));
+	
+	/**
+	 * Compare 2 values which might be in different formats
+	 */
         $eq = function ($value, $expect) {
             $t = function ($v) {
 		if (empty($v)) return false;
                 return !is_array($v) && preg_match("/^\d\d\d\d-\d\d-\d\d/", $v);
-            };
-            if ($t($value) && $t($expect)) {
-                return b_time::is_equil($value, $expect);
-            } elseif (is_object($value) || is_object($expect)) {
-                return (_formatData($value)==_formatData($expect));
-            } elseif ($value == 1024 && $expect == 'hidden') {
-                return true;
-            } elseif (!empty($expect) && is_string($value) && is_string($expect) && preg_match('|'.str_replace('|', '.', $expect).'$|', $value)) {
-                return true; // fa-home EXPECT home
-            } elseif ($value == 1024 && $expect == 'hidden') {
-                return true;
-            } else {
-                return (_formatData($value)==_formatData($expect));
-            }
+            };		
+	    if ($t($value) == $t($expect))   return true;
+	    if ($t($value) && $t($expect))   return b_time::is_equil($value, $expect);
+            if (is_object($value) || is_object($expect)) return (_formatData($value)==_formatData($expect));
+            if ($value == 1024 && $expect == 'hidden') return true;
+            if (!empty($expect) && is_string($value)&&is_string($expect)&&
+		preg_match('|'.str_replace('|','.',$expect).'|',$value)) return true; // fa-home EXPECT home
+            return (_formatData($value)==_formatData($expect));
         };
-    
+	
+	//
+	// Поехали...
+	//
+	if (is_string($expect) && ($reply instanceof LanguagesPageFieldValue)) $reply = $reply->getDefaultValue();
         if (strpos($id, '>') === false) {
             $color = $id;
             $id = '>> Load';
@@ -346,26 +330,19 @@ class say
         if (preg_match("/Add|Load/", $id)) {
             $id = ($p instanceof Page) ? '>> Load' : '>>> Add';
         }
-        if (is_object($key)) {
-            $key = $key->name;
-        }
-        $f = preg_replace("/_(russian|french|swedish)/", "", $key);
+
+	$f = preg_replace("/_(russian|french|swedish)/", "", $key);
         $m1 = substr($p->name, 0, 22).(empty($key)?'':'.'.substr($key, 0, 22));
-        $m3 = ($eq($reply, $data) ? "" : sprintf(" EXPECT %-15s", _formatData($data, 15)));
+        $m3 = ($eq($reply, $expect) ? "" : sprintf(" EXPECT %-15s", _formatData($expect, 15)));
         $M = (!is_object($p_key0) ? "" : (($w=tidy_dump($p_key0, 'get_object_name'))==($z=tidy_dump($p->$f, 'get_object_name'))
-                      ? "" : (empty($p_key0)||empty($p_key0->id) ? $z : " SICK: $w=>$z")));
+            ? "" : (empty($p_key0)||empty($p_key0->id) ? $z : " SICK: $w=>$z")));
         $n = (empty($m3) ? 99 : 24);
         $m2 = (empty($now)||$eq($now, $reply)?"":"$now -> ").sprintf("%-".($n-1)."s", (empty($_=_formatData($reply, $n)) ? '""' : $_));
         $line = trim(sprintf("$id %-45s %s", $m1, $m2.$m3))."\n";
         if (CLI_MODE) {
-            if (empty($color)) {
-                fwrite(STDERR, $line);
-            } else {
-                fwrite(STDERR, say::color(trim(sprintf("$id %-45s %s\n", $m1, $m2.$m3)), $color)."\n");
-            }
-        } else {
-            b_debug::_dbg($line, 'm', null, 1);
-        }
+	    if (!empty($color)) fwrite(STDERR, say::color(trim(sprintf("$id %-45s %s\n", $m1, $m2.$m3)), $color)."\n");
+	    else                fwrite(STDERR, $line);
+	}
     }
 
     static function _($key, $s_key = '', $value = '', $s = '   ', $act = '') {

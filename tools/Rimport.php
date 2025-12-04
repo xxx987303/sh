@@ -1,16 +1,23 @@
 <?php namespace ProcessWire;
 /**
- *     list($day0, $carreTitle, $ln, $fn, $year, $cmt)
- *     list($day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www)
+ *     list($day0, $carreTitle, $lastname, $firstname, $year, $cmt)
+ *     list($day0, $carreTitle, $lastname, $firstname, $year, $cmt, $price, $size, $www, $base)
  */
 
 define("saveToDB", false);
 define('R_list', empty($argv[1]) ? "All_for_import.txt" : $argv[1]); 
 
 require_once __dir__ . '/debug.php';
+require_once __dir__ . '/../site/templates/_func.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
 say::notice("saveToDB = ".var_export(saveToDB,true));
+
+
+$P_h_sizes = createPage(['title'    => 'Sizes'],
+			['template' =>'h_sizes',
+			 'parent'   => 1,
+			 'hook'     =>'title']);
 
 $desc = function(Page $p) {
     return escape_uml(sprintf("%s . %s . %s . %s\n",
@@ -45,8 +52,8 @@ function getPage(String $template, Array $args) {
 }
 
 /*
-$p = pages()->get("template=h_person, h_av_lastname~=$lnames[$k], h_av_firstname~=$fnames[$k]");
-if (!$p->id) $p = pages()->get("template=h_person, title=~$fnames[$k] $lnames[$k]");;
+$p = pages()->get("template=h_person, h_av_lastname~=$lastnames[$k], h_av_firstname~=$firstnames[$k]");
+if (!$p->id) $p = pages()->get("template=h_person, title=~$firstnames[$k] $lastnames[$k]");;
 if(count($pages=pages()->find("template=h_artwork, title~=$carreTitle"))){
     foreach($pages as $p) { $found++;      echo $desc($p); }
 }else{
@@ -57,34 +64,35 @@ if(count($pages=pages()->find("template=h_artwork, title~=$carreTitle"))){
 
 foreach(explode("\n",file_get_contents(R_list)) as $line){
     if (empty(trim($line)) || str_starts_with($line, '#')) continue;
-    list($day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www) = explode(',', $line.',,,,,,,,');
+    list($day0, $carreTitle, $lastname, $firstname, $year, $cmt, $price, $size, $www, $base) = explode(',', $line.',,,,,,,,');
 
     $gavroche = in_array('G', preg_split("/\s/", $cmt)) ? true : false;
-    $output = sprintf("\n=======================\n%-10s %-30s %-25s %-15s %-10s ",
-                      $day0,$carreTitle,"$fn $ln",$year,(empty($cmt)?'':"'$cmt'"));
-    //printf("%-10s %-30s %-25s %-15s %-10s ",$day0,$carreTitle,"$fn $ln",$year,$cmt);
+    $output = sprintf("%-10s %-30s %-25s %-15s %-5s %-10s ",
+                      $day0,$carreTitle,"$firstname $lastname",$year,$size, $cmt);
+    print ("\n======================================================================================\n");
+    //    printf("%-10s %-30s %-25s year=%-15s cmt=%-10s \n",
+    //	   $day0,$carreTitle,"$firstname $lastname",$year,$cmt);
 
     //
     // Lookup the author(s)
     //
     $authors = [];
-    $fnames = explode('&',$fn);
-    $lnames = explode('&',$ln);
-    if (count($fnames) != count($lnames)) die("wrong names....\n");
-    for ($k=0; $k<count($fnames); $k++) {
-        $p = getPage("h_person", ["h_av_lastname" => $lnames[$k],
-                                  "h_av_firstname"=> $fnames[$k]]);
+    $firstnames = explode('&',$firstname);
+    $lastnames = explode('&',$lastname);
+    if (count($firstnames) != count($lastnames)) die("wrong names....\n");
+    for ($k=0; $k<count($firstnames); $k++) {
+        $p = getPage("h_person", ["h_av_lastname" => $lastnames[$k],
+                                  "h_av_firstname"=> $firstnames[$k]]);
         if ($p->id) {
             echo $output . " !!!!!!!! $p->title\n";
         } else {
             echo $output . " ???????? AUTHOR PAGE\n";
         }
 
-        $p = createPage(['title'         => trim("$fnames[$k] $lnames[$k]"),
-                         'h_av_firstname'=>$fnames[$k],
-                         'h_av_lastname' =>$lnames[$k],
-                         'h_av_duty'     =>'Artist'],
-                        [],
+        $p = createPage(['title'         => trim("$firstnames[$k] $lastnames[$k]"),
+                         'h_av_firstname'=>$firstnames[$k],
+                         'h_av_lastname' =>$lastnames[$k],
+			 'h_av_duty'     =>'Artist'],
                         ['template'      =>'h_person',
                          'hook'          =>'title']);
         $authors[] = $p;
@@ -93,19 +101,18 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
     //
     // Lookup brand
     //
-    $brand = 5835;   // Hermes
-    foreach(['Chanel', 'Dior', 'RADO', 'Omega'] as $b) {
-	if (preg_match("/\b$b\b/i", $line)) {
-	    if (($p = getPage('h_brand', ['title'=>$b]))->id) {
+    $brand = getPage('h_brand', ['title' => 'Hermès']);
+    foreach(['Chanel', 'Dior', 'RADO', 'Omega'] as $bName) {
+	if (preg_match("/\b$bName\b/i", $line)) {
+	    if (($p = getPage('h_brand', ['title'=>$bName]))->id) {
 		say::notice("Detected brand ".$p->title);
+		$brand = $p;
 	    } else {
-		$p = createPage(['title' => $b],
-				[],
-				['template'  =>'h_brand',
-				 'hook'      =>'title'],
-				true); // SIC! writing to DB
+		$brand = createPage(['title' => $bName],
+				    ['template'  =>'h_brand',
+				     'hook'      =>'title'],
+				    true); // SIC! writing to DB
 	    }
-	    $brand = $p->id;
 	}
     }
 	
@@ -115,20 +122,17 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
     //
     $selector = $carreTitle;
     if ($gavroche) $selector .= ", h_aw_options~=G";
-    if (!($p = getPage("h_artwork", ["title" => $carreTitle]))->id) {
-        $p = createPage(['title' => $carreTitle,
-                         'h_aw_day0' => ((int)$day0 ? $day0 : ''),
-                         'h_aw_brand'=> pages()->get($brand),
-			 'h_aw_day0' => $day0,
-                         'h_aw_more' => $cmt,
-			 'h_aw_price'=> $price,
-			 //'h_aw_size' => $size,
-			 'size'      => pages()->get("template=size, title~=$size"),
-                         'h_aw_year' => $year],
-                        [],
-                        ['template'=>'h_artwork',
-                         'hook'    =>'title']);
-    }
+  //$p = getPage("h_artwork", ["title" => $carreTitle]);
+    $p = createPage(['title' => $carreTitle,
+		     'h_aw_day0' => $day0,
+		     'h_aw_size' => $size,
+                     'h_aw_more' => $cmt,
+		     'h_aw_price'=> $price,
+		     'h_aw_base' => $base,
+                     'h_aw_brand'=> $brand,
+		     'h_aw_year' => $year],
+                    ['template'=>'h_artwork',
+                     'hook'    =>'title']);
     foreach($authors as $a) setKeyValue($p,'h_aw_person',$a,saveToDB);
 }
 
@@ -140,9 +144,9 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
  * @param $args array
  * return page|nullPage
  */
-function createPage(Array $dataArg=[], Array $skipFields=[], Array $args=[], $saveToDB=saveToDB){
+function createPage(Array $dataArg=[], Array $args=[], $saveToDB=saveToDB){
     $data = []; foreach($dataArg as $k=>$v) if (!empty($v) || $v==0) $data[$k] = $v;
-    b_debug::_dbg('$data='.joinX($data));
+    b_debug::_dbg('data='.joinX($data));
     if (empty($data['title'])) {
         b_debug::_dbg("FAIL empty(data[title])");
         return new NullPage();
@@ -151,14 +155,19 @@ function createPage(Array $dataArg=[], Array $skipFields=[], Array $args=[], $sa
     if (!empty($args['hook'])) $selector .= sprintf(", %s=%s",$args['hook'],sanitizer()->selectorValue($data[$args['hook']]));
     $page = pages()->get($selector);
     if ($page->id){
-        b_debug::_dbg("PAGE ALREADY EXISTS selector:$selector");
+        b_debug::_dbg('PAGE ALREADY EXISTS selector="'.$selector.'"');
     }else{
-        if (empty($parent = pages()->get("template=$args[template]s")) || !$parent->id) die("??? parent\n");
-        $page = new Page();
-      //$page->name = pageName(empty($args['name']) ? $data['title'] : $args['name'],true);
-        $page->name = pageName($data['title'], true);
+        if ((empty(($parent1 = pages()->get("template=$args[template]s"))->id) &&
+	     empty(($parent2 = pages()->get($args['parent']))->id))) {
+	    tidy_dump($parent1);
+	    tidy_dump($parent2);
+	    die("??? parent\n");
+	}
+	$page = new Page();
+	if (empty($args['name'])) $args['name'] = pageName($data['title'], true);
+        $page->name     = $args['name'];
         $page->template = $args['template'];
-        $page->parent   = $parent;
+        $page->parent   = ($parent = (empty($parent1) ? $parent2 : $parent1));;
         b_debug::_dbg("PAGE CREATED selector:$selector");
     }
     foreach($data as $k=>$v){
@@ -166,7 +175,7 @@ function createPage(Array $dataArg=[], Array $skipFields=[], Array $args=[], $sa
             b_debug::_dbg("WARNING empty(data[$k]");
             continue;
         }
-        if (!in_array($k,$skipFields)) setKeyValue($page, $k, $v, $saveToDB);
+	setKeyValue($page, $k, $v, $saveToDB);
     }
     if ($saveToDB) $page->save();                         
     return $page;

@@ -1,13 +1,214 @@
 <?php namespace ProcessWire;
 /**
+ * include "0_fields.txt";
  */ 
-
 require_once __dir__ . '/debug.php';
+require_once __dir__ . '/../site/templates/_func.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
+$saveToDB = false;
+
+tidy_dump(pages()->get("title=A Vos Crayons")->h_aw_person); exit;
+tidy_dump(pages()->get("template=h_artwork")->h_aw_person); exit;
+
+//print_r(fields()->get('title')); exit;
+print_r(pages()->get("template=h_artwork")->h_aw_brand); exit;
+print_r(pages()->get("template=h_person")->h_av_duty);
+print_r(fields()->get('h_av_duty')); exit;
+//print_r(fields()->get('h_aw_sizeX')); exit;
+if(1){
+    foreach (pages()->find("template=h_brand, title^=5") as $p) {
+	echo "{$p->name}\n";
+	//$p->delete();
+	exit;
+    }
+    exit;
+}
+
+if(0){
+    $p = pages()->get("title~=Moscou");
+    foreach($p->fields as $f) {
+	echo " *  ".$f->type."\n";
+    }
+    exit;
+}
+
+if(0){
+    $f=fields()->get('h_aw_size');
+    /*
+       tidy_dump($p->h_aw_size);
+       tidy_dump(
+       tidy_dump(
+       tidy_dump(getType($p->h_aw_size));
+     */
+    echo getType($f,'h_aw_size');
+    echo getType($f->type,'h_aw_size');
+    echo getType($p, 'p');
+    echo getType($p->h_aw_size->type,'p->h_aw_size');
+    exit;
+}
+
+
+if(1) {
+    echo " *\n";
+    printf (($fmt=" *   %-20s %-25s %1s %-10s %-10s\n"),'name','type','derefAsPage','inputfield','inputfieldClass');
+    echo " *\n";
+    foreach(fields() as $f){
+	if ($f->derefAsPage == 2){
+	    echo "{$f->name} derefAsPage={$f->derefAsPage}\n";
+	    $f->derefAsPage = 1;
+	    $f->save();
+	}
+	printf ($fmt, $f->name, $f->type, $f->derefAsPage, $f->inputfield, $f->inputfieldClass);
+		
+	//	if (in_array($f->name,["h_aw_size","h_aw_sizes"])) tidy_dump($f);
+    }
+    exit;
+}
+
+
+if(0){
+    foreach(pages()->find("template=h_artwork, sort=title") as $p){
+	echo "h_aw_size={$p->h_aw_size} {$p->id} {$p->template} title={$p->title}\n";
+    }
+    exit;
+}
+
+
+// Set sizes after move size->h_aw_size
+if (1) {
+    foreach(['90x90' => [5844, 5847, 5849, 5850, 5851, 6024, 6038, 6144], // 90x90
+	     '45x45' => [6147, 6092],                                     // 45x45
+	     '42x42' => [6159]] as $size => $pages) {                     // 42x42
+	echo "\n========== $size\n";
+	foreach($pages  as $id) {
+	    $page = pages()->get($id);
+	    $key = $page->h_aw_size;
+	    echo "\n  ---------------------- {$page->id} {$page->title} \n";
+	    setKeyValue($page, 'h_aw_size', $size, $saveToDB);
+	}
+    }
+    exit;
+}
+
+// Dump old/new size fields
+if(1) {
+    $size    = templates()->get('size');
+    $sizes   = templates()->get('sizes');
+    $h_size  = templates()->get('h_size');
+    $h_sizes = templates()->get('h_sizes');
+    // tidy_dump(pages()->get("template=sizes")->parent);
+    
+    if($h_size->parentTemplates != [$h_sizes->id]) {
+	$h_size->parentTemplates = [$h_sizes->id];
+	$h_size->save();
+	echo ">>>>>>>> set h_size->parentTemplates\n";
+    }else{
+	echo "!!!!!!!! OK h_size parentTemplates ".$h_size->parentTemplates[0]." \n";
+    }
+    
+    if($h_sizes->childTemplates != [$h_size->id]) {
+	$h_sizes->childTemplates = [$h_size->id];
+	$h_sizes->save();
+	echo ">>>>>>>> set h_sizes->childTemplates\n";
+    }else{
+	echo "!!!!!!!! OK h_sizes parentTemplates ".$h_sizes->parentTemplates[0]." \n";
+    }
+    
+    foreach([$size, $sizes, $h_size, $h_sizes] as $tp){
+	if (empty($tp)) {
+	    echo "------- template empty...\n";
+	    continue;
+	}
+	
+	$item = $tp->name;
+	echo "------- template $item\n";
+	//$tp = templates()->get($item);
+	$data=''; foreach(['parentTemplates','childTemplates'] as $pc) if(!empty($p=$tp->$pc)) $data .= " $pc=[".join(',',$p)."]";
+	echo " Template id={$tp->id} name={$tp->name} $data\n";
+	foreach(pages()->find("template=$item") as $ps) {
+	    $parent = pages()->get($ps->parent_id);
+	    echo "   Page id={$ps->id} template={$ps->template} name={$ps->name} title={$ps->title} parent={$parent->title}\n";
+	    if (in_array($item,['sizes','h_sizes'])){
+		foreach(pages()->get("template=$item")->children as $p) {
+		    echo "     Child {$p->title}\n";
+		}
+		tidy_dump(fields()->get($item), "Field $item");
+	    }
+	    /*
+	       foreach(pages()->find($s="template=h_artwork h_aw_size={$ps->id}") as $p) {
+	       echo "  Page id={$p->id} template={$p->template} name={$p->name} title={$p->title}\n";
+	       }
+	       echo "     $s\n";
+	     */
+	}
+    }
+    exit;
+}
+
+if (1) {
+    // Set all the pages to be visible
+    $allTP = ['a_artwork',
+	      'a_artworks',
+	      'a_collection',
+	      'a_collections',
+	      'a_person',
+	      'a_persons',
+	      'a_possession',
+	      'a_possessions',
+	      'a_school',
+	      'a_schools',
+	      'a_search',
+	      'a_seller',
+	      'a_sellers',
+	      'a_spot',
+	      'countries',
+	      'country',
+	      'd_artwork',
+	      'd_artworks',
+	      'd_person',
+	      'd_persons',
+	      'd_search',
+	      'd_spot',
+	      'h_artwork',
+	      'h_artworks',
+	      'h_brand',
+	      'h_brands',
+	      'h_collection',
+	      'h_person',
+	      'h_persons',
+	      'h_possession',
+	      'h_possessions',
+	      'h_search',
+	      'h_seller',
+	      'h_sellers',
+	      'h_size',
+	      'h_sizes',
+	      'h_spot',
+	      'search',];
+
+    pages()->setOutputFormatting(false);
+    
+    foreach($allTP as $tp) {
+	echo "=================================================== $tp\n";
+	foreach(pages()->find("template=$tp") as $p) {
+	    echo "id={$p->id} {$p->name}\n";
+	    foreach($languages as $lang) {
+		if($lang->isDefault()) continue;
+		$p->set("status$lang", 1);
+		$p->save();
+	    }
+	} 
+    }
+    exit;
+}
+
+    /*
 tidy_dump(pages()->get(5844)->h_aw_popularity->value);
 tidy_dump(pages()->get(5850)->h_aw_rarity->value);
 exit;
+*/
+
 /*
 foreach([5844,5850] as $id){
     echo "============================ id=$id\n";
@@ -97,7 +298,7 @@ exit;
 $p = pages()->get("template=h_artwork");
 echo tidy_dump($p); exit;
 echo tidy_dump($p->size);
-setKeyValue($p, 'size', '40x40', $saveToDB=false);
+setKeyValue($p, 'size', '40x40', $saveToDB);
 echo tidy_dump($p->size);
 exit;
 
@@ -117,14 +318,14 @@ if (0) {
 if (0) {
     $p = pages()->get("template=h_person, title=Christiane Vauzelles");
 echo tidy_dump($p);exit;
-    setKeyValue($p, 'h_av_url', 'https://dn.se', $saveToDB=false);
+    setKeyValue($p, 'h_av_url', 'https://dn.se', false);
     echo tidy_dump($p->h_av_url);
     echo "h_av_url = ".$p->h_av_url."\n";
     exit;
     $size = $p->size->get('title');
     printf('"%s"  "%s"'. "\n", $p->title, $size);
     
-    setKeyValue($p, 'size', 'Gavroche', $saveToDB=false);
+    setKeyValue($p, 'size', 'Gavroche', false);
     
     $size = $p->size->title;
     printf("\"%s\"  \"%s\"\n", $p->title, $size);
@@ -133,7 +334,7 @@ echo tidy_dump($p);exit;
 
 /* ******************************************************************************************* */
 
-if (1) {
+if (0) {
     //echo tidy_dump(pages()->get(6163));
     foreach (['size','sizes','country','countries'] as $item) {
 	ob_start();

@@ -1,0 +1,30 @@
+
+"New" rarity (field 143)    "New" popularity (field 142)
+1=Not uncommon              1=Common
+2=Quite rare		    2=Medium beloved  
+3=Rare                      3=Beloved
+4=Very rare                 4=Very beloved
+
+"Old" rarity                 "Old" popularity (to be continued)
+6=R|R - Exceptional
+1=1|1 - Very rare
+2=2|2 - Rare
+3=3|3 - Medium rare
+4=4|4 - Some uncommon
+5=5|5 - Uncommon
+
+https://scarfsage.com/hermes-scarves/1470-the-savana-dance/3761
+<div>
+  The rarity level is <span class="text-green-600 font-bold">common</span>
+  <div class="group inline relative cursor-pointer">
+    <div class="w-[300px] sm:w-[500px] group-hover:block hidden absolute origin-bottom bottom-0 mb-6 rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3">
+      <p class="text-sm font-semibold leading-none text-slate-900">Rarity level</p>
+      <p class="text-slate-500 text-sm">
+	<span class="text-green-600 font-bold">common</span>: Scarves that are commonly available and have been produced in relatively large quantities.
+	These may include popular designs or those that have been in production for many years.
+      </p>
+    </div>
+    <span class="hero-question-mark-circle-mini w-7 h-7"></span>
+  </div>
+</div>
+    

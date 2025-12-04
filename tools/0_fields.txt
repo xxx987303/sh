@@ -1,0 +1,96 @@
+ *
+ *   name                 type                      derefAsPage inputfield inputfieldClass
+ *
+ *   a_artworks_featured  FieldtypeTextLanguage
+ *   a_av_date            FieldtypeTextLanguage
+ *   a_av_duty            FieldtypeOptions                       InputfieldSelect
+ *   a_av_firstname       FieldtypeTextLanguage
+ *   a_av_lastname        FieldtypeTextLanguage
+ *   a_av_school          FieldtypePage               InputfieldAsmSelect
+ *   a_av_url             FieldtypeURL
+ *   a_aw_base            FieldtypeOptions
+ *   a_aw_collection      FieldtypePage               InputfieldAsmSelect
+ *   a_aw_condition       FieldtypeTextLanguage
+ *   a_aw_copy_artwork    FieldtypePage               InputfieldAsmSelect
+ *   a_aw_featured        FieldtypeTextLanguage
+ *   a_aw_link            FieldtypeOptions
+ *   a_aw_more            FieldtypeTextLanguage
+ *   a_aw_person          FieldtypePage               InputfieldAsmSelect
+ *   a_aw_possession      FieldtypePage               InputfieldAsmSelect
+ *   a_aw_provenance      FieldtypeTextLanguage
+ *   a_aw_signature       FieldtypeTextLanguage
+ *   a_aw_size            FieldtypeTextLanguage
+ *   a_aw_technique       FieldtypeOptions
+ *   a_aw_url             FieldtypeURL
+ *   a_aw_year            FieldtypeText
+ *   a_c_address          FieldtypeTextLanguage
+ *   a_c_duty             FieldtypeOptions
+ *   a_c_person           FieldtypePage               InputfieldAsmSelect
+ *   a_c_url              FieldtypeURL
+ *   a_p_artwork          FieldtypePage               InputfieldAsmSelect
+ *   a_p_currency         FieldtypeOptions
+ *   a_p_date             FieldtypeDatetime
+ *   a_p_object_number    FieldtypeInteger
+ *   a_p_person           FieldtypePage               InputfieldAsmSelect
+ *   a_p_price_final      FieldtypeInteger
+ *   a_p_price_start      FieldtypeInteger
+ *   a_p_seller           FieldtypePage               InputfieldAsmSelect
+ *   a_s_address          FieldtypeTextLanguage
+ *   a_s_duty             FieldtypeOptions
+ *   admin_theme          FieldtypeModule                        InputfieldRadios
+ *   artworks_featured    FieldtypePage             0 InputfieldPageListSelectMultiple
+ *   body                 FieldtypeTextareaLanguage              InputfieldCKEditor
+ *   countries            FieldtypePage               InputfieldPageAutocomplete
+ *   country              FieldtypePage             1 InputfieldSelect
+ *   d_artworks_featured  FieldtypeTextLanguage
+ *   d_av_duty            FieldtypeOptions
+ *   d_av_firstname       FieldtypeTextLanguage
+ *   d_av_lastname        FieldtypeTextLanguage
+ *   d_av_url             FieldtypeURL
+ *   d_aw_featured        FieldtypeTextLanguage
+ *   d_aw_person          FieldtypePage               InputfieldAsmSelect
+ *   email                FieldtypeEmail
+ *   h_artworks_featured  FieldtypePage               InputfieldPageListSelectMultiple
+ *   h_av_date            FieldtypeText
+ *   h_av_duty            FieldtypeOptions                       InputfieldCheckboxes
+ *   h_av_firstname       FieldtypeTextLanguage
+ *   h_av_lastname        FieldtypeTextLanguage
+ *   h_av_url             FieldtypeURL
+ *   h_aw_base            FieldtypeOptions                       InputfieldSelect
+ *   h_aw_brand           FieldtypePage             1 InputfieldAsmSelect
+ *   h_aw_collection      FieldtypePage               InputfieldAsmSelect
+ *   h_aw_condition       FieldtypeText
+ *   h_aw_day0            FieldtypeText
+ *   h_aw_featured        FieldtypeCheckbox
+ *   h_aw_more            FieldtypeText
+ *   h_aw_options         FieldtypeOptions                       InputfieldCheckboxes
+ *   h_aw_person          FieldtypePage               InputfieldAsmSelect
+ *   h_aw_popularity      FieldtypeOptions                       InputfieldSelect
+ *   h_aw_possession      FieldtypePage               InputfieldAsmSelect
+ *   h_aw_rarity          FieldtypeOptions                       InputfieldSelect
+ *   h_aw_size            FieldtypePage             1 InputfieldSelect
+ *   h_aw_sizes           FieldtypePage             0 InputfieldPageAutocomplete
+ *   h_aw_url             FieldtypeURL
+ *   h_aw_year            FieldtypeText
+ *   h_br_duty            FieldtypeOptions                       InputfieldSelect
+ *   h_br_url             FieldtypeURL
+ *   h_c_person           FieldtypePage             0 InputfieldAsmSelect
+ *   h_p_artwork          FieldtypePage               InputfieldAsmSelect
+ *   h_p_currency         FieldtypeOptions
+ *   h_p_date             FieldtypeDatetime
+ *   h_p_object_number    FieldtypeInteger
+ *   h_p_person           FieldtypePage               InputfieldAsmSelect
+ *   h_p_price_final      FieldtypeInteger
+ *   h_p_price_start      FieldtypeInteger
+ *   h_p_seller           FieldtypePage               InputfieldAsmSelect
+ *   h_s_address          FieldtypeTextLanguage
+ *   h_s_url              FieldtypeURL
+ *   images               FieldtypeImage
+ *   language             FieldtypePage             1 InputfieldRadios
+ *   language_files       FieldtypeFile                          InputfieldFile
+ *   language_files_site  FieldtypeFile                          InputfieldFile
+ *   pass                 FieldtypePassword
+ *   permissions          FieldtypePage             0 InputfieldCheckboxes
+ *   process              FieldtypeModule
+ *   roles                FieldtypePage             0 InputfieldCheckboxes
+ *   title                FieldtypePageTitleLanguage
