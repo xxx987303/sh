@@ -1,0 +1,13 @@
+#,Armes de Paris,Grygkar,Hugo,1954/1992,П Юры
+2003-05-04,Cheval Turc,Vauzelles,Christiane,2003,П М+A
+#2022-14,Circuit FSH 24,Emery,Benoît-Pierre,2018,П Мини
+#2023-05,Fleurs et Carlines,Rybaltchenko,Vladimir,1985,П Юры
+,Parade,Burton,Jonathan,,П Мини Twilly
+#2022-11,1821 Hommage a L'Amite,Abadie,Julie,1993,EL
+,Astrologie nouvelle,Faconnet&Diatkine,Marie-Françoise&Cyrille,2012,ES
+,Ex-libris,Grygkar,Hugo,1946/1998,G EL
+#2023-10,Feux d'Artifice,Duchêne,Michèle,1987,ES
+2013-02-14,Magic Kelly,Rybaltchenko,Dimitri,2011,EL
+#2023-01,Mountain Zebra,Shirley,Alice,2020,ES
+,Jeu de Omnibus et DameBlanche,Pagni,Gianpaolo,2018,Remix
+,Zabavushka,Miro,Evgenia,2009,Sold
