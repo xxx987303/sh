@@ -47,8 +47,7 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
  	    $o->save();
  	    $o->$key->save();
  	}
- 	// function load($p, $key, $data = '', $now = '', $reply = '', $p_key0 = '', $id = '>> Load') {
- 	say::load($o, $key, $value, $now, $o->key);
+ 	say::load($o, $key, $value, ($now=""), ($got=$o->key));
      }
      return $page;
  }
