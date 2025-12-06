@@ -44,7 +44,7 @@ foreach(explode("\n",file_get_contents($K_list)) as $line) {
 		    echo "$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$sizes[$k],$www\n";
 		}
 	    } else {
-		echo "$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www\n";
+		echo rtrim("$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www", ',')."\n";
 	    }
 	}
     }elseif(str_starts_with($line, 'Artist')) {

@@ -41,6 +41,6 @@ foreach(explode("\n",file_get_contents($K_list)) as $line) {
         //echo " estimate = $estimate\n";
     }elseif(preg_match("/^2[0-9]*-[0-9]*-[0-9]*/", $line)) {
         $day0 = $line;
-        echo "$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www,$base\n";
+        echo rtrim("$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www,$base",',')."\n";
     }
 }

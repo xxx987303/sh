@@ -6,21 +6,37 @@
  *     list($day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www)
  *
  */
+require_once __dir__ . '/debug.php';
+require_once "/Users/yb/Sites/sh/index.php";
 
-define("SHOW_TIDY_R_LIST", false);
-define("SHOW_AUTHORS", false);
+$SHOW_TIDY_R_LIST = false;
+$SHOW_AUTHORS = false;
+if (!$SHOW_TIDY_R_LIST) $SHOW_AUTHORS = false;
 
 $arg = empty($argv[1]) ? "R_list.txt" : $argv[1]; 
 $R_list = __dir__ . "/$arg";
 
+$transliterated = [];
 $lengthP = $lengthT = $lengthA = $lengthY = 1;
 foreach(explode("\n",file_get_contents($R_list)) as $line) {
     if (($cmt=str_starts_with($line, '#')) || ($s=strpos($line, 'roligare')) || empty(trim($line))) continue;
     if (substr_count($line, '.') < 2) die("Not enought dots in line:\n$line\nFix $R_list\n");
-    
-    $l = explode('.',str_replace('"','',"$line....."));
-    for ($k=0; $k<5; $k++) { $l[$k] = empty($l[$k]) ? '' : encodeToUtf8(trim($l[$k])); }
 
+    // Split the line, transliterate if needed
+    $l = explode('.', str_replace('"', '', "$line....."));
+    for ($k=0; $k<5; $k++) { $l[$k] = empty($l[$k]) ? '' : encodeToUtf8(trim($l[$k])); }
+    if ($SHOW_TIDY_R_LIST || $SHOW_AUTHORS) {
+	for($k=1; $k<4; $k++) {
+	    $clean = $sanitizer->transliterate($l[$k]);
+	    if ($l[$k] != $clean) {
+		$transliterated[$l[$k]] = $clean;
+		$transL = (empty($transL) ? strlen($clean) : max($transL,strlen($clean)));
+		$l[$k] = $clean;
+	    }
+	}
+	$l[1] = $sanitizer->truncate($l[1], ['more'=>'…', 'maxLength'=>25]);
+    }
+    
     $count = 0;
     $fn = $ln = '';
     foreach(explode('&',$l[2]) as $a){
@@ -37,10 +53,11 @@ foreach(explode("\n",file_get_contents($R_list)) as $line) {
     }
     if ($authorName === ',')  continue;
 
-    $lines[$l[0].$authorName.$l[2].$l[3].$l[4]] = [ $l[0], $l[1], $authorName, $l[3], $l[4] ];
+    $lines[$l[0].$authorName.$l[2].$l[3].$l[4]] = [ $l[0], $l[1], $authorName, $l[3], $l[4], $l[5] ];
     if (empty($authorNames[$authorName])) $authorNames[$authorName] = 0;
     $authorNames[$authorName]++;
     
+    if ($SHOW_TIDY_R_LIST) $authorName = $sanitizer->truncate($authorName, ['more'=>'…', 'maxLength'=>22]);
     if (($s=strlen($l[0])) > $lengthP) $lengthP = $s+2;
     if (($s=strlen($l[1])) > $lengthT) $lengthT = $s+1;
     if (($s=strlen($l[3])) > $lengthY) $lengthY = $s+2;
@@ -49,39 +66,52 @@ foreach(explode("\n",file_get_contents($R_list)) as $line) {
 
 ksort($lines);
 $n = 0;
-if (SHOW_TIDY_R_LIST) {
+if ($SHOW_TIDY_R_LIST) {
     echo "# HERMES scarfar(väskor) är en investering,och mycket roligare än aktier!\n#\n";
-    printf("#     %-{$lengthP}s %-{$lengthT}s %-{$lengthA}s %-{$lengthY}s %s\n",
+    printf("#     %-{$lengthP}s %-{$lengthT}s %-{$lengthA}s %-{$lengthY}s %s %s %s\n",
            //mb_convert_encoding('Прибытие',   'UTF-8', 'auto'),
            encodeToUtf8('Прибытие'),
            mb_convert_encoding('Название','UTF-8', 'auto'),
            mb_convert_encoding('Автор ',  'UTF-8', 'auto'),
            mb_convert_encoding('Сделан ', 'UTF-8', 'auto'),
-           mb_convert_encoding('Коммент', 'UTF-8', 'auto'));
+           mb_convert_encoding('Коммент', 'UTF-8', 'auto'),
+           mb_convert_encoding('Цена',    'UTF-8', 'auto'),
+           mb_convert_encoding('Размер',  'UTF-8', 'auto'));
 }else{
     echo "# day0, carreTitle, ln, fn, year, cmt, price, size, www\n";
 }
 
 foreach($lines as $key=>$l) {
-    if (SHOW_TIDY_R_LIST) {
-        printf("%3s - %-{$lengthP}s %-{$lengthT}s %-{$lengthA}s %-{$lengthY}s %s\n",
+    if ($SHOW_TIDY_R_LIST) {
+	$wT = (strpos($l[1],'…') === false) ? $lengthT : $lengthT+2;
+	$wA = (strpos($l[2],'…') === false) ? $lengthA : $lengthA+2;
+        printf("%3s - %-{$lengthP}s %-{$wT}s %-{$wA}s %-{$lengthY}s %s %s\n",
                ++$n,
                $l[0].'.', // P
                $l[1].'.', // T
                $l[2].'.', // A
                $l[3].'.', // Y
-               $l[4]);    // C
+               $l[4].'..',// C
+               $l[5]);    // size
     } else {
         // Show "import friendly" line
-        printf("%s,%s,%s,%s,%s\n",
-               $l[0], $l[1], $l[2], $l[3], $l[4]);
+        echo rtrim(sprintf("%s,%s,%s,%s,%s,,%s",
+			   $l[0], $l[1], $l[2], $l[3], $l[4], $l[5]),', ')."\n";
     }
 }
 
-if (SHOW_AUTHORS) {
-    //arsort($authorNames);
+if ($SHOW_TIDY_R_LIST && $SHOW_AUTHORS) {
     ksort($authorNames);
-    print_r($authorNames);
+    krsort($authorNames);
+    arsort($authorNames,SORT_NUMERIC);
+    echo "\n\n";
+    tidy_dump($authorNames,"Number of artworks by Author" );
+}
+
+if ($SHOW_TIDY_R_LIST || $SHOW_AUTHORS) {
+    printf("\nTransliteration:\n");
+    ksort($transliterated);
+    foreach($transliterated as $original=>$trans) printf("   %-{$transL}s <- %-{$transL}s\n", $trans, $original);
 }
 
 function encodeToUtf8($string) {

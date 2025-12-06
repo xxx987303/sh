@@ -8,6 +8,16 @@ require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
 
+$text = "Jardins des métamorphoses,Houtin,François";
+//$text = "François";
+//$clean = wire()->sanitizer->text($text);
+//$clean = wire()->sanitizer->textASCII($text);
+//$clean = $sanitizer->text($text);
+$clean = $sanitizer->transliterate($text);
+//printf ("%s\n%s\n", $text, $sanitizer->text($text));
+printf ("\n%s\n%s\n", $text, $clean);
+exit;
+
 tidy_dump(pages()->get("title=A Vos Crayons")->h_aw_person); exit;
 tidy_dump(pages()->get("template=h_artwork")->h_aw_person); exit;
 
