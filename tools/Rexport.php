@@ -14,7 +14,7 @@ $desc = function(Page $p) {
 			      $p->title, // sanitizer()->pageName(sanitizer()->transliterate($p->title)),
 			      $p->h_aw_year,
 			      //(count($p->h_aw_size) ? $p->h_aw_size->each("{name}") : ""),
-			      ($p->h_aw_size ? $p->h_aw_size->name : ""),
+			      ($p->h_aw_size ? $p->h_aw_size->title : ""),
 			      trim($p->h_aw_person->each("{title}$and"),$and)),
                       'decode');
 

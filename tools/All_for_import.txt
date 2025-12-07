@@ -1,7 +1,8 @@
 # day0, carreTitle, lastname, firstname, year, cmt, price, size, www, base
 # day0, carreTitle, ln, fn, year, cmt, price, size, www
 2022-11,1821 Hommage a L'Amite,Abadie,Julie,1993,EL
-2023-09,A Propos de Bottes,de Poret,Xavier,2008,G
+2023-11-16,A Propos de Bottes,de Poret,Xavier,,,1501,,https://auctionetcom/en/my/won/3152053-nasduk-hermes-a-prapos-de-bottes-orange-botten-siden-med-ask
+2023-11-16,A Propos de Bottes,de Poret,Xavier,2008,G
 2025-11-06,A Vos Crayons,Cooke,Leigh,2004
 2025-11-08,A Vos Crayons,Cooke,Leigh,2004,,2690,86x88,https://www.kaplans.se/sv/auktioner/4617/vara/2049773,silk
 2018-09-11,Afrika,Dallet,Robert,1997
@@ -57,7 +58,8 @@
 ,Farandole,Latham,Caty,1977/1990/2006
 2022-12,Ferronnerie,Latham,Caty,1970,G
 ,Festival des amazones,d'Origny,Henri,2013/2014
-2023-10,Feux d'Artifice,Duchêne,Michèle,1987,ES
+2023-12-02,Feux d'Artifice,Duchêne,Michèle,1987,ES
+2023-12-02,Feux d'artifice,Duchene,Michele,,,1243,,https://auctionetcom/en/my/won/3095781-hermes-feux-d-artifice-scarf-siden-design-michel-duchene-markt-med-designernamn
 2023-05-01,Fleurs et Carlines,,,,Hermes,2350,,https://www.metropol.se/auctions/detail.asp?og={ECFAFD13-0DF1-42A1-A507-7FC09290EF56}
 2023-05,Fleurs et Carlines,Rybaltchenko,Vladimir,1985,П Юры
 2025-03-07,Flots Fleurs et Frontaux,Faivre,Annie,2004,,1970,90x90,https://www.kaplans.se/sv/auktioner/4521/vara/2030702,silk
@@ -139,7 +141,8 @@
 ,Reale,Grygkar,Hugo,1953/1990
 ,Regina,Menchari,Leila,1972
 2021-10-09,Regina,Menchari,Leila,1972/1977/2002,,2210,90x90,https://www.kaplans.se/sv/auktioner/3973/vara/1778227,silk
-2024-02,Rencontre oceane,Faivre,Annie,2001
+2024-02-16,Rencontre Océane,Faivre,Annie,2001,,1600,,https://auctionetcom/en/my/won/3320082-hermes-scarf-rencontre-oceane-siden-designad-av-annie-faivre-2001-motiv-med-fiskar-och-havsanemone-i-rott-mot-ockragul-botten-etikettmarkt-made-in-france-ask-medfoljer
+2024-02-16,Rencontre oceane,Faivre,Annie,2001
 ,Reprise,Ledoux,Philippe,1970/1993
 ,Reveries japonaises,Latham,Caty,1991
 ,Rose de vents,Metz,Joachim,1984/2012
@@ -147,7 +150,7 @@
 ,Sacre du printems,d'Origny,Henri,1986
 2025-05,Sangles,Metz,Joachim,1984,G
 ,Selles a housse,Vauzelles,Christiane,1968/1989
-2023-07,Sous Le Cèdre,Rybaltchenko,Dimitri,1998
+2023-08-14,Sous Le Cèdre,Rybaltchenko,Dimitri,1998
 2023-08-14,Sous le Cédre,Rybaltchenko,Dimitri,,Hermes,1975,,https://www.metropol.se/auctions/detail.asp?og={14E976BF-1214-402E-9ED4-2E5498C2B7AC}
 ,Splendeur des maharadjas,Baschet,Catherine,1996/2001
 ,Springs,Ledoux,Philippe,1974/1981
@@ -171,4 +174,5 @@
 2022-12-09,Voyage en Etoffes,Faivre,Annie,2009,,2450,90x90,https://www.kaplans.se/sv/auktioner/4171/vara/1883715,silk
 ,Washington's carriage,Latham,Caty,1979/1981
 ,Zabavushka,Miro,Evgenia,2009,Sold
+# day0,carreTitle,lastname,firstname,year,cmt,price,size,www,base
 2025-03-06,hidden title,hidden author,,hidden year

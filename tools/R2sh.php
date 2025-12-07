@@ -85,14 +85,14 @@ foreach($lines as $key=>$l) {
     if ($SHOW_TIDY_R_LIST) {
 	$wT = (strpos($l[1],'…') === false) ? $lengthT : $lengthT+2;
 	$wA = (strpos($l[2],'…') === false) ? $lengthA : $lengthA+2;
-        printf("%3s - %-{$lengthP}s %-{$wT}s %-{$wA}s %-{$lengthY}s %s %s\n",
-               ++$n,
-               $l[0].'.', // P
-               $l[1].'.', // T
-               $l[2].'.', // A
-               $l[3].'.', // Y
-               $l[4].'..',// C
-               $l[5]);    // size
+        echo rtrim(sprintf("%3s - %-{$lengthP}s %-{$wT}s %-{$wA}s %-{$lengthY}s %s %s",
+			   ++$n,
+			   $l[0].'.', // P
+			   $l[1].'.', // T
+			   $l[2].'.', // A
+			   $l[3].'.', // Y
+			   $l[4].'..',// C
+			   $l[5]), '. ')."\n";    // size
     } else {
         // Show "import friendly" line
         echo rtrim(sprintf("%s,%s,%s,%s,%s,,%s",

@@ -14,9 +14,9 @@ require_once "/Users/yb/Sites/sh/index.php";
 say::notice("saveToDB = ".var_export(saveToDB,true));
 
 $P_h_sizes = createPage(['title'    => 'Sizes'],
-  	['template' =>'h_sizes',
-  	 'parent'   => 1,
-  	 'hook'     =>'title']);
+  			['template' =>'h_sizes',
+  			 'parent'   => 1,
+  			 'hook'     =>'title']);
 
 $desc = function(Page $p) {
     return escape_uml(sprintf("%s . %s . %s . %s\n",
@@ -70,7 +70,7 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
     //
     list($cmt, $size, $options) = unpackComment(($cmtWas=$cmt), ($sizeWas=$size));
     if ($cmt!=$cmtWas || $size!=$sizeWas||!empty($options))
- b_debug::_dbg(sprintf( "[size:'%s'->'%s'  cmt:'%s'->'%s'  %s]",$sizeWas, $size, $cmtWas, $cmt, join(',',$options)));
+	b_debug::_dbg(sprintf( "[size:'%s'->'%s'  cmt:'%s'->'%s'  options=%s]",$sizeWas, $size, $cmtWas, $cmt, join(',',$options)));
 
     //
     // Attack la page...
@@ -139,7 +139,8 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
        'h_aw_year' => $year],
                     ['template'=>'h_artwork',
                      'hook'    =>'title']);
-    foreach($authors as $a) setKeyValue($p,'h_aw_person',$a,saveToDB);
+    foreach($authors as $a) setKeyValue($p,'h_aw_person', $a,saveToDB);
+    foreach($options as $o) setKeyValue($p,'h_aw_options',$o,saveToDB);
 }
 
 /**
@@ -199,41 +200,43 @@ function createPage(Array $dataArg=[], Array $args=[], $saveToDB=saveToDB){
 function unpackComment($cmtWas, $sizeWas='') {
 
     static $maps = ['size' => ['g'          => 'Gavroche',
- 		       'twilly'     => 'Twilly',
- 		       't'          => 'Twilly',
- 		       'maxitwilly' => 'Maxi Twilly',
- 		       'maxi twilly'=> 'Maxi Twilly',
- 		       'mt'         => 'Maxi Twilly'],
- 	    'extra'=> ['remix'      => 'Remix',
- 		       'el'         => 'Limited Edition',
- 		       'es'         => 'Special Edition',
- 		       'sold'       => 'Sold'],
-     	    'cmt'  => ['П '         => 'Подарок ',
- 		       'Hermes'     => '']];
-
+ 			       'twilly'     => 'Twilly',
+ 			       't'          => 'Twilly',
+ 			       'maxitwilly' => 'Maxi Twilly',
+ 			       'maxi twilly'=> 'Maxi Twilly',
+ 			       'mt'         => 'Maxi Twilly'],
+ 		    'extra'=> ['variant'    => 'Variant',
+			       'remix'      => 'Remix',
+ 			       'el'         => 'EL',
+ 			       'es'         => 'ES',
+ 			       'sold'       => 'Sold',
+			       'b'          => 'B'],
+     		    'cmt'  => ['П '         => 'Подарок ',
+ 			       'Hermes'     => '']];
+    
     list($cmt, $size) = [$cmtWas,$sizeWas];
-
+    
     // Size
     if (preg_match("/\b4[0-9]x4[0-9]\b/", $sizeWas)) $cmtWas .= " G";
     foreach($maps['size'] as $k=>$v) {
- if (!preg_match("/\b$k\b/i", $cmtWas, $matches)) continue;
- $size = trim("$v $sizeWas");
- $cmt  = trim(str_ireplace($k, '', $cmtWas));
+	if (!preg_match("/\b$k\b/i", $cmtWas, $matches)) continue;
+	$size = trim("$v $sizeWas");
+	$cmt  = trim(str_ireplace($k, '', $cmtWas));
     }
-
+    
     // Options
     $options = [];
     foreach($maps['extra'] as $k=>$v) {
- if (!preg_match("/\b$k\b/i", $cmt, $matches)) continue;
- $options[] = $matches[0];
- $cmt  = trim(str_replace('  ', ' ', str_ireplace($k, '', $cmt)));
+	if (!preg_match("/\b$k\b/i", $cmt, $matches)) continue;
+	$options[] = $matches[0];
+	$cmt  = trim(str_replace('  ', ' ', str_ireplace($k, '', $cmt)));
     }
-
+    
     // Abbriviations
     foreach($maps['cmt'] as $k=>$v) {
- if (strpos($cmt, $k) !== false) $cmt = str_replace([$k,'  '], [$v,' '], $cmt);
+	if (strpos($cmt, $k) !== false) $cmt = str_replace([$k,'  '], [$v,' '], $cmt);
     }
-
+    
     if (!empty($sizeWas) && $cmt==$sizeWas && $size==$sizeWas && empty($options)) echo "????? Something unexpected in the comment '$cmtWas'\n";
     return [$cmt, $size, $options];
 }

@@ -16,41 +16,41 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
      *
      */
     $createOptionPage = function(Object $o, Field $key, Page $donorPage, String $value, $saveToDB=false) {
- global $dummyID; if (empty($dummyID)) $dummyID = 10000;
+	global $dummyID; if (empty($dummyID)) $dummyID = 10000;
 
- if ($o->$key && (pageName($now=$o->$key->title) == pageName($value))) {
+	if ($o->$key && (pageName($now=$o->$key->title) == pageName($value))) {
             say::ok($o, $key, ($got=$value));
-     return $o->key;
- } else {
+	    return $o->key;
+	} else {
             if (($page = pages()->get("name=".pageName($value)))->id) {
- 	say::ok($page, $page->name, ($got=$value));
-     }else{
- 	$page = new Page();
- 	$page->name     = pageName($value);
- 	$page->title    = $value;
- 	b_debug::_dbg("Creating Options ".$page->title);
- 	$page->template = $donorPage->template;
- 	$page->parent   = $donorPage->parent;
+ 		say::ok($page, $page->name, ($got=$value));
+	    }else{
+ 		$page = new Page();
+ 		$page->name     = pageName($value);
+ 		$page->title    = $value;
+ 		b_debug::_dbg("Creating Options ".$page->title);
+ 		$page->template = $donorPage->template;
+ 		$page->parent   = $donorPage->parent;
 
- 	if ($saveToDB == true)     $page->save();
- 	elseif(!$page->id) $page->id = ++$dummyID;
- 	tidy_dump($page, "Created page");
+ 		if ($saveToDB == true)     $page->save();
+ 		elseif(!$page->id) $page->id = ++$dummyID;
+ 		tidy_dump($page, "Created page");
  
- 	if ($o->$key instanceof PageArray) {
- 	    if (setKeyValueDEBUG) say::notice('instanceof PageArray');
- 	    $o->$key->add($page);
- 	} else {
- 	    $o->$key = $page;
- 	    if (setKeyValueDEBUG) say::warning('$o->$key is NOT PageArray');
- 	}
- 	if ($saveToDB == true){
- 	    $o->save();
- 	    $o->$key->save();
- 	}
- 	say::load($o, $key, $value, ($now=""), ($got=$o->key));
-     }
-     return $page;
- }
+ 		if ($o->$key instanceof PageArray) {
+ 		    if (setKeyValueDEBUG) say::notice('instanceof PageArray');
+ 		    $o->$key->add($page);
+ 		} else {
+ 		    $o->$key = $page;
+ 		    if (setKeyValueDEBUG) say::warning('$o->$key is NOT PageArray');
+ 		}
+ 		if ($saveToDB == true){
+ 		    $o->save();
+ 		    $o->$key->save();
+ 		}
+ 		say::load($o, $key, $value, ($now=""), ($got=$o->key));
+	    }
+	    return $page;
+	}
     };
 
     /**
@@ -58,11 +58,11 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
     $getKey = function ($keyArg) {
         $key     = (is_object($keyArg) ? $keyArg  : (is_object($f=fields()->get($keyArg)) ? $f : null));
         $keyName = (is_object($key)    ? $key->name : null);
- if (empty($key) || empty($keyName)) {
-     say::error("Can't get the key for '$keyArg'...");
-     return null;
- }
- return [$key,$keyName];
+	if (empty($key) || empty($keyName)) {
+	    say::error("Can't get the key for '$keyArg'...");
+	    return null;
+	}
+	return [$key,$keyName];
     };
 
   /**
@@ -76,7 +76,7 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
 
         static $roles = ['viewRoles','editRoles','addRoles','createRoles'];
         if (($tRoles = ($o instanceof Template) && in_array($key, $roles))) {
-     if (setKeyValueDEBUG) say::notice('-- instanceof Template');
+	    if (setKeyValueDEBUG) say::notice('-- instanceof Template');
             if (!$o->$key) {
                 $o->$key = [];
             }
@@ -91,7 +91,7 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
         $id = (is_object($value) ? $value->id : null);
         $got = $now = ($tRoles
            ? (in_array($id, $o->$key) ? $value->name : null)
-           : $o->$key);
+	   : $o->$key);
         if ($value === 'present') {
             b_debug::_dbg("Replace '$value' ==> ".($x="2037-01-01"));
             $value = $x;
@@ -144,28 +144,28 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
     // b_debug::_dbg(joinX($summary));
 
     if (($v1=($o instanceof NullPage)) || ($v2=($value instanceof NullPage))) {
- say::warning("Skip... " . ($v1
-     ? "Trying to update a NullPage"
-     : "Trying to assign $keyName=NullPage"));
- return;
+	say::warning("Skip... " . ($v1
+	    ? "Trying to update a NullPage"
+	    : "Trying to assign $keyName=NullPage"));
+	return;
     } elseif (is_object($value)  && $value->id == 0) {
- say::warning("Trying to assign empty object to $keyArg, skip");
- return;
+	say::warning("Trying to assign empty object to $keyArg, skip");
+	return;
     } elseif (empty($keyArg)) {
- abortIt("??? Empty keyArg");
+	abortIt("??? Empty keyArg");
 
- // Fields, Templates ================================================================================================
+	// Fields, Templates ================================================================================================
     } elseif ($o instanceof Field || $o instanceof Template) {
-     if (setKeyValueDEBUG) say::notice('-- instanceof Field|Template');
+	if (setKeyValueDEBUG) say::notice('-- instanceof Field|Template');
         if ($keyName == 'tags') {
             list($now,$got) = $setTags($o, $keyName, $value, $saveToDB);
         } else {
             list($now,$got) = $setKeyValue_simple($o, $key, $value, $saveToDB);
         }
 
- // Role =========================================================================================================
+	// Role =========================================================================================================
     } elseif ($o instanceof Role) {
- if (setKeyValueDEBUG) say::notice('-- instanceof Role');
+	if (setKeyValueDEBUG) say::notice('-- instanceof Role');
         if ($key == 'permission') {
             if (!$value instanceof Permission) {
                 abortIt(_formatData($value)." is not instanceof Permission");
@@ -184,9 +184,9 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
             abortIt("Unexpected argument key=\"".var_export($key, true)."\"");
         }
 
- // User =========================================================================================================
+	// User =========================================================================================================
     } elseif ($o instanceof User) {
- if (setKeyValueDEBUG) say::notice('-- instanceof User');
+	if (setKeyValueDEBUG) say::notice('-- instanceof User');
         if ($key == 'role') {
             if ($o->hasRole($value)) {
                 say::ok($o, $key, ($now=$got=$value));
@@ -209,119 +209,124 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
 
     } // Page =========================================================================================================
     elseif ($o instanceof Page) {
- if (setKeyValueDEBUG) say::notice('-- instanceof Page '.joinX($summary));
+	if (setKeyValueDEBUG) say::notice('-- instanceof Page '.joinX($summary));
         $o->of(false);
 
- if (in_array($type, ['FieldtypeText',
- 		     'FieldtypeTextLanguage',
- 		     'FieldtypePageTitleLanguage'])) {
-     if (setKeyValueDEBUG) say::notice("-- setKeyValue_simple($keyArg)");
+	if (in_array($type, ['FieldtypeText',
+ 			     'FieldtypeTextLanguage',
+ 			     'FieldtypePageTitleLanguage'])) {
+	    if (setKeyValueDEBUG) say::notice("-- setKeyValue_simple($keyArg)");
             list($now,$got) = $setKeyValue_simple($o, $key, $value, $saveToDB);
 
- } // FieldtypePage && $key->inputfield == 'InputfieldSelect'" =====================================================
- elseif ($type == 'FieldtypePage' && $key->inputfield == 'InputfieldAsmSelect') {
-     if (setKeyValueDEBUG) say::notice("-- type == FieldtypePage && key->inputfield == 'InputfieldAsmSelect'");
-     if ($derefAsPage == 1) { // -----------------------------------------------------------------------------------
- 	if ($o->$key && (($got=$o->$key->id) == ($now=$value->id))) {
- 	    say::ok($o, $keyName, (string)$value->title);
- 	} else {
- 	    $o->$key = $value;
- 	    if ($saveToDB == true) $o->$key->save();
- 	    say::load($o, $o->$key, $value, ($now=""), ($got=(string)$o->$key->title));
- 	}
-     } elseif ($o->$key instanceof PageArray) { // -----------------------------------------------------------------
- 	foreach ($o->$key as $p) {
- 	    if ($ok1=($p->id == $value->id)) {
- 		say::ok($o, $keyName, (string)$value->title);
- 	    }
- 	}
- 	if (empty($ok1)) {
- 	    $o->$key->add($value);
- 	    if ($saveToDB == true) $o->$key->save();
- 	    say::load($o, $o->$key, $value, ($now=""), ($got=(string)$value->title));
- 	}
-     } else {
- 	say::notice('.Not yet ready... '.joinX($summary));
-     }
+	} // FieldtypePage && $key->inputfield == 'InputfieldSelect'" =====================================================
+	elseif ($type == 'FieldtypePage' && $key->inputfield == 'InputfieldAsmSelect') {
+	    if (setKeyValueDEBUG) say::notice("-- type == FieldtypePage && key->inputfield == 'InputfieldAsmSelect'");
+	    if ($derefAsPage == 1) { // -----------------------------------------------------------------------------------
+ 		if ($o->$key && (($got=$o->$key->id) == ($now=$value->id))) {
+ 		    say::ok($o, $keyName, (string)$value->title);
+ 		} else {
+ 		    $o->$key = $value;
+ 		    if ($saveToDB == true) $o->$key->save();
+ 		    say::load($o, $o->$key, $value, ($now=""), ($got=(string)$o->$key->title));
+ 		}
+	    } elseif ($o->$key instanceof PageArray) { // -----------------------------------------------------------------
+ 		foreach ($o->$key as $p) {
+ 		    if ($ok1=($p->id == $value->id)) {
+ 			say::ok($o, $keyName, (string)$value->title);
+ 		    }
+ 		}
+ 		if (empty($ok1)) {
+ 		    $o->$key->add($value);
+ 		    if ($saveToDB == true) $o->$key->save();
+ 		    say::load($o, $o->$key, $value, ($now=""), ($got=(string)$value->title));
+ 		}
+	    } else {
+ 		say::notice('.Not yet ready... '.joinX($summary));
+	    }
 
- } // type==FieldtypePage && key->inputfield==InputfieldSelect =====================================================
- elseif ($type == 'FieldtypePage' && $key->inputfield == 'InputfieldSelect'){
-     if (setKeyValueDEBUG) say::notice("-- type == FieldtypePage && key->inputfield == 'InputfieldSelect'");
-     // Check the current value
-     $now = (string)(is_object($k=$o->$key) ? $k->title : "");
-     if ($now == ($got=$value)) {
+	}
+	// type==FieldtypePage && key->inputfield==InputfieldSelect =====================================================
+	elseif ($type == 'FieldtypePage' && $key->inputfield == 'InputfieldSelect'){
+	    if (setKeyValueDEBUG) say::notice("-- type == FieldtypePage && key->inputfield == 'InputfieldSelect'");
+	    // Check the current value
+	    $now = (string)(is_object($k=$o->$key) ? $k->title : "");
+	    if ($now == ($got=$value)) {
                 say::ok($o, $keyName, $value);
-     } else {
-         $o->$key = $createOptionPage($o,
- 				     $key,
- 				     pages()->get($keyName=='h_aw_size'
- 					 ? "template=h_size"
- 					 : "template={$key->template_id}"),
- 				     $value,
- 				     $saveToDB);
+	    } else {
+		$o->$key = $createOptionPage($o,
+ 					     $key,
+ 					     pages()->get($keyName=='h_aw_size'
+ 						 ? "template=h_size"
+ 						 : "template={$key->template_id}"),
+ 					     $value,
+ 					     $saveToDB);
                 if ($saveToDB == true) {
- 	    $o->save();
- 	    $o->$key->save();
- 	}
+ 		    $o->save();
+ 		    $o->$key->save();
+ 		}
                 say::load($o, $o->$key, $value, $now, ($got=(string)$o->$key->title));
-     }
+	    }
 
- } // Options ========================================================================================================
- /**
-  * Sets only 1 option, the code below fails for several options...
-  */
- elseif ($type == 'FieldtypeOptions') {
-     if (setKeyValueDEBUG) say::notice('-- $type == FieldtypeOptions');
-
-     // Check that the value is legal
-     unset($optOK);
-     $f = fields()->get($key);
-     foreach(wire('modules')->get($type)->getOptions($f) as $opt) {
- 	if (strToLower($opt->title) == strToLower($value)) { $optOK = $opt; break; }
-     }
-     if (!isset($optOK) || !$optOK->id) {
+	}
+	// Options ========================================================================================================
+	/**
+	 * Sets only 1 option, the code below fails for several options...
+	 */
+	elseif ($type == 'FieldtypeOptions') {
+	    if (setKeyValueDEBUG) say::notice('-- $type == FieldtypeOptions');
+	    
+	    // Check that the value is legal
+	    unset($optOK);
+	    $f = fields()->get($key);
+	    foreach(wire('modules')->get($type)->getOptions($f) as $opt) {
+ 		if (strToLower($opt->title) == strToLower($value) ||
+		    strToLower($opt->value) == strToLower($value)) { $optOK = $opt; break; }
+	    }
+	    if (!isset($optOK) || !$optOK->id) {
                 say::error(sprintf("%s(%s,$key,$value) Option can't be set", __function__, "Unexpected option \"$value\""));
- 	return;
-     }
+ 		return;
+	    }
 
-     $now = $got = $o->$key->title;
-     if ((string)$o->$key->title == (string)$value) {
+	    $now = $got = $o->$key->title;
+	    if ((string)$o->$key->title == (string)$value) {
                 say::ok($o, $key, $value);
-     } elseif ($inputfieldClass == 'InputfieldCheckboxes') { // ------------------------------------------------------
- 	if (setKeyValueDEBUG) say::notice('inputfieldClass = InputfieldCheckboxes');
+	    } elseif ($inputfieldClass == 'InputfieldCheckboxes') { // ------------------------------------------------------
+ 		if (setKeyValueDEBUG) say::notice('inputfieldClass = InputfieldCheckboxes');
 
- 	$Manager = new SelectableOptionManager();
- 	foreach ($Manager->getOptions($f, ['title'=>$value]) as $option) {
-                    if ($o->$key->hasTitle($value) || $o->$key->hasValue($value)) {
- 		say::ok($o, $key, $value);
-                    } else {
- 		$o->$key = new SelectableOptionArray();
- 		$o->$key->setField($f);
- 		$o->$key->add($option);
- 		if ($saveToDB == true) { $o->save(); $o->$key->save(); }
- 		say::load($o, $key, $value, $now, ($got = $o->$key->title), $o->$key);
-                    }
- 	}
- 	if (empty($option)){
+ 		$Manager = new SelectableOptionManager();
+		foreach (['title','value'] as $k) {
+ 		    foreach ($Manager->getOptions($f, [$k=>$value]) as $option) {
+			if ($o->$key->hasTitle($value) || $o->$key->hasValue($value)) {
+ 			    say::ok($o, $key, $value);
+			} else {
+ 			    $o->$key = new SelectableOptionArray();
+ 			    $o->$key->setField($f);
+ 			    $o->$key->add($option);
+ 			    if ($saveToDB == true) { $o->save(); $o->$key->save(); }
+ 			    say::load($o, $key, $value, $now, ($got = $o->$key->title), $o->$key);
+			}
+		    }
+ 		}
+ 		if (empty($option)){
                     say::error  (sprintf("%s(%s,$key,$value) Option can't be set", __function__, $o->name));
                     say::warning(sprintf("%s(%s,$key,$value) Option can't be set", __function__, $o->name));
- 	}
-     } elseif ($inputfieldClass == 'InputfieldSelect') {
- 	if (setKeyValueDEBUG) say::notice('inputfieldClass = InputfieldSelect');
- 	// say::notice("OHO ".joinX($summary));
- 	$o->$key = $optOK;
- 	say::load($o, $key, $optOK, ($now=""), ($got = $o->$key->title), $o->$key);
-     }
- } else {
-     say::error("..Not yet ready... ".joinX($summary));
-     $got = $now = $value = "Not yet ready";
- }
+ 		}
+	    } elseif ($inputfieldClass == 'InputfieldSelect') {
+ 		if (setKeyValueDEBUG) say::notice('inputfieldClass = InputfieldSelect');
+ 		// say::notice("OHO ".joinX($summary));
+ 		$o->$key = $optOK;
+ 		say::load($o, $key, $optOK, ($now=""), ($got = $o->$key->title), $o->$key);
+	    }
+	} else {
+	    say::error("..Not yet ready... ".joinX($summary));
+	    $got = $now = $value = "Not yet ready";
+	}
     } else {
- echo tidy_dump($o, $msg="Unexpected argument keyName=\"".var_export($keyName, true)."\"");
- abortIt($msg);
+	echo tidy_dump($o, $msg="Unexpected argument keyName=\"".var_export($keyName, true)."\"");
+	abortIt($msg);
     }
     if (empty($got) && !empty($now) && $value!=='<unset>') {
- abortIt(sprintf(__function__."(%s,%s,%s,%s)",
- 		$o->name, $keyName, $value, $saveToDB)."\ncancels value $o->name.$key now==\"$now\" got=\"\"");
+	abortIt(sprintf(__function__."(%s,%s,%s,%s)",
+ 			$o->name, $keyName, $value, $saveToDB)."\ncancels value $o->name.$key now==\"$now\" got=\"\"");
     }
 }
