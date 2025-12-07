@@ -6,6 +6,7 @@
 *.old/*
 *.new
 *.new/*
+.SanitizerTransliterate
 old
 old/*
 *[a-z].1
