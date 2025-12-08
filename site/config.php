@@ -34,11 +34,12 @@ if(!defined("PROCESSWIRE")) die();
  */
 $config->debug = true;
 define('DEBUG', $config->debug);
-
+$config->tracyDisabled = true;
+$config->moduleInstall('directory', true);
 $config->useFunctionsAPI = true; 
 $config->sessionFingerprint = true; 
 $config->prependTemplateFile = '_init.php';
-$config->appendTemplateFile  = '_main.php';
+$config->appendTemplateFile = '_main.php';
 /*
 $config->imageSizerOptions = array(
         'upscaling' => true, // upscale if necessary to reach target size?

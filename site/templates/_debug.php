@@ -8,7 +8,7 @@ if (!function_exists('ProcessWire\tidy_dump') && !function_exists('tidy_dump')){
     function tidy_dump($object, $title = 'tidy_dump', $trim = false, $skip_empty = true) {
 	if (empty(@$GLOBALS['debug_messages'])) $GLOBALS['debug_messages'] = "";
 	if ($title == 'return') { $return=true; $trim='do'; } else { $return = false; }
-	if (!DEBUG && !input::get('show_tidy') && $trim !== 'do') { return ''; }
+      //if (!DEBUG && !input::get('show_tidy') && $trim !== 'do') { return ''; }
 	if ($trim === 'do') { $trim = true; }
 
 	if ($title === 'get_object_name') {

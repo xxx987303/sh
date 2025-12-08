@@ -1,4 +1,5 @@
 <?php namespace ProcessWire;
+
 /***************************************************************************************
  * SHARED ARTWORK FUNCTIONS
  *
@@ -180,7 +181,7 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
     $context = 'ul';
   }
 
-  if($showPagination && $pages->count()) {
+  if($showPagination && $pages) {
     $headline = $pages->getPaginationString('Objects'); // i.e. Objects 1-10 of 500
     $pagination = renderPagination($pages); // pagination link
     $sortSelect = renderObjectListSort($pages->first->template->name);
@@ -191,7 +192,7 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
   foreach($pages as $object) {
       if (empty($object->fields)) continue;
       $renderedObject = renderObjectListItem($object, $context, $key);
-      $type='';foreach($object->fields as $f) if(preg_match($needle,$f) && count($o=$object->$f)) $type = substr($o->each(", {title}"),2);
+      $type='';foreach($object->fields as $f) if(preg_match($needle,$f) && ($o=$object->$f)) $type = $o->title;
       if ($type) foreach(explode(',',$type) as $t) $itemsByType[trim($t)][] = $renderedObject;
       else  $items[] = $renderedObject;
   }
@@ -380,7 +381,7 @@ function getSpotURLs(){
     $SPOT_search = config('urls')->root . $SPOT_url . $SPOT_id . "_search/";
     // echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_search=$SPOT_search");
     $site_home = pages("/");  
-    $spot_home = pages("/SPOT_url");
+    $spot_home = pages("/$SPOT_url");
 }
 
 /**
@@ -442,9 +443,14 @@ function getTaggedFields($page,$context='page'){
  * Returns string, like "int", "string", "object|Template", etc
  */
 function getType($o, $id=null) {
-    ob_start(); print_r($o); $out = ob_get_clean();
-    $result = trim(str_replace('ProcessWire\\', '', ($header=explode("\n",$out)[0])));
-    if (!empty($id)) $result = "getType($id) =  $result\n";
+    ob_start(); var_dump($o); $out = ob_get_clean();
+    $result =str_replace(['(',')'], ['|',''],
+                         preg_replace(["/ProcessWire./",
+                                       "/(#| ).*/",
+                                       "/\([0-9]*\)/"],
+                                      '',
+                                      ($header=explode("\n",ob_get_clean())[0])));
+    if (!empty($id)) $result = "getType($id) =  $result";
     return $result;
 }
 
@@ -552,13 +558,11 @@ function joinX(Array $a, $skipEmpty=true){
     $r = "";
     foreach($a as $k=>$v) {
 	$v = trim($v);
-	if ($skipEmpty) {
-	    if (empty($v) && $v !== 0 && $v !== '0') continue;
-	    if (empty($v)||$k=='comment') continue;
-	}
-	$r .= "$k=>$v,";
+	if (true && empty($v) && $v !== 0 && $v !== '0') continue;
+	if (empty($v)||$k=='comment') continue;
+	$r .= "$k=>$v ";
     }
-    return '['.trim($r,',').']';
+    return x('[',trim($r));
 }
 
 /**
@@ -591,15 +595,13 @@ function masthead(Page $page) {
 		foreach($page->parents as $k=>$p) {
 		    if ($k==0) continue;
 		    $tmp[] = $p->id;
-		    echo x("a href=".x("'",$p->url), $p->title).
-			 x("i class='uk-icon-angle-right'");
+		    echo x("a href='{$p->url}'", $p->title) . x("i class='uk-icon-angle-right'");			 
 		}
 		echo region('headline');
 		//static $normalHeadline;
 		//if (empty($normalHeadline)) $normalHeadline = $tmp;
 		?>
 	    </h2>
-	    <?php echo x("pre",joinX($tmp)); ?>
 	    <!-- Search and login -->
 	    <ul class='uk-navbar-nav' style='float:right; list-style-type:"";'>
 		<?php
@@ -627,8 +629,7 @@ foreach(($SPOT_url
        : $site_home->and($site_home->children)) as $item) {
     if (!$item->viewable()) continue;
     if (preg_match(";spot/;",$item->url) && !$SPOT_url)  continue;
-    //if ($page->title == $page->rootParent->title) {
-    // Detect the active tab
+     // Detect the active tab
     if ($root) {
 	$class = '';
     } elseif ($page->id == $spot_home->id) {
@@ -661,17 +662,20 @@ if(false)echo x("li class='menu-item menu-item-type-post_type menu-item-object-p
 ?>
 		</ul>
 		<?php
-		if (!empty($languages)){
+		if (empty($languages)) {
+		    echo "<span style='color:red;font-style: italic;'>????? No languages</span>";
+		}else{
 		    echo "<!-- ---------------------------------------------------------- language switcher  -->\n".
 			 "<ul class='languages uk-navbar-nav' role='navigation' style='float:right;'>\n";
 		    static $flags = ['default'=>'gb', 'russian'=>'ru', 'swedish'=>'se', 'french'=>'fr'];
 		    foreach($languages as $language) {
-			if($page->viewable($language))printf("<li%s><a hreflang='%s' href='%s'>%s</a></li>\n",
-							     ($language->id==$user->language->id ? " class='uk-active'" : ""),
-							     $site_home->getLanguageValue($language, 'name'),
-							     $page->localUrl($language),
-							     x("div uk-tooltip=$language->title",
-							       x("img src=".urls('templates')."flags/".$flags[$language->name].".png")));
+			if( $page->viewable($language))
+			    printf("<li%s><a hreflang='%s' href='%s'>%s</a></li>\n",
+				   ($language->id==$user->language->id ? " class='uk-active'" : ""),
+				   $site_home->getLanguageValue($language, 'name'),
+				   $page->localUrl($language),
+				   x("div uk-tooltip=$language->title",
+				     x("img src=".urls('templates')."flags/".$flags[$language->name].".png")));
 			//echo "\t<li><a hreflang='$hreflang' href='$url'>".$language->title."</a></li>\n";
 		    }
 		}
@@ -690,17 +694,15 @@ if(false)echo x("li class='menu-item menu-item-type-post_type menu-item-object-p
  */
 function abortIt($text = 'Shit...', $extras=[]) {
     echo (CLI_MODE
-          ? sprintf("\n%s\n", shell_exec("tput bold").shell_exec("tput setaf 1"))
-          : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
+      ? sprintf("\n%s\n", `echo "$(tput bold)$(tput setaf 1)"`)
+      : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
     if ($extras){
         if (CLI_MODE) var_dump($extras);
         else echo tidy_dump($extras,'extras');
     }
     debug_print_backtrace(); // DEBUG_BACKTRACE_IGNORE_ARGS
     echo (CLI_MODE
-          ? sprintf("\n%s\n%s\n", $text, shell_exec("tput sgr0"))
-          : "</pre>\n");
+      ? sprintf("\n%s\n%s\n", $text, `echo $(tput sgr0)`)
+      : "</pre>\n");
     die("\n");
 }
-
-
