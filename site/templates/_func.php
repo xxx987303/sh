@@ -379,7 +379,7 @@ function getSpotURLs(){
 	                      ? ['','']
 			      : [substr($url_match[0],1), $url_match[3]]);
     $SPOT_search = config('urls')->root . $SPOT_url . $SPOT_id . "_search/";
-    echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_search=$SPOT_search");
+    // echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_search=$SPOT_search");
     $site_home = pages("/");  
     $spot_home = pages("/$SPOT_url");
 }
@@ -688,21 +688,20 @@ if(false)echo x("li class='menu-item menu-item-type-post_type menu-item-object-p
 <?php
 }
 
-
 /**
  * Error exit
  */
 function abortIt($text = 'Shit...', $extras=[]) {
     echo (CLI_MODE
-      ? sprintf("\n%s\n", `echo "$(tput bold)$(tput setaf 1)"`)
-      : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
+          ? sprintf("\n%s\n", shell_exec("tput bold").shell_exec("tput setaf 1"))
+          : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
     if ($extras){
         if (CLI_MODE) var_dump($extras);
         else echo tidy_dump($extras,'extras');
     }
     debug_print_backtrace(); // DEBUG_BACKTRACE_IGNORE_ARGS
     echo (CLI_MODE
-      ? sprintf("\n%s\n%s\n", $text, `echo $(tput sgr0)`)
+          ? sprintf("\n%s\n%s\n", $text, shell_exec("tput sgr0"))
       : "</pre>\n");
     die("\n");
 }

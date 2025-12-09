@@ -213,8 +213,9 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
         $o->of(false);
 
 	if (in_array($type, ['FieldtypeText',
- 			     'FieldtypeTextLanguage',
- 			     'FieldtypePageTitleLanguage'])) {
+                         'FieldtypeTextLanguage',
+                         'FieldtypePageTitle',
+                         'FieldtypePageTitleLanguage'])) {
 	    if (setKeyValueDEBUG) say::notice("-- setKeyValue_simple($keyArg)");
             list($now,$got) = $setKeyValue_simple($o, $key, $value, $saveToDB);
 
