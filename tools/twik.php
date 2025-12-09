@@ -7,7 +7,6 @@ require_once __dir__ . '/../site/templates/_func.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
 
-var_dump($languages);
 $saveToDB = false;
 
 tidy_dump(pages()->get(5750)); exit;

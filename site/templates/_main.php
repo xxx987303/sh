@@ -9,31 +9,28 @@
  */
 /** @var Config $config */
 /** @var Page $page */
-
 ?><!DOCTYPE html>
 <html lang="<?=(empty($languages)?'en':_x('en', 'HTML language code'))?>">
     <head>
+	<?php getSpotURLs(); ?>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<?=x('title',region('browserTitle').(input()->pageNum() > 1 ? " (Page ".input()->pageNum().")":""))."\n"?>
 
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-	<!--  CdP
-	<script src='<?=$config->urls->root?>includeHTML.js'></script>
-	<link rel="stylesheet" type='text/css' href='<?=$config->urls->root?>CdP.min.css'/>
-	/CdP -->
+<!--	<script src='<?=$config->urls->root?>includeHTML.js'></script> -->
+
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,400i,700' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/uikit.gradient.min.css' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/slidenav.gradient.min.css' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/tooltip.min.css' />
+	<?php if ($GLOBALS['SPOT_id'] == 'h') { ?>
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.css' />
+	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.min.css' />
+	<?php } ?>
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/objects.css' />
-
-	<?php
-        // In which spot are we?
-        getSpotURLs();
-
+<?php
         // Set h_spot as the default start page
         if($_SERVER['REQUEST_URI']==config('urls')->root) echo "<meta http-equiv='Refresh' content=\"0; url='".$config->urls->root."h_spot/'\" />\n";
 
@@ -59,7 +56,7 @@
 	<!--  CdP <div w3-include-html='<?=$config->urls->root?>header1.html'></div> -->
 	<?php
 	// Render <div id='masthead' .... </div>
-	masthead($page);
+	masthead($page, $languages, $user);
 	?>
 	<div id='main'>
             <div class='uk-container uk-container-center'>

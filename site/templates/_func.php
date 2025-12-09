@@ -379,7 +379,7 @@ function getSpotURLs(){
 	                      ? ['','']
 			      : [substr($url_match[0],1), $url_match[3]]);
     $SPOT_search = config('urls')->root . $SPOT_url . $SPOT_id . "_search/";
-    // echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_search=$SPOT_search");
+    echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_search=$SPOT_search");
     $site_home = pages("/");  
     $spot_home = pages("/$SPOT_url");
 }
@@ -582,8 +582,8 @@ function getEmoji($fieldName, String $fn, bool $returnImage=false) {
 /**
  * Output <div id='masthead'...</div>
  */
-function masthead(Page $page) {
-    global $config, $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home, $languages;
+function masthead(Page $page, Languages $languages, User $user) {
+    global $config, $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home;
 ?>
     <div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
 	<div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>

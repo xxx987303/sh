@@ -44,7 +44,7 @@ function fieldSelector(WireInput $input, Field $field, Array &$summary) {
     return $selector;
 }
 
-tidy_dump($input->get(), "input:");
+//tidy_dump($input->get(), "input:");
 
 // most of the code in this template file is here to build this selector string
 // it will contain the h-search query that gets sent to $artworkList
