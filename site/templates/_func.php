@@ -19,6 +19,105 @@
  */
 
 if (!defined('CLI_MODE')) define('CLI_MODE',false);
+global $lookingForBug;
+$lookingForBug = false;
+
+/**
+ * Check that the field is viewable
+ */
+function fieldViewable(Field $f, String $tag="") {
+    $reply = (empty($tag) ? true : $f->hasTag($tag)) &&
+	     ($f->hasTag('restricted') ? User()->hasPermission('see-restricted') : true);
+    //echo x("pre", "fieldViewable($f->name,$tag): ".var_export($reply, true));
+    return $reply;
+}
+
+/**
+ * Locate random Featured Artworks
+ */
+function getRandomFeatured($nCols=3, $spot=null) {
+    global $SPOT_id;
+    if ($spot === null) $spot = $SPOT_id;
+    $dejaVu = $items = [];
+  //foreach (pages()->find("template={$spot}_artwork, {$spot}_aw_featured=1") as $p) $items[] = $p;
+    foreach (pages()->find("{$spot}_aw_featured=1") as $p) $items[] = $p;
+    $count = 0;
+    $featured = new PageArray();
+    while ($count < min($nCols,count($items))) {
+	$p = $items[rand(0,count($items)-1)];
+	if (!@$dejaVu[$p->id]++) {
+	    $featured->add($p);
+	    $count++;
+	}
+    }
+    return $featured;
+}
+
+/**
+ * Show scarf variations, if any
+ */
+function getVariants(Page $page) {
+    if ($page->template != 'h_artwork' || !(($variations=$page->h_aw_variant)->count)) return;
+    
+    // Add the page itself to list of variations
+    $variations->add($page);
+    $links = "<ul class='horizontal'>";
+    foreach ($variations as $var) {
+	if (!is_object($var)) $var = pages()->get($var);
+	$links .= x("li",
+		    x("div class='flex overflow-x-auto items-center md:flex-wrap scrollbar-hide snap-x snap-mandatory'",
+		      x("a href='".$var->url."' class='border-secondary ".
+			"transition-colors pb-2 m-1 bg-base-200 flex items-center overflow-y-hidden ".
+			"aspect-1 basis-28 grow-0 shrink-0 border-b-4 hover:border-secondary'",
+			x("img class='w-full' src='".$var->images->first->url."' alt='Variant'"))));
+    }
+    
+    echo x("hr class='mx-4'").
+	 x("div class='pt-2 pb-4 px-4'",
+	   x("div",x("strong",__("Variations")."(".count($variations).")")) . $links . "</ul>").
+	 x("hr class='mx-4'");
+}
+
+/**
+ * Prepare value for rendering
+ */
+function getKeyValue(Page $page, Field $field) {
+    global $SPOT_search, $lookingForBug;
+    
+    if (empty($value = (string)$page->$field)) return false;
+    if (($o=$page->$field) instanceof PageArray) {
+	return (count($o)
+	      ? $o->each(x("a href='$SPOT_search?{$field->name}={id}'", "{title}")." <br>") 
+	      : false);
+    } elseif (strpos($field->name, '_url') !== false || $field->type == 'FieldtypeURL') {
+	$reply = x("a target='_blank' href='$value'", __("Click to see")." (".__("opens in another window").")");
+    } elseif ($field->type == 'FieldtypeDatetime') {
+        $reply = date("Y-m-d",(int)$value);
+    } elseif (strpos($field->name,'price')) {
+        $reply = number_format($value,0,","," ").' SEK';
+    } elseif (in_array($field->type, ['FieldtypePageTitle', 'FieldtypePageTitleLanguage'])) {   
+	$reply = x("a href=''", $value);
+    } elseif (in_array($field->type, ['FieldtypeInteger', 'FieldtypeEmail',   'FieldtypeText',    'FieldtypeTextLanguage',
+    				      'FieldtypeTextarea','FieldtypeTextareaLanguage',])) {
+	$reply = x("a href='$SPOT_search?keywords=$value'", $value);
+	$reply = x("a href='$SPOT_search?$field->name=$value'", $value);
+    } elseif ($e = getEmoji($field->name, $value)) {
+	$reply = $e;
+    } elseif ($field->type == 'FieldtypeOptions') {
+	$reply = substr($page->get($field->name)->each(", {title}"),2);
+    } elseif ($field->type == 'FieldtypePage') {
+	$reply = pages()->get($value)->title;
+    } else {
+	echo "<spone style=color:red>getKeyValue($page->name) Not yet ready, $field->name, $field->type)</spone><br>\n";
+        $reply = $value;
+    }
+    // Search URL
+    if (strpos($reply, "href=") === false) {
+	$reply = x("a href='$SPOT_search?{$field->name}={$value}&sort={$field->name}'",$reply);
+    }
+    if ($lookingForBug) echo "getKeyValue($page->id,$field->name,$field->type) = $reply<br>";
+    return $reply;
+}
 
 /**
  *
@@ -61,7 +160,7 @@ function x($tag, $text=''){
   if ($tag_clean === 'x') return $text;
 
   // Usual bracket
-  if(in_array($tag_clean,array('input','img'))) return "<$tag $text />\n";
+  if(in_array($tag_clean,array('input','img','hr'))) return "<$tag $text />\n";
 
   // Usual bracket
   switch($tag_clean){
@@ -91,15 +190,13 @@ function x($tag, $text=''){
  * @return PageArray
  *
  */
-function findObjects($selector,$template_name='artwork',$limit=20) {
+function findObjects(String $selector, String $template_name='artwork',Int $limit=20) {
 
   $validSorts = getValidSorts($template_name);
 
   // check if there is a valid 'sort' var in the GET variable
-  $sort = sanitizer('name', input()->get('sort'));
-
   // if no valid sort, then use 'title' as a default
-  if(!$sort || !isset($validSorts[$sort])) $sort = 'name';
+    if (!($sort = sanitizer('name', input()->get('sort'))) || !isset($validSorts[$sort])) $sort = 'name';
 
   // whitelist the sort value so that it is retained in pagination
   if($sort != 'name') input()->whitelist('sort', $sort);
@@ -155,10 +252,10 @@ function renderObjectListSort($template_name='artwork') {
 /**
  * Render a list of page
  *
- * @param PageArray $pages Objects to render
- * @param string $cols Number of columns OR (if not numeric) context
- * @param bool $showPagination Whether pagination links should be shown
- * @param string $headline
+ * @param  PageArray $pages Objects to render
+ * @param  string $cols Number of columns OR (if not numeric) context
+ * @param  bool   $showPagination Whether pagination links should be shown
+ * @param  string $headline
  * @return string The rendered markup
  *
  */
@@ -166,57 +263,54 @@ function renderImageList(PageArray $pages, $cols=1, $showPagination=true, $headl
     return renderObjectList($pages,$cols,$showPagination,$headline,'_image');
 }
 function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $headline='', $key='') {
-  global $config;
-
-  if (!count($pages)) return;
-  $pagination = '';
-  $sortSelect = '';
-
-  // includes name
-  if (!is_numeric($cols)){
-    $context = $cols;
-    $showPagination = false;
-    $cols = 1;
-  }else{
-    $context = 'ul';
-  }
-
-  if($showPagination && $pages) {
-    $headline = $pages->getPaginationString('Objects'); // i.e. Objects 1-10 of 500
-    $pagination = renderPagination($pages); // pagination link
-    $sortSelect = renderObjectListSort($pages->first->template->name);
-  }
-
-  $itemsByType = $items = [];
-  $needle = sprintf("/_(%s)$/",join('|',$config->groupListItemBy));
-  foreach($pages as $object) {
-      if (empty($object->fields)) continue;
-      $renderedObject = renderObjectListItem($object, $context, $key);
-      $type='';foreach($object->fields as $f) if(preg_match($needle,$f) && ($o=$object->$f)) $type = $o->title;
-      if ($type) foreach(explode(',',$type) as $t) $itemsByType[trim($t)][] = $renderedObject;
-      else  $items[] = $renderedObject;
-  }
-  if (empty($items) && count($itemsByType)==1){
-      foreach($itemsByType as $k=>$v) $items = $v;
-      $itemsByType = [];
-  }
-
-  $selector = (string) $pages->getSelectors();
-  //if($selector) $selector = makePrettySelector($selector);
-
-  $out = files()->render("./includes/$context-list.php",
-			 array('context'=> $context,
-			       'cols'   => $cols,
-			       'pages'  => $pages,
-			       'headline'=> $headline,
-			       'items' => $items,
-			       'itemsByType' => $itemsByType,
-			       'pagination' => $pagination,
-			       'sortSelect' => $sortSelect,
-			       'selector' => $selector,
-			       ));
-
-  return $out;
+    global $config;
+    
+    if (!count($pages)) return;
+    $pagination = $sortSelect = '';
+    
+    // includes name
+    if (!is_numeric($cols)){
+	$context = $cols;
+	$showPagination = false;
+	$cols = 1;
+    }else{
+	$context = 'ul';
+    }
+    
+    if(0)  if($showPagination && $pages) {
+	$headline = $pages->getPaginationString('Objects'); // i.e. Objects 1-10 of 500
+	$pagination = renderPagination($pages); // pagination link
+	$sortSelect = renderObjectListSort($pages->first->template->name);
+    }
+    
+    $itemsByType = $items = [];
+    $needle = sprintf("/_(%s)$/",join('|',$config->groupListItemBy));
+    foreach($pages as $object) {
+	if (empty($object->fields)) continue;
+	$renderedObject = renderObjectListItem($object, $context, $key, $object->featuredPage);
+	$type='';foreach($object->fields as $f) if(preg_match($needle,$f) && ($o=$object->$f)) $type = $o->title;
+	if ($type) foreach(explode(',',$type) as $t) $itemsByType[trim($t)][] = $renderedObject;
+	else  $items[] = $renderedObject;
+    }
+    if (empty($items) && count($itemsByType)==1){
+	foreach($itemsByType as $k=>$v) $items = $v;
+	$itemsByType = [];
+    }
+    
+    $selector = (string) $pages->getSelectors();
+    //if($selector) $selector = makePrettySelector($selector);
+    
+    $out = files()->render("./includes/{$context}-list.php",
+			   ['context' => $context,
+			    'cols'    => $cols,
+			    'pages'   => $pages,
+			    'headline'=> $headline,
+			    'items'   => $items,
+			    'itemsByType' => $itemsByType,
+			    'pagination'  => $pagination,
+			    'sortSelect'  => $sortSelect,
+			    'selector'    => $selector,]);
+    return $out;
 }
 
 /**
@@ -226,47 +320,52 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
  * @return string
  *
  */
-function renderObjectListItem(Page $page, $context='ul', $key=''){
-
-  /** @var Pageimages $images */
-  $images = $page->get('images');
-
-  // make a thumbnail if the first object image
-  if(!empty($images) && ($image = $images->first())) {
-    // our thumbnail is 200px wide with proportional height
-    $thumb = $image->width(200);
-    $img   = $thumb->url;
-  } else {
-    $img = config()->urls->templates . "styles/images/photo_placeholder.png";
-  }
-
-  // here's a fun trick, set what gets displayed when value isn't available.
-  // the property "unknown" is just something we made up and are setting to the page.
-  $page->set('unknown', '??');
-
-  // Object caption (tag 'caption')
-  foreach (getTaggedFields($page,'caption') as $f){ // av_duty|br_duty|aw_brand etc
-    $v = $page->get($f);
-    if ($v instanceof PageArray){
-      $caption = $v->each("{title}<br>");
-    }elseif (is_array($f)){
-      $caption = $f['value'];
-    }elseif ($v->type instanceof FieldtypeOptions){
-      $caption = substr($v->each(", {title}"),2);
-    }else{
-      if (is_object($v) && empty($value = $v->title)) $value = $v;
-      if (!empty($value)) $caption = $value;
+function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
+    /** @var Pageimages $images */
+    $images = $page->get('images');
+    
+    // make a thumbnail from a random object featured image
+    if ($imgArg === null) {
+	if(!empty($images) && ($image = $images->first())) {
+	    // our thumbnail is 200px wide with proportional height
+	    $thumb = $image->width(200);
+	    $img   = $thumb->url;
+	} else {
+	    $img = config()->urls->templates . "styles/images/photo_placeholder.png";
+	}
+    } else {
+	$thumb = $imgArg->height(500);
+	$img   = $thumb->url;
     }
-  }
-  if (empty($caption) && !empty($page->parent)) $caption = $page->parent->get("title");
-  $out = files()->render("./includes/{$context}-list-item$key.php", // say, ul-list-item.php
-			 array('page' => $page,
-			       'img'  => $img,
-			       'caption' => empty($caption) ? "" : $caption,
-			       'summary' => summarizeText(strip_tags(empty($b=$page->get('body'))?"":$b), 100)
-			       ));
-
-  return $out;
+    
+    // here's a fun trick, set what gets displayed when value isn't available.
+    // the property "unknown" is just something we made up and are setting to the page.
+    $page->set('unknown', '??');
+    
+    // Object caption (tag 'caption')
+    foreach (getTaggedFields($page,'caption') as $f){ // av_duty|br_duty|aw_brand etc
+	$v = $page->get($f);
+	if ($v instanceof PageArray){
+	    $caption = $v->each("{title}<br>");
+	}elseif (is_array($f)){
+	    $caption = $f['value'];
+	}elseif ($v->type instanceof FieldtypeOptions){
+	    $caption = substr($v->each(", {title}"),2);
+	}else{
+	    if (is_object($v) && empty($value = $v->title)) $value = $v;
+	    if (!empty($value)) $caption = $value;
+	}
+    }
+    if (empty($caption) && !empty($page->parent)) $caption = $page->parent->get("title");
+    $out = files()->render("./includes/{$context}-list-item$key.php", // say, ul-list-item.php
+			   array('page' => $page,
+				 'XXL'  => ($imgArg !== null),
+				 'img'  => $img,
+				 'caption' => empty($caption) ? "" : $caption,
+				 'summary' => summarizeText(strip_tags(empty($b=$page->get('body'))?"":$b), 100)
+    ));
+    
+    return $out;
 }
 
 /**
@@ -372,70 +471,74 @@ function summarizeText($text, $maxLength = 500) {
  * http://localhost/sh/ru-home/h_spot/h_search/?h_aw_rarity=1
  */
 function getSpotURLs(){
-    global $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home;
-    
-    preg_match(";(/[a-z][a-z]-home\b)?(/([a-z]*)_?spot/);", $_SERVER['REQUEST_URI'], $url_match);
-    list($SPOT_url,$SPOT_id) = (empty($url_match[0])
-	                      ? ['','']
-			      : [substr($url_match[0],1), $url_match[3]]);
-    $SPOT_search = config('urls')->root . $SPOT_url . $SPOT_id . "_search/";
-    // echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_search=$SPOT_search");
-    $site_home = pages("/");  
-    $spot_home = pages("/$SPOT_url");
+    global $input, $SPOT_id, $SPOT_url, $SPOT_root, $SPOT_search, $SPOT_input, $spot_home, $site_home;
+    if (!isset($spot_home)) {
+	preg_match(";(/[a-z][a-z]-home\b)?(/([a-z]*)_?spot/);", $_SERVER['REQUEST_URI'], $url_match);
+	list($SPOT_url,$SPOT_id) = (empty($url_match[0])
+	                          ? ['','']
+				  : [substr($url_match[0],1), $url_match[3]]);
+	
+	//$SPOT_input  = '?'; if (!empty($input)) foreach($input->get() as $k=>$v) $SPOT_input .= "$k=$v&";
+	preg_match('/(\?.*)/', $_SERVER['REQUEST_URI'], $m);
+	$SPOT_input  = (string)@$m[0];
+	$SPOT_root   = config('urls')->root . $SPOT_url;
+	$SPOT_search = $SPOT_root . $SPOT_id . "_search/";
+	$site_home   = pages("/");  
+	$spot_home   = pages("/$SPOT_url");
+	//echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_root=$SPOT_root SPOT_search=$SPOT_search SPOT_input='$SPOT_input'");
+    }
 }
-
+	
 /**
  *
  */
 function getTaggedFields($page,$context='page'){
-  global $config, $SPOT_search, $dejaVuFields, $dejaVuTags;
-
-  $debug = $config->debug;
-
-  $reply = WireArray();
-  if (empty($dejaVuFields)) $dejaVuFields = [];
-  if (!empty($page) && !empty($page->fields)){
-    foreach ($page->fields as $f) {
-      if(!$f->hasTag($context))         continue;
-      if(empty($v=$page->get($f->name)))continue;
-      if ($f->type instanceof FieldtypeOptions){
-          if (!count($v)) continue;
-          $value = (in_array($f->name,$config->emojiFields)
-	      ? substr($v->each(", {value}"),2)
-	      : substr($v->each(", {title}"),2));
-      }elseif ($f->type instanceof FieldtypeURL || strpos($f->name, '_url')) {
-          $value = x("a href='$v'",__('Click to see'));
-      }elseif ($f->type instanceof FieldtypeDatetime){
-          $value = date("Y-m-d",(int)$v);
-      }elseif (strpos($f->name,'price')){
-          $value = number_format($v,0,","," ").' SEK';
-      }else{
-          $value = $v;
-          //??? if (is_object($page->$f)) $value = $page->$f->value;
-      }
-      if (empty($value) || empty(trim($value))) continue;
-      // printf("%s=%s %s <br>\n",$f->name,$value,t_dump($page->get($f->name),'get_object_name'));
-      $reply->add(array('field' => $f->name,
-			'label' => $page->getField($f->name)->getLabel(),
-			'value' => $value,
-			'url'   => sprintf("%s?%s=%s",$SPOT_search,$f->name,$value),
-			//'comment'=> "<!-- $f->name  ------------------------------------>\n"
-      ));
-      if (!in_array($f->name, $dejaVuFields)) $dejaVuFields[] = $f->name;
+    global $config, $SPOT_search, $dejaVuTags, $lookingForBug;
+    $reply = WireArray();
+    $dejaVuFields = [];
+    if (!empty($page) && !empty($page->fields)){
+	foreach ($page->fields as $f) {
+	    //if(!$f->hasTag($context))         continue;
+	    if(!fieldViewable($f, $context))    continue;
+	    if(empty($v=$page->get($f->name)))continue;
+	    if (@$dejaVuFields[$f->name]++) continue;
+	    if ($f->type instanceof FieldtypeOptions){
+		if (!count($v)) continue;
+		$value = (in_array($f->name,$config->emojiFields)
+		    ? substr($v->each(", {value}"),2)
+		    : substr($v->each(", {title}"),2));
+	    }elseif ($f->type instanceof FieldtypeURL || strpos($f->name, '_url')) {
+		$value = x("a href='$v'",__('Click to see'));
+	    }elseif ($f->type instanceof FieldtypeDatetime){
+		$value = date("Y-m-d",(int)$v);
+	    }elseif (strpos($f->name,'price')){
+		$value = number_format($v,0,","," ").' SEK';
+	    }else{
+		$value = $v;
+	    }
+	    if (empty($value) || empty(trim($value))) continue;
+	  //printf("%s=%s %s <br>\n",$f->name,$value,tidy_dump($page->get($f->name),'get_object_name'));
+	    $reply->add($i=['field' => $f->name,
+			    'id'    => $f->id,
+			    'label' => $page->getField($f->name)->getLabel(),
+			    'value' => $value,
+			  //'url'   => sprintf("%s?%s=%s",$SPOT_search,$f->name,$value),
+			    'url'   => sprintf("%s?%s=%s",$SPOT_search,$f->name,(string)$page->$f),]);
+if($lookingForBug && empty(@$dejaVuTags[$z=joinX($i)]++)) print joinX($i).'<br>';
+	}
     }
-  }
-  if (!$reply->count) {
-      $reply->add([ 'label' => $debug ? "<em>".__("No data for tag")." \"$context\"</em>" : "",
-                    'value' => "",
-                    'url' => "",
-                    'comment'=> "<!-- DUMMY ------------------------------------>\n"]);
-  }
-  if(0)  if ($debug) {
-      $i = $context . ($fields=implode(', ', $dejaVuFields));
-      if (empty($dejaVuTags[$i])) echo "tag \"$context\": $fields<br>";
-      $dejaVuTags[$i] = true;
-  }
-  return $reply;
+    if (!$reply->count) {
+	$reply->add($i=['label' => $config->debug ? "<em>".__("No data for tag")." \"$context\"</em>" : "",
+			'value' => "",
+			'url' => "",
+			'comment'=> "<!-- DUMMY ------------------------------------>\n"]);
+    }
+    if($lookingForBug && $config->debug) {
+	$i = $context . ($fields=implode(', ', array_keys($dejaVuFields)));
+	if (empty($dejaVuTags[$i])) echo "tag \"$context\": $fields<br>";
+	$dejaVuTags[$i] = true;
+    }
+    return $reply;
 }
 
 /**
@@ -568,22 +671,26 @@ function joinX(Array $a, $skipEmpty=true){
 /**
  *  To be done better...
  */
-function getEmoji($fieldName, String $fn, bool $returnImage=false) {
+function getEmoji($fieldName, String $level, bool $returnImage=false) {
     global $SPOT_search, $config;
-    $emojiDir = __dir__.'/../assets/files/0000/';
-    if (in_array($fieldName, $config->emojiFields) && file_exists($ph=realpath(str_replace(' ','',$emojiDir.$fn.".png")))) {
+    list($emojiDir, $fn) = [__dir__.'/../assets/files/0000/', "$level.png"];
+    if (in_array($fieldName, $config->emojiFields) && file_exists($ph=realpath(str_replace(' ','',$emojiDir.$fn)))) {
 	$treeRoot = '/sh/';
-	$anker = x("a href='$SPOT_search?$fieldName=$fn'",
+	$anker = x("a href='$SPOT_search?$fieldName=$level'",
 		   ($image = x("img src=".x("'",preg_replace(";.*{$treeRoot};",$treeRoot,$ph)))));
-    } else return false;
-    return $returnImage ? $image : $anker;
+	$reply = $returnImage ? $image : $anker;
+    } else {
+	$reply = false;
+    }
+    //echo "getEmoji($fieldName,$fn): ".var_export($reply,true)."<br>";
+    return $reply;
 }
 
 /**
  * Output <div id='masthead'...</div>
  */
 function masthead(Page $page, Languages $languages, User $user) {
-    global $config, $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home;
+    global $config, $SPOT_input, $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home;
 ?>
     <div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
 	<div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
@@ -595,11 +702,9 @@ function masthead(Page $page, Languages $languages, User $user) {
 		foreach($page->parents as $k=>$p) {
 		    if ($k==0) continue;
 		    $tmp[] = $p->id;
-		    echo x("a href='{$p->url}'", $p->title) . x("i class='uk-icon-angle-right'");			 
+		    echo ($l=x("a href='{$p->url}'", $p->title) . x("i class='uk-icon-angle-right'"));
 		}
 		echo region('headline');
-		//static $normalHeadline;
-		//if (empty($normalHeadline)) $normalHeadline = $tmp;
 		?>
 	    </h2>
 	    <!-- Search and login -->
@@ -624,10 +729,12 @@ function masthead(Page $page, Languages $languages, User $user) {
 $root = false;
 $itemCount = 0;
 $items = [];
+$restricted_pages = ['_brands', '_sellers', '_possessions'];
 foreach(($SPOT_url
        ? $spot_home->and($spot_home->children)
-       : $site_home->and($site_home->children)) as $item) {
+       : [$site_home]) as $item) {
     if (!$item->viewable()) continue;
+    if(!$user->hasPermission('see-full-menu') && preg_match("/".join('|',$restricted_pages).'/', $item->template)) continue;
     if (preg_match(";spot/;",$item->url) && !$SPOT_url)  continue;
      // Detect the active tab
     if ($root) {
@@ -658,12 +765,12 @@ foreach(($SPOT_url
 }
 ksort($items);
 foreach($items as $k=>$v) echo $v;
-if(false)echo x("li class='menu-item menu-item-type-post_type menu-item-object-page'",x("a href=https://carredeparis.me/", x("h3",'CdP')));
+//echo x("li class='menu-item menu-item-type-post_type menu-item-object-page'",x("a href=https://carredeparis.me/", x("h3",'CdP')));
 ?>
 		</ul>
 		<?php
 		if (empty($languages)) {
-		    echo "<span style='color:red;font-style: italic;'>????? No languages</span>";
+		    echo "<span style='color:red;font-style: italic;'>????? No accessible languages</span>";
 		}else{
 		    echo "<!-- ---------------------------------------------------------- language switcher  -->\n".
 			 "<ul class='languages uk-navbar-nav' role='navigation' style='float:right;'>\n";
@@ -673,9 +780,9 @@ if(false)echo x("li class='menu-item menu-item-type-post_type menu-item-object-p
 			    printf("<li%s><a hreflang='%s' href='%s'>%s</a></li>\n",
 				   ($language->id==$user->language->id ? " class='uk-active'" : ""),
 				   $site_home->getLanguageValue($language, 'name'),
-				   $page->localUrl($language),
+				   $page->localUrl($language).$SPOT_input,
 				   x("div uk-tooltip=$language->title",
-				     x("img src=".urls('templates')."flags/".$flags[$language->name].".png")));
+				     x("img height=25 width=30 src=".urls('templates')."flags/".$flags[$language->name].".svg")));
 			//echo "\t<li><a hreflang='$hreflang' href='$url'>".$language->title."</a></li>\n";
 		    }
 		}
@@ -688,20 +795,23 @@ if(false)echo x("li class='menu-item menu-item-type-post_type menu-item-object-p
 <?php
 }
 
+
 /**
  * Error exit
  */
 function abortIt($text = 'Shit...', $extras=[]) {
     echo (CLI_MODE
-          ? sprintf("\n%s\n", shell_exec("tput bold").shell_exec("tput setaf 1"))
-          : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
+    //? sprintf("\n%s\n", `echo "$(tput bold)$(tput setaf 1)"`)
+      ? sprintf("\n%s\n", shell_exec("tput bold").shell_exec("tput setaf 1"))
+      : str_replace("font-size:small;", "", @$GLOBALS['debug_messages']) . "<pre>\n\n<span style='color:red'>$text</span>\n\n");
     if ($extras){
         if (CLI_MODE) var_dump($extras);
-        else echo tidy_dump($extras,'extras');
+        else tidy_dump($extras,'extras');
     }
     debug_print_backtrace(); // DEBUG_BACKTRACE_IGNORE_ARGS
     echo (CLI_MODE
-          ? sprintf("\n%s\n%s\n", $text, shell_exec("tput sgr0"))
+    //? sprintf("\n%s\n%s\n", $text, `echo $(tput sgr0)`)
+      ? sprintf("\n%s\n%s\n", $text, shell_exec("tput sgr0"))
       : "</pre>\n");
     die("\n");
 }

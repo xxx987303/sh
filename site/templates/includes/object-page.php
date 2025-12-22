@@ -35,16 +35,22 @@ if (!function_exists('ProcessWire\o_p_images')) {
 	echo "<div class='object-images uk-width-medium-$c uk-text-center'>\n";
 	if (!($pages instanceof PageArray)) $pages = [];
 	foreach(count($pages) ? $pages : [$page] as $p){
-	    if(!empty($images=$p->get('images'))){
+	    if(($nImages=count($images=$p->get('images')))){
+		$imageCount = 0;
 		foreach($images as $image){
-		    $thumb = $image->width($width);
+		    $thumb = $image->width($imageCount ? $width : 150); // $width/$nImages
+		    if ($imageCount == 1) echo "<ul class='horizontal'>";
+		    if ($imageCount >= 1) echo "<li style='max-width:150px; width:150px'>";
 		    echo x("div class='object-image uk-margin-small'",
 			   x("a href='$image->url' data-uk-lightbox=\"{group:'photos'}\"",
 			     x("img src='$thumb->url' alt='$image->description'")).
 			   ($image->description ? x("div class='caption uk-text-small uk-text-muted'",
 						    x("span",$image->description)) : ""));
+		    echo "</li>";
+		    $imageCount++;
 		    if (count($pages)) break;
 		}
+		if ($imageCount >1) echo "</ul>";
 	    }else{
 		echo x("div class='object-image uk-margin-small'",
 		       x("img src='".urls()->templates."styles/images/photo_placeholder.png' alt=''").
