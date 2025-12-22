@@ -1,7 +1,8 @@
 <?php namespace ProcessWire;
 
 if (empty($cols)) $cols = 1; 
-if($headline && empty($itemsByType))   echo x("h2",$headline);
+//if($headline && empty($itemsByType))   echo x("h2",$headline);
+if($headline)   echo x("h2",$headline);
 
 if($pagination) echo x("div class='uk-grid uk-margin-bottom pagination'",
 		       x("div class='uk-width-medium-2-3'",$pagination).

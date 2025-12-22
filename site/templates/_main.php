@@ -25,14 +25,15 @@
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/uikit.gradient.min.css' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/slidenav.gradient.min.css' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/tooltip.min.css' />
-	<?php if ($GLOBALS['SPOT_id'] == 'h') { ?>
+	<?php if ($GLOBALS['SPOT_id'] == 'h') { ?> 
+        <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/variations.css' />
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.css' />
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.min.css' />
-	<?php } ?>
+	<?php } ?> 
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/objects.css' />
 <?php
         // Set h_spot as the default start page
-        if($_SERVER['REQUEST_URI']==config('urls')->root) echo "<meta http-equiv='Refresh' content=\"0; url='".$config->urls->root."h_spot/'\" />\n";
+        //if($_SERVER['REQUEST_URI']==config('urls')->root) echo "<meta http-equiv='Refresh' content=\"0; url='".$config->urls->root."h_spot/'\" />\n";
 
         // Are we in the search page?
         $in_search = (strpos($page->url,'search/') !== false);
@@ -53,7 +54,6 @@
     </head>
 
     <body>
-	<!--  CdP <div w3-include-html='<?=$config->urls->root?>header1.html'></div> -->
 	<?php
 	// Render <div id='masthead' .... </div>
 	masthead($page, $languages, $user);

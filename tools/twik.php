@@ -6,10 +6,251 @@ require_once __dir__ . '/debug.php';
 require_once __dir__ . '/../site/templates/_func.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
-
 $saveToDB = false;
+$user = Users()->get('yb');
 
-tidy_dump(pages()->get(5750)); exit;
+//tidy_dump(($b=pages()->get("template=h_artwork, title=Brazil"))->h_aw_variant); exit;
+tidy_dump(fields()->get("d_aw_type")); exit;
+
+if (0) {
+    $root = pages()->get("template=h_artwork, title=Brazil");
+    $var  = pages()->get("template=h_artwork, title=Brazil II");
+    if ($root->id && $var->id) {
+	$root->h_aw_variant->add($var);
+    }
+    //$root->save();
+    tidy_dump($root);
+    exit;
+}
+
+if (1) {
+    function createAdminPage(String $name, String $o) {
+	global $saveToDB;
+	if (empty(($page=pages()->get($name))->id)) {
+	    echo "------------------------------------------- Creating $o('$name')\n";
+	    $page = ($o == 'role'
+		? new Role(templates()->get($o))
+		: new Permission(templates()->get($o)));
+	    $page->name = $name;
+	    $page->parent = "/processwire/access/{$o}s/";
+	    //  $page->status = systemID, system
+	    $page->template = $o;
+	    $page->status5753 = 1;
+	    $page->status5754 = 1;
+	    $page->status5755 = 1;
+	    if ($o == 'Role') $page->permissions = pageArray();
+	    if (true || $saveToDB) $page->save();
+	    tidy_dump($page);
+	} else {
+	    echo "------------------------------------------- Already exists $o('$name')\n";
+	}
+	return $page;
+    }
+    
+    $r_editor    = createAdminPage('artwork-editor', 'role');
+    $r_fmember   = createAdminPage('family-member',  'role');
+    $p_full_menu = createAdminPage('see-full-menu',  'permission');
+    $p_restricted= createAdminPage('see-restricted', 'permission');
+    
+    //foreach(['yb','ab','mb','vb','tb','ib','margo'] as $name) {
+    foreach(['yb','ib','margo'] as $name) {
+	if (($u=users()->get($name))->id) {
+	    echo "------------------------------------------------------- $u->name already exists\n";
+	} else {
+	    echo "------------------------------------------------------- Creating user $name\n";
+	    $u = new User();
+	    $u->name = $name;
+	    $u->roles = PageArray(Roles()->get(37)); // Guest
+	}
+	
+	$u->roles->add($r_fmember);
+
+	// Clean roles
+	if ($name == 'margo') {
+	    $u->roles->remove(Roles()->get(38)); // Superuser
+	    $u->roles->add($r_editor);
+	}elseif ($name == 'yb') {
+	    $u->roles->add($r_editor);
+	    tidy_dump($u);
+	}
+	
+	// Save
+	if ($saveToDB) $u->save();
+
+	// Show roles
+	foreach ($u->roles as $r) {
+	    echo "  -- Role $r->name\n";
+	    foreach ($r->permissions as $p) {
+		echo "    -- Perm $p->name\n";
+		//tidy_dump($p);
+	    }
+	}
+	// tidy_dump($u->roles);    
+    }
+    exit;
+    //foreach(users()->find("name^=m|y") as $u) { tidy_dump($u->roles); } exit;
+}
+
+if (0) {
+    foreach(['Верещагина','Кузьминых'] as $n){
+	foreach(pages()->find("title~=$n") as $p) {
+	    echo "---------------------- id=$p->id\n";
+	    foreach($p->fields as $f) {
+		if ($f->name == 'body') continue;
+		$v = $p->$f;
+		echo "$f->name: $v\n";
+	    }
+	    $p->parent='/d_spot/d_persons/';
+	    if ($saveToDB) $p->save();
+	    tidy_dump($p,$p->title);
+	}
+    }
+    exit;
+    tidy_dump(pages()->get("title~=Верещагина")); exit;
+}
+    
+if (1) {
+    foreach (pages()->find("h_aw_featured=1") as $p) echo "$p->template $p->id $p->name\n"; 
+    foreach (pages()->find("a_aw_featured=1") as $p) echo "$p->template $p->id $p->name\n"; 
+    foreach (pages()->find("d_aw_featured=1") as $p) echo "$p->template $p->id $p->name\n"; 
+    exit;
+}
+//tidy_dump(fields()->get("artworks_featured"));
+tidy_dump(fields()->get("h_artworks_featured"));exit;
+tidy_dump(templates()->get("h_spot"));exit;
+tidy_dump(pages()->find("template=h_spot"));
+tidy_dump(pages()->find("template=a_spot"));exit;
+tidy_dump(pages()->find("template=spot")); exit;
+
+if (0){
+    foreach(pages()->find("template=h_artwork") as $p) {
+	if (empty($p->h_aw_url)) continue;
+	echo "$p->h_aw_url\n";
+    }
+    exit;
+}
+
+if (0) {
+    $page->nicePictures = pages()->get(5847)->images;
+    $pwpswp = $modules->get('MarkupProcesswirePhotoswipe');
+    echo str_replace('/site/', '/sh/site/',$pwpswp->renderGallery($page->nicePictures))."\n";
+    exit;
+}
+
+if (0) {
+    // Set all the pages to be visible in 2 langs
+    $allTP = ['a_artwork',
+	      'a_artworks',
+	      'a_collection',
+	      'a_collections',
+	      'a_person',
+	      'a_persons',
+	      'a_possession',
+	      'a_possessions',
+	      'a_school',
+	      'a_schools',
+	      'a_search',
+	      'a_seller',
+	      'a_sellers',
+	      'a_spot',
+	      'countries',
+	      'country',
+	      'd_artwork',
+	      'd_artworks',
+	      'd_person',
+	      'd_persons',
+	      'd_search',
+	      'd_spot',
+	      'h_artwork',
+	      'h_artworks',
+	      'h_brand',
+	      'h_brands',
+	      'h_collection',
+	      'h_person',
+	      'h_persons',
+	      'h_possession',
+	      'h_possessions',
+	      'h_search',
+	      'h_seller',
+	      'h_sellers',
+	      'h_size',
+	      'h_sizes',
+	      'h_spot',
+	      'search',];
+
+    pages()->setOutputFormatting(false);
+    
+    foreach($allTP as $tp) {
+	$count = 0;
+	foreach(pages()->find("template=$tp") as $p) {
+	    $count++;
+	    echo "id={$p->id} {$p->name}\n";
+	    foreach($languages as $lang) {
+		if($lang->isDefault()) continue;
+		$status = in_array($lang->name, ['french','swedish']) ? 0 : 1;
+		$p->set("status$lang", $status);
+		$p->save();
+	    }
+	} 
+	printf ("=================================================== %3d $tp\n",$count);
+    }
+    exit;
+}
+
+if(0){
+    $languageTranslator = wire('LanguageTranslator');
+    var_dump($languageTranslator);
+    foreach($languages as $language) {
+	$languageTranslator->setCurrentLanguage($language);
+	//LanguageTranslator::setCurrentLanguage($language);
+	foreach(['Do it yourself',
+		 'may be class name',
+		 'Проверка',
+		 'Help me'] as $f) {
+	    printf("%-15s --> %s\n",$f,__($f));
+	    printf("%-15s --> %s\n",$f,_x($f,'context'));
+	}
+    }
+    exit;
+}
+
+if (0) {
+    $f_format = "   %-15s = %s\n";
+    foreach(pages()->find("template=h_artwork") as $p) {
+	echo"page::$p->name\n";
+	printf($f_format, 'id', $p->id);
+	foreach($p->fields as $f) {
+	    if (!empty($x=(string)$p->$f)) printf($f_format, $f->name, $x);
+	}
+    }
+    exit;
+}
+
+//var_dump(pages()->get(5800)->h_aw_url); exit;
+foreach(pages()->fine("template=h_artwork") as $p) {
+    if (empty($p->h_aw_url)) continue;
+    if ($p->h_aw_url === "") continue;
+    var_dump($p->h_aw_url);
+    echo "$p->title    $p->h_aw_url\n";
+}
+exit;
+
+var_dump(pages()->get(5847)->h_aw_url); exit;
+
+$a = [];
+//foreach(pages()->find("template=h_person, sort=title") as $p){
+foreach(pages()->find("template=h_artwork, sort=title") as $p){
+    $n = strToLower($sanitizer->transliterate((string)$p->title));
+    //echo "$n\n";
+    if (!empty($a[$n])) echo "$n\n";
+    @$a[$n]++;
+}
+tidy_dump($a);
+exit;
+
+tidy_dump((string)pages()->get("template=h_artwork")->h_aw_brand);
+tidy_dump((string)(pages()->get("template=h_artwork")->h_aw_brand));
+tidy_dump(pages()->get("template=h_artwork")->h_aw_brand->id); exit;
 tidy_dump(pages()->get("title~=Magic Kelly")->h_aw_options); exit;
 tidy_dump(pages()->get("template=h_artwork")->h_aw_person); exit;
 
@@ -147,62 +388,6 @@ if(1) {
     exit;
 }
 
-if (1) {
-    // Set all the pages to be visible
-    $allTP = ['a_artwork',
-	      'a_artworks',
-	      'a_collection',
-	      'a_collections',
-	      'a_person',
-	      'a_persons',
-	      'a_possession',
-	      'a_possessions',
-	      'a_school',
-	      'a_schools',
-	      'a_search',
-	      'a_seller',
-	      'a_sellers',
-	      'a_spot',
-	      'countries',
-	      'country',
-	      'd_artwork',
-	      'd_artworks',
-	      'd_person',
-	      'd_persons',
-	      'd_search',
-	      'd_spot',
-	      'h_artwork',
-	      'h_artworks',
-	      'h_brand',
-	      'h_brands',
-	      'h_collection',
-	      'h_person',
-	      'h_persons',
-	      'h_possession',
-	      'h_possessions',
-	      'h_search',
-	      'h_seller',
-	      'h_sellers',
-	      'h_size',
-	      'h_sizes',
-	      'h_spot',
-	      'search',];
-
-    pages()->setOutputFormatting(false);
-    
-    foreach($allTP as $tp) {
-	echo "=================================================== $tp\n";
-	foreach(pages()->find("template=$tp") as $p) {
-	    echo "id={$p->id} {$p->name}\n";
-	    foreach($languages as $lang) {
-		if($lang->isDefault()) continue;
-		$p->set("status$lang", 1);
-		$p->save();
-	    }
-	} 
-    }
-    exit;
-}
 
     /*
 tidy_dump(pages()->get(5844)->h_aw_popularity->value);
@@ -272,8 +457,8 @@ echo "----------------------- selector = $selector\n";
 exit;
 $page = $pages->get("template=h_person");
 echo tidy_dump($page->h_av_duty);
-setKeyValue($page, 'h_av_duty', 'Artist', false);
-setKeyValue($page, 'h_av_duty', 'Artist', false);
+setKeyValue($page, 'h_av_duty', 'Designer', false);
+setKeyValue($page, 'h_av_duty', 'Designer', false);
 setKeyValue($page, 'h_av_duty', 'Unnown', false);
 setKeyValue($page, 'h_av_duty', 'Owner', true);
 echo tidy_dump($page->h_av_duty);
@@ -311,25 +496,6 @@ if (0) {
     echo tidy_dump($p->size);
     $p = pages()->get(6165);
     //echo tidy_dump($p->title);
-    exit;
-}
-
-/* ******************************************************************************************* */
-
-if (0) {
-    $p = pages()->get("template=h_person, title=Christiane Vauzelles");
-echo tidy_dump($p);exit;
-    setKeyValue($p, 'h_av_url', 'https://dn.se', false);
-    echo tidy_dump($p->h_av_url);
-    echo "h_av_url = ".$p->h_av_url."\n";
-    exit;
-    $size = $p->size->get('title');
-    printf('"%s"  "%s"'. "\n", $p->title, $size);
-    
-    setKeyValue($p, 'size', 'Gavroche', false);
-    
-    $size = $p->size->title;
-    printf("\"%s\"  \"%s\"\n", $p->title, $size);
     exit;
 }
 

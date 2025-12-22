@@ -4,6 +4,22 @@ getSpotURLs();
 region('headline',     $page->title);
 region('browserTitle', $page->title);
 
+// display a random banner photo from this page to display at the top
+if ($page->images && ($photo = $page->images->getRandom()))
+    region('mainHeader',
+	   files()->render('./includes/banner-photo.php',
+			   array('photo'   => $photo->maxWidth(1600),
+				 'caption' => sanitizer()->entitiesMarkdown($photo->description))));
+
+   region('content',
+       renderObjectList(getRandomFeatured(3), 3, false, __('Featured Toys')));
+
+/*
+getSpotURLs();
+
+region('headline',     $page->title);
+region('browserTitle', $page->title);
+
 // display a random photo from this page to display at the top
 if ($page->images && ($photo = $page->images->getRandom()))
   region('mainHeader',
@@ -31,4 +47,4 @@ region('content+',
 	? renderObjectList($p->children(), 2, false, __($page->template->name.'_collections'))
 	: renderObjectList(pages('/spot/aptworks/')->children(), 2, false, __($page->template->name.'_artworks'))).
        count($items_spots) ? renderObjectList($items_spots, 2, false, __('More Collections')):"");
-
+*/

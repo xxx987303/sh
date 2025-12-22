@@ -2,10 +2,9 @@
 
 /**
  * Artworks Template: lists them
- *
  */
 region('content',
        page()->body .
-       renderImageList(page()->children, $cols=4,false,__('Scarves')));
+       renderImageList(page()->children, $cols=4,false,__('Paintings')));
        //files()->render('./includes/items-list.php',array('items' => page()->children)));
 

@@ -154,6 +154,18 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
     } elseif (empty($keyArg)) {
 	abortIt("??? Empty keyArg");
 
+	// PageArray     ===================================================================================================
+    } elseif ($o->$key instanceof PageArray && $value instanceof Page) {
+	foreach ($o->$key as $p) {
+	    if ($value->id == $p->id) {
+                say::ok($o, $key, $value->id);
+		return;
+	    }
+	}
+	$o->$key->add($value);
+ 	say::load($o, $o->$key, $value, ($now=""), ($got=(string)$o->$key->title));
+ 	if ($saveToDB) $o->save();
+	
 	// Fields, Templates ================================================================================================
     } elseif ($o instanceof Field || $o instanceof Template) {
 	if (setKeyValueDEBUG) say::notice('-- instanceof Field|Template');
@@ -212,10 +224,15 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
 	if (setKeyValueDEBUG) say::notice('-- instanceof Page '.joinX($summary));
         $o->of(false);
 
-	if (in_array($type, ['FieldtypeText',
-                         'FieldtypeTextLanguage',
-                         'FieldtypePageTitle',
-                         'FieldtypePageTitleLanguage'])) {
+	if (in_array($type, ['FieldtypeInteger',
+			     'FieldtypeEmail',
+			     'FieldtypePageTitle',
+			     'FieldtypePageTitleLanguage',
+			     'FieldtypeText',
+			     'FieldtypeTextLanguage',
+			     'FieldtypeTextarea',
+			     'FieldtypeTextareaLanguage',
+			     'FieldtypeURL',])) {
 	    if (setKeyValueDEBUG) say::notice("-- setKeyValue_simple($keyArg)");
             list($now,$got) = $setKeyValue_simple($o, $key, $value, $saveToDB);
 

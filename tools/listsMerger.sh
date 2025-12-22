@@ -1,6 +1,6 @@
 #! /bin/bash
 
-php R2sh.php              > R_list_for_import.txt
+php R_list2list.php       > R_list_for_import.txt
 php Buk2list.php          > Buk_for_import.txt
 php Kaplans2list.php      > Kaplans_for_import.txt
 php Auctionet2list.php    > Auctionet_for_import.txt

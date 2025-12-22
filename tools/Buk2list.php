@@ -12,12 +12,20 @@
  *  2024-05-26
  *
  * The output is 1 line per scarf:
- *   $day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www
+ *   $day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www, $seller_id
  */
+
+define('CLI_MODE', true);
+require_once "/Users/yb/Sites/sh/index.php";
+require_once __dir__.'/../site/templates/_debug.php';
 
 $K_list = __dir__ . "/Buk.txt";
 
-echo "# day0, carreTitle, lastname, firstname, year, cmt, price, size, www, base\n";
+$p_name = "Bukowskis";
+if (!($seller_id = ($p=pages()->get("template=h_seller, title~=$p_name"))->id)) die("Can't find $p_name\n");
+//die("$seller_id\n");
+
+echo "# day0, carreTitle, lastname, firstname, year, cmt, price, size, www, base, seller_id\n";
 foreach(explode("\n",file_get_contents($K_list)) as $line) {
     //echo "----'$line'\n";
     
@@ -41,6 +49,6 @@ foreach(explode("\n",file_get_contents($K_list)) as $line) {
         //echo " estimate = $estimate\n";
     }elseif(preg_match("/^2[0-9]*-[0-9]*-[0-9]*/", $line)) {
         $day0 = $line;
-        echo rtrim("$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www,$base",',')."\n";
+        echo rtrim("$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www,$base,$seller_id",',')."\n";
     }
 }

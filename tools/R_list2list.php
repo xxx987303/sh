@@ -51,61 +51,87 @@ foreach(explode("\n",file_get_contents($R_list)) as $line) {
             $authorName = sprintf("%s,%s", trim($ln), trim($fn));
         }
     }
-    if ($authorName === ',')  continue;
-
-    $lines[$l[0].$authorName.$l[2].$l[3].$l[4]] = [ $l[0], $l[1], $authorName, $l[3], $l[4], $l[5] ];
-    if (empty($authorNames[$authorName])) $authorNames[$authorName] = 0;
-    $authorNames[$authorName]++;
+    // ??? if ($authorName === ',')  continue;
+    $l[2] = $authorName;
     
-    if ($SHOW_TIDY_R_LIST) $authorName = $sanitizer->truncate($authorName, ['more'=>'…', 'maxLength'=>22]);
+    // Truncate the long author name in SHOW_TIDY_R_LIST mode
+    if ($SHOW_TIDY_R_LIST) {
+	$l[2] = str_replace('®',' ',
+			    str_replace(' ',',',
+					$sanitizer->truncate(str_replace(',',' ',
+									 str_replace(' ','®',($b=$l[2]))),
+							     ['more'=>'…', 'maxLength'=>25])));
+	foreach(['La Torre','Archives Hermes','Ardmore Artists'] as $a ) if ($l[2] == $a) $l[2] .= ',';
+	if ($b !== $l[2]) say::notice("$b -> $l[2]");
+    }
+    
+    // Fix the day0 if it is known
+    if (($p = pages()->get("title=$l[1]"))->id) {
+	if ($l[0] != ($d0=$p->h_aw_day0)) {
+	    // echo "$l[0] --> $d0\n";
+	    $l[0] = $d0;
+	}
+    }
+    if (empty($lines)) $lines = [];
+    if (false) $lines[$l[0].$l[2].$l[3].$l[4]] = [ $l[0], $l[1], $l[2], $l[3], $l[4], $l[5] ];
+    else       $lines[] = [ $l[0], $l[1], $l[2], $l[3], $l[4], $l[5] ];
+
+    if (empty($aNames[$l[2]])) $aNames[$l[2]] = 0;
+    $aNames[$l[2]]++;
     if (($s=strlen($l[0])) > $lengthP) $lengthP = $s+2;
     if (($s=strlen($l[1])) > $lengthT) $lengthT = $s+1;
+    if (($s=strlen($l[2])) > $lengthA) $lengthA = $s+1;
     if (($s=strlen($l[3])) > $lengthY) $lengthY = $s+2;
-    if (($s=strlen($authorName)) > $lengthA) $lengthA = $s+1;
 }
 
-ksort($lines);
+if (false) ksort($lines);
 $n = 0;
 if ($SHOW_TIDY_R_LIST) {
     echo "# HERMES scarfar(väskor) är en investering,och mycket roligare än aktier!\n#\n";
-    printf("#     %-{$lengthP}s %-{$lengthT}s %-{$lengthA}s %-{$lengthY}s %s %s %s\n",
+    printf("#%-{$lengthP}s %-{$lengthT}s %-{$lengthA}s %-{$lengthY}s %s %s\n#\n",
            //mb_convert_encoding('Прибытие',   'UTF-8', 'auto'),
-           encodeToUtf8('Прибытие'),
-           mb_convert_encoding('Название','UTF-8', 'auto'),
-           mb_convert_encoding('Автор ',  'UTF-8', 'auto'),
-           mb_convert_encoding('Сделан ', 'UTF-8', 'auto'),
-           mb_convert_encoding('Коммент', 'UTF-8', 'auto'),
-           mb_convert_encoding('Цена',    'UTF-8', 'auto'),
-           mb_convert_encoding('Размер',  'UTF-8', 'auto'));
+           $sanitizer->transliterate(encodeToUtf8('Прибытие')),
+           $sanitizer->transliterate(mb_convert_encoding('Название','UTF-8', 'auto')),
+           $sanitizer->transliterate(mb_convert_encoding('Автор ',  'UTF-8', 'auto')),
+           $sanitizer->transliterate(mb_convert_encoding('Сделан ', 'UTF-8', 'auto')),
+           $sanitizer->transliterate(mb_convert_encoding('Коммент', 'UTF-8', 'auto')),
+           $sanitizer->transliterate(mb_convert_encoding('Цена',    'UTF-8', 'auto')));
+           //$sanitizer->transliterate(mb_convert_encoding('Размер',  'UTF-8', 'auto')));
 }else{
     echo "# day0, carreTitle, ln, fn, year, cmt, price, size, www\n";
 }
 
 foreach($lines as $key=>$l) {
-    if ($SHOW_TIDY_R_LIST) {
-	$wT = (strpos($l[1],'…') === false) ? $lengthT : $lengthT+2;
-	$wA = (strpos($l[2],'…') === false) ? $lengthA : $lengthA+2;
-        echo rtrim(sprintf("%3s - %-{$lengthP}s %-{$wT}s %-{$wA}s %-{$lengthY}s %s %s",
-			   ++$n,
-			   $l[0].'.', // P
-			   $l[1].'.', // T
-			   $l[2].'.', // A
-			   $l[3].'.', // Y
-			   $l[4].'..',// C
-			   $l[5]), '. ')."\n";    // size
-    } else {
-        // Show "import friendly" line
-        echo rtrim(sprintf("%s,%s,%s,%s,%s,,%s",
-			   $l[0], $l[1], $l[2], $l[3], $l[4], $l[5]),', ')."\n";
+    $ntimes = (preg_match("/\b([234])\b/", $l[4], $match) ? (int)$match[0] : 1);
+    $n = 0;
+    $wT = (strpos($l[1],'…') === false) ? $lengthT : $lengthT+2;
+    $wA = (strpos($l[2],'…') === false) ? $lengthA : $lengthA+2;
+    while ($n < $ntimes) {
+        echo (rtrim($SHOW_TIDY_R_LIST
+	            ? sprintf(" %-{$lengthP}s %-{$wT}s %-{$wA}s %-{$lengthY}s %s %s",
+			      $l[0].'.', // P
+			      $l[1].'.', // T
+			      $l[2].'.', // A
+			      $l[3].'.', // Y
+			      $l[4].'..',// C
+			      $l[5])
+		    : sprintf("%s,%s,%s,%s,%s,,%s",
+			      $l[0], $l[1], $l[2], $l[3], $l[4], $l[5]),
+		    "\t., ")) . "\n";
+	if ($ntimes>1) {
+	    $l[0] = '';
+	    $l[4] = '***';
+	}
+	$n++;
     }
 }
 
 if ($SHOW_TIDY_R_LIST && $SHOW_AUTHORS) {
-    ksort($authorNames);
-    krsort($authorNames);
-    arsort($authorNames,SORT_NUMERIC);
+    ksort($aNames);
+    krsort($aNames);
+    arsort($aNames,SORT_NUMERIC);
     echo "\n\n";
-    tidy_dump($authorNames,"Number of artworks by Author" );
+    tidy_dump($aNames,"Number of artworks by Author" );
 }
 
 if ($SHOW_TIDY_R_LIST || $SHOW_AUTHORS) {

@@ -2,7 +2,6 @@
 
 /**
  * Artworks Template: lists them
- *
  */
 region('content',
        page()->body .

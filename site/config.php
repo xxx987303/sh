@@ -40,8 +40,11 @@ $config->useFunctionsAPI = true;
 $config->sessionFingerprint = true; 
 $config->prependTemplateFile = '_init.php';
 $config->appendTemplateFile = '_main.php';
+$config->ártworkItems = ['h' => 'Scarfs',
+			 'a' => 'Paintings',
+			 'd' => 'Toys'];
 /*
-$config->imageSizerOptions = array(
+   $config->imageSizerOptions = array(
         'upscaling' => true, // upscale if necessary to reach target size?
         'cropping' => true, // crop if necessary to reach target size?
         'autoRotation' => true, // automatically correct orientation?

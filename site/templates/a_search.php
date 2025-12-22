@@ -92,8 +92,8 @@ foreach(['keywords'] as $key){
     $input->whitelist($key, $value);
   }
 }
-//tidy_dump($input,$selector);
-//tidy_dump($summary,$selector);
+tidy_dump($input,$selector);
+tidy_dump($summary,$selector);
 
 // execute the search
 $items = (empty($selector)&&!$input->get('submit') ? new PageArray() : findObjects($selector,''));

@@ -10,4 +10,4 @@ region('content', files()->render('./includes/object-page.php',
 					'pages'  => findObjects("a_aw_possession=$page",'a_artwork'),
 					'pages_heading'=> __('Purshased objects'),
 					'width'  => 300, // Images width
-					)));
+					'related'=> new PageArray())));

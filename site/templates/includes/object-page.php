@@ -3,11 +3,13 @@
  * Variables:
  *   $page
  *   $pages       Related pages, the first image of those is drawn as page images (with links to the original)
- *   $related     Artworks that mention the same title in their body
+ *   $related     PageArray Artworks that mention the same title in their body
  *   $width       Image(s) width
- *   $o           Orientation: R - images on the right (default L - on the left). Images have double width 
+ *   $o           Orientation: R - images on the right (default L - on the left). Images are twice wider then text
  *   $ncells      Number of cells in the row
  */
+
+$lookingForBug = false;
 
 getSpotURLs();
 if (empty($o)) $o = 'L'; // images on the left (if not on the rigth) hand site
@@ -16,136 +18,86 @@ if (empty($o)) $o = 'L'; // images on the left (if not on the rigth) hand site
 if (empty($ncells)) $ncells = 3;
 if ($width == 150)  $ncells = 4;
 if ($ncells == 4)   $width = 150;
-if ($ncells != 3 && $ncells !== 4) $ncells = 3;
+if ($ncells != 3 && $ncells != 4) $ncells = 3;
 
 if($width == 600){
-  // Double cell for large images
-  define('c1',"2-$ncells");
-  define('c2',"1-$ncells");
+    // Double cell for large images
+    define('c1',"2-$ncells");
+    define('c2',"1-$ncells");
 }else{
-  define('c1',"1-$ncells");
-  define('c2',"2-$ncells");
+    define('c1',"1-$ncells");
+    define('c2',"2-$ncells");
 }
 
 if (!function_exists('ProcessWire\o_p_images')) {
-function o_p_images($c, $page, $pages, $width){
-
-  echo "<div class='object-images uk-width-medium-$c uk-text-center'>\n";
-  if (!($pages instanceof PageArray)) $pages = [];
-  foreach(count($pages) ? $pages : [$page] as $p){
-    if(!empty($images=$p->get('images'))){
-      foreach($images as $image){
-	$thumb = $image->width($width);
-	echo x("div class='object-image uk-margin-small'",
-	       x("a href='$image->url' data-uk-lightbox=\"{group:'photos'}\"",
-		 x("img src='$thumb->url' alt='$image->description'")).
-	       ($image->description ? x("div class='caption uk-text-small uk-text-muted'",
-					x("span",$image->description)) : ""));
-	if (count($pages)) break;
-      }
-    }else{
-      echo x("div class='object-image uk-margin-small'",
-	     x("img src='".urls()->templates."styles/images/photo_placeholder.png' alt=''").
-	     x("div class='caption uk-text-small uk-text-muted'",x("span","Photo not available")));
-    }
-  }
-  echo"  </div>\n";
-}
-}
-
-if (!function_exists('ProcessWire\o_p_tr_line')) {
-/**
- * http://localhost/h_spot/h_search/?h_av_duty=Collector
- * http://localhost/sh/h_spot/h_search/?keywords=collector&tags=h&submit=
- */
-function o_p_tr_line($label,$items,$field=null){
-    global $SPOT_search;
-    if (!empty($items)) {
-        if ($items instanceof PageArray && count($items)){
-	    $data = $items->each("<li><a href='{url}'>{title}</a></li>");
-            echo x("tr", x("th",$label) . x("td",x("ul class='uk-list uk-margin-remove'",$data)));
-	} elseif ($items instanceof WireArray) {
-	    foreach($items as $i) {
-		if (!is_array($i)) continue;
-		$data = (($e = getEmoji(@$i['field'], $i['value']))
-		       ? $e
-		       : (strpos($i['value'], 'a href=') === false
-			   ? x("a href='$i[url]'",$i['value'])
-		           : $i['value']));
-		echo x("tr", x("th",$i['label']) . x("td",$data));
+    function o_p_images(String $c, Page $page, $pages, Int $width){
+	
+	echo "<div class='object-images uk-width-medium-$c uk-text-center'>\n";
+	if (!($pages instanceof PageArray)) $pages = [];
+	foreach(count($pages) ? $pages : [$page] as $p){
+	    if(!empty($images=$p->get('images'))){
+		foreach($images as $image){
+		    $thumb = $image->width($width);
+		    echo x("div class='object-image uk-margin-small'",
+			   x("a href='$image->url' data-uk-lightbox=\"{group:'photos'}\"",
+			     x("img src='$thumb->url' alt='$image->description'")).
+			   ($image->description ? x("div class='caption uk-text-small uk-text-muted'",
+						    x("span",$image->description)) : ""));
+		    if (count($pages)) break;
+		}
+	    }else{
+		echo x("div class='object-image uk-margin-small'",
+		       x("img src='".urls()->templates."styles/images/photo_placeholder.png' alt=''").
+		       x("div class='caption uk-text-small uk-text-muted'",x("span","Photo not available")));
 	    }
-        } elseif ($field instanceof PageField) {
-	    $data="";
-	    switch ($v=$field->derefAsPage) {
-		case 2:
-		case 1:
-		    $data = x("a href='$SPOT_search?{$field->name}={$items->title}&sort={$field->name}'",$items->title);
-		    break;
-		default: abortIt();
-	    }
-	    echo x("tr", x("th",$field->label) . x("td",$data));
-        } else {
-	    tidy_dump($items);
 	}
+	echo"  </div>\n";
     }
 }
-}
 
-if (!function_exists('ProcessWire\o_p_text')) {
 /**
+ *
  */
-function o_p_text($c, $page, $related){
-  
-  $f_author = null; foreach ($page->fields as $f) if(strpos($f->name,'aw_person')!==false) $f_author=$f->name;
-  $authors = $page->get($f_author);
-  if(empty($authors)) $authors = [];
-  if(empty($related) || empty($related->id)) $related = [];
-  
-  echo"  <div class='uk-width-medium-$c'>\n";
-  
-  echo x("h2",$page->title);
+if (!function_exists('ProcessWire\o_p_text')) {
+    function o_p_text(String $c, Page $page, PageArray $related, $tag='page'){
+	global $lookingForBug, $SPOT_id;
+	    
+	echo "<div class='uk-width-medium-$c'>\n" . x("h2",$page->title);
+	getVariants($page);
+	echo "<table class='uk-table object-info'> <tbody>\n";
+	foreach($page->fields as $f) {
+            if (fieldViewable($f,$tag) && ($v=getKeyValue($page, $f))) {
+		echo x('tr',x('th',$f->getLabel()) . x('td', $v));
+	    }
+	}
+	echo "</tbody></table>\n";
+	
+	//
+	// body
+	//
+	if (!empty($page->body)) echo $page->body;
 
-  if (!empty($taggedFields=getTaggedFields($page,'page')) || !empty($authors)){
-    echo "<table class='uk-table object-info'> <tbody>\n";
+	$fName = "{$SPOT_id}_aw_person";
+	$authors = $page->$fName;
+	$output = [];
+	if ($related->id) { // || count($authors)){
+	    foreach($related as $item){
+		$output[] = x("li",x("a href='$item->url'",$item->title.','.$item->parent->title));
+	    }
+	    foreach($authors as $item){
+		$output[] = "<li><a href='$item->url'>".__("Artworks by")." $item->title</a></li>";
+	    }
+	}
 
-    // Author 
-    o_p_tr_line(($t=templates()->get($f_author)) ? $t->label : __('Author'), $authors);
-
-    // Author related pages
-    foreach ($page->fields as $f){
-	if(strpos($f->name,'aw_person')!==false || $f->type != 'FieldtypePage') continue;
-	o_p_tr_line($f->getLabel(),$page->$f,$f);
+	echo "<ul class='uk-list uk-list-line uk-margin-bottom'>";
+	if (!empty($output)) {
+	    x("h2",__("See Also"));
+	    echo join("\n", $output);
+	}
+	echo "</ul>\n </div>\n";
     }
-
-    // Table of 'page' tagged fields
-    o_p_tr_line('',$taggedFields);
-    echo "</tbody></table>\n";
-  }
-    
-  //
-  // body
-  //
-  if (!empty($page->body)) echo $page->body;
-  
-  if(!empty($related) || !empty($authors)){
-    echo x("h2",__("See Also"));
-    
-    echo "<ul class='uk-list uk-list-line uk-margin-bottom'>";
-    foreach($related as $item){
-      echo x("li",x("a href='$item->url'",$item->title.','.$item->parent->title));
-    }
-    foreach($authors as $item){
-      echo "<li><a href='$item->url'>".__("Artworks by")." $item->title</a></li>";
-    }
-  }else{
-    echo "<ul class='uk-list uk-list-line uk-margin-bottom'>";
-  }
-  //echo x("li",x("a href='../'",$page->parent->title));
-  echo "</ul>\n </div>\n";
-}
 }
 
-if(empty($related) || empty($related->id)) $related = [];
 echo "<div class='uk-grid uk-grid-medium'>\n";
 if ($o == 'L'){ o_p_images(c1, $page, $pages, $width); o_p_text  (c2, $page, $related);  }
 else          { o_p_text  (c2, $page, $related);       o_p_images(c1, $page, $pages, $width); }

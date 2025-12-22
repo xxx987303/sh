@@ -2,7 +2,7 @@
 /*
  * Process the extract from WebPage snapshot and Print import-ready lines,
  * one per objectin the format:
- *   $day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www, $base
+ *   $day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www, $base, $seller_id
  *
  * https://www.kaplans.se/sv/auktioner/4463/vara/2019718
  * SCARF, HERMÈS, Brazil II, Laurence Bourthoumieux, 100% siden, 66x70 cm,
@@ -20,6 +20,9 @@ require_once "/Users/yb/Sites/sh/index.php";
 require_once __dir__.'/../site/templates/_debug.php';
 
 $K_list = __dir__ . "/Kaplans.txt";
+
+$p_name = 'Kaplans Auktioner';
+if (!($seller_id = ($p=pages()->get("template=h_seller, title~=$p_name"))->id)) die("Can't find $p_name\n");
 
 $found = false;
 foreach(explode("\n",file_get_contents($K_list)) as $line) {
@@ -55,6 +58,6 @@ foreach(explode("\n",file_get_contents($K_list)) as $line) {
 	    $cmt = trim($items[1]);
             if     (empty($carreTitle)) $carreTitle = trim($items[1]);
         }
-        echo "$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www,$base\n";
+        echo "$day0,$carreTitle,$ln,$fn,$year,$cmt,$price,$size,$www,$base,$seller_id\n";
     }
 }
