@@ -40,7 +40,7 @@ if (!function_exists('ProcessWire\o_p_images')) {
 		foreach($images as $image){
 		    $thumb = $image->width($imageCount ? $width : 150); // $width/$nImages
 		    if ($imageCount == 1) echo "<ul class='horizontal'>";
-		    if ($imageCount >= 1) echo "<li style='max-width:150px; width:150px'>";
+		    if ($imageCount >= 1) echo "<li style='max-width:150px; max-height:150px'>";
 		    echo x("div class='object-image uk-margin-small'",
 			   x("a href='$image->url' data-uk-lightbox=\"{group:'photos'}\"",
 			     x("img src='$thumb->url' alt='$image->description'")).

@@ -25,11 +25,9 @@
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/uikit.gradient.min.css' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/slidenav.gradient.min.css' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/tooltip.min.css' />
-	<?php if ($GLOBALS['SPOT_id'] == 'h') { ?> 
-        <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/variations.css' />
+    <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/variations.css' />
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.css' />
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.min.css' />
-	<?php } ?> 
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/objects.css' />
 <?php
         // Set h_spot as the default start page

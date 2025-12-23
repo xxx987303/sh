@@ -14,5 +14,5 @@ region('browserTitle', "$page->title, {$page->parent->title}");
 region('content', files()->render('./includes/object-page.php',
 				  array('page'   => $page,
 					'related'=> pages("limit=20, id!=$page->id, body*=" . sanitizer()->selectorValue($page->title)),
-					'width'  => 300, // Images width
+					'width'  => 600, // Images width
 					)));
