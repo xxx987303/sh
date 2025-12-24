@@ -23,6 +23,21 @@ global $lookingForBug;
 $lookingForBug = false;
 
 /**
+ * Replacer for input()->get()
+ */
+function getInputKey(String $key) {
+    global  $SITE_input;
+    static  $inputData;
+    if (empty($inputData) && !empty($SITE_input)) {
+        foreach (explode('&',$SITE_input) as $item) {
+            $inputData[explode('=',$item)[0]] = (string)explode('=',$item)[1];
+        }
+    }
+    if ($key == '*') tidy_dump($inputData);
+    return (string)@$inputData[$key];
+};
+
+/**
  * Check that the field is viewable
  */
 function fieldViewable(Field $f, String $tag="") {
@@ -56,7 +71,7 @@ function getRandomFeatured($nCols=3, $spot=null) {
 /**
  * Show scarf variations, if any
  */
-function getVariants(Page $page) {
+function getVariations(Page $page) {
     if ($page->template != 'h_artwork' || !(($variations=$page->h_aw_variant)->count)) return;
     
     // Add the page itself to list of variations
@@ -87,7 +102,7 @@ function getKeyValue(Page $page, Field $field) {
     if (empty($value = (string)$page->$field)) return false;
     if (($o=$page->$field) instanceof PageArray) {
 	return (count($o)
-	      ? $o->each(x("a href='$SPOT_search?{$field->name}={id}'", "{title}")." <br>") 
+	      ? $o->each(x("a href='$SPOT_search{$field->name}={id}'", "{title}")." <br>") 
 	      : false);
     } elseif (strpos($field->name, '_url') !== false || $field->type == 'FieldtypeURL') {
 	$reply = x("a target='_blank' href='$value'", __("Click to see")." (".__("opens in another window").")");
@@ -99,8 +114,8 @@ function getKeyValue(Page $page, Field $field) {
 	$reply = x("a href=''", $value);
     } elseif (in_array($field->type, ['FieldtypeInteger', 'FieldtypeEmail',   'FieldtypeText',    'FieldtypeTextLanguage',
     				      'FieldtypeTextarea','FieldtypeTextareaLanguage',])) {
-	$reply = x("a href='$SPOT_search?keywords=$value'", $value);
-	$reply = x("a href='$SPOT_search?$field->name=$value'", $value);
+	$reply = x("a href='{$SPOT_search}keywords=$value'", $value);
+	$reply = x("a href='{$SPOT_search}$field->name=$value'", $value);
     } elseif ($e = getEmoji($field->name, $value)) {
 	$reply = $e;
     } elseif ($field->type == 'FieldtypeOptions') {
@@ -113,7 +128,7 @@ function getKeyValue(Page $page, Field $field) {
     }
     // Search URL
     if (strpos($reply, "href=") === false) {
-	$reply = x("a href='$SPOT_search?{$field->name}={$value}&sort={$field->name}'",$reply);
+	$reply = x("a href='{$SPOT_search}{$field->name}={$value}&sort={$field->name}'",$reply);
     }
     if ($lookingForBug) echo "getKeyValue($page->id,$field->name,$field->type) = $reply<br>";
     return $reply;
@@ -471,21 +486,27 @@ function summarizeText($text, $maxLength = 500) {
  * http://localhost/sh/ru-home/h_spot/h_search/?h_aw_rarity=1
  */
 function getSpotURLs(){
-    global $input, $SPOT_id, $SPOT_url, $SPOT_root, $SPOT_search, $SPOT_input, $spot_home, $site_home;
+    global $SPOT_id, $SPOT_url, $SPOT_root, $SPOT_search, $spot_home;
+    global $SITE_input, $site_home;
+    
     if (!isset($spot_home)) {
+	preg_match('/(\?.*)/', $_SERVER['REQUEST_URI'], $url_match);
+	$SITE_input  = (empty($i=@$url_match[0]) ? '' : str_replace('?','',$i));
+
 	preg_match(";(/[a-z][a-z]-home\b)?(/([a-z]*)_?spot/);", $_SERVER['REQUEST_URI'], $url_match);
 	list($SPOT_url,$SPOT_id) = (empty($url_match[0])
 	                          ? ['','']
 				  : [substr($url_match[0],1), $url_match[3]]);
-	
-	//$SPOT_input  = '?'; if (!empty($input)) foreach($input->get() as $k=>$v) $SPOT_input .= "$k=$v&";
-	preg_match('/(\?.*)/', $_SERVER['REQUEST_URI'], $m);
-	$SPOT_input  = (string)@$m[0];
-	$SPOT_root   = config('urls')->root . $SPOT_url;
-	$SPOT_search = $SPOT_root . $SPOT_id . "_search/";
-	$site_home   = pages("/");  
+	if (empty($SPOT_id)) $SPOT_id = getInputKey('SPOT_id');
+
+	$site_home   = pages("/");
 	$spot_home   = pages("/$SPOT_url");
-	//echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_root=$SPOT_root SPOT_search=$SPOT_search SPOT_input='$SPOT_input'");
+	
+	$SPOT_root   = config('urls')->root . $SPOT_url;
+	$SPOT_search = $SPOT_root . $SPOT_id . "_search/?";
+	$SPOT_search = $site_home->url . "search/?SPOT_id=$SPOT_id&";
+	//echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_root=$SPOT_root SPOT_search=$SPOT_search SITE_input='$SITE_input'");
+	//echo x('pre',"SPOT_id=$SPOT_id, site_home=$site_home->url, SITE_input='$SITE_input'");
     }
 }
 	
@@ -522,8 +543,8 @@ function getTaggedFields($page,$context='page'){
 			    'id'    => $f->id,
 			    'label' => $page->getField($f->name)->getLabel(),
 			    'value' => $value,
-			  //'url'   => sprintf("%s?%s=%s",$SPOT_search,$f->name,$value),
-			    'url'   => sprintf("%s?%s=%s",$SPOT_search,$f->name,(string)$page->$f),]);
+			  //'url'   => sprintf("%s%s=%s",$SPOT_search,$f->name,$value),
+			    'url'   => sprintf("%s%s=%s",$SPOT_search,$f->name,(string)$page->$f),]);
 if($lookingForBug && empty(@$dejaVuTags[$z=joinX($i)]++)) print joinX($i).'<br>';
 	}
     }
@@ -676,7 +697,7 @@ function getEmoji($fieldName, String $level, bool $returnImage=false) {
     list($emojiDir, $fn) = [__dir__.'/../assets/files/0000/', "$level.png"];
     if (in_array($fieldName, $config->emojiFields) && file_exists($ph=realpath(str_replace(' ','',$emojiDir.$fn)))) {
 	$treeRoot = '/sh/';
-	$anker = x("a href='$SPOT_search?$fieldName=$level'",
+	$anker = x("a href='{$SPOT_search}$fieldName=$level'",
 		   ($image = x("img src=".x("'",preg_replace(";.*{$treeRoot};",$treeRoot,$ph)))));
 	$reply = $returnImage ? $image : $anker;
     } else {
@@ -690,7 +711,7 @@ function getEmoji($fieldName, String $level, bool $returnImage=false) {
  * Output <div id='masthead'...</div>
  */
 function masthead(Page $page, Languages $languages, User $user) {
-    global $config, $SPOT_input, $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home;
+    global $config, $SITE_input, $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home;
 ?>
     <div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
 	<div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
@@ -780,7 +801,7 @@ foreach($items as $k=>$v) echo $v;
 			    printf("<li%s><a hreflang='%s' href='%s'>%s</a></li>\n",
 				   ($language->id==$user->language->id ? " class='uk-active'" : ""),
 				   $site_home->getLanguageValue($language, 'name'),
-				   $page->localUrl($language).$SPOT_input,
+				   $page->localUrl($language).$SITE_input,
 				   x("div uk-tooltip=$language->title",
 				     x("img height=25 width=30 src=".urls('templates')."flags/".$flags[$language->name].".svg")));
 			//echo "\t<li><a hreflang='$hreflang' href='$url'>".$language->title."</a></li>\n";

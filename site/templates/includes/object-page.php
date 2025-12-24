@@ -35,7 +35,7 @@ if (!function_exists('ProcessWire\o_p_images')) {
 	echo "<div class='object-images uk-width-medium-$c uk-text-center'>\n";
 	if (!($pages instanceof PageArray)) $pages = [];
 	foreach(count($pages) ? $pages : [$page] as $p){
-	    if(($nImages=count($images=$p->get('images')))){
+	    if($nImages = (empty($images=$p->get('images')) ? 0 : count($images))) {
 		$imageCount = 0;
 		foreach($images as $image){
 		    $thumb = $image->width($imageCount ? $width : 150); // $width/$nImages
@@ -69,7 +69,7 @@ if (!function_exists('ProcessWire\o_p_text')) {
 	global $lookingForBug, $SPOT_id;
 	    
 	echo "<div class='uk-width-medium-$c'>\n" . x("h2",$page->title);
-	getVariants($page);
+	getVariations($page);
 	echo "<table class='uk-table object-info'> <tbody>\n";
 	foreach($page->fields as $f) {
             if (fieldViewable($f,$tag) && ($v=getKeyValue($page, $f))) {

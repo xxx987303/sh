@@ -9,8 +9,22 @@ require_once "/Users/yb/Sites/sh/index.php";
 $saveToDB = false;
 $user = Users()->get('yb');
 
+foreach([5922,5923,5924] as $id) tidy_dump(pages()->get($id)); exit;
+
 //tidy_dump(($b=pages()->get("template=h_artwork, title=Brazil"))->h_aw_variant); exit;
-tidy_dump(fields()->get("d_aw_type")); exit;
+//tidy_dump(pages()->get("template=h_search"));
+
+if (0) {
+    if (!($p = new Page(templates()->get("search")))->id) {
+	$p->title = "Search results";
+	$p->name = "search";
+	$p->status = "hidden";
+	//$p->save();
+    }
+    tidy_dump($p);
+    exit;
+}
+
 
 if (0) {
     $root = pages()->get("template=h_artwork, title=Brazil");
@@ -23,7 +37,7 @@ if (0) {
     exit;
 }
 
-if (1) {
+if (0) {
     function createAdminPage(String $name, String $o) {
 	global $saveToDB;
 	if (empty(($page=pages()->get($name))->id)) {
@@ -109,18 +123,12 @@ if (0) {
     tidy_dump(pages()->get("title~=Верещагина")); exit;
 }
     
-if (1) {
+if (0) {
     foreach (pages()->find("h_aw_featured=1") as $p) echo "$p->template $p->id $p->name\n"; 
     foreach (pages()->find("a_aw_featured=1") as $p) echo "$p->template $p->id $p->name\n"; 
     foreach (pages()->find("d_aw_featured=1") as $p) echo "$p->template $p->id $p->name\n"; 
     exit;
 }
-//tidy_dump(fields()->get("artworks_featured"));
-tidy_dump(fields()->get("h_artworks_featured"));exit;
-tidy_dump(templates()->get("h_spot"));exit;
-tidy_dump(pages()->find("template=h_spot"));
-tidy_dump(pages()->find("template=a_spot"));exit;
-tidy_dump(pages()->find("template=spot")); exit;
 
 if (0){
     foreach(pages()->find("template=h_artwork") as $p) {
@@ -137,7 +145,7 @@ if (0) {
     exit;
 }
 
-if (0) {
+if (1) {
     // Set all the pages to be visible in 2 langs
     $allTP = ['a_artwork',
 	      'a_artworks',
