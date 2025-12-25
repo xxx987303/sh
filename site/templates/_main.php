@@ -34,7 +34,7 @@
         //if($_SERVER['REQUEST_URI']==config('urls')->root) echo "<meta http-equiv='Refresh' content=\"0; url='".$config->urls->root."h_spot/'\" />\n";
 
         // Are we in the search page?
-        $in_search = (strpos($page->url,'search/') !== false);
+        $in_search = (!empty($page) && strpos($page->url,'search/') !== false);
 
         if (!empty($languages)){
             // handle output of 'hreflang' link tags for multi-language (needed for SEO)
@@ -58,7 +58,10 @@
 	?>
 	<div id='main'>
             <div class='uk-container uk-container-center'>
+		<?=region('next_prev')?>;
+		<!--  region(mainHeader) -->
 		<?=region('mainHeader')?>
+		<!-- /region(mainHeader) -->
 		<div class='uk-grid uk-grid-medium'>
 		    <!-- ---------------------------------------------------------- content -->
 		    <div id='content' class="uk-width-large-<?=($in_search?'3-4':'1-1')?> uk-margin-bottom">
@@ -97,6 +100,14 @@
 	<script src='<?=$config->urls->root?>site/uikit/js/components/lightbox.min.js'></script>
 	<script src='<?=$config->urls->root?>site/uikit/js/components/tooltip.min.js'></script>
 	<script src='<?=urls('templates')?>scripts/objects.js'></script>
-	
+<script>
+document.addEventListener('keydown', function(event) {
+    if (event.key === "ArrowLeft") {
+        document.querySelector('.sh-prev').click();
+    } else if (event.key === "ArrowRight") {
+        document.querySelector('.sh-next').click();
+    }
+});
+</script>
     </body>
 </html>

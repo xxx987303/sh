@@ -19,7 +19,11 @@ $R_list = __dir__ . "/$arg";
 $transliterated = [];
 $lengthP = $lengthT = $lengthA = $lengthY = 1;
 foreach(explode("\n",file_get_contents($R_list)) as $line) {
-    if (($cmt=str_starts_with($line, '#')) || ($s=strpos($line, 'roligare')) || empty(trim($line))) continue;
+    if (str_starts_with($line, '#')) {
+	echo "$line\n";
+	continue;
+    }
+    if (($s=strpos($line, 'roligare')) || empty(trim($line))) continue;
     if (substr_count($line, '.') < 2) die("Not enought dots in line:\n$line\nFix $R_list\n");
 
     // Split the line, transliterate if needed

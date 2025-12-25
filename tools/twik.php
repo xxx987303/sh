@@ -7,9 +7,17 @@ require_once __dir__ . '/../site/templates/_func.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
+if (1){
+    tidy_dump(pages()->get("title=Robert Dumas")->h_av_duty);
+    tidy_dump(pages()->get("title=Christiane Vauzelles")->h_av_duty);
+    exit;
+}
+tidy_dump(pages()->get("template=a_collection, title=Non-Leiden collection")); exit;
+tidy_dump(pages()->get("template=h_brand, title=Hermès")); exit;
 $user = Users()->get('yb');
 
 foreach([5922,5923,5924] as $id) tidy_dump(pages()->get($id)); exit;
+
 
 //tidy_dump(($b=pages()->get("template=h_artwork, title=Brazil"))->h_aw_variant); exit;
 //tidy_dump(pages()->get("template=h_search"));

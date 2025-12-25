@@ -5,6 +5,7 @@
  */
 /** @var Page $page */
 
+setNextPrev("template=h_person, h_av_duty=".$page->h_av_duty->value.", sort=title", $page);
 region('browserTitle', $page->title);
 region('content',files()->render('./includes/object-page.php',
 				 array('page'   => $page,

@@ -52,7 +52,8 @@
 2017-05-05."Parures de Samouraïs".        Honore,Aline.                          2017
 ."Passementerie".                     Héron,Marie-Françoise .   1960/1981
 ."Petits chevaux".                     Eudel,Jacques.                   1974. G
-2016-04-30."Plumes".                                   de Linares,Henri.                     1953/1964
+2016-04-30."Plumes".                                   de Linares,Henri.                     1953/1964. 2
+#2022-05."Plumes".                                     de Linares,Henri .       1953 .G
 ."Promenade de Longchamp". Ledoux,Philippe    .            1965/1970.
 ."Reale".                                      Grygkar,Hugo.                    1953/1990
 ."Reprise".                                  Ledoux,Philippe.                1970/1993
@@ -94,7 +95,6 @@
 2022-02."Libre comme l'air".                     Faivre,Annie.                         2003.
 2022-03."Mors a jouets chemise".          d'Origny,Henri .          2019/2021
 2022-04."Paperoles".                                  Stuhlhofer-Mayr,Claudia.       2000 .G
-2022-05."Plumes".                                     de Linares,Henri .       1953 .G
 2022-06."Face au large".                         Jarlegant,Dominik  .              2000
 2022-07."Mega chariot".                           Nomura,Daiske .       2022. G
 2022-07-08."Ludovicus Magnus".                  de La Perrière,Françoise      .           1963

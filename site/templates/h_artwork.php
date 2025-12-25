@@ -4,10 +4,10 @@
  * The Artwork template displays a single h_artwork with a table of stats, photos, description and map
  *
  */
-
 /** @var Page $page */
 
-// populate regions
+setNextPrev("template=h_artwork, h_aw_collection={$page->h_aw_collection->id}, h_aw_brand={$page->h_aw_brand->id}, sort=title", $page);
+
 region('browserTitle',
        "{$page->title}, {$page->parent->title}");
 

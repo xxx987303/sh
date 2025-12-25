@@ -4,8 +4,9 @@
  * The Artwork template displays a single artwork with a table of stats, photos, description and map
  *
  */
-
 /** @var Page $page */
+
+setNextPrev("template=d_artwork, sort=title", $page);
 
 // populate regions
 region('browserTitle', "$page->title, {$page->parent->title}");

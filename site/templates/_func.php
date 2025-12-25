@@ -23,6 +23,36 @@ global $lookingForBug;
 $lookingForBug = false;
 
 /**
+ * Include "next" / "previous" page buttons
+ */
+function setNextPrev(String $selector, Page &$page) {
+$selector = str_replace('sort=title','sort=name',$selector);
+    $idWas = $page->id;
+    $k = 0;
+    $imagesForNextPrev = [];
+    foreach(pages()->find($selector) as $p) {
+        $imagesForNextPrev[$k++] = $p;
+        if ($p->id == $page->id) { $key = $k-1; } // echo x("pre","set id=$p->id key=$key title=$p->title"); }
+    }
+
+    //if (isset($_GET['key']) && $page->id != $imagesForNextPrev[$_GET['key']]->id) $page = $imagesForNextPrev[$key=$_GET['key']];
+    if (isset($_GET['key'])) {
+	$key = $_GET['key'];
+	if ($page->id != $imagesForNextPrev[$key]->id) $page = $imagesForNextPrev[$key];
+    }
+    echo x('pre',"$selector $idWas --> $page->id $page->title");    
+    if (!isset($key)) $key = 0;
+    $prev = ($key-1 < 0) ? count($imagesForNextPrev) - 1 : $key - 1; // Loop to end if at start
+    $next = ($key+1 >= count($imagesForNextPrev)) ? 0 : $key + 1;    // Loop to start if at end
+
+    region('headline',
+	   $page->title);
+    region('next_prev',
+           x("a class='sh-prev' href='?key=$prev'", "&#10094;").
+           x("a class='sh-next' href='?key=$next'", "&#10095;"));
+}
+
+/**
  * Replacer for input()->get()
  */
 function getInputKey(String $key) {
@@ -76,7 +106,7 @@ function getVariations(Page $page) {
     
     // Add the page itself to list of variations
     $variations->add($page);
-    $links = "<ul class='horizontal'>";
+    $links = "<ul class='variations'>";
     foreach ($variations as $var) {
 	if (!is_object($var)) $var = pages()->get($var);
 	$links .= x("li",
@@ -717,7 +747,6 @@ function masthead(Page $page, Languages $languages, User $user) {
 	<div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
 	    <h2 style='float:left;'>
 		<?php
-		echo "<!-- region(headline)  -->\n";
 		//$site_home->set('headline', 'Home');
 		$tmp = [];
 		foreach($page->parents as $k=>$p) {
@@ -725,7 +754,9 @@ function masthead(Page $page, Languages $languages, User $user) {
 		    $tmp[] = $p->id;
 		    echo ($l=x("a href='{$p->url}'", $p->title) . x("i class='uk-icon-angle-right'"));
 		}
+		echo "<!--  region(headline)  -->\n";
 		echo region('headline');
+		echo "<!-- /region(headline)  -->\n";
 		?>
 	    </h2>
 	    <!-- Search and login -->
@@ -799,12 +830,11 @@ foreach($items as $k=>$v) echo $v;
 		    foreach($languages as $language) {
 			if( $page->viewable($language))
 			    printf("<li%s><a hreflang='%s' href='%s'>%s</a></li>\n",
-				   ($language->id==$user->language->id ? " class='uk-active'" : ""),
-				   $site_home->getLanguageValue($language, 'name'),
-				   $page->localUrl($language).$SITE_input,
+				   ($language->id==$user->language->id ? " class='uk-active'" : ""), // class=
+				   $site_home->getLanguageValue($language, 'name'),                  // hreflang
+				   $page->localUrl($language)."?{$SITE_input}",                      // href
 				   x("div uk-tooltip=$language->title",
 				     x("img height=25 width=30 src=".urls('templates')."flags/".$flags[$language->name].".svg")));
-			//echo "\t<li><a hreflang='$hreflang' href='$url'>".$language->title."</a></li>\n";
 		    }
 		}
 		?>
