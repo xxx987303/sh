@@ -8,6 +8,11 @@ require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
 
+$p=pages()->get(6313);
+$p->title = '?';
+$p->save();
+tidy_dump($p);
+exit;
 tidy_dump($p=pages()->get("title*=Misterie")); exit;
 //foreach ($p->fields as $f) echo "$f->name: {$p->$f}\n"; exit;
 //tidy_dump(pages()->get("name=h_spot"));exit;
