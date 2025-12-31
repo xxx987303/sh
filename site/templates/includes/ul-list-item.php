@@ -41,6 +41,7 @@ if ($XXL) {
   line-height: initial;
 }
 </style>";
+//echo x("pre",'case1');
     echo x("div class='ul-list-item rounded-area'",
 	   x("div class='uk-grid uk-grid-medium'",
 	     x("div class='uk-width-1-3'",
@@ -51,6 +52,7 @@ if ($XXL) {
 		 x("div class='uk-width-1-1 uk-width-2-3 uk-margin-bottom'",
 		   x("a href='$page->url' class='uk-text-bold'", x("span class='xx-large-item centered-item'",$page->title)))))));
 } elseif (empty($listTaggedFields)) {
+//echo x("pre",'case2');
     echo x("div class='ul-list-item rounded-area'",
 	   x("div class='uk-grid uk-grid-medium'",
 	     $image.
@@ -61,6 +63,7 @@ if ($XXL) {
 		   x("div class='object-city uk-text-muted'",$caption))))).
 	   $summary);
 } else {
+//echo x("pre",'case3');
     echo x("div class='ul-list-item rounded-area'",
 	   x("div class='uk-grid uk-grid-medium'",
 	     x("div class='uk-width-2-3 uk-width-small-4-5' style='padding-top:0;margin-bottom:15px'",

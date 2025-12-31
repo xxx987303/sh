@@ -58,7 +58,7 @@
 	?>
 	<div id='main'>
             <div class='uk-container uk-container-center'>
-		<?=region('next_prev')?>;
+		<?=region('next_prev')?>
 		<!--  region(mainHeader) -->
 		<?=region('mainHeader')?>
 		<!-- /region(mainHeader) -->

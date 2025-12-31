@@ -18,7 +18,7 @@ $summary  = [];
 // Redirect the page if posible
 foreach (explode('&', $SITE_input) as $item) {
     if (!str_contains($item,'=')) continue;
-    list($k,$v) = explode('=',$item);
+    list($k,$v) = explode('=',str_replace('_c_person','_aw_person',$item));
     if (preg_match("/([adh])_aw_person/", $k, $matches)) {
 	$p = pages()->get($v);
 	header(sprintf("Location: {$site_home->url}%s_spot/%s_persons/%s/", $matches[1], $matches[1], $p->name));
@@ -46,42 +46,40 @@ function fieldSelector(WireInput $input, Field $field, Array &$summary) {
             $selector .= "$key=". ($value=str_replace([',','/'],'|',$value));
             $summary[$key] = $value;
             $input->whitelist($key, $value);
-        }elseif(preg_match(";^([<>]);", $value,$matches)) { // see if the we got 'less/more'
+        }elseif(preg_match(";^@;", $value)) { // see if the we got 'more'
+	    $selector .= "$key>=".($v=(str_replace('@', '', $value)));
+	    $summary[$key] = 'limit';
+	}elseif(preg_match(";^([<>]);", $value,$matches)) { // see if the we got 'less/more'
 	    $selector .= "$key$matches[0]=".($v=(str_replace($matches[0], '', $value)).
 						($matches[0]=='<' ? ", $key>=1" : ""));
             // $summary[$key] = ($matches[0]=='<' ? 'less' : 'more') . " than $v";
 	    $summary[$key] = 'limit';
         }elseif((strpos($value, '-') !== false) &&  // see if the value is given as a range (i.e. two numbers separated by a dash)
-		!preg_match("/\d\d\d\d-\d\d-\d\d/",$value)) {
+		!preg_match("/^\d\d\d\d-\d\d(\b)?(-\d\d)?\b/",$value)) {
             list($min, $max) = explode('-', $value);
             $min = (int) $min;	
             $max = (int) $max;
             $selector .= "$key>=$min, $key<=$max";
             $summary[$key] = (substr($max, 0, 3) == '999') ? "$min and above" : "$min to $max";
+	}elseif(preg_match("/^(2\d\d\d)-\d\d(\b)?(-\d\d)?/",$value,$match) && strpos($key,'day0')!==false) {
+            $selector .= "$key^=".($v=(empty($match[3]) ? $match[1] : $value));
+	    $summary[$key] = "‎$v"; // sic!! "empty space" symbol
+            $input->whitelist($key, $v);
+	    tidy_dump($match,$v);
         }elseif(substr($value, -1) == '+') { // see if the value ends with a +, which we used to indicate 'greater than or equal to'
             $value = (int) $value;
             $selector .= "$key>=$value";
             $summary[$key] = "$value and above";
             $input->whitelist($key, "$value+");
         }else{ // plain value that doesn't need further parsing
+	    $title = (is_numeric($value) && ($p=(pages()->get($value)))->id == $value) ? $p->title : $value;
             $selector .= "$key=$value";
-            $summary[$key] = $value;
+            $summary[$key] = "‎$title"; // sic! "empty space" symbol 
             $input->whitelist($key, $value);
         }
         $selector .= ', ';
     }
     return $selector;
-}
-
-// if a X_collection is specified, then we limit the results to having that X_collection as their parent
-if(getInputKey($C=$SPOT_id.'_collection')) {
-    $collectionName = $sanitizer->pageName(getInputKey($C));
-    $_collection = pages("/collections/$collectionName/");
-    if($_collection->id) {
-        $selector .= "parent=$_collection, ";
-        $summary['h_collection'] = $_collection->title;
-        $input->whitelist('h_collection', $_collection->name);
-    }
 }
 
 // if a brand is specified, then we limit the results to having that brand as the manufacturer
@@ -165,6 +163,9 @@ foreach($summary as $key=>$value) {
 }
 $browserTitle = __($browserTitle);
 
+$spot = pages()->get("template={$SPOT_id}_spot");
+region('first_item',
+       x("a href='{$spot->url}'", $spot->title) . x("i class='uk-icon-angle-right'"));
 region('mainHeader',
        "<h2>$browserTitle</h2>");
 region('browserTitle',

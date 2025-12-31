@@ -5,7 +5,8 @@
  */
 
 define("saveToDB", true);
-define('R_list', empty($argv[1]) ? "All_for_import.txt" : $argv[1]);
+//define('R_list', empty($argv[1]) ? "All_for_import.txt" : $argv[1]);
+define('R_list', 'test.txt');
 
 require_once __dir__ . '/debug.php';
 require_once __dir__ . '/../site/templates/_func.php';
@@ -117,16 +118,17 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
 		    ($doingVariations
 			? ['template'=>'h_artwork',
 			   'hook'    => 'name',
-			   'name'    => pageName(pages()->get("title=$carreTitle")->id.'-variations'.(++$variationsCounter),true)]
+			 //'name'    => pageName($donor->name.'-'.$donor->id.'-variations'.(++$variationsCounter),true)]
+			   'name'    => "{$donor->name}-variations".(++$variationsCounter)]
 		        : ['template'=>'h_artwork',
 			   'hook'    =>'title']));
-if (!saveToDB && !$p->id) $p->id = 11111;
+    if (!saveToDB && !$p->id) $p->id = 11111;
+    if (!$doingVariations) { $donor = $p; }
     foreach($authors as $a) setKeyValue($p,'h_aw_person', $a,saveToDB);
     foreach($options as $o) setKeyValue($p,'h_aw_options',$o,saveToDB);
     if ($doingVariations) {
 	foreach(pages()->find("template=h_artwork, title=$carreTitle") as $var) {
-if (!saveToDB && !$var->id) $var->id = 11111 + $variationsCounter;
-	    setKeyValue($var,'h_aw_variant', $p, saveToDB);
+	    if (!saveToDB && !$var->id) $var->id = 11111 + $variationsCounter;
 	}
     }
 }
@@ -182,6 +184,7 @@ function createPage(Array $dataArg=[], Array $args=[], $saveToDB=saveToDB){
     $selector .= sprintf(", %s=%s",$hook,sanitizer()->selectorValue(empty($h=@$data[$hook]) ? $args[$hook] : $h));
     b_debug::_dbg("selector=$selector");
     if (($page = pages()->get($selector))->id) {
+	$page->of(false);
         b_debug::_dbg('PAGE ALREADY EXISTS selector="'.$selector.'"');
     }else{
         if (empty($parent1 = pages()->get("template=".$args['template']."s")->id) &&
@@ -191,10 +194,12 @@ function createPage(Array $dataArg=[], Array $args=[], $saveToDB=saveToDB){
             die("??? parent\n");
         }
         $page = new Page();
+	$page->of(false);
         $page->name     = $args['name'];
         $page->template = $args['template'];
         $page->parent   = (empty($parent1) ? $parent2 : $parent1);
-	$page->title = $data['title'];        b_debug::_dbg("PAGE CREATED selector:$selector");
+	$page->title = $data['title'];
+        b_debug::_dbg("PAGE CREATED selector:$selector");
     }
     foreach($data as $k=>$v){
         if (empty($v)) {
@@ -203,6 +208,7 @@ function createPage(Array $dataArg=[], Array $args=[], $saveToDB=saveToDB){
         }
         setKeyValue($page, $k, $v, $saveToDB);
     }
+    say::ok($page, 'name', $page->name);
     if ($saveToDB) $page->save();
     return $page;
 }

@@ -9,7 +9,8 @@
 require_once __dir__ . '/debug.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
-$SHOW_TIDY_R_LIST = false;
+$TRUNCATE = true;
+$SHOW_TIDY_R_LIST = true;
 $SHOW_AUTHORS = false;
 if (!$SHOW_TIDY_R_LIST) $SHOW_AUTHORS = false;
 
@@ -18,6 +19,8 @@ $R_list = __dir__ . "/$arg";
 
 $transliterated = [];
 $lengthP = $lengthT = $lengthA = $lengthY = 1;
+$lines = [];
+$duplicatedNames = [];
 foreach(explode("\n",file_get_contents($R_list)) as $line) {
     if (str_starts_with($line, '#')) {
 	echo "$line\n";
@@ -38,7 +41,7 @@ foreach(explode("\n",file_get_contents($R_list)) as $line) {
 		$l[$k] = $clean;
 	    }
 	}
-	$l[1] = $sanitizer->truncate($l[1], ['more'=>'…', 'maxLength'=>25]);
+	if ($TRUNCATE) $l[1] = $sanitizer->truncate($l[1], ['more'=>'…', 'maxLength'=>25]);
     }
     
     $count = 0;
@@ -59,7 +62,7 @@ foreach(explode("\n",file_get_contents($R_list)) as $line) {
     $l[2] = $authorName;
     
     // Truncate the long author name in SHOW_TIDY_R_LIST mode
-    if ($SHOW_TIDY_R_LIST) {
+    if ($TRUNCATE && $SHOW_TIDY_R_LIST) {
 	$l[2] = str_replace('®',' ',
 			    str_replace(' ',',',
 					$sanitizer->truncate(str_replace(',',' ',
@@ -76,7 +79,6 @@ foreach(explode("\n",file_get_contents($R_list)) as $line) {
 	    $l[0] = $d0;
 	}
     }
-    if (empty($lines)) $lines = [];
     if (false) $lines[$l[0].$l[2].$l[3].$l[4]] = [ $l[0], $l[1], $l[2], $l[3], $l[4], $l[5] ];
     else       $lines[] = [ $l[0], $l[1], $l[2], $l[3], $l[4], $l[5] ];
 
@@ -106,29 +108,35 @@ if ($SHOW_TIDY_R_LIST) {
 }
 
 foreach($lines as $key=>$l) {
-    $ntimes = (preg_match("/\b([234])\b/", $l[4], $match) ? (int)$match[0] : 1);
+    if(empty($duplicatedNames[$l[1]])) $duplicatedNames[$l[1]] = 0;
+    $duplicatedNames[$l[1]]++;
+    $nVariations = (preg_match("/\b([234])\b/", $l[4], $match) ? (int)$match[0] : 1);
+    $l[4] = str_replace("$nVariations", "", $l[4]); // Remove the number
     $n = 0;
     $wT = (strpos($l[1],'…') === false) ? $lengthT : $lengthT+2;
     $wA = (strpos($l[2],'…') === false) ? $lengthA : $lengthA+2;
-    while ($n < $ntimes) {
+    while ($n < $nVariations) {
         echo (rtrim($SHOW_TIDY_R_LIST
-	            ? sprintf(" %-{$lengthP}s %-{$wT}s %-{$wA}s %-{$lengthY}s %s %s",
-			      $l[0].'.', // P
-			      $l[1].'.', // T
-			      $l[2].'.', // A
-			      $l[3].'.', // Y
-			      $l[4].'..',// C
-			      $l[5])
-		    : sprintf("%s,%s,%s,%s,%s,,%s",
-			      $l[0], $l[1], $l[2], $l[3], $l[4], $l[5]),
+	          ? sprintf(" %-{$lengthP}s %-{$wT}s %-{$wA}s %-{$lengthY}s %s %s",
+			    $l[0].'.', // P
+			    $l[1].'.', // T
+			    $l[2].'.', // A
+			    $l[3].'.', // Y
+			    $l[4].'..',// C
+			    $l[5])
+		  : sprintf("%s,%s,%s,%s,%s,,%s",
+			    $l[0], $l[1], $l[2], $l[3], $l[4], $l[5]),
 		    "\t., ")) . "\n";
-	if ($ntimes>1) {
+	if ($nVariations>1) {
 	    $l[0] = '';
 	    $l[4] = '***';
 	}
 	$n++;
     }
 }
+
+foreach ($duplicatedNames as $name=>$k) if ($k != 1) echo "??????????????????????????? $k $name\n";
+if (!$TRUNCATE) exit;  
 
 if ($SHOW_TIDY_R_LIST && $SHOW_AUTHORS) {
     ksort($aNames);

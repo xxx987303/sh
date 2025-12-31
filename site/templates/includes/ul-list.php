@@ -1,9 +1,7 @@
 <?php namespace ProcessWire;
 
 if (empty($cols)) $cols = 1; 
-//if($headline && empty($itemsByType))   echo x("h2",$headline);
 if($headline)   echo x("h2",$headline);
-
 if($pagination) echo x("div class='uk-grid uk-margin-bottom pagination'",
 		       x("div class='uk-width-medium-2-3'",$pagination).
 		       x("div class='uk-width-medium-1-3'",$sortSelect));
@@ -17,7 +15,7 @@ if(!empty($items)){
 
 if(!empty($itemsByType)){
   foreach($itemsByType as $duty=>$items){
-    echo x("h2",$duty);
+    echo x("h3",$duty);
     $li=[]; foreach($items as $k=>$item) $li[] = "<!-- $k ".str_repeat('-',50)." -->\n".x("li",$item);
     echo x("div class='ul-list'",
 	   x("ul class='uk-grid uk-grid-width-medium-1-$cols'",

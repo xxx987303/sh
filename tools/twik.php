@@ -7,22 +7,127 @@ require_once __dir__ . '/../site/templates/_func.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
-if (1){
-    tidy_dump(pages()->get("title=Robert Dumas")->h_av_duty);
-    tidy_dump(pages()->get("title=Christiane Vauzelles")->h_av_duty);
+
+tidy_dump($p=pages()->get("title*=Misterie")); exit;
+//foreach ($p->fields as $f) echo "$f->name: {$p->$f}\n"; exit;
+//tidy_dump(pages()->get("name=h_spot"));exit;
+
+if(1){
+    $k = 1;
+    $pp = [];
+    foreach (pages()->find("template=h_artwork, title=tsubas") as $p){;
+	$pp[$k] = $p;
+	if ($k == 2) {
+	    $pp[1]->h_aw_url  = $pp[2]->h_aw_url;
+	    $pp[1]->h_aw_day0 = $pp[2]->h_aw_day0;
+	    $pp[1]->h_aw_year = $pp[2]->h_aw_year = "1998";
+	    $pp[1]->h_aw_size = $pp[2]->h_aw_size;
+	    $pp[1]->h_aw_price = $pp[2]->h_aw_price;
+	    $pp[1]->h_aw_seller = $pp[2]->h_aw_seller;
+	    $pp[1]->h_aw_person = $pp[2]->h_aw_person;
+	}
+	$k++;
+    }
+    $pp[1]->save();
+    foreach([1,2] as $k) {
+	$p = $pp[$k];
+	tidy_dump($p->title,"----------------------------------- k=$k");
+	echo "id: $p->id\n";
+	foreach ($p->fields as $f) {
+	    //if ($f->name == 'body') continue;
+	    echo trim("$f->name: {$p->$f}")."\n";
+	}
+    }
+     tidy_dump($pp[1],'------------------------------------------------------');
     exit;
 }
-tidy_dump(pages()->get("template=a_collection, title=Non-Leiden collection")); exit;
-tidy_dump(pages()->get("template=h_brand, title=Hermès")); exit;
-$user = Users()->get('yb');
+if(0){
+    foreach (pages()->find("template=h_artwork") as $p){;
+	if (empty($c=trim($p->h_aw_more))) continue;
+	echo "more=$c\n";
+	if (in_array($c,['2','3','G','B'],$c)) {
+	    echo "XXXXXXXXXXXmore=$c\n";
+	    $p->h_aw_more = "";
+	    //$p->save();
+	}
+    }
+    exit;
+}
 
-foreach([5922,5923,5924] as $id) tidy_dump(pages()->get($id)); exit;
+if(0){
+    foreach(pages()->find("parent_id=5843, sort=name") as $p){
+    //foreach(pages()->find("template=h_artwork, sort=name") as $p){
+	echo "id=$p->id $p->parent $p->h_aw_brand $p->name\n";
+    }
+    exit;
+}
+
+if(0){
+    // Reset variations
+    //tidy_dump(pages()->get(5976));
+    //tidy_dump(pages()->find("name^=5976-variations")); exit;
+      $page = pages()->get("title=Brazil");
+    $var = pages()->get("name=brazil-variations1");
+    if (!$var->id) $var = new Page(templates()->get('h_artwork'));
+    $var->title = "Brazil";
+    $var->name = "brazil-variations1";
+    //$var->save();
+    tidy_dump($var,'var');
+    //$page()->save;
+    exit;
+}
+
+if(0){
+    // Comparing initial and carrent R_list.txt
+    $l0 = 'R_list_original.txt';
+    $l9 = 'R_list.txt';
+    $input = $l9;
+    foreach(explode("\n",file_get_contents($input)) as $line) {
+	if (empty(trim($line))) continue;
+	if ($input == $l0) $line = ".$line";
+	$line = preg_replace("/^[0-9 -]*\./", '.',
+			     str_ireplace(['подарок','"',', ', '”', '“','gavroche','bandana','de ','la ','les ',"l'",'?',', ',"l’"],
+					  ['П',      '' , ',', '',  '', 'g',       'b','','','','','',',',''],
+					  strToLower($line)));
+	$l = explode('.', $line);
+	foreach ($l as $k=>$v) $l[$k] = trim($k<3 ? $sanitizer->transliterate($v) : $v);
+	echo trim(join(' . ', $l))."\n";
+    }
+    exit;
+}
+
+if(1){
+    // Set "Photo from Wikimedia"
+    foreach(pages()->find("template=h_artwork") as $p) {
+	if (empty($c=$p->figcaption)) continue; 
+	// f348f1bb-1536-4c20-898e-a15df291e2b7.jpg
+//	if ( preg_match("/\||img|canvas/",          $p->images)) continue;
+//	if ( preg_match("/^201.-/",     $p->images)) continue;
+//	if (!preg_match("/[\w]*-[\w]*/",$p->images)) continue;
+	$p->figcaption = "Photo from Wiki";
+	$p->save();
+	echo "$p->images\n";
+    }
+    exit;
+}
 
 
-//tidy_dump(($b=pages()->get("template=h_artwork, title=Brazil"))->h_aw_variant); exit;
-//tidy_dump(pages()->get("template=h_search"));
+if(0){
+    //tidy_dump(pages()->get("title=Robert Dumas")->h_av_duty);
+    //tidy_dump(pages()->get("title=Christiane Vauzelles")->h_av_duty);
+    tidy_dump(pages()->get("template=a_collections"));
+    if (!($p = pages()->get("template=h_collections"))->id){
+	new Page(templates()->get("h_collections"));
+	$p->title = "Collections";
+	$p->name = "h_collections";
+	$p->status5753 = 1;
+	//$p->save();
+    }
+    tidy_dump($p);
+    exit;
+}
 
-if (0) {
+if(0) {
     if (!($p = new Page(templates()->get("search")))->id) {
 	$p->title = "Search results";
 	$p->name = "search";
@@ -34,18 +139,7 @@ if (0) {
 }
 
 
-if (0) {
-    $root = pages()->get("template=h_artwork, title=Brazil");
-    $var  = pages()->get("template=h_artwork, title=Brazil II");
-    if ($root->id && $var->id) {
-	$root->h_aw_variant->add($var);
-    }
-    //$root->save();
-    tidy_dump($root);
-    exit;
-}
-
-if (0) {
+if(0) {
     function createAdminPage(String $name, String $o) {
 	global $saveToDB;
 	if (empty(($page=pages()->get($name))->id)) {
@@ -113,7 +207,7 @@ if (0) {
     //foreach(users()->find("name^=m|y") as $u) { tidy_dump($u->roles); } exit;
 }
 
-if (0) {
+if(0) {
     foreach(['Верещагина','Кузьминых'] as $n){
 	foreach(pages()->find("title~=$n") as $p) {
 	    echo "---------------------- id=$p->id\n";
@@ -131,14 +225,14 @@ if (0) {
     tidy_dump(pages()->get("title~=Верещагина")); exit;
 }
     
-if (0) {
+if(0) {
     foreach (pages()->find("h_aw_featured=1") as $p) echo "$p->template $p->id $p->name\n"; 
     foreach (pages()->find("a_aw_featured=1") as $p) echo "$p->template $p->id $p->name\n"; 
     foreach (pages()->find("d_aw_featured=1") as $p) echo "$p->template $p->id $p->name\n"; 
     exit;
 }
 
-if (0){
+if(0){
     foreach(pages()->find("template=h_artwork") as $p) {
 	if (empty($p->h_aw_url)) continue;
 	echo "$p->h_aw_url\n";
@@ -146,14 +240,14 @@ if (0){
     exit;
 }
 
-if (0) {
+if(0) {
     $page->nicePictures = pages()->get(5847)->images;
     $pwpswp = $modules->get('MarkupProcesswirePhotoswipe');
     echo str_replace('/site/', '/sh/site/',$pwpswp->renderGallery($page->nicePictures))."\n";
     exit;
 }
 
-if (1) {
+if(0) {
     // Set all the pages to be visible in 2 langs
     $allTP = ['a_artwork',
 	      'a_artworks',
@@ -230,7 +324,7 @@ if(0){
     exit;
 }
 
-if (0) {
+if(0) {
     $f_format = "   %-15s = %s\n";
     foreach(pages()->find("template=h_artwork") as $p) {
 	echo"page::$p->name\n";
@@ -242,8 +336,9 @@ if (0) {
     exit;
 }
 
+if(0){
 //var_dump(pages()->get(5800)->h_aw_url); exit;
-foreach(pages()->fine("template=h_artwork") as $p) {
+foreach(pages()->find("template=h_artwork") as $p) {
     if (empty($p->h_aw_url)) continue;
     if ($p->h_aw_url === "") continue;
     var_dump($p->h_aw_url);
@@ -274,7 +369,9 @@ tidy_dump(pages()->get("template=h_artwork")->h_aw_person); exit;
 print_r(pages()->get("template=h_artwork")->h_aw_brand); exit;
 print_r(pages()->get("template=h_person")->h_av_duty);
 //print_r(fields()->get('h_aw_sizeX')); exit;
-if(1){
+}
+
+if(0){
     foreach (pages()->find("template=h_brand, title^=5") as $p) {
 	echo "{$p->name}\n";
 	//$p->delete();
@@ -307,7 +404,7 @@ if(0){
 }
 
 
-if(1) {
+if(0) {
     echo " *\n";
     printf (($fmt=" *   %-20s %-25s %1s %-10s %-10s\n"),'name','type','derefAsPage','inputfield','inputfieldClass');
     echo " *\n";
@@ -334,7 +431,7 @@ if(0){
 
 
 // Set sizes after move size->h_aw_size
-if (1) {
+if(0) {
     foreach(['90x90' => [5844, 5847, 5849, 5850, 5851, 6024, 6038, 6144], // 90x90
 	     '45x45' => [6147, 6092],                                     // 45x45
 	     '42x42' => [6159]] as $size => $pages) {                     // 42x42
@@ -350,7 +447,7 @@ if (1) {
 }
 
 // Dump old/new size fields
-if(1) {
+if(0) {
     $size    = templates()->get('size');
     $sizes   = templates()->get('sizes');
     $h_size  = templates()->get('h_size');
@@ -405,108 +502,32 @@ if(1) {
 }
 
 
-    /*
-tidy_dump(pages()->get(5844)->h_aw_popularity->value);
-tidy_dump(pages()->get(5850)->h_aw_rarity->value);
-exit;
-*/
-
-/*
-foreach([5844,5850] as $id){
-    echo "============================ id=$id\n";
-    foreach(pages()->get($id) as $pp) {
-	if (!is_object($pp)) continue;
-	foreach($pp as $p) {
- */
-foreach(pages()->find("template=h_artwork") as $p) {	    
-    if (( empty($p->h_aw_popularity) &&  empty($p->h_aw_rarity) &&  empty($p->size) &&  empty($p->h_aw_size)) ||
-	(!count($p->h_aw_popularity) && !count($p->h_aw_rarity) && !count($p->size))) continue;
-    echo sprintf("%4d %-30s %-5s %-5s h_aw_popularity='%s' h_aw_rarity='%s'\n",
-		 $p->id,$p->title, (empty($s=$p->size)?"":$s->last->name), $p->aw_size, $p->h_aw_popularity, $p->h_aw_rarity);
-}
-
-exit;
-
-// size field...
-foreach(pages()->find("template=h_artwork, size=90x90") as $p) {
-    printf("%s\n", $p->title);
-}
-exit;
-
-if (0){
-$p = pages()->get("template=h_artwork");
-$c = 0;
-b_debug::_dbg("--------------------------------------------- ".(++$c));
-setKeyValue($p,'size', '90x90', false);
-b_debug::_dbg("--------------------------------------------- ".(++$c));
-setKeyValue($p,'size', '45x45', true);
-b_debug::_dbg("--------------------------------------------- ".(++$c));
-setKeyValue($p,'size', 'Twilly', false);
-b_debug::_dbg("--------------------------------------------- ".(++$c));
-setKeyValue($p,'size', 'Gavroche', false);
-b_debug::_dbg("--------------------------------------------- ".(++$c));
-setKeyValue($p,'size', 'gavroch', false);
-b_debug::_dbg("--------------------------------------------- ".(++$c));
-
-foreach(pages()->get("template=sizes")->children as $p){
-    echo ">>>>>>>>>>>>>>>>> ".$p->name."\n";
-    echo "                  ".$p->title."\n";
-}
-//tidy_dump(pages()->get("template=sizes")->children->each);
-exit;
-}
-
-foreach([
-    //"template=h_artwork, h_aw_rarity=3",
-    "template=h_artwork, h_aw_rarity=R|1|2",
-    "template=h_artwork, h_aw_rarity%=R 1 2",
-    "template=h_artwork, h_aw_rarity~|=R 1 2",
-    //"template=h_artwork, h_aw_brand=hermes",
-    //"template=h_brand, title=Dior"
-    ] as $selector) {
-echo "----------------------- selector = $selector\n";
-    foreach($pages->find($selector) as $p) {
-//        echo tidy_dump($p);
-	printf("%s = '%s' %s\n", 'h_aw_rarity', $p->h_aw_rarity->title, $p->title); 
+if(0){
+    $p = pages()->get("template=h_artwork");
+    $c = 0;
+    b_debug::_dbg("--------------------------------------------- ".(++$c));
+    setKeyValue($p,'size', '90x90', false);
+    b_debug::_dbg("--------------------------------------------- ".(++$c));
+    setKeyValue($p,'size', '45x45', true);
+    b_debug::_dbg("--------------------------------------------- ".(++$c));
+    setKeyValue($p,'size', 'Twilly', false);
+    b_debug::_dbg("--------------------------------------------- ".(++$c));
+    setKeyValue($p,'size', 'Gavroche', false);
+    b_debug::_dbg("--------------------------------------------- ".(++$c));
+    setKeyValue($p,'size', 'gavroch', false);
+    b_debug::_dbg("--------------------------------------------- ".(++$c));
+    
+    foreach(pages()->get("template=sizes")->children as $p){
+	echo ">>>>>>>>>>>>>>>>> ".$p->name."\n";
+	echo "                  ".$p->title."\n";
     }
-}
-exit;
-$page = $pages->get("template=h_person");
-echo tidy_dump($page->h_av_duty);
-setKeyValue($page, 'h_av_duty', 'Designer', false);
-setKeyValue($page, 'h_av_duty', 'Designer', false);
-setKeyValue($page, 'h_av_duty', 'Unnown', false);
-setKeyValue($page, 'h_av_duty', 'Owner', true);
-echo tidy_dump($page->h_av_duty);
-exit;
-/*
-// Find the option by title OR by value OR by id
-$option = $page->h_av_duty->getOptions()->get("title=Artist");
-echo tidy_dump($option);
-
-if(!$option) {
-    $field = $fields->get('h_av_duty');
-    $option = $field->addOption('Artist'); // creates new option
-    $field->save();
+    //tidy_dump(pages()->get("template=sizes")->children->each);
+    exit;
 }
 
-// Assign the option
-$page->h_av_duty = [$option->id]; // array of option IDs
-echo tidy_dump($p);
 
-exit;
-*/
-#$sizes = pages()->get("template=sizes");
-$p = pages()->get("template=h_artwork");
-echo tidy_dump($p); exit;
-echo tidy_dump($p->size);
-setKeyValue($p, 'size', '40x40', $saveToDB);
-echo tidy_dump($p->size);
-exit;
 
-/* ******************************************************************************************* */
-
-if (0) {
+if(0) {
     $p = pages()->get("name=The Savana Dance");
     echo tidy_dump($p->title);
     echo tidy_dump($p->size);
@@ -517,20 +538,27 @@ if (0) {
 
 /* ******************************************************************************************* */
 
-if (0) {
+if(1){
+    foreach(pages()->find("template=country") as $p) {
+	tidy_dump($p);
+    }
+    exit;
+}
+
+if(1) {
     //echo tidy_dump(pages()->get(6163));
-    foreach (['size','sizes','country','countries'] as $item) {
-	ob_start();
+    //foreach (['size','sizes','country','countries'] as $item) {
+    foreach (['countries'] as $item) {
 
 	if (in_array($item,['sizes','countries'])) echo tidy_dump(pages()->get("template=$item"));
 	
 	$tp = $templates->get($item);
 	echo "template $item\n";
-	echo tidy_dump($tp);
+	//echo tidy_dump($tp);
 	
 	$f  = $fields->get($item);
 	echo "field $item\n";
-	echo tidy_dump($f);
+	//echo tidy_dump($f);
 	
 	foreach(pages()->find("limit=1, template=$item") as $page) {
             echo "page $item $page->name\n";
@@ -541,17 +569,15 @@ if (0) {
             }
             echo tidy_dump($page);
 	}
-	$output = ob_get_clean();
+/*
 	$output = str_replace(['countries','sizes'], 'NAMEs',$output);
 	$output = str_replace(['country',  'size'],  'NAME', $output);
 	$output = str_replace(['Countries',    'Sizes'],'Labels', $output);
 	$output = str_replace(['Country',      'Size'], 'Label', $output);
 	$output = str_replace(['90x90',    'france'],'page', $output);
 	file_put_contents("/tmp/$item.txt", $output);
+*/
     }
-    
-    echo "sdiff -sbB /tmp/size.txt /tmp/country.txt\n";
-    echo "sdiff -sbB /tmp/sizes.txt /tmp/countries.txt\n";
     exit;
 }
 
@@ -592,7 +618,7 @@ exit;
 /* ******************************************************************************************* */
 
 
-if (0) {
+if(0) {
     $items = $fieldtypeOptions->getOptions($field);
     echo tidy_dump($items); exit;
     $field = $fields->get('h_aw_options');

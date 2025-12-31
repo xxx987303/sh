@@ -1,3 +1,6 @@
+#."Cavalcadour".                    d'Origny,Henri .1982/1992/2012.  2
+#2022-05."Plumes".                                     de Linares,Henri .       1953 .G
+#."Cuivreries".            de La Perrière,Françoise.                  1963.   Variant
 # HERMES scarfar(väskor) är en investering,och mycket roligare än aktier!
 #
 #Pribytie     Nazvanie                     Avtor                     Sdelan           Komment Tcena
@@ -8,14 +11,13 @@
  .            Astrologie nouvelle.         Faconnet&Diatkine….       2012.            ES
  2004-03.     Avenue des acacias.          Ledoux,Philippe.          1964
  .            Azuejos.                     Baschet,Catherine.        1992
- 2008-03-06.  Brazil.                      Bourthoumieux,Laurence.   1988/1991.       2
- 2008-03-06.  Brazil.                      Bourthoumieux,Laurence.   1988/1991.       ***
+ 2008-03-06.  Brazil.                      Bourthoumieux,Laurence.   1988/1991
+ .            Brazil.                      Bourthoumieux,Laurence.   1988/1991.       ***
  .            Bride de cour.               de La Perriere,Francoise. 1970/1987
  .            Brides de Gala.              Grygkar,Hugo.             1957/1967/2009
  .            Casse-noisette.              de Jacquelot,Antoine.     1997
- .            Cavalcadour.                 d'Origny,Henri.           1982/1992/2012.  2
- .            Cavalcadour.                 d'Origny,Henri.           1982/1992/2012.  ***
  .            Cavalcadour.                 d'Origny,Henri.           1982/1992/2012.  МaxTwilly
+ .            Cavalcadour.                 d'Origny,Henri.           1982/1992/2012.  ***
  2009-11-09.  Cavaliers peuls.             Fougerolle,Jean.          1993
  .            Charreada.                   Fougerolle,Jean.          1993
  2003-05-04.  Cheval Turc.                 Vauzelles,Christiane.     2003.            П М+A
@@ -24,8 +26,7 @@
  .            Les Coqs.                    La Torre,.                1964
  .            Couvee d'Hermes.             Latham,Caty.              1994
  .            Cuillers d'Afrique.          Latham,Caty.              1997
- .            Cuivreries.                  de La Perriere,Francoise. 1963.            Variant
- .            Eperon d'or.                 d'Origny,Henri.           1974/1989.       2+(1)
+ .            Eperon d'or.                 d'Origny,Henri.           1974/1989.       +(1)
  .            Eperon d'or.                 d'Origny,Henri.           1974/1989.       ***
  2017-05-15.  Equitation japonaise.        de La Perriere,Francoise. 1969
  .            Real Escuela Andaluza….      de Watrigant,Hubert.      1996/2000
@@ -38,8 +39,8 @@
  2018-04-18.  Les Folies Du Ciel.          Dubigeon,Loic.            1984/1990
  .            Gibiers.                     de Linares,Henri.         1966/1991/1997
  2017-10-25.  Grand Cortege a Moscou.      Duchene,Michele.          1992
- 2008-03-12.  Grand manege.                d'Origny,Henri.           1990/1993.       2
- 2008-03-12.  Grand manege.                d'Origny,Henri.           1990/1993.       ***
+ 2008-03-12.  Grand manege.                d'Origny,Henri.           1990/1993
+ .            Grand manege.                d'Origny,Henri.           1990/1993.       ***
  .            Grand tenue.                 d'Origny,Henri.           1985/1998
  .            Grande venerie royale.       Hallo,Charles-Jean.       1957
  .            Hermes-sellier.              Emery,Benoit-Pierre.      2009/2012.       G
@@ -60,6 +61,7 @@
  .            Passementerie.               Heron,Marie-Francoise.    1960/1981
  .            Petits chevaux.              Eudel,Jacques.            1974.            G
  2016-04-30.  Plumes.                      de Linares,Henri.         1953/1964
+ .            Plumes.                      de Linares,Henri.         1953/1964.       ***
  .            Promenade de Longchamp.      Ledoux,Philippe.          1965/1970
  .            Reale.                       Grygkar,Hugo.             1953/1990
  .            Reprise.                     Ledoux,Philippe.          1970/1993
@@ -76,7 +78,7 @@
  .            Tropiques.                   Bourthoumieux,Laurence.   1987/1990
  .            Tuileries.                   Metz,Joachim.             1996
  .            Vive le vent.                Bourthoumieux,Laurence.   1992/1995
- .            Les Voitures a….             de La Perriere,Francoise. 1965/1980.       3
+ .            Les Voitures a….             de La Perriere,Francoise. 1965/1980
  .            Les Voitures a….             de La Perriere,Francoise. 1965/1980.       ***
  .            Les Voitures a….             de La Perriere,Francoise. 1965/1980.       ***
  2019-10-21.  Washington's carriage.       Latham,Caty.              1979/1981
@@ -103,7 +105,6 @@
  2022-02.     Libre comme l'air.           Faivre,Annie.             2003
  2022-03.     Mors a jouets chemise.       d'Origny,Henri.           2019/2021
  2022-04.     Paperoles.                   Stuhlhofer-Mayr,Claudia.  2000.            G
- 2016-04-30.  Plumes.                      de Linares,Henri.         1953.            G
  2022-06.     Face au large.               Jarlegant,Dominik.        2000
  2022-07.     Mega chariot.                Nomura,Daiske.            2022.            G
  2022-07-08.  Ludovicus Magnus.            de La Perriere,Francoise. 1963
@@ -143,10 +144,11 @@
  2025-11-08.  A Vos Crayons.               Cooke,Leigh.              2004
  .            Do Re Boucles.               Manlik,Florence.          .                Twilly
  .            Collies de chiens.           Jamin,Virginie.           .                Twilly
- .            Cuivreries.                  de La Perriere,Francoise. 1963.            Scarf/vintage 2
+ .            Cuivreries.                  de La Perriere,Francoise. 1963.            Scarf/vintage
+ .            Cuivreries.                  de La Perriere,Francoise. 1963.            ***
  .            Cuivreries.                  de La Perriere,Francoise. 1963.            ***
  .            Parade.                      Burton,Jonathan.          .                П Мини Twilly
- .            Les Chemins Secrets.         Henry,Christine.          2015.            def 136/97
+ .            Les Chemins Secrets.         Henry,Christine.          2015.            def 36/97
 
 Transliteration:
    Archives Hermes                           <- Archives Hermès                         

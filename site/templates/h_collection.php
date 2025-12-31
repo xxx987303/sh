@@ -19,4 +19,4 @@ region('content',files()->render('./includes/object-page.php',
 				       'width'  => 300, // Images width
 				       'o'      => 'R', // Picture on the Left or Right side
 				       )).
-       renderObjectList($items,$cols=2,$showPagination=false,$headline=__('Artworks of ')." ".$page->title));
+       renderObjectList($items,$cols=3,$showPagination=false,$headline=__('Artworks of ')." ".$page->title));

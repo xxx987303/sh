@@ -3,30 +3,30 @@ switch ($GLOBALS['SPOT_id']) {
     case  'h':
 ?>
 <div class='uk-panel uk-panel-box uk-panel-box-secondary uk-margin-top uk-margin-bottom'>
-    <h3 class='uk-panel-title'><i class='uk-icon-link'></i>__('Quick Links')</h3>
+    <h3 class='uk-panel-title'><i class='uk-icon-link'></i><?php echo __('Quick Links'); ?></h3>
     <ul class='uk-nav uk-nav-side'>
-	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_rarity=3,4&amp;sort=-h_aw_rarity'>	    
+	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_rarity=3,4&sort=-h_aw_rarity'>	    
 	    <?php echo __('Most rare scarves'); ?>
 	</a></li>
 	
 
-	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_popularity=3,4&amp;sort=-h_aw_popularity'>
+	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_popularity=3,4&sort=-h_aw_popularity'>
 	    <?php echo __('Most popular scarves'); ?>
 	</a></li>
 
-	<li><a href='<?=$GLOBALS['SPOT_search']?>?template=h_artwork&amp;h_aw_price=>1&amp;limit=5&amp;sort=h_aw_price'>
+	<li><a href='<?=$GLOBALS['SPOT_search']?>?template=h_artwork&h_aw_price=@1&limit=5&sort=h_aw_price'>
 	    <?php echo __('Cheapest scarves'); ?>
 	</a></li>
 
-	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_price=>1&amp;limit=5&amp;sort=-h_aw_price'>
+	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_price=@1&limit=5&sort=-h_aw_price'>
 	    <?php echo __('Most expensive scarves'); ?>
 	</a></li>
 
-	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_year=<?php printf("%s-%s",date("Y")-10,date("Y")); ?>'>
+	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_year=<?php printf("%s-%s&sort=-h_aw_year",date("Y")-10,date("Y"))?>'>
 	    <?php echo __('Artworks from the last decade'); ?>
 	</a></li>
 	
-	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_year=1900-1950&amp;sort=H_aw_year'>
+	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_year=1900-1950&sort=h_aw_year'>
 	    <?php echo __('Early artworks'); ?>
 	</a></li>
     </ul>

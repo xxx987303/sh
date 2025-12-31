@@ -144,12 +144,12 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
     // b_debug::_dbg(joinX($summary));
 
     if (($v1=($o instanceof NullPage)) || ($v2=($value instanceof NullPage))) {
-	say::warning("Skip... " . ($v1
+	say::notice("Skip... " . ($v1
 	    ? "Trying to update a NullPage"
 	    : "Trying to assign $keyName=NullPage"));
 	return;
     } elseif (is_object($value)  && $value->id == 0) {
-	say::warning("Trying to assign empty object to $keyArg, skip");
+	say::notice("Trying to assign empty object to $keyArg, skip");
 	return;
     } elseif (empty($keyArg)) {
 	abortIt("??? Empty keyArg");
@@ -267,10 +267,11 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
 	elseif ($type == 'FieldtypePage' && $key->inputfield == 'InputfieldSelect'){
 	    if (setKeyValueDEBUG) say::notice("-- type == FieldtypePage && key->inputfield == 'InputfieldSelect'");
 	    // Check the current value
-	    $now = (string)(is_object($k=$o->$key) ? $k->title : "");
+	    $now = (is_object($k=$o->$key) ? $k->title : "");
 	    if ($now == ($got=$value)) {
                 say::ok($o, $keyName, $value);
 	    } else {
+tidy_dump($o->$key, "value=$value o->{$key}");
 		$o->$key = $createOptionPage($o,
  					     $key,
  					     pages()->get($keyName=='h_aw_size'
@@ -278,6 +279,7 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
  						 : "template={$key->template_id}"),
  					     $value,
  					     $saveToDB);
+		if (empty($o->$key)) abortIt('Empty "$o->'."{$key}\"");
                 if ($saveToDB == true) {
  		    $o->save();
  		    $o->$key->save();

@@ -1,4 +1,3 @@
-# HERMES scarfar(väskor) är en investering,och mycket roligare än aktier!
 2018-09-11."Afrika".                                   Dallet,Robert . 1997
 ."Armes de Paris".                  Grygkar,Hugo .              1954/1992. П Юры
 ."Armes de chasse".                 Ledoux,Philippe.                 1970/1981
@@ -9,8 +8,8 @@
 ."Bride de cour".                   de La Perrière,Françoise    .           1970/1987
 ."Brides de Gala".                  Grygkar,Hugo           .      1957/1967/2009
 ."Casse-noisette".              de Jacquelot,Antoine        .     1997
-."Cavalcadour".                    d'Origny,Henri .1982/1992/2012.  2
-."Cavalcadour" .                   d'Origny,Henri .1982/1992/2012.  МaxTwilly
+#."Cavalcadour".                    d'Origny,Henri .1982/1992/2012.  2
+."Cavalcadour" .                   d'Origny,Henri .1982/1992/2012.  МaxTwilly 2
 2009-11-09."Cavaliers peuls".                Fougerolle,Jean           .       1993
 ."Charreada".                        Fougerolle,Jean.                 1993
 2003-05-04."Cheval Turc".                       Vauzelles,Christiane.   2003. П М+A
@@ -19,7 +18,6 @@
 ."Les Coqs".                                   La Torre.                                  1964
 ."Couvee d'Hermès".              Latham,Caty.                         1994
 ."Cuillers d'Afrique".               Latham,Caty.                          1997
-."Cuivreries".            de La Perrière,Françoise.                  1963.   Variant
 ."Eperon d'or".                         d'Origny,Henri            .       1974/1989.    2+(1)
 2017-05-15."Equitation japonaise".         de La Perrière,Françoise                .1969
 ."Real Escuela Andaluza Del Arte Ecuestre".              de Watrigant,Hubert .        1996/2000
@@ -58,7 +56,7 @@
 ."Reale".                                      Grygkar,Hugo.                    1953/1990
 ."Reprise".                                  Ledoux,Philippe.                1970/1993
 ."Reveries japonaises .               Latham,Caty.                         1991
-."Ritote                .                         Swildens,Karin.                      1978 ......?Ryton
+."Ritote                .                         Swildens,Karin.                      1978
 ."Rose de vents         .                 Metz,Joachim.                    1984/2012
 ."Selles a housse".                      Vauzelles,Christiane.         1968/1989
 ."Splendeur des maharadjas .   Baschet,Catherine.            1996/2001
@@ -100,7 +98,7 @@
 2022-07-08."Ludovicus Magnus".                  de La Perrière,Françoise      .           1963
 2022-09."Peinture fraiche".                     Rybaltchenko,Dimitri  .            2012
 2022-10."Confidents des coeur".          Dubigeon,Loic.            2000 .G
-2022-11.1821 Hommage a L'Amite.            Abadie,Julie                    .   1993. EL
+2022-11.1821 Hommage a L'Amite.            Abadie,Julie                    .   2005. EL
 2022-12."Ferronnerie".                            Latham,Caty.               1970. G
 2022-09-08."Modernisme Tropical.             Jardim,Filipe .                     2016
 2022-14."Circuit FSH 24".                       Emery,Benoît-Pierre.                 2018 . П Мини
@@ -132,12 +130,10 @@
 2025-06."Le sacres d'Hiver".                 Pierre,Marie.                       2022.G
 2025-10-09."The Savana Dance".             Ardmore Artists,.      2016 .G
 2025-11-06. A Vos Crayons. Cooke,Leigh. 2004
-#2025-03-06. hidden title. hidden author,. hidden year....
-#
-#  Extra list
-#
+
 .Do Re Boucles. Manlik,Florence..Twilly
 .Collies de chiens. Jamin,Virginie..Twilly
-.Cuivreries . de La Perrière,Françoise .1963.  Scarf/vintage 2
+.Cuivreries . de La Perrière,Françoise .1963.  Scarf/vintage 3
+#."Cuivreries".            de La Perrière,Françoise.                  1963.   Variant
 .Parade. Burton,Jonathan .. П Мини Twilly
 .Les Chemins Secrets. Henry,Christine .2015 . def 136/97

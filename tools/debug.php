@@ -6,9 +6,12 @@
  * Debugging tools
  */
 
+require_once "/Users/yb/Sites/sh/index.php";
 require_once __dir__.'/functions.php';
 require_once __dir__.'/../site/templates/_debug.php';
 if (!defined('CLI_MODE')) define ('CLI_MODE', true);
+
+$user->language = $languages->getDefault();
 
 /**
  * Initialise internal debug
@@ -297,6 +300,7 @@ class say
    * Show variable load progress
    */
     static function load(Object $p, $key, $expect = '', $now = '', $reply = '', $p_key0 = '', $id = '>> Load') {
+	$maxStrLength = 33;
 	//say::notice(sprintf(__function__."(p=%s, key=%s, expect=%s, now=%s, got=%s)", $p->name, $key, $expect, $now, $reply));
 	
 	/**
@@ -332,7 +336,7 @@ class say
         }
 
 	$f = preg_replace("/_(russian|french|swedish)/", "", $key);
-        $m1 = substr($p->name, 0, 22).(empty($key)?'':'.'.substr($key, 0, 22));
+        $m1 = substr($p->name, 0, $maxStrLength).(empty($key)?'':'.'.substr($key, 0, $maxStrLength));
         $m3 = ($eq($reply, $expect) ? "" : sprintf(" EXPECT %-15s", _formatData($expect, 15)));
         $M = (!is_object($p_key0) ? "" : (($w=tidy_dump($p_key0, 'get_object_name'))==($z=tidy_dump($p->$f, 'get_object_name'))
             ? "" : (empty($p_key0)||empty($p_key0->id) ? $z : " SICK: $w=>$z")));

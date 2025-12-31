@@ -26,30 +26,51 @@ $lookingForBug = false;
  * Include "next" / "previous" page buttons
  */
 function setNextPrev(String $selector, Page &$page) {
-$selector = str_replace('sort=title','sort=name',$selector);
-    $idWas = $page->id;
-    $k = 0;
-    $imagesForNextPrev = [];
-    foreach(pages()->find($selector) as $p) {
-        $imagesForNextPrev[$k++] = $p;
-        if ($p->id == $page->id) { $key = $k-1; } // echo x("pre","set id=$p->id key=$key title=$p->title"); }
+    // echo x("pre",$_SERVER['HTTP_REFERER']);
+    if (empty($np_keys=@$_GET['np_keys'])) {
+	$selector = str_replace('sort=title','sort=name',$selector);
+	// See who requests this page
+	if (preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection))s/([^/]*)/).*;", (string)@$_SERVER['HTTP_REFERER'], $m)) {
+	    $f = str_replace("$m[4]", "aw_{$m[4]}", $m[2]);
+	    if (fields()->get($f)) {
+		$selector = ($f=='h_aw_collection'
+		    ? str_replace('!=5842|6331', "=$m[5]", $selector)
+	            :  $selector . ", $f={$m[5]}");
+	    }else{
+		// echo x("pre style=color:red;font-weight:bold","??? setNextPrev: attempt to select $f={$m[5]}");
+	    }
+	    // tidy_dump($m,$selector);
+	}
+	$idWas = $page->id;
+	$k = 0;
+	$np_pages = [];
+	foreach(pages()->find($selector) as $p) {
+            $np_pages[$k++] = $p->id;
+            if ($p->id == $page->id) { $key = $k-1; } // echo x("pre","set id=$p->id key=$key title=$p->title"); }
+	}
+	$np_keys = join('|', $np_pages);
+    } else {
+	$np_pages = explode('|',$np_keys);
     }
+    //tidy_dump($np_pages);
+    
 
-    //if (isset($_GET['key']) && $page->id != $imagesForNextPrev[$_GET['key']]->id) $page = $imagesForNextPrev[$key=$_GET['key']];
     if (isset($_GET['key'])) {
 	$key = $_GET['key'];
-	if ($page->id != $imagesForNextPrev[$key]->id) $page = $imagesForNextPrev[$key];
+	if ($page->id != ($x=pages()->get($np_pages[$key]))->id) $page = $x;
     }
-    echo x('pre',"$selector $idWas --> $page->id $page->title");    
+    //echo x('pre',"$selector $idWas --> $page->id $page->title");    
     if (!isset($key)) $key = 0;
-    $prev = ($key-1 < 0) ? count($imagesForNextPrev) - 1 : $key - 1; // Loop to end if at start
-    $next = ($key+1 >= count($imagesForNextPrev)) ? 0 : $key + 1;    // Loop to start if at end
+    $prev = ($key-1 < 0) ? count($np_pages) - 1 : $key - 1; // Loop to end if at start
+    $next = ($key+1 >= count($np_pages)) ? 0 : $key + 1;    // Loop to start if at end
 
     region('headline',
 	   $page->title);
     region('next_prev',
-           x("a class='sh-prev' href='?key=$prev'", "&#10094;").
-           x("a class='sh-next' href='?key=$next'", "&#10095;"));
+           (count ($np_pages) > 1
+	       ? x("a class='sh-prev' href='?key=$prev&np_keys=$np_keys'", "&#10094;").
+	         x("a class='sh-next' href='?key=$next&np_keys=$np_keys'", "&#10095;")
+	       : ""));
 }
 
 /**
@@ -102,24 +123,34 @@ function getRandomFeatured($nCols=3, $spot=null) {
  * Show scarf variations, if any
  */
 function getVariations(Page $page) {
-    if ($page->template != 'h_artwork' || !(($variations=$page->h_aw_variant)->count)) return;
+    if ($page->template != 'h_artwork' ||
+	(!($case1=count($variations=pages()->find("name*={$page->name}-variations"))) &&
+	 !($case2=preg_match("/(.*)-variations/", $page->name, $match)))) return;
     
-    // Add the page itself to list of variations
+    if (empty($variations)) $variations = new PageArray();
     $variations->add($page);
+    if (!$case1) {
+	$variations->add(pages()->get($match[1]));
+	foreach(pages()->find("name*={$match[1]}-variations") as $p) $variations->add($p);	    
+    }
+
     $links = "<ul class='variations'>";
     foreach ($variations as $var) {
 	if (!is_object($var)) $var = pages()->get($var);
+	if (!is_object($var)) { echo x("pre","??? ".var_export($var,true)); continue;}
 	$links .= x("li",
 		    x("div class='flex overflow-x-auto items-center md:flex-wrap scrollbar-hide snap-x snap-mandatory'",
 		      x("a href='".$var->url."' class='border-secondary ".
 			"transition-colors pb-2 m-1 bg-base-200 flex items-center overflow-y-hidden ".
 			"aspect-1 basis-28 grow-0 shrink-0 border-b-4 hover:border-secondary'",
-			x("img class='w-full' src='".$var->images->first->url."' alt='Variant'"))));
+			x("img class='w-full' src='".(empty($url=@$var->images->first->url)
+			    ? urls()->templates.'styles/images/photo_placeholder.png'
+			    : $url)."' alt=''"))));
     }
     
-    echo x("hr class='mx-4'").
-	 x("div class='pt-2 pb-4 px-4'",
-	   x("div",x("strong",__("Variations")."(".count($variations).")")) . $links . "</ul>").
+    echo x("div class='pt-2 pb-4 px-4'",
+	   // x("div",x("strong",__("Variations")."(".count($variations).")")) .
+	   $links . "</ul>").
 	 x("hr class='mx-4'");
 }
 
@@ -131,11 +162,11 @@ function getKeyValue(Page $page, Field $field) {
     
     if (empty($value = (string)$page->$field)) return false;
     if (($o=$page->$field) instanceof PageArray) {
-	return (count($o)
-	      ? $o->each(x("a href='$SPOT_search{$field->name}={id}'", "{title}")." <br>") 
-	      : false);
+	return (count($o) ? $o->each(x("a href='$SPOT_search{$field->name}={id}'", "{title}")." <br>") : false);	      
     } elseif (strpos($field->name, '_url') !== false || $field->type == 'FieldtypeURL') {
-	$reply = x("a target='_blank' href='$value'", __("Click to see")." (".__("opens in another window").")");
+	$reply = strpos($value,'href=') === false
+	? x("a target='_blank' href='$value'", __("Click to see")." (".__("opens in another window").")")
+	: $value.__('Click to see').'</a>';
     } elseif ($field->type == 'FieldtypeDatetime') {
         $reply = date("Y-m-d",(int)$value);
     } elseif (strpos($field->name,'price')) {
@@ -144,12 +175,11 @@ function getKeyValue(Page $page, Field $field) {
 	$reply = x("a href=''", $value);
     } elseif (in_array($field->type, ['FieldtypeInteger', 'FieldtypeEmail',   'FieldtypeText',    'FieldtypeTextLanguage',
     				      'FieldtypeTextarea','FieldtypeTextareaLanguage',])) {
-	$reply = x("a href='{$SPOT_search}keywords=$value'", $value);
 	$reply = x("a href='{$SPOT_search}$field->name=$value'", $value);
     } elseif ($e = getEmoji($field->name, $value)) {
 	$reply = $e;
     } elseif ($field->type == 'FieldtypeOptions') {
-	$reply = substr($page->get($field->name)->each(", {title}"),2);
+	$reply = substr($page->get($field->name)->each(", <a href='{$SPOT_search}{$field->name}={value}'>{title}</a>"),2);
     } elseif ($field->type == 'FieldtypePage') {
 	$reply = pages()->get($value)->title;
     } else {
@@ -157,7 +187,7 @@ function getKeyValue(Page $page, Field $field) {
         $reply = $value;
     }
     // Search URL
-    if (strpos($reply, "href=") === false) {
+    if (is_string($reply) && strpos($reply, "href=") === false) {
 	$reply = x("a href='{$SPOT_search}{$field->name}={$value}&sort={$field->name}'",$reply);
     }
     if ($lookingForBug) echo "getKeyValue($page->id,$field->name,$field->type) = $reply<br>";
@@ -344,7 +374,8 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
     
     $selector = (string) $pages->getSelectors();
     //if($selector) $selector = makePrettySelector($selector);
-    
+    $selector = str_replace('sort=sort', 'sort=name', $selector);
+
     $out = files()->render("./includes/{$context}-list.php",
 			   ['context' => $context,
 			    'cols'    => $cols,
@@ -382,6 +413,7 @@ function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
 	$thumb = $imgArg->height(500);
 	$img   = $thumb->url;
     }
+    $description = (($d=$page->figcaption) ? $d : "");
     
     // here's a fun trick, set what gets displayed when value isn't available.
     // the property "unknown" is just something we made up and are setting to the page.
@@ -406,6 +438,7 @@ function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
 			   array('page' => $page,
 				 'XXL'  => ($imgArg !== null),
 				 'img'  => $img,
+				 'description' => $description,
 				 'caption' => empty($caption) ? "" : $caption,
 				 'summary' => summarizeText(strip_tags(empty($b=$page->get('body'))?"":$b), 100)
     ));
@@ -516,9 +549,7 @@ function summarizeText($text, $maxLength = 500) {
  * http://localhost/sh/ru-home/h_spot/h_search/?h_aw_rarity=1
  */
 function getSpotURLs(){
-    global $SPOT_id, $SPOT_url, $SPOT_root, $SPOT_search, $spot_home;
-    global $SITE_input, $site_home;
-    
+    global $SPOT_id, $SPOT_url, $SPOT_root, $SPOT_search, $SITE_input, $spot_home, $site_home;
     if (!isset($spot_home)) {
 	preg_match('/(\?.*)/', $_SERVER['REQUEST_URI'], $url_match);
 	$SITE_input  = (empty($i=@$url_match[0]) ? '' : str_replace('?','',$i));
@@ -528,6 +559,7 @@ function getSpotURLs(){
 	                          ? ['','']
 				  : [substr($url_match[0],1), $url_match[3]]);
 	if (empty($SPOT_id)) $SPOT_id = getInputKey('SPOT_id');
+	if (empty($SPOT_id) && preg_match("/([adh])_spot/", $_SERVER['HTTP_REFERER'], $m)) $SPOT_id = $m[1];
 
 	$site_home   = pages("/");
 	$spot_home   = pages("/$SPOT_url");
@@ -535,8 +567,7 @@ function getSpotURLs(){
 	$SPOT_root   = config('urls')->root . $SPOT_url;
 	$SPOT_search = $SPOT_root . $SPOT_id . "_search/?";
 	$SPOT_search = $site_home->url . "search/?SPOT_id=$SPOT_id&";
-	//echo x('pre',"SPOT_url=$SPOT_url SPOT_id=$SPOT_id SPOT_root=$SPOT_root SPOT_search=$SPOT_search SITE_input='$SITE_input'");
-	//echo x('pre',"SPOT_id=$SPOT_id, site_home=$site_home->url, SITE_input='$SITE_input'");
+	//echo x('pre',"SPOT_id=$SPOT_id, SPOT_root=$SPOT_root, SPOT_url=$SPOT_url,\nsite_home=$site_home->url, spot_home={$spot_home->url}, SPOT_search=$SPOT_search, SITE_input='$SITE_input'");
     }
 }
 	
@@ -742,16 +773,30 @@ function getEmoji($fieldName, String $level, bool $returnImage=false) {
  */
 function masthead(Page $page, Languages $languages, User $user) {
     global $config, $SITE_input, $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home;
+    echo "<!-- ".__function__." -->\n";
+
+    /**
+     * Minimal menu, shown from search page
+     */
+    $getMinimalMenu = function(string $SPOT_id) {
+	global $spot_home, $site_home;
+	if ($spot_home == $site_home) return "";
+	$items = [];
+	foreach(['spot','artworks','persons'] as $tp) {
+	    $class = (empty($items) ? "uk-active" : ""); 
+            $p = pages()->get("template={$SPOT_id}_$tp");
+            $items[] = x("li class='menu-item $class'", x("a href='{$p->url}'", x("h3",$p->title)));
+	}
+	return x("ul class='uk-navbar-nav float_left'",join("\n",$items));
+    };
 ?>
     <div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
 	<div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
 	    <h2 style='float:left;'>
 		<?php
 		//$site_home->set('headline', 'Home');
-		$tmp = [];
 		foreach($page->parents as $k=>$p) {
-		    if ($k==0) continue;
-		    $tmp[] = $p->id;
+		    if ($k==0) { echo region('first_item'); continue; }
 		    echo ($l=x("a href='{$p->url}'", $p->title) . x("i class='uk-icon-angle-right'"));
 		}
 		echo "<!--  region(headline)  -->\n";
@@ -762,11 +807,13 @@ function masthead(Page $page, Languages $languages, User $user) {
 	    <!-- Search and login -->
 	    <ul class='uk-navbar-nav' style='float:right; list-style-type:"";'>
 		<?php
-		require __dir__.'/includes/search_form_short.php';
-		echo (user()->isGuest()
-		    ? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //        .' '.__('Login')))
-		    : (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit'))) : "").
-		      x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout')));
+		if ($spot_home != $site_home) {
+		    require __dir__.'/includes/search_form_short.php';
+		    echo (user()->isGuest()
+			? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //        .' '.__('Login')))
+			: (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit'))) : "").
+			  x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout')));
+		}
 		?>
 	    </ul>
 	</div>
@@ -781,10 +828,16 @@ function masthead(Page $page, Languages $languages, User $user) {
 $root = false;
 $itemCount = 0;
 $items = [];
-$restricted_pages = ['_brands', '_sellers', '_possessions'];
+$restricted_pages = ['_brands',
+		     '_sellers',
+		     '_possessions',
+		     'h_collections'];
 foreach(($SPOT_url
        ? $spot_home->and($spot_home->children)
-       : [$site_home]) as $item) {
+       :  [$site_home]) as $item) {
+    // : (empty($SPOT_id)
+    //	   ? [$site_home]
+    //           : [pages()->get("{$SPOT_id}_spot")])) as $item) {
     if (!$item->viewable()) continue;
     if(!$user->hasPermission('see-full-menu') && preg_match("/".join('|',$restricted_pages).'/', $item->template)) continue;
     if (preg_match(";spot/;",$item->url) && !$SPOT_url)  continue;
@@ -814,9 +867,11 @@ foreach(($SPOT_url
 		? 130
 	        : 100 * $itemCount)));
     $items[$position] = x("li class='menu-item $class'", x("a href='$item->url'", x("h3",$item->title)));
+    echo "<!-- /".__function__." -->\n";
 }
 ksort($items);
-foreach($items as $k=>$v) echo $v;
+if (count($items) > 1) foreach($items as $k=>$v) echo $v;
+else       echo $getMinimalMenu($SPOT_id);
 //echo x("li class='menu-item menu-item-type-post_type menu-item-object-page'",x("a href=https://carredeparis.me/", x("h3",'CdP')));
 ?>
 		</ul>

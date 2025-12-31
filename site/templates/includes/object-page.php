@@ -38,6 +38,7 @@ if (!function_exists('ProcessWire\o_p_images')) {
 	    if($nImages = (empty($images=$p->get('images')) ? 0 : count($images))) {
 		$imageCount = 0;
 		foreach($images as $image){
+		    if (!$imageCount && ($t=$page->figcaption)) $image->description = $t;
 		    $thumb = $image->width($imageCount ? $width : 150); // $width/$nImages
 		    if ($imageCount == 1) echo "<ul class='horizontal'>";
 		    if ($imageCount >= 1) echo "<li style='max-width:150px; max-height:150px'>";
@@ -45,7 +46,7 @@ if (!function_exists('ProcessWire\o_p_images')) {
 			   x("a href='$image->url' data-uk-lightbox=\"{group:'photos'}\"",
 			     x("img src='$thumb->url' alt='$image->description'")).
 			   ($image->description ? x("div class='caption uk-text-small uk-text-muted'",
-						    x("span",$image->description)) : ""));
+						    x("span style=font-size:x-large",$image->description)) : ""));
 		    echo "</li>";
 		    $imageCount++;
 		    if (count($pages)) break;
@@ -104,6 +105,7 @@ if (!function_exists('ProcessWire\o_p_text')) {
     }
 }
 
+if (empty($related)) $related = new PageArray();
 echo "<div class='uk-grid uk-grid-medium'>\n";
 if ($o == 'L'){ o_p_images(c1, $page, $pages, $width); o_p_text  (c2, $page, $related);  }
 else          { o_p_text  (c2, $page, $related);       o_p_images(c1, $page, $pages, $width); }
