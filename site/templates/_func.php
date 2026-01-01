@@ -26,7 +26,6 @@ $lookingForBug = false;
  * Include "next" / "previous" page buttons
  */
 function setNextPrev(String $selector, Page &$page) {
-    // echo x("pre",$_SERVER['HTTP_REFERER']);
     if (empty($np_keys=@$_GET['np_keys'])) {
 	$selector = str_replace('sort=title','sort=name',$selector);
 	// See who requests this page
@@ -559,7 +558,7 @@ function getSpotURLs(){
 	                          ? ['','']
 				  : [substr($url_match[0],1), $url_match[3]]);
 	if (empty($SPOT_id)) $SPOT_id = getInputKey('SPOT_id');
-	if (empty($SPOT_id) && preg_match("/([adh])_spot/", $_SERVER['HTTP_REFERER'], $m)) $SPOT_id = $m[1];
+	if (empty($SPOT_id) && preg_match("/([adh])_spot/", (string)@$_SERVER['HTTP_REFERER'], $m)) $SPOT_id = $m[1];
 
 	$site_home   = pages("/");
 	$spot_home   = pages("/$SPOT_url");
