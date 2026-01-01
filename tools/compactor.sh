@@ -45,6 +45,11 @@ for parentDir in $(ls -1 $R); do
 	    [ -n "$dryRun" ] && echo "  --dir  $item"
 	elif [[ -h "$item" ]]; then
 	    [ -n "$dryRun" ] && echo "  --link $item"
+	    [ -a $item ] ||  {
+		# echo "  --empty link $item"
+		echo -n "  --drop link " ;
+		rm -vf $item
+	    }
 	elif [[ -f "$item" ]]; then
 	    [ -n "$(file "$item" 2>&1| grep JSON)" ] && continue
 	    [ -n "$(file "$item" 2>&1| grep image)" ] && {
