@@ -8,12 +8,40 @@ require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
 
-$p=pages()->get(6313);
-$p->title = '?';
-$p->save();
-tidy_dump($p);
-exit;
-tidy_dump($p=pages()->get("title*=Misterie")); exit;
+if(1){
+    foreach(['*','~','^'] as $op) {
+	$s = "name$op=plumes-variations";
+	$s = "title$op=1821";
+	$s = "title$op=Hommage a l'Amitié";
+	tidy_dump(pages()->get($s)->title,"operation: $s");
+    }
+    exit;
+}
+
+if(1){
+    foreach (pages()->find("template=h_artwork, name*=variation|voyage|bolduc, sort=name") as $p){;
+	echo "$p->name \n";
+    }
+    //tidy_dump(pages()->get('voyage-en-etoffes'));
+    $name = "bolduc-au-carre-variations1"; 
+    if (!($page = pages()->get($name))->id) {
+	$page = new Page(templates()->get('h_artwork'));
+	$page->name = $name;
+	$page->save();
+    } else {
+	$page->parent = '/h_spot/h_artworks/';
+    }
+    $donor = pages()->get('voyage-en-etoffes');
+    foreach ($donor->fields as $f) {
+	if (!in_array($f->name, ['name','parent'])) $page->$f = str_replace('voyage-en-etoffes',$name,$donor->$f);
+    }
+    $page->title = "Bolduc au carre";
+    $page->save();
+    tidy_dump($page);
+    exit;
+}
+
+tidy_dump($p=pages()->get("title*=Perspective")); exit;
 //foreach ($p->fields as $f) echo "$f->name: {$p->$f}\n"; exit;
 //tidy_dump(pages()->get("name=h_spot"));exit;
 

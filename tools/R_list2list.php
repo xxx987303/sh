@@ -9,8 +9,8 @@
 require_once __dir__ . '/debug.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
-$TRUNCATE = true;
-$SHOW_TIDY_R_LIST = true;
+$TRUNCATE = false;
+$SHOW_TIDY_R_LIST = false;
 $SHOW_AUTHORS = false;
 if (!$SHOW_TIDY_R_LIST) $SHOW_AUTHORS = false;
 

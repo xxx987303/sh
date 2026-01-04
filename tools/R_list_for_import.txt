@@ -1,3 +1,6 @@
+#."Cavalcadour".                    d'Origny,Henri .1982/1992/2012.  2
+#2022-05."Plumes".                                     de Linares,Henri .       1953 .G
+#."Cuivreries".            de La Perrière,Françoise.                  1963.   Variant
 # day0, carreTitle, ln, fn, year, cmt, price, size, www
 2018-09-11,Afrika,Dallet,Robert,1997
 ,Armes de Paris,Grygkar,Hugo,1954/1992,П Юры
@@ -5,12 +8,13 @@
 ,Astrologie nouvelle,Faconnet&Diatkine,Marie-Françoise&Cyrille,2012,ES
 2004-03,Avenue des acacias,Ledoux,Philippe,1964
 ,Azuejos,Baschet,Catherine,1992
-2008-03-06,Brazil,Bourthoumieux,Laurence,1988/1991,2
+2008-03-06,Brazil,Bourthoumieux,Laurence,1988/1991
+,Brazil,Bourthoumieux,Laurence,1988/1991,***
 ,Bride de cour,de La Perrière,Françoise,1970/1987
 ,Brides de Gala,Grygkar,Hugo,1957/1967/2009
 ,Casse-noisette,de Jacquelot,Antoine,1997
-,Cavalcadour,d'Origny,Henri,1982/1992/2012,2
 ,Cavalcadour,d'Origny,Henri,1982/1992/2012,МaxTwilly
+,Cavalcadour,d'Origny,Henri,1982/1992/2012,***
 2009-11-09,Cavaliers peuls,Fougerolle,Jean,1993
 ,Charreada,Fougerolle,Jean,1993
 2003-05-04,Cheval Turc,Vauzelles,Christiane,2003,П М+A
@@ -19,8 +23,8 @@
 ,Les Coqs,La Torre,,1964
 ,Couvee d'Hermès,Latham,Caty,1994
 ,Cuillers d'Afrique,Latham,Caty,1997
-,Cuivreries,de La Perrière,Françoise,1963,Variant
-,Eperon d'or,d'Origny,Henri,1974/1989,2+(1)
+,Eperon d'or,d'Origny,Henri,1974/1989,+(1)
+,Eperon d'or,d'Origny,Henri,1974/1989,***
 2017-05-15,Equitation japonaise,de La Perrière,Françoise,1969
 ,Real Escuela Andaluza Del Arte Ecuestre,de Watrigant,Hubert,1996/2000
 2012-09-28,Etriers,de La Perrière,Françoise,1964/1990
@@ -31,8 +35,9 @@
 2009-11-09,La Flore,Ledoux,Philippe,1967
 2018-04-18,Les Folies Du Ciel,Dubigeon,Loic,1984/1990
 ,Gibiers,de Linares,Henri,1966/1991/1997
-2017-10-25,Grand Cortège a Moscou,Duchêne,Michèle,1992
-2008-03-12,Grand manege,d'Origny,Henri,1990/1993,2
+2017-10-25,Grand Cortège a Moscou,Duchêne,Michel,1992
+2008-03-12,Grand manege,d'Origny,Henri,1990/1993
+,Grand manege,d'Origny,Henri,1990/1993,***
 ,Grand tenue,d'Origny,Henri,1985/1998
 ,Grande venerie royale,Hallo,Charles-Jean,1957
 ,Hermès-sellier,Emery,Benoît-Pierre,2009/2012,G
@@ -46,18 +51,19 @@
 ,Monsieur et Madame ll,Barret&Dallet,Bali&Robert,2013,Aне
 ,Mors a la conetable,d'Origny,Henri,1970/1985
 2012-11-01,Mozart,Abadie,Julie,1991
-2005-05-05,Les Muzerolles,Vauzelles,Christiane,1986
+2005-05-05,Les Muserolles,Vauzelles,Christiane,1986
 ,Napoleon,Ledoux,Philippe,1963/1985
 ,Palefroi,de La Perrière,Françoise,1965/1983
 2017-05-05,Parures de Samouraïs,Honore,Aline,2017
 ,Passementerie,Héron,Marie-Françoise,1960/1981
 ,Petits chevaux,Eudel,Jacques,1974,G
 2016-04-30,Plumes,de Linares,Henri,1953/1964
+,Plumes,de Linares,Henri,1953/1964,***
 ,Promenade de Longchamp,Ledoux,Philippe,1965/1970
 ,Reale,Grygkar,Hugo,1953/1990
 ,Reprise,Ledoux,Philippe,1970/1993
 ,Reveries japonaises,Latham,Caty,1991
-2019-10-21,Ritote,Swildens,Karin,1978
+2019-10-21,Rhytons,Swildens,Karin,1978
 ,Rose de vents,Metz,Joachim,1984/2012
 ,Selles a housse,Vauzelles,Christiane,1968/1989
 ,Splendeur des maharadjas,Baschet,Catherine,1996/2001
@@ -69,7 +75,9 @@
 ,Tropiques,Bourthoumieux,Laurence,1987/1990
 ,Tuileries,Metz,Joachim,1996
 ,Vive le vent,Bourthoumieux,Laurence,1992/1995
-,Les Voitures a Transformation,de La Perrière,Françoise,1965/1980,3
+,Les Voitures a Transformation,de La Perrière,Françoise,1965/1980
+,Les Voitures a Transformation,de La Perrière,Françoise,1965/1980,***
+,Les Voitures a Transformation,de La Perrière,Françoise,1965/1980,***
 2019-10-21,Washington's carriage,Latham,Caty,1979/1981
 ,Zabavushka,Miro,Evgenia,2009,Sold
 2020-01-17,Le saut H,Diatkine,Cyrille,2016
@@ -82,7 +90,7 @@
 2021-05-04,Art des steppes,Faivre,Annie,1991/1997/2000
 ,Le Carnaval de Venise,de Watrigant,Hubert,1993/1997
 ,Jeu de Omnibus et DameBlanche,Pagni,Gianpaolo,2018,Remix
-,Jardins des métamorphoses,Houtin,François,2010
+2021-07-22,Jardins des métamorphoses,Houtin,François,2010
 2021-08-20,India,Latham,Caty,1986
 2021-09-11,Alliances du monde,Faivre,Annie,2005
 2021-10-09,Regina,Menchari,Leila,1972
@@ -94,13 +102,12 @@
 2022-02,Libre comme l'air,Faivre,Annie,2003
 2022-03,Mors a jouets chemise,d'Origny,Henri,2019/2021
 2022-04,Paperoles,Stuhlhofer-Mayr,Claudia,2000,G
-2016-04-30,Plumes,de Linares,Henri,1953,G
 2022-06,Face au large,Jarlegant,Dominik,2000
 2022-07,Mega chariot,Nomura,Daiske,2022,G
 2022-07-08,Ludovicus Magnus,de La Perrière,Françoise,1963
 2022-09,Peinture fraiche,Rybaltchenko,Dimitri,2012
 2022-10,Confidents des coeur,Dubigeon,Loic,2000,G
-2022-11,1821 Hommage a L'Amite,Abadie,Julie,1993,EL
+2022-11,1821 Hommage a L'Amitie,Abadie,Julie,2005,EL
 2022-12,Ferronnerie,Latham,Caty,1970,G
 2022-09-09,Modernisme Tropical,Jardim,Filipe,2016
 2022-14,Circuit FSH 24,Emery,Benoît-Pierre,2018,П Мини
@@ -113,20 +120,20 @@
 2023-05,Fleurs et Carlines,Rybaltchenko,Vladimir,1985,П Юры
 2023-06,Chiens et Valets,Hallo,Charles-Jean,1965
 2023-08-14,Sous Le Cèdre,Rybaltchenko,Dimitri,1998
-2023-08,Tsubas,Vauzelles,Christiane,1998,G
+2023-09-18,Tsubas,Vauzelles,Christiane,1998,G
 2023-11-16,A Propos de Bottes,de Poret,Xavier,2008,G
-2023-12-02,Feux d'Artifice,Duchêne,Michèle,1987,ES
+2023-12-02,Feux d'Artifice,Duchêne,Michèl,1987,ES
 2024-01-04,Tresors du Nil,Metz,Joachim,2003
 2024-02-16,Rencontre oceane,Faivre,Annie,2001
 2024-03,Chorus stellarium,Nomura,Daiske,2024,B
 2024-05-26,Les Courses,Benoist Gironiere,Yves,2004/2013
-2024-06-01,Braselets de Lumiere,Faivre,Annie,2018
+2024-06-01,Bracelets De Lumiere,Faivre,Annie,2018
 2024-06-15,Quadrige,Peron,Pierre,2019
 2024-07-22,En Liberte,Brancowitz,Carine,2020
 2024-11-09,Brazil II,Bourthoumieux,Laurence,2015
 2025-01-07,Casques et Plumets,Abadie,Julie,1989
 2025-03-07,Flots Fleurs et Frontaux,Jamin,Virginie,2017
-2025-03,Les Perles de Tourkana,Alamin,Sefedin Ibrahim,2002
+2025-03,Les Perles de Tourkana,Sefedin,Alamia Ibrahim,2002
 2025-04,Proues,Ledoux,Philippe,1973
 2025-05,Sangles,Metz,Joachim,1984,G
 2025-06,Le sacres d'Hiver,Pierre,Marie,2022,G
@@ -134,6 +141,8 @@
 2025-11-08,A Vos Crayons,Cooke,Leigh,2004
 ,Do Re Boucles,Manlik,Florence,,Twilly
 ,Collies de chiens,Jamin,Virginie,,Twilly
-,Cuivreries,de La Perrière,Françoise,1963,Scarf/vintage 2
+,Cuivreries,de La Perrière,Françoise,1963,Scarf/vintage
+,Cuivreries,de La Perrière,Françoise,1963,***
+,Cuivreries,de La Perrière,Françoise,1963,***
 ,Parade,Burton,Jonathan,,П Мини Twilly
-,Les Chemins Secrets,Henry,Christine,2015,def 136/97
+,Les Chemins Secrets,Henry,Christine,2015,def 36/97

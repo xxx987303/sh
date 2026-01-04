@@ -17,13 +17,13 @@ SEK 1725
 2024-02-20
 421539
 
-2023-09-18 	1564 9460
-https://www.metropol.se/auctions/detail.asp?og={9421ADB5-1605-4F6A-9C27-EF745DE6D959}
-Pochette Hermès, 42x42 cm
-SEK 600
-SEK 850
-2023-09-19
-415865
+#2023-09-18 	1564 9460
+#https://www.metropol.se/auctions/detail.asp?og={9421ADB5-1605-4F6A-9C27-EF745DE6D959}
+#Pochette Hermès, 42x42 cm
+#SEK 600
+#SEK 850
+#2023-09-19
+#415865
 
 2023-08-14 	1555 4268
 https://www.metropol.se/auctions/detail.asp?og={14E976BF-1214-402E-9ED4-2E5498C2B7AC}

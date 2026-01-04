@@ -12,7 +12,7 @@ cmt: G
 Köpt: 2025-10-10
 
 https://www.kaplans.se/en/auktioner/4521/vara/2030702
-SCARF,HERMÈS,Flots Fleurs et Frontaux,Faivre,Annie,100% silk,90x90 cm
+SCARF,HERMÈS,Flots Fleurs et Frontaux,Jamin,Virginie,100% silk,90x90 cm
 Betalt: 1 970 kr
 year:2004
 Köpt: 2025-03-07
@@ -91,7 +91,7 @@ year:2008
 Köpt: 2021-08-20
 
 https://www.kaplans.se/en/auktioner/3923/vara/1761308
-SCARF,HERMÈS,Jardins des metamorphose,Houtin,François,100% silk
+SCARF,HERMÈS,Jardins des metamorphoses,Houtin,François,100% silk
 Betalt: 1 610 kr
 year:
 Köpt: 2021-07-22

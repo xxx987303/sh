@@ -1,4 +1,4 @@
 # day0,carreTitle,lastname,firstname,year,cmt,price,size,www,base,seller
 2024-02-16,Rencontre Océane,Faivre,Annie,2001,,1600,,https://auctionet.com/en/my/won/3320082-hermes-scarf-rencontre-oceane-siden-designad-av-annie-faivre-2001-motiv-med-fiskar-och-havsanemone-i-rott-mot-ockragul-botten-etikettmarkt-made-in-france-ask-medfoljer,,5832
-2023-12-02,Feux d'artifice,Duchene,Michele,,,1243,,https://auctionet.com/en/my/won/3095781-hermes-feux-d-artifice-scarf-siden-design-michel-duchene-markt-med-designernamn,,5832
+2023-12-02,Feux d'artifice,Duchene,Michel,,,1243,,https://auctionet.com/en/my/won/3095781-hermes-feux-d-artifice-scarf-siden-design-michel-duchene-markt-med-designernamn,,5832
 2023-11-16,A Propos de Bottes,de Poret,Xavier,,,1501,,https://auctionet.com/en/my/won/3152053-nasduk-hermes-a-prapos-de-bottes-orange-botten-siden-med-ask,,5832

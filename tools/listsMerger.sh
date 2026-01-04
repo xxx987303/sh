@@ -1,5 +1,7 @@
 #! /bin/bash
 
+[ -f All_for_import.txt ] && mv -vf All_for_import.txt All_for_import.txt.sv
+
 php R_list2list.php       > R_list_for_import.txt
 php Buk2list.php          > Buk_for_import.txt
 php Kaplans2list.php      > Kaplans_for_import.txt
@@ -10,9 +12,9 @@ cat \
     Auctionet_for_import.txt \
     Buk_for_import.txt \
     Metropol_for_import.txt \
-    Kaplans_for_import.txt | sort -t, -k2 > t
+    Kaplans_for_import.txt | sort -t, -k2 > All_for_import.tmp
 
-[ -f All_for_import.txt ] && mv -f All_for_import.txt All_for_import.txt.sv
+php All2list.php All_for_import.tmp>t 2>All2list.log
 sdiff -sbB t All_for_import.txt.sv
 
 echo ""

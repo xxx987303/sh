@@ -46,7 +46,6 @@ for parentDir in $(ls -1 $R); do
 	elif [[ -h "$item" ]]; then
 	    [ -n "$dryRun" ] && echo "  --link $item"
 	    [ -a $item ] ||  {
-		# echo "  --empty link $item"
 		echo -n "  --drop link " ;
 		rm -vf $item
 	    }
@@ -82,8 +81,9 @@ for parentDir in $(ls -1 $R); do
 		    echo -n
 		else
 		    # Remove the file to save space, replace it by a link
-		    [ -n "$dryRun" ] && { echo; echo "    cd $R/$parentDir && rm -vf $item && ln -svf $root $item";
-		    } ||                                { cd $R/$parentDir && rm -vf $item && ln -svf $root $item; }
+		    [ -n "$dryRun" ] &&
+			{ echo; echo "    cd $R/$parentDir && rm -vf $item && ln -svf $root $item";
+			} ||            { cd $R/$parentDir && rm -vf $item && ln -svf $root $item; }
 		fi
 	    }
 	else

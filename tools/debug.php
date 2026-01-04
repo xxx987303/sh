@@ -6,7 +6,7 @@
  * Debugging tools
  */
 
-require_once "/Users/yb/Sites/sh/index.php";
+require_once __dir__."/../../../Sites/sh/index.php";
 require_once __dir__.'/functions.php';
 require_once __dir__.'/../site/templates/_debug.php';
 if (!defined('CLI_MODE')) define ('CLI_MODE', true);
