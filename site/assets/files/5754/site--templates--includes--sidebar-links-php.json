@@ -1,0 +1,27 @@
+{
+    "file": "site\/templates\/includes\/sidebar-links.php",
+    "textdomain": "site--templates--includes--sidebar-links-php",
+    "translations": {
+        "f0fb2ced8aa0654a5f2ba7902d8883df": {
+            "text": "Liens rapides"
+        },
+        "6b8aed34b0f005a4850af53da2c6b9a4": {
+            "text": "Les carres les plus rares"
+        },
+        "6954181af7efb1aa3bdc1840be5856a2": {
+            "text": "Les carres les plus populaires"
+        },
+        "76d90a3c3ee9e16299ff19bd4abb46ad": {
+            "text": "Bon achat"
+        },
+        "6d72b1c748bfc9902204b4a485f4628d": {
+            "text": "Achats co\u00fbteux"
+        },
+        "163be646ff97f91d3aa767d1d02f62d2": {
+            "text": "Carres de la derni\u00e8re d\u00e9cennie"
+        },
+        "9c06acf647891a165ea89bbe2371d4d2": {
+            "text": "Premiers num\u00e9ros"
+        }
+    }
+}

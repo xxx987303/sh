@@ -1,0 +1,33 @@
+{
+    "file": "site\/templates\/_func.php",
+    "textdomain": "site--templates--_func-php",
+    "translations": {
+        "a4374740662193b987e63eb5b727c994": {
+            "text": "Variations"
+        },
+        "4f9fe1fc2a2362e92526480918e23e2d": {
+            "text": "Cliquez pour voir"
+        },
+        "77fa9d8072d8c5fedd8758040802f00b": {
+            "text": "Aucune donn\u00e9e pour l'\u00e9tiquette"
+        },
+        "99dea78007133396a7b8ed70578ac6ae": {
+            "text": "Se connecter"
+        },
+        "7dce122004969d56ae2e0245cb754d35": {
+            "text": "Modifier"
+        },
+        "0323de4f66a1700e2173e9bcdce02715": {
+            "text": "D\u00e9connexion"
+        },
+        "3396c3554186e12eaeff928963920d63": {
+            "text": "Recherche:"
+        },
+        "6f9fc985da145fcdd180f254dd161c57": {
+            "text": "Recherche"
+        },
+        "2c889b7622e6ed4e56a1414ac333c814": {
+            "text": "Recherche"
+        }
+    }
+}

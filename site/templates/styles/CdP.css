@@ -11,8 +11,17 @@ html, body, h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
 }
 
+
+.uk-active {
+/*
+  background-color: #fafafa;
+  color:#f37021 !important; */
+  font-weight: bold;
+}
+
 .menu-item { /* li */
     font-size: larger;
+    color: #f37021; 
     float: left;
 }
 
@@ -27,8 +36,4 @@ html, body, h1, h2, h3, h4, h5, h6 {
 /* li a:hover */
 .menu-item a:hover {
     background-color: #cccccc;
-}
-.uk-active {
-    background-color: red !important;
-/*    background-color: #fcfcfc !important; */
 }

@@ -12,6 +12,6 @@ region('content',files()->render('./includes/object-page.php',
 				       'width'  => 300, // Images width
 				       )).
        renderObjectList(findObjects("a_aw_person=$page",'a_artwork'),
-			$cols=2,
+			$cols=3,
 			$showPagination=false,
 			$headline=__('Artworks of ')." ".$page->title));

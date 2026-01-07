@@ -8,7 +8,15 @@ require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
 
-if(1){
+if(0){
+    foreach(pages()->find("h_aw_options=ES|EL|Remix|Sold, sort=h_aw_options") as $p)
+	tidy_dump($p->images);
+	echo "{$p->h_aw_options->value} {$p->title} \n";
+    exit;
+}
+
+
+if(0){
     foreach(['*','~','^'] as $op) {
 	$s = "name$op=plumes-variations";
 	$s = "title$op=1821";
@@ -18,7 +26,7 @@ if(1){
     exit;
 }
 
-if(1){
+if(0){
     foreach (pages()->find("template=h_artwork, name*=variation|voyage|bolduc, sort=name") as $p){;
 	echo "$p->name \n";
     }
@@ -41,11 +49,7 @@ if(1){
     exit;
 }
 
-tidy_dump($p=pages()->get("title*=Perspective")); exit;
-//foreach ($p->fields as $f) echo "$f->name: {$p->$f}\n"; exit;
-//tidy_dump(pages()->get("name=h_spot"));exit;
-
-if(1){
+if(0){
     $k = 1;
     $pp = [];
     foreach (pages()->find("template=h_artwork, title=tsubas") as $p){;
@@ -129,7 +133,7 @@ if(0){
     exit;
 }
 
-if(1){
+if(0){
     // Set "Photo from Wikimedia"
     foreach(pages()->find("template=h_artwork") as $p) {
 	if (empty($c=$p->figcaption)) continue; 
@@ -280,8 +284,8 @@ if(0) {
     exit;
 }
 
-if(0) {
-    // Set all the pages to be visible in 2 langs
+if(1) {
+    // Set all the pages to be visible in minimum langs
     $allTP = ['a_artwork',
 	      'a_artworks',
 	      'a_collection',
@@ -330,7 +334,8 @@ if(0) {
 	    echo "id={$p->id} {$p->name}\n";
 	    foreach($languages as $lang) {
 		if($lang->isDefault()) continue;
-		$status = in_array($lang->name, ['french','swedish']) ? 0 : 1;
+	      //$status = in_array($lang->name, ['french','swedish']) ? 0 : 1;
+		$status = in_array($lang->name, ['swedish']) ? 0 : 1;
 		$p->set("status$lang", $status);
 		$p->save();
 	    }
@@ -569,9 +574,7 @@ if(0) {
     exit;
 }
 
-/* ******************************************************************************************* */
-
-if(1){
+if(0){
     foreach(pages()->find("template=country") as $p) {
 	tidy_dump($p);
     }

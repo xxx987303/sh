@@ -1,4 +1,5 @@
 <?php namespace ProcessWire;
+__('Search Summary');
 /*
 if(count($items)){
   echo "<div class='uk-alert'>\n" . __('Search Summary'); 

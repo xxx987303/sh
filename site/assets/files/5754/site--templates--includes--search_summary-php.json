@@ -1,0 +1,9 @@
+{
+    "file": "site\/templates\/includes\/search_summary.php",
+    "textdomain": "site--templates--includes--search_summary-php",
+    "translations": {
+        "451983be11a1cbd9e8bf35a5a443a29c": {
+            "text": "R\u00e9sum\u00e9 de la recherche"
+        }
+    }
+}

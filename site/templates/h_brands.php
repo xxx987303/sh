@@ -4,6 +4,9 @@
  */
 
 region('content',
-       x("div class='rounded-area'", page()->body).
-       renderObjectList(findObjects('','h_brand'),3,false));
+       //x("div class='rounded-area'", page()->body).
+       renderObjectList($page->children,
+                        $cols=3,
+                        ($page->numCildren>20),
+                        __('Brands')));
 

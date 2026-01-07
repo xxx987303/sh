@@ -127,7 +127,7 @@ if (!function_exists('ProcessWire\shortText')){
 	if ($lastPos) {
             $summary = substr($summary, 0, $lastPos + 1); // and truncate to last sentence
 	}
-	return trim($summary).'...';
+	return trim($summary).'…';
 	return trim($summary);
     }
 }

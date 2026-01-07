@@ -134,14 +134,14 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
     list($key,$keyName) = $keys;
 
     // *   name type derefAsPage inputfield inputfieldClass
-    $summary = ['key' => $keyName];
-    $summary['value'] = $value;
-    $summary['type']             = ($type = (string) $key->type);
-    $summary['inputfield']       = ($inputfield      = (string) $key->inputfield);
-    $summary['inputfieldClass']  = ($inputfieldClass = (string) $key->inputfieldClass);
-    $summary['derefAsPage'] = (!empty($derefAsPage=$key->derefAsPage) && $derefAsPage !== 0) ? $derefAsPage : "";
+    $description = ['key' => $keyName];
+    $description['value'] = $value;
+    $description['type']             = ($type = (string) $key->type);
+    $description['inputfield']       = ($inputfield      = (string) $key->inputfield);
+    $description['inputfieldClass']  = ($inputfieldClass = (string) $key->inputfieldClass);
+    $description['derefAsPage'] = (!empty($derefAsPage=$key->derefAsPage) && $derefAsPage !== 0) ? $derefAsPage : "";
 
-    // b_debug::_dbg(joinX($summary));
+    // b_debug::_dbg(joinX($description));
 
     if (($v1=($o instanceof NullPage)) || ($v2=($value instanceof NullPage))) {
 	say::notice("Skip... " . ($v1
@@ -221,7 +221,7 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
 
     } // Page =========================================================================================================
     elseif ($o instanceof Page) {
-	if (setKeyValueDEBUG) say::notice('-- instanceof Page '.joinX($summary));
+	if (setKeyValueDEBUG) say::notice('-- instanceof Page '.joinX($description));
         $o->of(false);
 
 	if (in_array($type, ['FieldtypeInteger',
@@ -259,7 +259,7 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
  		    say::load($o, $o->$key, $value, ($now=""), ($got=(string)$value->title));
  		}
 	    } else {
- 		say::notice('.Not yet ready... '.joinX($summary));
+ 		say::notice('.Not yet ready... '.joinX($description));
 	    }
 
 	}
@@ -333,12 +333,12 @@ tidy_dump($o->$key, "value=$value o->{$key}");
  		}
 	    } elseif ($inputfieldClass == 'InputfieldSelect') {
  		if (setKeyValueDEBUG) say::notice('inputfieldClass = InputfieldSelect');
- 		// say::notice("OHO ".joinX($summary));
+ 		// say::notice("OHO ".joinX($description));
  		$o->$key = $optOK;
  		say::load($o, $key, $optOK, ($now=""), ($got = $o->$key->title), $o->$key);
 	    }
 	} else {
-	    say::error("..Not yet ready... ".joinX($summary));
+	    say::error("..Not yet ready... ".joinX($description));
 	    $got = $now = $value = "Not yet ready";
 	}
     } else {

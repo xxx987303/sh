@@ -10,6 +10,5 @@ include("./browse.php");
  */
 
 region('content',
-       //renderObjectList(findObjects('','person'), $cols=2,false,__('Artists')));
-       renderObjectList($page->children, $cols=2,($page->numCildren>20),__('Artists')));
+       renderObjectList($page->children, $cols=3,($page->numCildren>20),__('Artists')));
 

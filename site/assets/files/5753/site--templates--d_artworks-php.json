@@ -1,5 +1,9 @@
 {
     "file": "site\/templates\/d_artworks.php",
     "textdomain": "site--templates--d_artworks-php",
-    "translations": []
+    "translations": {
+        "66d0af2d5da0109dc2aae67829f7d4d4": {
+            "text": "\u0418\u0433\u0440\u0443\u0448\u043a\u0438"
+        }
+    }
 }

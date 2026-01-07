@@ -3,7 +3,7 @@
  * Export content of /h_spot/ database
  */
 
-define('MODE', 'IMPORT'); // List all scarves
+define('MODE', (false ? 'IMPORT' : 'ALL')); // List human-readable scarves OR only Hermes in the Rimport.php expected format
 
 require_once __dir__ . '/debug.php';
 

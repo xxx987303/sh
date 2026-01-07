@@ -35,12 +35,12 @@ if(!defined("PROCESSWIRE")) die();
 $config->debug = true;
 define('DEBUG', $config->debug);
 $config->tracyDisabled = true;
-$config->moduleInstall('directory', true);
+$config->moduleInstall('directory', true); 
 $config->useFunctionsAPI = true; 
 $config->sessionFingerprint = true; 
 $config->prependTemplateFile = '_init.php';
 $config->appendTemplateFile = '_main.php';
-$config->ártworkItems = ['h' => 'Scarfs',
+$config->ártworkItems = ['h' => 'Scarves',
 			 'a' => 'Paintings',
 			 'd' => 'Toys'];
 /*

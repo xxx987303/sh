@@ -1,0 +1,12 @@
+{
+    "file": "site\/templates\/includes\/object-page.php",
+    "textdomain": "site--templates--includes--object-page-php",
+    "translations": {
+        "78a359b7adfe087f73399da4bd839772": {
+            "text": "\u0420\u0430\u0431\u043e\u0442\u044b"
+        },
+        "15ebdf985720d5ea58146e09450de6ed": {
+            "text": "\u0421\u043c. \u0442\u0430\u043a\u0436\u0435"
+        }
+    }
+}

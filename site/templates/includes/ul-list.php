@@ -8,7 +8,8 @@ if($pagination) echo x("div class='uk-grid uk-margin-bottom pagination'",
 
 if(!empty($items)){
   foreach($items as $k=>$item) $li[] = "<!-- $k ".str_repeat('-',50)." -->\n".x("li",$item);
-  echo x("div class='ul-list'",
+//echo x("div class='ul-list'",
+  echo x("div class='uk-width-medium-3-3 ul-list'",
 	 x("ul class='uk-grid uk-grid-width-medium-1-$cols'",
 	   join("\n",$li)));
 }
@@ -17,7 +18,8 @@ if(!empty($itemsByType)){
   foreach($itemsByType as $duty=>$items){
     echo x("h3",$duty);
     $li=[]; foreach($items as $k=>$item) $li[] = "<!-- $k ".str_repeat('-',50)." -->\n".x("li",$item);
-    echo x("div class='ul-list'",
+//    echo x("div class='ul-list'",
+    echo x("div class='uk-width-medium-3-3 ul-list'",
 	   x("ul class='uk-grid uk-grid-width-medium-1-$cols'",
 	     join("\n",$li)));
   }

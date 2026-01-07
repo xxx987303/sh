@@ -17,4 +17,4 @@ region('content',files()->render('./includes/object-page.php',
 		 renderObjectList($items,
 				  $cols=3,
 				  $showPagination=false,
-				  $headline=__($config->ártworkItems[$GLOBALS['SPOT_id']].' from')." ".$page->title));
+				  $headline=_t($config->ártworkItems[$GLOBALS['SPOT_id']].' from')." ".$page->title));

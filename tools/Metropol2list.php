@@ -29,7 +29,7 @@ echo "# day0, carreTitle, lastname, firstname, year, cmt, price, size, www, base
 echo "#
 2019-10-21,Dior,,,,Dior,553,70x70,https://www.metropol.se/auctions/bildshow/default.asp?OG={46637C34-4C76-4A35-A074-9E9819C36E87}&extra={20639CCB-8C08-4C3B-84CA-0C8625C2406F}&extrapos=5,,6285
 2019-10-21,Washington's carriage,Latham,Caty,1979/1981,Hermes,553,89x89,https://www.metropol.se/auctions/bildshow/default.asp?OG={46637C34-4C76-4A35-A074-9E9819C36E87}&extra={88707ED3-B206-48B6-8908-E6CFE5172A6F}&ticket=141212,,6285
-2019-10-21,Rhytons,Swildens,Karin,1978,Hermes,553,89x89,https://www.metropol.se/auctions/bildshow/default.asp?OG={46637C34-4C76-4A35-A074-9E9819C36E87}&extra={C130B881-9205-4084-BACA-6D17EE193843}&extrapos=2,,6285
+2019-10-21,Ritote,Swildens,Karin,1978,Hermes,553,89x89,https://www.metropol.se/auctions/bildshow/default.asp?OG={46637C34-4C76-4A35-A074-9E9819C36E87}&extra={C130B881-9205-4084-BACA-6D17EE193843}&extrapos=2,,6285
 ";
 
 foreach(explode("\n",file_get_contents($K_list)) as $line) {

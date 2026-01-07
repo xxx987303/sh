@@ -1,0 +1,9 @@
+{
+    "file": "site\/templates\/d_persons.php",
+    "textdomain": "site--templates--d_persons-php",
+    "translations": {
+        "b7b190b16591f6e62e74d485e5bcd6cd": {
+            "text": "Artistes"
+        }
+    }
+}

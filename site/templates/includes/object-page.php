@@ -84,24 +84,29 @@ if (!function_exists('ProcessWire\o_p_text')) {
 	//
 	if (!empty($page->body)) echo $page->body;
 
+	//
+	// Whatever related
+	//
 	$fName = "{$SPOT_id}_aw_person";
-	$authors = $page->$fName;
+	$authors = empty($a=$page->$fName) ? [] : $a;
+	$related_sorted = [];
 	$output = [];
-	if ($related->id) { // || count($authors)){
-	    foreach($related as $item){
-		$output[] = x("li",x("a href='$item->url'",$item->title.','.$item->parent->title));
-	    }
-	    foreach($authors as $item){
-		$output[] = "<li><a href='$item->url'>".__("Artworks by")." $item->title</a></li>";
-	    }
+	foreach($related->sort("{$SPOT_id}_aw_lastname") as $item){
+	    $related_sorted[$item->parent->title][] = x("li",x("a href='$item->url'","{$item->title}"));
+	//$output[] = x("li",x("a href='$item->url'","{$item->parent->title}: {$item->title}"));
+	}
+	ksort($related_sorted);
+	foreach($related_sorted as $root=>$items){
+	    $output[] = x("h4",$root);
+	    foreach($items as $item) $output[] = $item; 
+	}
+	foreach($authors as $item){
+	    $output[] = x("li",x("a href='$item->url'", __("Artworks by")." $item->title"));
 	}
 
-	echo "<ul class='uk-list uk-list-line uk-margin-bottom'>";
-	if (!empty($output)) {
-	    x("h2",__("See Also"));
-	    echo join("\n", $output);
-	}
-	echo "</ul>\n </div>\n";
+	if (!empty($output)) echo x("h3",__("See Also")) .
+				  x("ul class='uk-list uk-list-line uk-margin-bottom'",
+				    join("\n", $output));
     }
 }
 

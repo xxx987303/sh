@@ -239,10 +239,7 @@
 >>>  OK cuivreries-variant-variations1.h_aw_person    5802
 
 ======================================================================================
-PHP Warning:  Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.php on line 169
-
-Warning: Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.php on line 169
-[31mgetPage(): FAIL 1 - (B[m
+[31mgetPage(): FAIL 1 - No selector(B[m
 2019-10-21 Dior                                                                     70x70    Dior        ???????? AUTHOR PAGE
 [31mcreatePage(): data=h_av_duty=>Designer(B[m
 [31mcreatePage(): FAIL empty(data[title|hook])(B[m
@@ -702,9 +699,6 @@ Warning: Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.p
 >>>  OK quadrige.h_aw_person                          6138
 
 ======================================================================================
-PHP Warning:  Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.php on line 169
-
-Warning: Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.php on line 169
 2020-01-31 RADO                                                                     90x90    RADO        ???????? AUTHOR PAGE
 [31mgetPage(): OK 1 - template=h_brand, title^=RADO(B[m
 [34mNOTICE: Detected brand RADO(B[m
@@ -717,7 +711,7 @@ Warning: Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.p
 
 ======================================================================================
            Reale                          Hugo Grygkar              1953/1990                            !!!!!!!! Hugo Grygkar
-[31mgetPage(): OK 1 - template=h_artwork, title^=reale(B[m
+[31mgetPage(): OK 2 - template=h_artwork, title~=reale(B[m
 >>>  OK reale.h_aw_person                             5798
 
 ======================================================================================
@@ -747,8 +741,8 @@ Warning: Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.p
 
 ======================================================================================
 [31mgetPage(): OK 1 - template=h_person, h_av_lastname^=Swildens, h_av_firstname^=Karin(B[m
-2019-10-21 Rhytons                        Karin Swildens            1978            89x89                !!!!!!!! Karin Swildens
-[31mgetPage(): OK 1 - template=h_artwork, title^=rhytons(B[m
+2019-10-21 Ritote                         Karin Swildens            1978            89x89                !!!!!!!! Karin Swildens
+[31mgetPage(): OK 1 - template=h_artwork, title^=ritote(B[m
 >>>  OK ryton.h_aw_person                             6019
 
 ======================================================================================
@@ -809,9 +803,6 @@ Warning: Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.p
 >>>  OK the-savana-dance.h_aw_person                  6145
 
 ======================================================================================
-PHP Warning:  Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.php on line 169
-
-Warning: Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.php on line 169
 2022-04-02 The sign of excellence                                                   90x90    Omega       ???????? AUTHOR PAGE
 [31mgetPage(): OK 1 - template=h_brand, title^=Omega(B[m
 [34mNOTICE: Detected brand Omega(B[m
@@ -848,7 +839,7 @@ Warning: Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.p
 
 ======================================================================================
            Tuileries                      Joachim Metz              1996                                 !!!!!!!! Joachim Metz
-[31mgetPage(): OK 1 - template=h_artwork, title^=tuileries(B[m
+[31mgetPage(): OK 2 - template=h_artwork, title~=tuileries(B[m
 >>>  OK tuileries.h_aw_person                         5809
 
 ======================================================================================
@@ -899,7 +890,6 @@ Warning: Undefined variable $selector in /Users/yb/github/sh.git/tools/Rimport.p
 
 ======================================================================================
            Les Voitures a Transformation  Françoise de La Perrière 1965/1980                            !!!!!!!! Françoise de La Perrière
-[31mgetPage(): OK 1 - template=h_artwork, name^=281-les-voitures-transformation-variations2(B[m
 >>>  OK 281-les-voitures-transformation-v.h_aw_person 5802
 
 ======================================================================================

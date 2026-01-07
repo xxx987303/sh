@@ -9,10 +9,9 @@
 require_once __dir__ . '/debug.php';
 require_once "/Users/yb/Sites/sh/index.php";
 
-$TRUNCATE = false;
-$SHOW_TIDY_R_LIST = false;
+$SHOW_TIDY_R_LIST = true;
 $SHOW_AUTHORS = false;
-if (!$SHOW_TIDY_R_LIST) $SHOW_AUTHORS = false;
+$TRUNCATE = $SHOW_TIDY_R_LIST ? true : false;
 
 $arg = empty($argv[1]) ? "R_list.txt" : $argv[1]; 
 $R_list = __dir__ . "/$arg";

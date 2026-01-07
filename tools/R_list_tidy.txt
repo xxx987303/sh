@@ -38,7 +38,7 @@
  2009-11-09.  La Flore.                    Ledoux,Philippe.          1967
  2018-04-18.  Les Folies Du Ciel.          Dubigeon,Loic.            1984/1990
  .            Gibiers.                     de Linares,Henri.         1966/1991/1997
- 2017-10-25.  Grand Cortege a Moscou.      Duchene,Michele.          1992
+ 2017-10-25.  Grand Cortege a Moscou.      Duchene,Michel.           1992
  2008-03-12.  Grand manege.                d'Origny,Henri.           1990/1993
  .            Grand manege.                d'Origny,Henri.           1990/1993.       ***
  .            Grand tenue.                 d'Origny,Henri.           1985/1998
@@ -54,7 +54,7 @@
  .            Monsieur et Madame ll.       Barret&Dallet,Bali&Robert. 2013.            Aне
  .            Mors a la conetable.         d'Origny,Henri.           1970/1985
  2012-11-01.  Mozart.                      Abadie,Julie.             1991
- 2005-05-05.  Les Muzerolles.              Vauzelles,Christiane.     1986
+ 2005-05-05.  Les Muserolles.              Vauzelles,Christiane.     1986
  .            Napoleon.                    Ledoux,Philippe.          1963/1985
  .            Palefroi.                    de La Perriere,Francoise. 1965/1983
  2017-05-05.  Parures de Samourais.        Honore,Aline.             2017
@@ -93,7 +93,7 @@
  2021-05-04.  Art des steppes.             Faivre,Annie.             1991/1997/2000
  .            Le Carnaval de Venise.       de Watrigant,Hubert.      1993/1997
  .            Jeu de Omnibus et….          Pagni,Gianpaolo.          2018.            Remix
- .            Jardins des metamorphoses.   Houtin,Francois.          2010
+ 2021-07-22.  Jardins des metamorphoses.   Houtin,Francois.          2010
  2021-08-20.  India.                       Latham,Caty.              1986
  2021-09-11.  Alliances du monde.          Faivre,Annie.             2005
  2021-10-09.  Regina.                      Menchari,Leila.           1972
@@ -110,7 +110,7 @@
  2022-07-08.  Ludovicus Magnus.            de La Perriere,Francoise. 1963
  2022-09.     Peinture fraiche.            Rybaltchenko,Dimitri.     2012
  2022-10.     Confidents des coeur.        Dubigeon,Loic.            2000.            G
- 2022-11.     1821 Hommage a L'Amite.      Abadie,Julie.             1993.            EL
+ 2022-11.     1821 Hommage a L'Amitie.     Abadie,Julie.             2005.            EL
  2022-12.     Ferronnerie.                 Latham,Caty.              1970.            G
  2022-09-09.  Modernisme Tropical.         Jardim,Filipe.            2016
  2022-14.     Circuit FSH 24.              Emery,Benoit-Pierre.      2018.            П Мини
@@ -123,20 +123,20 @@
  2023-05.     Fleurs et Carlines.          Rybaltchenko,Vladimir.    1985.            П Юры
  2023-06.     Chiens et Valets.            Hallo,Charles-Jean.       1965
  2023-08-14.  Sous Le Cedre.               Rybaltchenko,Dimitri.     1998
- 2023-08.     Tsubas.                      Vauzelles,Christiane.     1998.            G
+ 2023-09-18.  Tsubas.                      Vauzelles,Christiane.     1998.            G
  2023-11-16.  A Propos de Bottes.          de Poret,Xavier.          2008.            G
- 2023-12-02.  Feux d'Artifice.             Duchene,Michele.          1987.            ES
+ 2023-12-02.  Feux d'Artifice.             Duchene,Michel.           1987.            ES
  2024-01-04.  Tresors du Nil.              Metz,Joachim.             2003
  2024-02-16.  Rencontre oceane.            Faivre,Annie.             2001
  2024-03.     Chorus stellarium.           Nomura,Daiske.            2024.            B
  2024-05-26.  Les Courses.                 Benoist Gironiere,Yves.   2004/2013
- 2024-06-01.  Braselets de Lumiere.        Faivre,Annie.             2018
+ 2024-06-01.  Bracelets De Lumiere.        Faivre,Annie.             2018
  2024-06-15.  Quadrige.                    Peron,Pierre.             2019
  2024-07-22.  En Liberte.                  Brancowitz,Carine.        2020
  2024-11-09.  Brazil II.                   Bourthoumieux,Laurence.   2015
  2025-01-07.  Casques et Plumets.          Abadie,Julie.             1989
  2025-03-07.  Flots Fleurs et Frontaux.    Jamin,Virginie.           2017
- 2025-03.     Les Perles de Tourkana.      Alamin,Sefedin Ibrahim.   2002
+ 2025-03.     Les Perles de Tourkana.      Sefedin,Alamia Ibrahim.   2002
  2025-04.     Proues.                      Ledoux,Philippe.          1973
  2025-05.     Sangles.                     Metz,Joachim.             1984.            G
  2025-06.     Le sacres d'Hiver.           Pierre,Marie.             2022.            G
@@ -153,7 +153,8 @@
 Transliteration:
    Archives Hermes                           <- Archives Hermès                         
    Couvee d'Hermes                           <- Couvee d'Hermès                         
-   Duchene,Michele                           <- Duchêne,Michèle                        
+   Duchene,Michel                            <- Duchêne,Michel                          
+   Duchene,Michel                            <- Duchêne,Michèl                         
    Emery,Benoit-Pierre                       <- Emery,Benoît-Pierre                     
    Faconnet,Marie-Francoise&Diatkine,Cyrille <- Faconnet,Marie-Françoise&Diatkine,Cyrille
    Grand Cortege a Moscou                    <- Grand Cortège a Moscou                  

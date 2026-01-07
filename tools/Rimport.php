@@ -38,7 +38,7 @@ $desc = function(Page $p) {
 foreach(explode("\n",file_get_contents(R_list)) as $line){
     if (empty(trim($line)) || str_starts_with($line, '#')) continue;
     list($day0, $carreTitle, $lastname, $firstname, $year, $cmt, $price, $size, $www, $base, $seller_id) = explode(',', $line.',,,,,,,,');
-    $doingVariations = (strpos($cmt,'***') === false) ? "" : $carreTitle;
+    $doingVariations = (strpos($cmt,'***') !== false);
     $cmt = trim(str_replace('***', '', $cmt));
 
     //
@@ -54,7 +54,7 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
     $output = sprintf("%-10s %-30s %-25s %-15s %-8s %-10s ",
                       $day0,$carreTitle,"$firstname $lastname",$year,$size, $cmt);
     print ("\n======================================================================================\n");
-    if ($doingVariations) say::notice("doingVariations '$doingVariations'");
+    if ($doingVariations) say::notice("doingVariations '$carreTitle'");
     //    printf("%-10s %-30s %-25s year=%-15s cmt=%-10s \n",
     //    $day0,$carreTitle,"$firstname $lastname",$year,$cmt);
 
@@ -104,14 +104,16 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
     // Create Scarf if not yet done
     //
     if ($doingVariations) {
-	$donor = pages()->get("title=$carreTitle");
-	if (!$donor->id) abortIt("No donor for \"$carreTitle\"");
-	if (empty($variationsCounter[$doingVariations])) $variationsCounter[$doingVariations] = 0;
-	$variationsCounter[$doingVariations]++;
-	//tidy_dump($variationsCounter, 'variationsCounter');
+	if (empty($donor) || $donor->title != $carreTitle) {
+	    $donor = pages()->get("title=$carreTitle");
+	    if (!$donor->id) abortIt("No donor for \"$carreTitle\"");
+	    if (empty($variationsCounter[$carreTitle])) $variationsCounter[$carreTitle] = 0;
+	    $variationsCounter[$carreTitle]++;
+	    //tidy_dump($variationsCounter, 'variationsCounter');
+	}
     }
     if (!($p = getPage("h_artwork", ($doingVariations
-	                           ? ['name'    => "{$donor->name}-variations".$variationsCounter[$doingVariations]]
+	                           ? ['name'    => "{$donor->name}-variations".$variationsCounter[$carreTitle]]
                			   : ['title'   => strToLower($carreTitle)])))->id) {
 	$p = createPage(['title' => $carreTitle,
 			 'h_aw_day0'  => $day0,
@@ -126,7 +128,7 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
 			($doingVariations
 			    ? ['template'=>'h_artwork',
 			       'hook'    => 'name',
-			       'name'    => "{$donor->name}-variations".$variationsCounter[$doingVariations]]
+			       'name'    => "{$donor->name}-variations".$variationsCounter[$carreTitle]]
 		            : ['template'=>'h_artwork',
 			       'hook'    =>'title']));
     }
@@ -135,7 +137,7 @@ foreach(explode("\n",file_get_contents(R_list)) as $line){
     foreach($options as $o) setKeyValue($p,'h_aw_options',$o,saveToDB);
     if ($doingVariations) {
 	foreach(pages()->find("template=h_artwork, title=$carreTitle") as $var) {
-	    if (!saveToDB && !$var->id) $var->id = 11111 + $variationsCounter[$doingVariations];
+	    if (!saveToDB && !$var->id) $var->id = 11111 + $variationsCounter[$carreTitle];
 	}
     }
 }
@@ -156,13 +158,14 @@ function getPage(String $template, Array $args, $operation='~=') {
     }
 
     $k = 0;
-    if (!empty($ok)){
+    if (empty($ok)){
+	$selector = "No selector";
+    }else{
         foreach ([$selector0,
 		  $selector1,
                   $selector2,
                   $selector3] as $k=>$s) {
 	    $s = str_replace('template~=h_artwork, hook~=name,','',$s);
-	    //echo "k=$k $s\n";
             if (($p = pages()->get($selector=trim($s)))->id) break;
         }
     }

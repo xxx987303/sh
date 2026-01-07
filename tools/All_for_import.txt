@@ -122,7 +122,7 @@
 2024-02-16,Rencontre oceane,Faivre,Annie,2001
 ,Reprise,Ledoux,Philippe,1970/1993
 ,Reveries japonaises,Latham,Caty,1991
-2019-10-21,Rhytons,Swildens,Karin,1978,,553,89x89,https://www.metropol.se/auctions/bildshow/default.asp?OG={46637C34-4C76-4A35-A074-9E9819C36E87}&extra={C130B881-9205-4084-BACA-6D17EE193843}&extrapos=2,,6285
+2019-10-21,Ritote,Swildens,Karin,1978,,553,89x89,https://www.metropol.se/auctions/bildshow/default.asp?OG={46637C34-4C76-4A35-A074-9E9819C36E87}&extra={C130B881-9205-4084-BACA-6D17EE193843}&extrapos=2,,6285
 ,Rose de vents,Metz,Joachim,1984/2012
 ,Sacre du printems,d'Origny,Henri,1986
 2025-05,Sangles,Metz,Joachim,1984,G

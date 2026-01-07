@@ -23,6 +23,40 @@ global $lookingForBug;
 $lookingForBug = false;
 
 /**
+ * Translate text coming from variables
+ */
+function _t(String $text) {
+    if ($text == 'Scarves Search')   return __('Scarves Search');
+    if ($text == 'Paintings Search') return __('Paintings Search');
+    if ($text == 'Dymkovo Search')   return __('Dymkovo Search');
+    if (strpos($text, ':')) {
+	list($a,$b) = explode(':',$text);
+	if     ($a == 'Popularity') $a = __('Popularity');
+	elseif ($a == 'Rarity')     $a = __('Rarity');
+	elseif ($a == 'Seller')     $a = __('Seller');
+	elseif ($a == 'Price')      $a = __('Price');
+	elseif ($a == 'Year')       $a = __('Year');
+	$b = str_replace(' to ', ' '.__('to').' ', $b);
+	if     ($b == 'Common')           $b = __('Common');
+	elseif ($b == 'Medium beloved')   $b = __('Medium beloved');
+	elseif ($b == 'Beloved')          $b = __('Beloved');
+	elseif ($b == 'Very beloved')     $b = __('Very beloved');
+	elseif ($b == 'Not uncommon')     $b = __('Not uncommon');
+	elseif ($b == 'Quite Rare')       $b = __('Quite Rare');
+	elseif ($b == 'Rare')             $b = __('Rare');
+	elseif ($b == 'Vary Rare')        $b = __('Very Rare');
+	elseif ($b == 'Maximum')          $b = __('Maximum');
+	elseif ($b == 'Minimum')          $b = __('Minimum');
+	return "$a: $b";
+    }
+    
+    echo x("pre","_t($text)");
+    tidy_dump(preg_split("/\s/",$text), $text);
+    return $text.' '.__("not yet ready");
+}
+
+
+/**
  * Include "next" / "previous" page buttons
  */
 function setNextPrev(String $selector, Page &$page) {
@@ -168,6 +202,8 @@ function getKeyValue(Page $page, Field $field) {
 	: $value.__('Click to see').'</a>';
     } elseif ($field->type == 'FieldtypeDatetime') {
         $reply = date("Y-m-d",(int)$value);
+    } elseif (strpos($field->name,'options')) {
+        $reply = x("strong",$page->$field->title);
     } elseif (strpos($field->name,'price')) {
         $reply = number_format($value,0,","," ").' SEK';
     } elseif (in_array($field->type, ['FieldtypePageTitle', 'FieldtypePageTitleLanguage'])) {   
@@ -198,27 +234,27 @@ function getKeyValue(Page $page, Field $field) {
  */
 function getValidSorts($context='artwork') {
 
-  return [];
-
-  foreach (array('brand'          => 'A-Z|Z-A',
-		 'year'           => 'Oldest|Newest',
-		 'rarity'         => 'A-Z|Z-A',
-		 'popularity'     => 'A-Z|Z-A',
-		 'person'         => 'A-Z|Z-A',
-		 'name'           => 'A-Z|Z-A',
-		 'parent.name'    => 'A-Z|Z-A',
-		 'images.count'   => 'Least|Most',
-		 ) as $item => $sort){
-    $label = '';
-    if    ($item == 'parent.name')  $label = (empty($context)?"":templates()->get(templates()->get($context)->parentTemplates[0])->getLabel());
-    elseif($item == 'name')         $label = (empty($context)?"":templates()->get($context)->getLabel());
-    elseif($item == 'images.count') $label = fields()->get('images')->getLabel();
-    elseif(!empty($context))  foreach(templates()->get($context)->fields as $f) { if (strpos($f,$item)!==false) $label = fields()->get($f)->getLabel(); }
-    if (empty($label)) continue;
-    $directions = explode('|',$sort);
-    foreach (array('','-') as $k=>$d) $reply [$d.$item] = sprintf("%s (%s)",$label, $directions[$k]);
-  }
-  return (empty($reply) ? array() : $reply);
+    return [];
+    
+    foreach (array('brand'          => 'A-Z|Z-A',
+		   'year'           => 'Oldest|Newest',
+		   'rarity'         => 'A-Z|Z-A',
+		   'popularity'     => 'A-Z|Z-A',
+		   'person'         => 'A-Z|Z-A',
+		   'name'           => 'A-Z|Z-A',
+		   'parent.name'    => 'A-Z|Z-A',
+		   'images.count'   => 'Least|Most',
+    ) as $item => $sort){
+	$label = '';
+	if    ($item == 'parent.name')  $label = (empty($context)?"":templates()->get(templates()->get($context)->parentTemplates[0])->getLabel());
+	elseif($item == 'name')         $label = (empty($context)?"":templates()->get($context)->getLabel());
+	elseif($item == 'images.count') $label = fields()->get('images')->getLabel();
+	elseif(!empty($context))  foreach(templates()->get($context)->fields as $f) { if (strpos($f,$item)!==false) $label = fields()->get($f)->getLabel(); }
+	if (empty($label)) continue;
+	$directions = explode('|',$sort);
+	foreach (array('','-') as $k=>$d) $reply [$d.$item] = sprintf("%s (%s)",$label, $directions[$k]);
+    }
+    return (empty($reply) ? array() : $reply);
 }
 
 /**
@@ -227,7 +263,7 @@ function getValidSorts($context='artwork') {
 function x($tag, $text=''){
   if     ($text === Null) return 'Null';
   elseif (empty($tag))    return $text;
-  elseif (CLI_MODE)        return strip_tags($text);
+  elseif (CLI_MODE)       return strip_tags($text);
 
   // 'x' is an "empty" tag
   $tag_clean = preg_replace('/ .*/','',$tag);
@@ -264,27 +300,29 @@ function x($tag, $text=''){
  * @return PageArray
  *
  */
-function findObjects(String $selector, String $template_name='artwork',Int $limit=20) {
+function findObjects(String $selector, String $template_name='artwork', Int $limit=20) {
+    return pages($selector);
+echo x("pre",$selector);
+    $validSorts = getValidSorts($template_name);
 
-  $validSorts = getValidSorts($template_name);
-
-  // check if there is a valid 'sort' var in the GET variable
-  // if no valid sort, then use 'title' as a default
+    // check if there is a valid 'sort' var in the GET variable
+    // if no valid sort, then use 'title' as a default
     if (!($sort = sanitizer('name', input()->get('sort'))) || !isset($validSorts[$sort])) $sort = 'name';
-
-  // whitelist the sort value so that it is retained in pagination
-  if($sort != 'name') input()->whitelist('sort', $sort);
-
-  // expand on the provided selector to limit it to $limit sorted object
-  $selector = (empty($template_name)?"":"template=$template_name, ")."limit=$limit, " . trim($selector, ", ");
-
-  // check if there are any keyword searches in the selector by looking for the presence of ~= operator.
-  // if present, then omit the 'sort' param, since ProcessWire sorts by
-  // relevance when no sort specified.
-  if(strpos($selector, "~=") === false) $selector .= ", sort=$sort";
-
-  // now call upon ProcessWire to find the objects for u
-  return pages($selector);
+    
+    // whitelist the sort value so that it is retained in pagination
+    if($sort != 'name') input()->whitelist('sort', $sort);
+    
+    // expand on the provided selector to limit it to $limit sorted object
+    $selector = (empty($template_name)?"":"template=$template_name, ")."limit=$limit, " . trim($selector, ", ");
+    
+    // check if there are any keyword searches in the selector by looking for the presence of ~= operator.
+    // if present, then omit the 'sort' param, since ProcessWire sorts by
+    // relevance when no sort specified.
+    if(strpos($selector, "~=") === false) $selector .= ", sort=$sort";
+    
+    // now call upon ProcessWire to find the objects for u
+echo x("pre",$selector);
+    return pages($selector);
 }
 
 /**
@@ -558,6 +596,7 @@ function getSpotURLs(){
 	                          ? ['','']
 				  : [substr($url_match[0],1), $url_match[3]]);
 	if (empty($SPOT_id)) $SPOT_id = getInputKey('SPOT_id');
+	if (empty($SPOT_id)) $SPOT_id = getInputKey('tags');
 	if (empty($SPOT_id) && preg_match("/([adh])_spot/", (string)@$_SERVER['HTTP_REFERER'], $m)) $SPOT_id = $m[1];
 
 	$site_home   = pages("/");
@@ -768,6 +807,26 @@ function getEmoji($fieldName, String $level, bool $returnImage=false) {
 }
 
 /**
+ */
+function navUserIcon() {
+    return (user()->name == 'guest'
+	? ""
+	: x("li",x("div",'&nbsp;&nbsp;&nbsp;'.x("img src=/sh/site/assets/files/0000/user40.jpg style=height:24px;") .
+		 x("span style=''",user()->name))));
+}
+
+/**
+ */
+function navSearchForm() {
+    $action = $GLOBALS['SPOT_search'];
+    return x("form class='pw-search-form' data-action='$action' action='$action' method='get'",
+	     x("label for='search' class='visually-hidden'",_x('Search:', 'label')).
+	     x("input type='text' name='keywords' id='search' placeholder='"._x('Search', 'placeholder')."'").
+	     x("input type='hidden' name='tags' value='$GLOBALS[SPOT_id]'").
+	     x("button type='submit' name='submit' class='visually-hidden'", _x('Search', 'button')));
+}
+
+/**
  * Output <div id='masthead'...</div>
  */
 function masthead(Page $page, Languages $languages, User $user) {
@@ -779,7 +838,7 @@ function masthead(Page $page, Languages $languages, User $user) {
      */
     $getMinimalMenu = function(string $SPOT_id) {
 	global $spot_home, $site_home;
-	if ($spot_home == $site_home) return "";
+//	if ($spot_home == $site_home) return "";
 	$items = [];
 	foreach(['spot','artworks','persons'] as $tp) {
 	    $class = (empty($items) ? "uk-active" : ""); 
@@ -804,14 +863,15 @@ function masthead(Page $page, Languages $languages, User $user) {
 		?>
 	    </h2>
 	    <!-- Search and login -->
-	    <ul class='uk-navbar-nav' style='float:right; list-style-type:"";'>
+	    <ul class='uk-navbar-nav' style='align-items:center; display:inline-flex; float:right; list-style-type:"";'>
 		<?php
 		if ($spot_home != $site_home) {
-		    require __dir__.'/includes/search_form_short.php';
 		    echo (user()->isGuest()
 			? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //        .' '.__('Login')))
 			: (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit'))) : "").
 			  x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout')));
+		    echo x("li",navSearchForm());
+		    echo x("li",navUserIcon());
 		}
 		?>
 	    </ul>
@@ -871,7 +931,6 @@ foreach(($SPOT_url
 ksort($items);
 if (count($items) > 1) foreach($items as $k=>$v) echo $v;
 else       echo $getMinimalMenu($SPOT_id);
-//echo x("li class='menu-item menu-item-type-post_type menu-item-object-page'",x("a href=https://carredeparis.me/", x("h3",'CdP')));
 ?>
 		</ul>
 		<?php

@@ -1,5 +1,18 @@
 {
     "file": "site\/templates\/h_artworks.php",
     "textdomain": "site--templates--h_artworks-php",
-    "translations": []
+    "translations": {
+        "8111b0006bc6d13725a81813e5a98a09": {
+            "text": "\u041f\u043b\u0430\u0442\u043a\u0438"
+        },
+        "ded0b66f1d5de7bb495ece7fc860f7a8": {
+            "text": "\u0414\u0432\u043e\u0439\u043d\u044b\u0435(?) \u043f\u043b\u0430\u0442\u043a\u0438"
+        },
+        "380000189651bddfe338a33b51a576e0": {
+            "text": "\u0412\u0430\u0440\u0438\u0430\u0446\u0438\u0438 \u0446\u0432\u0435\u0442\u0430"
+        },
+        "bb9f13365e22b4f5d8a685b60f6bb6f7": {
+            "text": "\u0414\u0440\u0443\u0433\u0438\u0435 \u0431\u0440\u0435\u043d\u0434\u044b"
+        }
+    }
 }

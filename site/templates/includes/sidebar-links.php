@@ -14,11 +14,11 @@ switch ($GLOBALS['SPOT_id']) {
 	    <?php echo __('Most popular scarves'); ?>
 	</a></li>
 
-	<li><a href='<?=$GLOBALS['SPOT_search']?>?template=h_artwork&h_aw_price=@1&limit=5&sort=h_aw_price'>
+	<li><a href='<?=$GLOBALS['SPOT_search']?>?template=h_artwork&h_aw_price=@1&limit=6&sort=h_aw_price'>
 	    <?php echo __('Cheapest scarves'); ?>
 	</a></li>
 
-	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_price=@1&limit=5&sort=-h_aw_price'>
+	<li><a href='<?=$GLOBALS['SPOT_search']?>?h_aw_price=@1&limit=6&sort=-h_aw_price'>
 	    <?php echo __('Most expensive scarves'); ?>
 	</a></li>
 

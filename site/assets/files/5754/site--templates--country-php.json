@@ -1,0 +1,12 @@
+{
+    "file": "site\/templates\/country.php",
+    "textdomain": "site--templates--country-php",
+    "translations": {
+        "b0964ef221aea9f9a4d39a1cff72b6f8": {
+            "text": "Des gens de"
+        },
+        "cbb82b745c094bfd47efca06378ecd6f": {
+            "text": "Personnes"
+        }
+    }
+}
