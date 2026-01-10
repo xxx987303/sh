@@ -27,3 +27,8 @@ region('mainHeader',   '');
 region('content',      page('body'));
 region('sidebar',      '');
 region('sidebarHeader','');
+
+if($input->get->logout) {
+    $session->logout();
+    $session->redirect($pages->get('/sh/')->url);
+}

@@ -300,7 +300,7 @@ class say
    * Show variable load progress
    */
     static function load(Object $p, $key, $expect = '', $now = '', $reply = '', $p_key0 = '', $id = '>> Load') {
-	$maxStrLength = 33;
+	$maxStrLength = 35;
 	//say::notice(sprintf(__function__."(p=%s, key=%s, expect=%s, now=%s, got=%s)", $p->name, $key, $expect, $now, $reply));
 	
 	/**

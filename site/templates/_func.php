@@ -23,36 +23,58 @@ global $lookingForBug;
 $lookingForBug = false;
 
 /**
+ * Translate text coming from variables in plural
+ */
+function _tn(String $text, $spot='h'){
+    if (preg_match("/^[a-zA-Z ]*$/", $text)) return substr($text,-1) == 's' ? $text : "{$text}s";
+    if ($text == 'Коллекционер') return 'Коллекционеры';
+    if ($text == 'Владелец')     return 'Владельцы';
+    if ($text == 'Художник')     return 'Художники';
+    if ($text == 'Продавец')     return 'Продавцы';
+    echo x("pre","_tn({$text}, {$spot})");
+    return "?$text";
+}
+
+/**
  * Translate text coming from variables
  */
-function _t(String $text) {
-    if ($text == 'Scarves Search')   return __('Scarves Search');
-    if ($text == 'Paintings Search') return __('Paintings Search');
-    if ($text == 'Dymkovo Search')   return __('Dymkovo Search');
+function _t(String $text, $spot='h') {
+    global $SPOT_id;
+    if (in_array($text, ['Мистерия А.М.Кассандры','Maison Carré Foundation'])) return $text;
+    if ($text == 'Scarves Search')   return __('Scarves Search',  $SPOT_id);
+    if ($text == 'Paintings Search') return __('Paintings Search',$SPOT_id);
+    if ($text == 'Dymkovo Search')   return __('Dymkovo Search',  $SPOT_id);
     if (strpos($text, ':')) {
 	list($a,$b) = explode(':',$text);
-	if     ($a == 'Popularity') $a = __('Popularity');
-	elseif ($a == 'Rarity')     $a = __('Rarity');
-	elseif ($a == 'Seller')     $a = __('Seller');
-	elseif ($a == 'Price')      $a = __('Price');
-	elseif ($a == 'Year')       $a = __('Year');
-	$b = str_replace(' to ', ' '.__('to').' ', $b);
-	if     ($b == 'Common')           $b = __('Common');
-	elseif ($b == 'Medium beloved')   $b = __('Medium beloved');
-	elseif ($b == 'Beloved')          $b = __('Beloved');
-	elseif ($b == 'Very beloved')     $b = __('Very beloved');
-	elseif ($b == 'Not uncommon')     $b = __('Not uncommon');
-	elseif ($b == 'Quite Rare')       $b = __('Quite Rare');
-	elseif ($b == 'Rare')             $b = __('Rare');
-	elseif ($b == 'Vary Rare')        $b = __('Very Rare');
-	elseif ($b == 'Maximum')          $b = __('Maximum');
-	elseif ($b == 'Minimum')          $b = __('Minimum');
+	$a = trim($a);
+	$b = trim(str_replace(' to ', ' '.__('to',$spot).' ', $b));
+	if     ($a == 'Popularity') $a = __('Popularity', $SPOT_id);
+	elseif ($a == 'Rarity')     $a = __('Rarity',$SPOT_id);
+	elseif ($a == 'Seller')     $a = __('Seller',$SPOT_id);
+	elseif ($a == 'Price')      $a = __('Price',$SPOT_id);
+	elseif ($a == 'Year')       $a = __('Year',$SPOT_id);
+	elseif ($a == 'Role')       $a = __('Role',$SPOT_id);
+	elseif ($a == 'Collection type') $a = __('Collection type',$SPOT_id);
+	elseif ($a == 'Role')       $a = __('Role',$SPOT_id);
+	if     ($b == 'Common')           $b = __("1 of 4",$SPOT_id);
+	elseif ($b == 'Medium beloved')   $b = __("2 of 4",$SPOT_id);
+	elseif ($b == 'Beloved')          $b = __("3 of 4",$SPOT_id);
+	elseif ($b == 'Very beloved')     $b = __("4 of 4",$SPOT_id);
+	elseif ($b == 'Not uncommon')     $b = __("1 of 4",$SPOT_id);
+	elseif ($b == 'Quite rare')       $b = __("2 of 4",$SPOT_id);
+	elseif ($b == 'Rare')             $b = __("3 of 4",$SPOT_id);
+	elseif ($b == 'Very rare')        $b = __("4 of 4",$SPOT_id);
+	elseif ($b == 'Maximum')          $b = __('Maximum',$spot);
+	elseif ($b == 'Minimum')          $b = __('Minimum',$spot);
+	elseif ($b == 'Artist')           $b = __('Artist', $spot);
+	elseif ($b == 'Museums')          $b = __('Museums',$spot);
+	else  echo x("pre","_t('$a':'$b' spot=$spot)");
 	return "$a: $b";
     }
     
-    echo x("pre","_t($text)");
+    echo x("pre","_t($text, $spot)");
     tidy_dump(preg_split("/\s/",$text), $text);
-    return $text.' '.__("not yet ready");
+    return $text.' '.__("not yet ready",$SPOT_id);
 }
 
 
@@ -182,7 +204,7 @@ function getVariations(Page $page) {
     }
     
     echo x("div class='pt-2 pb-4 px-4'",
-	   // x("div",x("strong",__("Variations")."(".count($variations).")")) .
+	   // x("div",x("strong",__("Variations",$SPOT_id)."(".count($variations).")")) .
 	   $links . "</ul>").
 	 x("hr class='mx-4'");
 }
@@ -191,15 +213,15 @@ function getVariations(Page $page) {
  * Prepare value for rendering
  */
 function getKeyValue(Page $page, Field $field) {
-    global $SPOT_search, $lookingForBug;
+    global $SPOT_id, $SPOT_search, $lookingForBug;
     
     if (empty($value = (string)$page->$field)) return false;
     if (($o=$page->$field) instanceof PageArray) {
 	return (count($o) ? $o->each(x("a href='$SPOT_search{$field->name}={id}'", "{title}")." <br>") : false);	      
     } elseif (strpos($field->name, '_url') !== false || $field->type == 'FieldtypeURL') {
 	$reply = strpos($value,'href=') === false
-	? x("a target='_blank' href='$value'", __("Click to see")." (".__("opens in another window").")")
-	: $value.__('Click to see').'</a>';
+	? x("a target='_blank' href='$value'", __("Click to see",$SPOT_id)." (".__("opens in another window",$SPOT_id).")")
+	: $value.__('Click to see',$SPOT_id).'</a>';
     } elseif ($field->type == 'FieldtypeDatetime') {
         $reply = date("Y-m-d",(int)$value);
     } elseif (strpos($field->name,'options')) {
@@ -411,8 +433,9 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
     
     $selector = (string) $pages->getSelectors();
     //if($selector) $selector = makePrettySelector($selector);
-    $selector = str_replace('sort=sort', 'sort=name', $selector);
-
+    //$selector = str_replace('sort=sort', 'sort=name', $selector);
+    $selector = preg_replace('/sort=[\w]*,?/', '', $selector);
+    
     $out = files()->render("./includes/{$context}-list.php",
 			   ['context' => $context,
 			    'cols'    => $cols,
@@ -456,8 +479,14 @@ function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
     // the property "unknown" is just something we made up and are setting to the page.
     $page->set('unknown', '??');
     
-    // Object caption (tag 'caption')
-    foreach (getTaggedFields($page,'caption') as $f){ // av_duty|br_duty|aw_brand etc
+    // Object caption (tag 'caption') av_duty|br_duty|aw_brand etc
+    foreach ($page->fields as $f) {
+	if(!fieldViewable($f, 'caption'))    continue;
+	if(empty($v=$page->get($f->name)))continue;
+	$caption = getKeyValue($page, $f);
+    }
+/*
+    foreach (getTaggedFields($page,'caption') as $f){ // 
 	$v = $page->get($f);
 	if ($v instanceof PageArray){
 	    $caption = $v->each("{title}<br>");
@@ -470,7 +499,8 @@ function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
 	    if (!empty($value)) $caption = $value;
 	}
     }
-    if (empty($caption) && !empty($page->parent)) $caption = $page->parent->get("title");
+*/
+	    if (empty($caption) && !empty($page->parent)) $caption = $page->parent->get("title");
     $out = files()->render("./includes/{$context}-list-item$key.php", // say, ul-list-item.php
 			   array('page' => $page,
 				 'XXL'  => ($imgArg !== null),
@@ -628,7 +658,7 @@ function getTaggedFields($page,$context='page'){
 		    ? substr($v->each(", {value}"),2)
 		    : substr($v->each(", {title}"),2));
 	    }elseif ($f->type instanceof FieldtypeURL || strpos($f->name, '_url')) {
-		$value = x("a href='$v'",__('Click to see'));
+		$value = x("a href='$v'",__('Click to see',$SPOT_id));
 	    }elseif ($f->type instanceof FieldtypeDatetime){
 		$value = date("Y-m-d",(int)$v);
 	    }elseif (strpos($f->name,'price')){
@@ -648,7 +678,7 @@ if($lookingForBug && empty(@$dejaVuTags[$z=joinX($i)]++)) print joinX($i).'<br>'
 	}
     }
     if (!$reply->count) {
-	$reply->add($i=['label' => $config->debug ? "<em>".__("No data for tag")." \"$context\"</em>" : "",
+	$reply->add($i=['label' => $config->debug ? "<em>".__("No data for tag",$SPOT_id)." \"$context\"</em>" : "",
 			'value' => "",
 			'url' => "",
 			'comment'=> "<!-- DUMMY ------------------------------------>\n"]);
@@ -833,6 +863,13 @@ function masthead(Page $page, Languages $languages, User $user) {
     global $config, $SITE_input, $SPOT_id, $SPOT_url, $SPOT_search, $spot_home, $site_home;
     echo "<!-- ".__function__." -->\n";
 
+    $sh = function($addStyle=true, $active=""){
+	global $config, $SPOT_id;
+	$color = ($SPOT_id == 'h' ? "color:{$config->colorHermes};" : "");
+	list($s0,$s1) = $addStyle ? [" style='","'"] : ["",""];
+	return $s0 . $color . ($active ? " font-weight:bold;font-style:italic" : "").$s1;
+    };
+
     /**
      * Minimal menu, shown from search page
      */
@@ -841,16 +878,16 @@ function masthead(Page $page, Languages $languages, User $user) {
 //	if ($spot_home == $site_home) return "";
 	$items = [];
 	foreach(['spot','artworks','persons'] as $tp) {
-	    $class = (empty($items) ? "uk-active" : ""); 
+	    $active = (empty($items) ? "uk-active" : ""); 
             $p = pages()->get("template={$SPOT_id}_$tp");
-            $items[] = x("li class='menu-item $class'", x("a href='{$p->url}'", x("h3",$p->title)));
+            $items[] = x("li class='menu-item $active'", x("a href='{$p->url}'", x("h3",$p->title)));
 	}
 	return x("ul class='uk-navbar-nav float_left'",join("\n",$items));
     };
 ?>
     <div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
 	<div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
-	    <h2 style='float:left;'>
+	    <h2 style='float:left;<?= $sh(false) ?>'>
 		<?php
 		//$site_home->set('headline', 'Home');
 		foreach($page->parents as $k=>$p) {
@@ -867,9 +904,9 @@ function masthead(Page $page, Languages $languages, User $user) {
 		<?php
 		if ($spot_home != $site_home) {
 		    echo (user()->isGuest()
-			? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //        .' '.__('Login')))
-			: (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit'))) : "").
-			  x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout')));
+			? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //  .' '.__('Login')))
+			: (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit',$SPOT_id))) : "").
+			  x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout',$SPOT_id)));
 		    echo x("li",navSearchForm());
 		    echo x("li",navUserIcon());
 		}
@@ -902,17 +939,17 @@ foreach(($SPOT_url
     if (preg_match(";spot/;",$item->url) && !$SPOT_url)  continue;
      // Detect the active tab
     if ($root) {
-	$class = '';
+	$active = '';
     } elseif ($page->id == $spot_home->id) {
-        $class = 'uk-active';
+        $active = 'uk-active';
         $root = true;
     } elseif ($item->id == $page->id) {
-        $class = 'uk-active';
+        $active = 'uk-active';
         $root = true;
     } elseif ($item->id == $page->parent->id && $page->parent->id != $spot_home->id) {
-        $class = 'uk-active';
+        $active = 'uk-active';
     } else {
-        $class = '';
+        $active = '';
     }
 
     // Impose the menu items order,
@@ -925,7 +962,7 @@ foreach(($SPOT_url
 	    : (strpos($item->template, 'brands') !== false
 		? 130
 	        : 100 * $itemCount)));
-    $items[$position] = x("li class='menu-item $class'", x("a href='$item->url'", x("h3",$item->title)));
+    $items[$position] = x("li class='menu-item $active'", x("a href='$item->url'", x("h3".$sh(true,$active), $item->title)));
     echo "<!-- /".__function__." -->\n";
 }
 ksort($items);
@@ -938,7 +975,7 @@ else       echo $getMinimalMenu($SPOT_id);
 		    echo "<span style='color:red;font-style: italic;'>????? No accessible languages</span>";
 		}else{
 		    echo "<!-- ---------------------------------------------------------- language switcher  -->\n".
-			 "<ul class='languages uk-navbar-nav' role='navigation' style='float:right;'>\n";
+			 "<ul class='languages uk-navbar-nav' role='navigation' style='float:right;list-style:none'>\n";
 		    static $flags = ['default'=>'gb', 'russian'=>'ru', 'swedish'=>'se', 'french'=>'fr'];
 		    foreach($languages as $language) {
 			if( $page->viewable($language))

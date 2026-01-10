@@ -1,5 +1,9 @@
 {
     "file": "site\/templates\/d_spot.php",
     "textdomain": "site--templates--d_spot-php",
-    "translations": []
+    "translations": {
+        "bb6b607858142d9e1e4b6154ee3ad447": {
+            "text": "Jouets vedettes"
+        }
+    }
 }

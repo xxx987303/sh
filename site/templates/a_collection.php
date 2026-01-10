@@ -17,6 +17,6 @@ region('content',files()->render('./includes/object-page.php',
 				     //'related'=> pages("template=a_artwork, id!=$page->id, body*=" . sanitizer()->selectorValue($page->title)),
 				       'related'=> pages("limit=20, id!=$page->id, body*=" . sanitizer()->selectorValue($page->title)),
 				       'width'  => 300, // Images width
-				       'o'      => 'R', // Picture on the Left or Right side
+				       'o'      => 'L', // Picture on the Left or Right side
 				       )).
        renderObjectList($items,$cols=2,$showPagination=false,$headline=__('Artworks of ')." ".$page->title));

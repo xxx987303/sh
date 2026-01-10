@@ -1,5 +1,9 @@
 {
     "file": "site\/templates\/h_sellers.php",
     "textdomain": "site--templates--h_sellers-php",
-    "translations": []
+    "translations": {
+        "839f4d959affa0625b283e528b77d1e9": {
+            "text": "Vendeurs"
+        }
+    }
 }

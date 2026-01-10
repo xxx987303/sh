@@ -1,5 +1,9 @@
 {
     "file": "site\/templates\/a_possession.php",
     "textdomain": "site--templates--a_possession-php",
-    "translations": []
+    "translations": {
+        "6b9bbd0fe1450ec5a3af4210be7cf36c": {
+            "text": "Objets achet\u00e9s"
+        }
+    }
 }

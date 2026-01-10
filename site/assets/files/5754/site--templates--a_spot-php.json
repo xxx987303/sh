@@ -1,5 +1,9 @@
 {
     "file": "site\/templates\/a_spot.php",
     "textdomain": "site--templates--a_spot-php",
-    "translations": []
+    "translations": {
+        "8efd5ea7fe26fc9036cfa8deea00b7f9": {
+            "text": "Tableaux en vedette"
+        }
+    }
 }

@@ -8,6 +8,91 @@ require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
 
+//tidy_dump(pages()->get(5906)); exit;
+//foreach(pages()->find("template=a_artwork") as $p){if($p->parent->id!=5906)$p->parent='/a_spot/a_artworks/';$p->save();tidy_dump($p);} exit;
+//foreach(pages()->find("template=a_artwork") as $p){if($p->parent->id!=5906) tidy_dump($p);} exit;
+foreach(pages()->find("title^=A boor playing a lute") as $p) {echo "{$p->id};  {$p->title};  {$p->name}\n";tidy_dump($p);} exit;
+
+if (1){
+// Rename the originals to "variation" (here it is called "{name}-copy-of-{id}")
+    $copies = ['Philosopher with an Open Book' => 'Philosopher with an Open Book',
+	       'Portrait of italian'   => 'Italian portrait of the man',
+	       'The Backgammon'        => 'The Tric-Trac',
+	       'Card-sharpers'         => 'Card sharpers',
+	       'Musician and gamblers' => 'A boor playing a lute in an interior',
+	       
+    ];
+    foreach($copies as $c=>$donorTitle){
+	$p = pages()->get("title^=$c");
+tidy_dump($p);
+	$donorOld = pages()->get("title^=$donorTitle");
+	echo "$donorOld->id $donorOld->name $donorOld->title\n";
+	$donorName = "{$p->name}-donor-of";
+	if (!($donor = pages()->get("name=$donorName"))->id)  $donor = new Page(templates()->get("a_artwork"));
+	$donor->name = $donorName;
+	$donor->title = $donorOld->title;
+	$donor->status5753 = 1;
+	$donor->status5754 = 1;
+	$donor->parent = '/a_spot/a_artworks/';
+	if (!$donor->id) if (!$saveToDB) $donor->id = 111111; else $donor->save();
+tidy_dump($donor, $donorName);
+exit;
+	
+	foreach($donorOld->fields as $f) {
+	    if (str_starts_with($f->name, 'a_p_') ||
+		in_array($f->name,['id','name','a_aw_copy_artwork'])) continue;
+	    if (empty($donorOld->$f)) continue; // isEmpty
+	    $donor->$f = $donorOld->f;
+	    continue;
+	    
+	    echo "{$f->name}: {$donorOld->$f}\n";
+	    switch($f->name){
+		case 'images':
+		    foreach (explode('|',$donorOld->$f) as $img){
+			foreach(explode("\n",shell_exec("mdfind -name $img 2>errors")) as $line){
+			    if (strpos($line, 'Archive') || empty($line)) continue;
+			    echo "  $line\n";
+			}
+		    }
+		    break;
+		default:
+	    }
+	    $value = (is_numeric($v=$donorOld->$f) && (($p=pages()->get($v)))->id) ? $p : $v;
+	    setKeyValue($donor, $f, $value, $saveToDB=false);
+	}
+	if ($saveToDB) $donor->save();
+	tidy_dump($donor,'donor');
+    exit;
+    }
+    exit;
+}
+
+
+if(0) {
+    $limit = 0;
+    foreach(pages()->find("title~=Non-Leiden collection") as $c) {
+	echo "$c->id $c-title\n";
+	foreach (pages()->find("template=a_artwork, a_aw_collection={$c->id}") as $p){
+	    if ($limit++ > 3) exit;
+	    echo "  $p->title\n";
+	    $pos  = pages()->get("template=a_possession, id={$p->a_aw_possession}");
+	    $pos2 = pages()->get("template=a_possession, a_p_artwork=$p->id");
+	    if ($pos->id != $pos2->id) die("??? {$pos->id} == {$pos2->id}\n");
+	    if (empty($pos->fields)) { tidy_dump($pos,"????? no a_possession fields"); continue;}
+	    foreach($pos->fields as $pf){
+		if (in_array($pf->name, ['title','body'])) continue;
+		if (is_object($p->$pf)) echo "    {$pf->name}: {$pos->$pf} in_page:{$p->$pf}\n";
+		//tidy_dump($p->$pf);
+	    }
+	    $p->a_p_seller = $pos->a_p_seller;
+	    $p->a_p_date = $pos->a_p_date;
+	    $p->save();
+	    exit;
+	}
+    }
+    exit;
+}
+
 if(0){
     foreach(pages()->find("h_aw_options=ES|EL|Remix|Sold, sort=h_aw_options") as $p)
 	tidy_dump($p->images);
@@ -104,12 +189,12 @@ if(0){
     //tidy_dump(pages()->get(5976));
     //tidy_dump(pages()->find("name^=5976-variations")); exit;
       $page = pages()->get("title=Brazil");
-    $var = pages()->get("name=brazil-variations1");
-    if (!$var->id) $var = new Page(templates()->get('h_artwork'));
-    $var->title = "Brazil";
-    $var->name = "brazil-variations1";
-    //$var->save();
-    tidy_dump($var,'var');
+    $donor = pages()->get("name=brazil-variations1");
+    if (!$donor->id) $donor = new Page(templates()->get('h_artwork'));
+    $donor->title = "Brazil";
+    $donor->name = "brazil-variations1";
+    //$donor->save();
+    tidy_dump($donor,'var');
     //$page()->save;
     exit;
 }

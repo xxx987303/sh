@@ -1,5 +1,9 @@
 {
     "file": "site\/templates\/h_brands.php",
     "textdomain": "site--templates--h_brands-php",
-    "translations": []
+    "translations": {
+        "84be54bb4bd1b755a27d86388700d097": {
+            "text": "Les marques"
+        }
+    }
 }

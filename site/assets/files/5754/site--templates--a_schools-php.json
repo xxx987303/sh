@@ -1,5 +1,9 @@
 {
     "file": "site\/templates\/a_schools.php",
     "textdomain": "site--templates--a_schools-php",
-    "translations": []
+    "translations": {
+        "b5fe525931dd3b6206e0c1bbabecf0d5": {
+            "text": "Les \u00e9coles"
+        }
+    }
 }

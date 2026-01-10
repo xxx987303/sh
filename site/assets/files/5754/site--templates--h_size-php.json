@@ -1,5 +1,9 @@
 {
     "file": "site\/templates\/h_size.php",
     "textdomain": "site--templates--h_size-php",
-    "translations": []
+    "translations": {
+        "8111b0006bc6d13725a81813e5a98a09": {
+            "text": "Carr\u00e9s"
+        }
+    }
 }

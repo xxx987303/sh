@@ -1,5 +1,9 @@
 {
     "file": "site\/templates\/a_persons.php",
     "textdomain": "site--templates--a_persons-php",
-    "translations": []
+    "translations": {
+        "cbb82b745c094bfd47efca06378ecd6f": {
+            "text": "Personnes"
+        }
+    }
 }

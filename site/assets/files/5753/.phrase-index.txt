@@ -1,7 +1,6 @@
-|Artists|^site--templates--a_persons-php:/site/templates/a_persons.php
+|Persons|^site--templates--a_persons-php:/site/templates/a_persons.php
 |Sellers|^site--templates--h_sellers-php:/site/templates/h_sellers.php
 |Sellers|^site--templates--a_sellers-php:/site/templates/a_sellers.php
-|Artists|^site--templates--h_persons-php:/site/templates/h_persons.php
 |Purshased objects|^site--templates--a_possession-php:/site/templates/a_possession.php
 |Artworks of |^site--templates--a_person-php:/site/templates/a_person.php
 |Featured Toys|^site--templates--d_spot-php:/site/templates/d_spot.php
@@ -21,9 +20,8 @@
 |Artworks of |^site--templates--h_collection-php:/site/templates/h_collection.php
 |Artworks of |^site--templates--h_person-php:/site/templates/h_person.php
 |Artworks of |^site--templates--a_collection-php:/site/templates/a_collection.php
-|Scarves Search|Paintings Search|Dymkovo Search|Popularity|Rarity|Seller|Price|Year|to|Common|Medium beloved|Beloved|Very beloved|Not uncommon|Quite Rare|Rare|Very Rare|Maximum|Minimum|not yet ready|Variations|Click to see|opens in another window|Click to see|Click to see|No data for tag|Search:', 'label|Search', 'placeholder|Search', 'button|Login|Edit|Logout|^site--templates--_func-php:/site/templates/_func.php
+|Original|Copy in collection|Click to see",$SPOT_id)." (".__("opens in another window",$SPOT_id).|Search:', 'label|Search', 'placeholder|Search', 'button|Login|Edit',$SPOT_id))) : "|^site--templates--_func-php:/site/templates/_func.php
 |Schools|^site--templates--a_schools-php:/site/templates/a_schools.php
-|Paintings|^site--templates--a_artworks-php:/site/templates/a_artworks.php
 |Brands|^site--templates--h_brands-php:/site/templates/h_brands.php
 |Featured Paintings|^site--templates--a_spot-php:/site/templates/a_spot.php
 |Search:', 'label|Search', 'placeholder|Search', 'button|^site--templates--includes--search_form_short-php:/site/templates/includes/search_form_short.php

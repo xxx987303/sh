@@ -89,7 +89,7 @@ if ($lookingForBug) {
 
 // Generate a human readable summary alert that appears at the top of the page, and browser <title> tag
 
-$subHeader = (empty($SPOT_id) ? "" : _t($config->ártworkItems[$SPOT_id].' Search'));
+$subHeader = (empty($SPOT_id) ? "" : _t($config->ártworkItems[$SPOT_id].' Search', $SPOT_id));
 
 foreach($summary as $key=>$value) {
     if(isEmpty($value)) continue;
@@ -105,17 +105,16 @@ foreach($summary as $key=>$value) {
     }elseif (is_numeric($value) && ($p=pages()->get($value))->id == $value) {
 	$v = $p->title;
     }
-    $subHeader .= ' "'._t("$k: $v").'"';
+    $subHeader .= ' "'._t("$k: $v", $SPOT_id).'"';
 }
 
 $spot = pages()->get("template={$SPOT_id}_spot");
 region('first_item',
        x("a href='{$spot->url}'", $spot->title) . x("i class='uk-icon-angle-right'"));
 region('mainHeader',
-//     "<h3".($SPOT_id=='h'?" style=color:#a85600":"").">$subHeader</h3>");
        "<h3>$subHeader</h3>");
 region('subHeader',
-       rtrim($subHeader, ', '));
+       $subHeader);
 region('content',
        files()->render('./includes/search_summary.php', ['items' => $summary]) .
        (empty($selector)

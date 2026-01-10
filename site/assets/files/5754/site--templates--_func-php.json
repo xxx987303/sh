@@ -2,9 +2,6 @@
     "file": "site\/templates\/_func.php",
     "textdomain": "site--templates--_func-php",
     "translations": {
-        "a4374740662193b987e63eb5b727c994": {
-            "text": "Variations"
-        },
         "4f9fe1fc2a2362e92526480918e23e2d": {
             "text": "Cliquez pour voir"
         },
@@ -28,6 +25,54 @@
         },
         "2c889b7622e6ed4e56a1414ac333c814": {
             "text": "Recherche"
+        },
+        "2ac7a18c13c799186f18c675b8f8ffbe": {
+            "text": "Recherche d'\u00e9charpes"
+        },
+        "85dc5bac69f0bad9eb49b6d9603ff90c": {
+            "text": "Recherche de tableaux"
+        },
+        "86d60a9a9458c73d57c34f58ae542be8": {
+            "text": "Recherche Dymkovo"
+        },
+        "e22269bb51f9f2394e148716babbafbb": {
+            "text": "Popularit\u00e9"
+        },
+        "88d402c7b87fa7141f75de0342e4dba9": {
+            "text": "Raret\u00e9"
+        },
+        "1e62e6ce22608229f9e7d30baae981ee": {
+            "text": "Vendeur"
+        },
+        "3601146c4e948c32b6424d2c0a7f0118": {
+            "text": "Prix"
+        },
+        "537c66b24ef5c83b7382cdc3f34885f2": {
+            "text": "Ann\u00e9e"
+        },
+        "01b6e20344b68835c5ed1ddedf20d531": {
+            "text": "\u00e0"
+        },
+        "8321e79c278ec510f63675c040594892": {
+            "text": "Max"
+        },
+        "a1d0ec6d56f8833a078b5a7ac4caf2d4": {
+            "text": "Min"
+        },
+        "97886a1904093d5009f54e4e0b883554": {
+            "text": "pas encore pr\u00eat"
+        },
+        "1a3c57de0b17dba95225cdb4e59321c1": {
+            "text": "1 sur 4"
+        },
+        "5be6df6c31cbbf8e00f45fd08a5f807e": {
+            "text": "2 sur 4"
+        },
+        "04c355e395c61598763187872c528838": {
+            "text": "3 sur 4"
+        },
+        "b9999d5875219fca16ddeacb9297d1a6": {
+            "text": "4 sur 4"
         }
     }
 }

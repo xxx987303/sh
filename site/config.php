@@ -43,6 +43,7 @@ $config->appendTemplateFile = '_main.php';
 $config->ártworkItems = ['h' => 'Scarves',
 			 'a' => 'Paintings',
 			 'd' => 'Toys'];
+$config->colorHermes = '#a85600';
 /*
    $config->imageSizerOptions = array(
         'upscaling' => true, // upscale if necessary to reach target size?

@@ -4,7 +4,7 @@
  * All fields: See file "0_fields.txt"
  */
 
-define('setKeyValueDEBUG', false);
+define('setKeyValueDEBUG', true);
 
 /**
  *
@@ -224,7 +224,8 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
 	if (setKeyValueDEBUG) say::notice('-- instanceof Page '.joinX($description));
         $o->of(false);
 
-	if (in_array($type, ['FieldtypeInteger',
+	if (in_array($type, ['LanguagesPageFieldValue','PageTitleLanguage',
+	    'FieldtypeInteger',
 			     'FieldtypeEmail',
 			     'FieldtypePageTitle',
 			     'FieldtypePageTitleLanguage',
@@ -271,7 +272,7 @@ function setKeyValue(object $o, $keyArg, $value, bool $saveToDB=false) {
 	    if ($now == ($got=$value)) {
                 say::ok($o, $keyName, $value);
 	    } else {
-tidy_dump($o->$key, "value=$value o->{$key}");
+if(setKeyValueDEBUG)tidy_dump($o->$key, "value=$value o->{$key}");
 		$o->$key = $createOptionPage($o,
  					     $key,
  					     pages()->get($keyName=='h_aw_size'
@@ -298,8 +299,9 @@ tidy_dump($o->$key, "value=$value o->{$key}");
 	    // Check that the value is legal
 	    unset($optOK);
 	    $f = fields()->get($key);
-	    foreach(wire('modules')->get($type)->getOptions($f) as $opt) {
- 		if (strToLower($opt->title) == strToLower($value) ||
+	    foreach(($ooo=wire('modules')->get($type)->getOptions($f)) as $opt) {
+ 		if (strToLower($opt->id)    == strToLower($value) ||
+		    strToLower($opt->title) == strToLower($value) ||
 		    strToLower($opt->value) == strToLower($value)) { $optOK = $opt; break; }
 	    }
 	    if (!isset($optOK) || !$optOK->id) {
@@ -307,14 +309,14 @@ tidy_dump($o->$key, "value=$value o->{$key}");
  		return;
 	    }
 
-	    $now = $got = $o->$key->title;
-	    if ((string)$o->$key->title == (string)$value) {
+	    if (is_object($o->$key) && (string)$o->$key->title == (string)$value) {
+		$now = $got = $o->$key->title;
                 say::ok($o, $key, $value);
 	    } elseif ($inputfieldClass == 'InputfieldCheckboxes') { // ------------------------------------------------------
  		if (setKeyValueDEBUG) say::notice('inputfieldClass = InputfieldCheckboxes');
 
  		$Manager = new SelectableOptionManager();
-		foreach (['title','value'] as $k) {
+		foreach (['id','title','value'] as $k) {
  		    foreach ($Manager->getOptions($f, [$k=>$value]) as $option) {
 			if ($o->$key->hasTitle($value) || $o->$key->hasValue($value)) {
  			    say::ok($o, $key, $value);
