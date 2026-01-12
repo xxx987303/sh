@@ -96,7 +96,7 @@
 2021-10-09,Regina,Menchari,Leila,1972
 ,Geometrie Cretoise,Abadie,Julie,2012
 ,Printemps été 69 - automne hiver 70,Archives Hermès,,2010,G
-,Les Nouveaux Amoureux de Paris,Pierre,Marie,2021,B
+,Les Nouveaux Amoureux de Paris,,Pierre Marie,2021,B
 2022-00,Qalamdan,Baschet,Catherine,1999
 2021-03-17,Torana,Faivre,Annie,1987/1990/2000,G
 2022-02,Libre comme l'air,Faivre,Annie,2003
@@ -136,7 +136,7 @@
 2025-03,Les Perles de Tourkana,Sefedin,Alamia Ibrahim,2002
 2025-04,Proues,Ledoux,Philippe,1973
 2025-05,Sangles,Metz,Joachim,1984,G
-2025-06,Le sacres d'Hiver,Pierre,Marie,2022,G
+2025-06,Le sacres d'Hiver,,Pierre Marie,2022,G
 2025-10-10,The Savana Dance,Ardmore Artists,,2016,G
 2025-11-08,A Vos Crayons,Cooke,Leigh,2004
 ,Do Re Boucles,Manlik,Florence,,Twilly

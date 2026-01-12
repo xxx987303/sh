@@ -1,23 +1,2 @@
-
-2008-03-06,Brazil,Bourthoumieux,Laurence,1988/1991
-,Brazil,Bourthoumieux,Laurence,1988/1991,***
-
-,Cavalcadour,d'Origny,Henri,1982/1992/2012
-,Cavalcadour,d'Origny,Henri,1982/1992/2012,*** МaxTwilly
-
-,Eperon d'or,d'Origny,Henri,1974/1989,+(1)
-,Eperon d'or,d'Origny,Henri,1974/1989,***
-
-2008-03-12,Grand manege,d'Origny,Henri,1990/1993
-,Grand manege,d'Origny,Henri,1990/1993,***
-
-2016-04-30,Plumes,de Linares,Henri,1953/1964
-,Plumes,de Linares,Henri,1953/1964,***
-
-,Les Voitures a Transformation,de La Perrière,Françoise,1965/1980
-,Les Voitures a Transformation,de La Perrière,Françoise,1965/1980,***
-,Les Voitures a Transformation,de La Perrière,Françoise,1965/1980,***
-
-,Cuivreries,de La Perrière,Françoise,1963,Scarf/vintage
-,Cuivreries,de La Perrière,Françoise,1963,***
-,Cuivreries,de La Perrière,Françoise,1963,***
+,Les Nouveaux Amoureux de Paris,,Pierre Marie,2021,B
+2025-06,Le sacres d'Hiver,,Pierre Marie,2022,G

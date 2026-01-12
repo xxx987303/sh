@@ -11,7 +11,17 @@ $saveToDB = false;
 //tidy_dump(pages()->get(5906)); exit;
 //foreach(pages()->find("template=a_artwork") as $p){if($p->parent->id!=5906)$p->parent='/a_spot/a_artworks/';$p->save();tidy_dump($p);} exit;
 //foreach(pages()->find("template=a_artwork") as $p){if($p->parent->id!=5906) tidy_dump($p);} exit;
-foreach(pages()->find("title^=A boor playing a lute") as $p) {echo "{$p->id};  {$p->title};  {$p->name}\n";tidy_dump($p);} exit;
+//foreach(pages()->find("title^=A boor playing a lute") as $p) {echo "{$p->id};  {$p->title};  {$p->name}\n";tidy_dump($p);} exit;
+if(1){
+    $t = 'Photo from Wiki';
+    foreach(pages()->find("template=h_artwork") as $p){
+	if (in_array($p->id,[6332,6335]) || empty(trim($c=(string)$p->figcaption))) continue;
+	if ($c == $t) continue;
+	$p->figcaption = $t; $p->save();
+	echo "{$p->id} '{$p->figcaption}' {$p->title}\n";
+    }
+    exit;
+}
 
 if (1){
 // Rename the originals to "variation" (here it is called "{name}-copy-of-{id}")

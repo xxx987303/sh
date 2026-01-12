@@ -70,7 +70,7 @@
 ,La mecanique des idees,Henry,Christine,2004
 ,Le Carnaval de Venise,de Watrigant,Hubert,1993/1997
 2020-01-17,Le Saut H,Diatkine,Cyrille,,,1490,90x90,https://www.kaplans.se/en/auktioner/3680/vara/1616319,silk,6162
-2025-06,Le sacres d'Hiver,Pierre,Marie,2022,G
+2025-06,Le sacres d'Hiver,,Pierre Marie,2022,G
 2020-01-17,Le saut H,Diatkine,Cyrille,2016
 ,Le temps des marionnettes,Faivre,Annie,1996
 ,Les Chemins Secrets,Henry,Christine,2015,def 36/97
@@ -78,7 +78,7 @@
 2024-05-26,Les Courses,Benoist Gironiere,Yves,2004/2013,,1800,,https://www.bukowskis.com/en/auctions/E1084/lots/1567319-hermes-scarf-les-courses,,5830
 2018-04-18,Les Folies Du Ciel,Dubigeon,Loic,1984/1990,,2300,,https://www.bukowskis.com/en/lots/1044067-hermes-scarf-les-folies-du-ciel,,5830
 2005-05-05,Les Muserolles,Vauzelles,Christiane,1986
-,Les Nouveaux Amoureux de Paris,Pierre,Marie,2021,B
+,Les Nouveaux Amoureux de Paris,,Pierre Marie,2021,B
 2025-03,Les Perles de Tourkana,Sefedin,Alamia Ibrahim,2002
 2013-04-04,Les Tambours,Metz,Joachim,1989/1990
 ,Les Voitures a Transformation,de La Perrière,Françoise,1965/1980
