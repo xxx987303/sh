@@ -11,7 +11,18 @@ $saveToDB = false;
 //tidy_dump(pages()->get(5906)); exit;
 //foreach(pages()->find("template=a_artwork") as $p){if($p->parent->id!=5906)$p->parent='/a_spot/a_artworks/';$p->save();tidy_dump($p);} exit;
 //foreach(pages()->find("template=a_artwork") as $p){if($p->parent->id!=5906) tidy_dump($p);} exit;
-//foreach(pages()->find("title^=A boor playing a lute") as $p) {echo "{$p->id};  {$p->title};  {$p->name}\n";tidy_dump($p);} exit;
+foreach(pages()->find("title^=Purchase") as $p) {echo "{$p->id};  {$p->title};  {$p->name}\n";tidy_dump($p);} exit;
+//foreach (languages() as $l) tidy_dump($l); exit;
+if(0){
+echo  languages()->get('russian')."\n"; exit;
+foreach(users()->find("template=user") as $u){
+    //$u->password='tb1';
+    //$u->save();
+    tidy_dump($u);
+}
+exit;
+}
+
 if(1){
     $t = 'Photo from Wiki';
     foreach(pages()->find("template=h_artwork") as $p){

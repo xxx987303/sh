@@ -31,6 +31,7 @@ if($width == 600){
 
 if (!function_exists('ProcessWire\o_p_images')) {
     function o_p_images(String $c, Page $page, $pages, Int $width){
+	global $SPOT_id;
 	
 	echo "<div class='object-images uk-width-medium-$c uk-text-center'>\n";
 	if (!($pages instanceof PageArray)) $pages = [];
@@ -46,7 +47,8 @@ if (!function_exists('ProcessWire\o_p_images')) {
 			   x("a href='$image->url' data-uk-lightbox=\"{group:'photos'}\"",
 			     x("img src='$thumb->url' alt='$image->description'")).
 			   ($image->description ? x("div class='caption uk-text-small uk-text-muted'",
-						    x("span style=font-size:x-large",$image->description)) : ""));
+						    x("span style=font-size:".(strpos($p->template,'person')?'small':'large'),
+						      _t($image->description))) : ""));
 		    echo "</li>";
 		    $imageCount++;
 		    if (count($pages)) break;
@@ -92,6 +94,7 @@ if (!function_exists('ProcessWire\o_p_text')) {
 	$related_sorted = [];
 	$output = [];
 	foreach($related->sort("{$SPOT_id}_aw_lastname") as $item){
+	    if (!str_starts_with($item->template, $SPOT_id)) continue;
 	    $related_sorted[$item->parent->title][] = x("li",x("a href='$item->url'","{$item->title}"));
 	//$output[] = x("li",x("a href='$item->url'","{$item->parent->title}: {$item->title}"));
 	}

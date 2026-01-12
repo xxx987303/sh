@@ -32,7 +32,10 @@ if(!defined("PROCESSWIRE")) die();
  * @var bool
  *
  */
+
+//$config->advanced = true;
 $config->debug = true;
+
 define('DEBUG', $config->debug);
 $config->tracyDisabled = true;
 $config->moduleInstall('directory', true); 
@@ -43,7 +46,10 @@ $config->appendTemplateFile = '_main.php';
 $config->ártworkItems = ['h' => 'Scarves',
 			 'a' => 'Paintings',
 			 'd' => 'Toys'];
-$config->colorHermes = '#a85600';
+$config->colorHermes  = '#a85600';
+$config->colorDymkove = '#4e858f';
+$config->logoutRedirect = '/sh/';
+
 /*
    $config->imageSizerOptions = array(
         'upscaling' => true, // upscale if necessary to reach target size?

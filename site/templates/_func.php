@@ -26,6 +26,7 @@ $lookingForBug = false;
  * Translate text coming from variables in plural
  */
 function _tn(String $text, $spot='h'){
+    $text = escape_uml($text,'decode');
     if (preg_match("/^[a-zA-Z ]*$/", $text)) return substr($text,-1) == 's' ? $text : "{$text}s";
     if ($text == 'Коллекционер') return 'Коллекционеры';
     if ($text == 'Владелец')     return 'Владельцы';
@@ -40,11 +41,27 @@ function _tn(String $text, $spot='h'){
  */
 function _t(String $text, $spot='h') {
     global $SPOT_id;
+  //$text = escape_uml($text,'decode');
+    $text = str_replace('%20', ' ',  $text);
     if (in_array($text, ['Мистерия А.М.Кассандры','Maison Carré Foundation'])) return $text;
+    if (str_starts_with($text,'Pierre Péron, dans son appartement')) return __('Pierre Péron, dans son appartement');
+    if (preg_match("/Got as.*Voyage en/", $text))                    return __('Got as "Voyage en Étoffes"');
+    if ($text == 'Louvre')           return __('Louvre',  $SPOT_id);
     if ($text == 'Scarves Search')   return __('Scarves Search',  $SPOT_id);
     if ($text == 'Paintings Search') return __('Paintings Search',$SPOT_id);
     if ($text == 'Dymkovo Search')   return __('Dymkovo Search',  $SPOT_id);
-    if (strpos($text, ':')) {
+    if ($text == 'Toys Search')      return __('Dymkovo Search',  $SPOT_id);
+    if ($text == 'Photo from Wiki')                return __('Photo from Wiki',  $SPOT_id);
+    if ($text == 'Bienvenue à l’atelier')          return __('Bienvenue à l’atelier',  $SPOT_id);
+    if ($text == 'Probably a copy of:')            return __('Probably a copy of:',     $spot);
+    if ($text == 'Probably an origin for copy of:')return __('Probably an origin for copy of:',     $spot);
+    if ($text == 'Gemäldegalerie Old Masters')     return __('Gemäldegalerie Old Masters',  $spot);
+    if ($text == 'Unknown collection')             return __('Unknown collection',      $spot);
+    if ($text == 'Mystery of A.M.Cassandre')       return __('Mystery of A.M.Cassandre',$spot);
+    if ($text == 'Lost auctions')                  return __('Lost auctions',           $spot);
+    if (strpos($text,'Leiden collection'))         return __('Non-Leiden collection',   $spot);
+
+    if (strpos($text,':')) {
 	list($a,$b) = explode(':',$text);
 	$a = trim($a);
 	$b = trim(str_replace(' to ', ' '.__('to',$spot).' ', $b));
@@ -55,7 +72,7 @@ function _t(String $text, $spot='h') {
 	elseif ($a == 'Year')       $a = __('Year',$SPOT_id);
 	elseif ($a == 'Role')       $a = __('Role',$SPOT_id);
 	elseif ($a == 'Collection type') $a = __('Collection type',$SPOT_id);
-	elseif ($a == 'Role')       $a = __('Role',$SPOT_id);
+	elseif ($a == 'keywords')         $a = __('keywords',$SPOT_id);
 	if     ($b == 'Common')           $b = __("1 of 4",$SPOT_id);
 	elseif ($b == 'Medium beloved')   $b = __("2 of 4",$SPOT_id);
 	elseif ($b == 'Beloved')          $b = __("3 of 4",$SPOT_id);
@@ -68,12 +85,12 @@ function _t(String $text, $spot='h') {
 	elseif ($b == 'Minimum')          $b = __('Minimum',$spot);
 	elseif ($b == 'Artist')           $b = __('Artist', $spot);
 	elseif ($b == 'Museums')          $b = __('Museums',$spot);
+	elseif ($b == 'bandana')          $b = __('bandana',$spot);
 	else  echo x("pre","_t('$a':'$b' spot=$spot)");
 	return "$a: $b";
     }
     
     echo x("pre","_t($text, $spot)");
-    tidy_dump(preg_split("/\s/",$text), $text);
     return $text.' '.__("not yet ready",$SPOT_id);
 }
 
@@ -160,7 +177,6 @@ function getRandomFeatured($nCols=3, $spot=null) {
     global $SPOT_id;
     if ($spot === null) $spot = $SPOT_id;
     $dejaVu = $items = [];
-  //foreach (pages()->find("template={$spot}_artwork, {$spot}_aw_featured=1") as $p) $items[] = $p;
     foreach (pages()->find("{$spot}_aw_featured=1") as $p) $items[] = $p;
     $count = 0;
     $featured = new PageArray();
@@ -175,38 +191,49 @@ function getRandomFeatured($nCols=3, $spot=null) {
 }
 
 /**
- * Show scarf variations, if any
+ * Show object variations, if any
  */
 function getVariations(Page $page) {
-    if ($page->template != 'h_artwork' ||
-	(!($case1=count($variations=pages()->find("name*={$page->name}-variations"))) &&
-	 !($case2=preg_match("/(.*)-variations/", $page->name, $match)))) return;
-    
-    if (empty($variations)) $variations = new PageArray();
-    $variations->add($page);
-    if (!$case1) {
-	$variations->add(pages()->get($match[1]));
-	foreach(pages()->find("name*={$match[1]}-variations") as $p) $variations->add($p);	    
+    global $SPOT_id;
+    foreach (['h_artwork' => 'variations',
+	      'a_artwork' => 'donor-of'] as $tp=>$hook) {
+	if ($page->template != $tp) continue;
+	$case1 = count($variations=pages()->find("name*={$page->name}-{$hook}"));
+	$case2 = preg_match("/(.*)-{$hook}/", $page->name, $match);
+	$case3 = $tp=='a_artwork' && ($id=pages()->get("name=".preg_replace("/-{$hook}/", "", $page->name))->id) && $id != $page->id;
+	//echo"'$case1' '$case2' '$case3'<br>";
+	if (!$case1 && !$case2 && !$case3) return;
+	
+	if (empty($variations))    $variations = new PageArray();
+	if ($case2) {
+	    $variations->add(pages()->get($match[1]));
+	    foreach(pages()->find("name*={$match[1]}-{$hook}") as $p) $variations->add($p);	    
+	}
+	$variations->add($page);
+	
+	$links = "<ul class='variations'>";
+	foreach ($variations as $k=>$var) {
+	    if (!is_object($var)) $var = pages()->get($var);
+	    if (!is_object($var)) { echo x("pre style=color:red","??? ".var_export($var,true)); continue;}
+	    $url = ($image = @$var->images->first) ? $image->url : "";
+	    $src = (empty($url) ? urls()->templates.'styles/images/photo_placeholder.png': $url)."' alt=''"; 
+	    $description = ($var->template=='a_artwork' ? (strpos($var->name,$hook) ? __('Original') : __('Copy in collection')) : "");
+	    $class = (false
+		? "border-secondary transition-colors pb-2 m-1 bg-base-200 flex items-center overflow-y-hidden ".
+                  "aspect-1 basis-28 grow-0 shrink-0 border-b-4 hover:border-secondary"
+		: "object-image uk-margin-small");
+	    $links .= x("li",
+			x("div class='flex overflow-x-auto items-center md:flex-wrap scrollbar-hide snap-x snap-mandatory'",
+			  x("a href='{$var->url}' class='$class'",
+			    x("img class='w-full' src='$src' alt=''").
+			    ($description ? x("div class='caption uk-text-small uk-text-muted'",
+					      x("span style=font-size:small",$description)) : ""))));
+        }
+ 	echo x("div class='pt-2 pb-4 px-4'",
+	       ($hook == 'donor-of' ? x('div',x('strong',_t('Probably a' . ($case3 ? 'n origin for' : '') . ' copy of:','a'))) : "") .
+	       $links . "</ul>").
+             x("hr class='mx-4'");
     }
-
-    $links = "<ul class='variations'>";
-    foreach ($variations as $var) {
-	if (!is_object($var)) $var = pages()->get($var);
-	if (!is_object($var)) { echo x("pre","??? ".var_export($var,true)); continue;}
-	$links .= x("li",
-		    x("div class='flex overflow-x-auto items-center md:flex-wrap scrollbar-hide snap-x snap-mandatory'",
-		      x("a href='".$var->url."' class='border-secondary ".
-			"transition-colors pb-2 m-1 bg-base-200 flex items-center overflow-y-hidden ".
-			"aspect-1 basis-28 grow-0 shrink-0 border-b-4 hover:border-secondary'",
-			x("img class='w-full' src='".(empty($url=@$var->images->first->url)
-			    ? urls()->templates.'styles/images/photo_placeholder.png'
-			    : $url)."' alt=''"))));
-    }
-    
-    echo x("div class='pt-2 pb-4 px-4'",
-	   // x("div",x("strong",__("Variations",$SPOT_id)."(".count($variations).")")) .
-	   $links . "</ul>").
-	 x("hr class='mx-4'");
 }
 
 /**
@@ -324,7 +351,7 @@ function x($tag, $text=''){
  */
 function findObjects(String $selector, String $template_name='artwork', Int $limit=20) {
     return pages($selector);
-echo x("pre",$selector);
+//echo x("pre",$selector);
     $validSorts = getValidSorts($template_name);
 
     // check if there is a valid 'sort' var in the GET variable
@@ -435,7 +462,8 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
     //if($selector) $selector = makePrettySelector($selector);
     //$selector = str_replace('sort=sort', 'sort=name', $selector);
     $selector = preg_replace('/sort=[\w]*,?/', '', $selector);
-    
+    if (strpos($selector,'a_aw_')!==false) $selector .= ', sort=a_aw_person';
+    //echo x("pre",$selector);
     $out = files()->render("./includes/{$context}-list.php",
 			   ['context' => $context,
 			    'cols'    => $cols,
@@ -457,6 +485,7 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
  *
  */
 function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
+    global $SPOT_id;
     /** @var Pageimages $images */
     $images = $page->get('images');
     
@@ -464,7 +493,7 @@ function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
     if ($imgArg === null) {
 	if(!empty($images) && ($image = $images->first())) {
 	    // our thumbnail is 200px wide with proportional height
-	    $thumb = $image->width(200);
+	    $thumb = ($SPOT_id == 'a' ? $image->height(250) : $image->width(200));
 	    $img   = $thumb->url;
 	} else {
 	    $img = config()->urls->templates . "styles/images/photo_placeholder.png";
@@ -473,7 +502,7 @@ function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
 	$thumb = $imgArg->height(500);
 	$img   = $thumb->url;
     }
-    $description = (($d=$page->figcaption) ? $d : "");
+    $description = (($d=$page->figcaption) ? sanitizer()->truncate($d,['maxLength'=>20, 'more'=>'…']) : "");
     
     // here's a fun trick, set what gets displayed when value isn't available.
     // the property "unknown" is just something we made up and are setting to the page.
@@ -500,13 +529,13 @@ function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
 	}
     }
 */
-	    if (empty($caption) && !empty($page->parent)) $caption = $page->parent->get("title");
+    if (empty($caption) && !empty($page->parent)) $caption = $page->parent->get("title");
     $out = files()->render("./includes/{$context}-list-item$key.php", // say, ul-list-item.php
 			   array('page' => $page,
 				 'XXL'  => ($imgArg !== null),
 				 'img'  => $img,
 				 'description' => $description,
-				 'caption' => empty($caption) ? "" : $caption,
+				 'caption' => sanitizer()->truncate((empty($caption) ? "" : $caption),['maxLength'=>20, 'more'=>'…']),
 				 'summary' => summarizeText(strip_tags(empty($b=$page->get('body'))?"":$b), 100)
     ));
     
@@ -585,31 +614,33 @@ function makePrettySelector($selector) {
  */
 function summarizeText($text, $maxLength = 500) {
 
-        if(!strlen($text)) return '';
-        $summary = trim($text);
-
-        // Get the first phrase
-        if (stripos($summary,"<p>") !== false && stripos($summary,"</p>") !== false){
-          $t = explode("</p>",str_replace("</P>","</p>",$summary));
-          return trim(str_ireplace("<p>","",$t[0]))."&nbsp;...";
-        }
-
-        if(strlen($summary) <= $maxLength) return $summary;
-        $summary = strip_tags($summary);
-        $summary = substr($summary, 0, $maxLength);
-        $lastPos = 0;
-
-        foreach(array('. ', '!', '?') as $punct) {
+    if(!strlen($text)) return '';
+    $summary = trim($text);
+    
+    // Get the first phrase
+    if (stripos($summary,"<p>") !== false && stripos($summary,"</p>") !== false){
+        $t = explode("</p>",str_replace("</P>","</p>",$summary));
+        return trim(str_ireplace("<p>","",$t[0]))."…";
+    }
+    
+    $summary = sanitizer()->truncate(strip_tags($summary), ['maxLength'=>$maxLength, 'more'=>'…']); 
+    /*
+       if(strlen($summary) <= $maxLength) return $summary;
+       $summary = strip_tags($summary);
+       $summary = substr($summary, 0, $maxLength);
+       $lastPos = 0;
+       
+       foreach(array('. ', '!', '?') as $punct) {
                 // truncate to last sentence
                 $pos = strrpos($summary, $punct);
                 if($pos > $lastPos) $lastPos = $pos;
-        }
-
-	// if no last sentence was found, truncate to last space
-	if(!$lastPos) $lastPos = strrpos($summary, ' ');
-        if ($lastPos) $summary = substr($summary, 0, $lastPos + 1); // and truncate to last sentence
-
-        return trim($summary)."&nbsp;...";
+       }
+       
+       // if no last sentence was found, truncate to last space
+       if(!$lastPos) $lastPos = strrpos($summary, ' ');
+       if ($lastPos) $summary = substr($summary, 0, $lastPos + 1); // and truncate to last sentence
+*/
+        return $summary;
 }
 
 /**
@@ -839,10 +870,43 @@ function getEmoji($fieldName, String $level, bool $returnImage=false) {
 /**
  */
 function navUserIcon() {
-    return (user()->name == 'guest'
-	? ""
-	: x("li",x("div",'&nbsp;&nbsp;&nbsp;'.x("img src=/sh/site/assets/files/0000/user40.jpg style=height:24px;") .
-		 x("span style=''",user()->name))));
+    $url = pages()->get('/sh/')->url;
+    $icon = x("div",str_repeat("&nbsp;",3) . x("img src=/sh/site/assets/files/0000/user40.jpg style=height:24px;") . x("span",user()->name));
+    //    return (user()->isLoggedin() ? x("li",$icon) : "");
+    
+    return (user()->isLoggedin()
+	? //x("li", x("a href=".(pages()->get('template=profile')->url), "My Profile")).
+	    x("li", x("form method='post' action='/sh/' style='display:contents'",
+		      session()->CSRF->renderInput('logout') .
+		      x("button type='submit' name='logout' value='1' style='display:contents'", $icon)))
+	: "");
+/*    
+    <li>
+        <form method="post" action="<?= pages()->get('/')->url ?>" style="display:inline">
+            <?= $session->CSRF->renderInput('logout') ?>
+            <button type="submit" name="logout" value="1">
+                Logout
+            </button>
+        </form>
+    </li>
+*/
+
+    return x("li",
+	     x("a id='tools-toggle' class='pw-dropdown-toggle' href='#'", $icon) .
+	     x("ul class='pw-dropdown-menu' data-my='left top' data-at='left bottom' style='display:none;'",
+	       x("li",x("a target='_top' href='/sh/processwire/login/logout/'",
+			x("i class='fa fa-power-off pw-nav-icon fa-fw'").x("span","Logout"))).
+	       x("li",x("a href='/sh/processwire/profile/'",		 
+			x("i class='fa fa-user pw-nav-icon fa-fw'").x("span","Profile")))));
+/*
+    x("a id='tools-toggle' class='pw-dropdown-toggle' href='/sh/processwire/profile/'",
+	x("i class='fa fa-user-circle fa-lg pw-nav-icon fa-fw'").user()->name).
+      x("ul class='pw-dropdown-menu' data-my='left top' data-at='left bottom' style='display:none;'",
+	x("li",x("a target='_top' href='/sh/'",      x("i class='fa fa-eye pw-nav-icon fa-fw'"). x("span","View site"))).
+	x("li",x("a href='/sh/processwire/profile/'",x("i class='fa fa-user pw-nav-icon fa-fw'").x("span","Profile"))).
+	x("li",x("a target='_top' href='/sh/processwire/login/logout/'",x("i class='fa fa-power-off pw-nav-icon fa-fw'").
+								x("span","Logout")))))));
+*/
 }
 
 /**
@@ -874,13 +938,14 @@ function masthead(Page $page, Languages $languages, User $user) {
      * Minimal menu, shown from search page
      */
     $getMinimalMenu = function(string $SPOT_id) {
-	global $spot_home, $site_home;
-//	if ($spot_home == $site_home) return "";
+	global $spot_home, $site_home, $SPOT_id;
+	//if ($spot_home == $site_home) return "";
 	$items = [];
 	foreach(['spot','artworks','persons'] as $tp) {
-	    $active = (empty($items) ? "uk-active" : ""); 
-            $p = pages()->get("template={$SPOT_id}_$tp");
-            $items[] = x("li class='menu-item $active'", x("a href='{$p->url}'", x("h3",$p->title)));
+            if (($p = pages()->get("template={$SPOT_id}_$tp"))->id) {
+		$active = (empty($items) ? "uk-active" : ""); 
+		if ($url=@$p->url) $items[] = x("li class='menu-item $active'", x("a href='$url'", x("h3",$p->title)));
+	    }
 	}
 	return x("ul class='uk-navbar-nav float_left'",join("\n",$items));
     };
@@ -1015,4 +1080,84 @@ function abortIt($text = 'Shit...', $extras=[]) {
       ? sprintf("\n%s\n%s\n", $text, shell_exec("tput sgr0"))
       : "</pre>\n");
     die("\n");
+}
+
+/**
+ * $direction: 'auto' | encode | decode
+ *
+ */
+function escape_uml($text, $direction='auto', $debug=false) {
+    static $TT = [
+		'À' => '&Agrave;',   'Á' => '&Aacute;',	  'Â' => '&Acirc;',	'Ã' => '&Atilde;',  '<' => '&lt;',
+		'Ä' => '&Auml;',     'Å' => '&Aring;',	  'à' => '&agrave;',	'á' => '&aacute;',  '>' => '&gt;',
+		'â' => '&acirc;',    'ã' => '&atilde;',	  'ä' => '&auml;',	'å' => '&aring;',   ' ' => '&nbsp;',
+		'Æ' => '&AElig;',    'æ' => '&aelig;',	  'ß' => '&szlig;',	'Ç' => '&Ccedil;',
+		'ç' => '&ccedil;',   'È' => '&Egrave;',	  'É' => '&Eacute;',	'Ê' => '&Ecirc;',   '-' => '&#8209;', // '‑' => '&#8209;',
+		'Ë' => '&Euml;',     'è' => '&egrave;',	  'é' => '&eacute;',	'ê' => '&ecirc;',   '[' => '&#91;',
+                'ë' => '&euml;',     'ƒ' => '&#131;',	  'Ì' => '&Igrave;',	'Í' => '&Iacute;',  ']' => '&#93;',
+		'Î' => '&Icirc;',    'Ï' => '&Iuml;',	  'ì' => '&igrave;',	'í' => '&iacute;',
+		'î' => '&icirc;',    'ï' => '&iuml;',	  'Ñ' => '&Ntilde;',	'ñ' => '&ntilde;',
+		'Ò' => '&Ograve;',   'Ó' => '&Oacute;',	  'Ô' => '&Ocirc;',	'Õ' => '&Otilde;',
+		'Ö' => '&Ouml;',     'ò' => '&ograve;',	  'ó' => '&oacute;',	'ô' => '&ocirc;',
+		'õ' => '&otilde;',   'ö' => '&ouml;',	  'Ø' => '&Oslash;',	'ø' => '&oslash;',
+		'Œ' => '&#140;',
+		'œ' => '&#156;',
+		'Š' => '&#138;',
+		'š' => '&#154;',
+		'Ù' => '&Ugrave;',
+		'Ú' => '&Uacute;',
+		'Û' => '&Ucirc;',
+		'Ü' => '&Uuml;',
+		'ù' => '&ugrave;',
+		'ú' => '&uacute;',
+		'û' => '&ucirc;',
+		'ü' => '&uuml;',
+		'µ' => '&#181;',
+		'×' => '&#215;',
+		'Ý' => '&Yacute;',
+		'Ÿ' => '&#159;',
+		'ý' => '&yacute;',
+		'ÿ' => '&yuml;',
+		'°' => '&#176;',
+		'†' => '&#134;',
+		'‡' => '&#135;',
+		'±' => '&#177;',
+		'«' => '&#171;',
+		'»' => '&#187;',
+		'¿' => '&#191;',
+		'¡' => '&#161;',
+        '·' => '&#183;',
+		'•' => '&#149;',
+		'™' => '&#153;',
+		'©' => '&copy;',
+		'®' => '&reg;',
+		'§' => '&#167;',
+		'¶' => '&#182;',
+        '"' => '&quot;',
+        "'" => '&#039;',
+        //'&' => 'QampQ',
+    ];
+
+    if ($direction === 'auto') {
+        $direction = preg_grep('/&[#A-Za-z0-9]*;/', [$text]) ? 'decode' : 'encode';
+    }
+
+    if ($direction === 'encode') {
+        $reply = str_replace(['&'], ['&amp;'], $text, $count1);
+        $reply = str_replace(array_keys($TT), array_values($TT), $reply, $count2);
+        $count = $count1 + $count2;
+    } else {
+        $reply = str_replace(['%20'],   [' '], $text, $count0);
+        $reply = str_replace(['&amp;'], ['&'], $text, $count1);
+        $reply = str_replace(array_values($TT), array_keys($TT), $reply,  $count2);
+        $count = $count0 + $count1 + $count2;
+    }
+    if ($debug) printf("------count=%d %s('%s')='%s'\n", $count, $direction, $text, $reply);
+    if (0) if (preg_match("/&[\w\#]*;/",$reply)) {
+            tidy_dump(diff(preg_split("/[\n\s]/",$text),
+                           preg_split("/[\n\s]/",$reply)));
+            echo      htmlDiff($text,$reply);
+            abortIt();
+        }
+    return $reply;
 }

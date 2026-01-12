@@ -7,7 +7,8 @@
 
 /** @var Page $page */
 
-setNextPrev("template=a_artwork, a_aw_collection=".$page->a_aw_collection->id.", sort=title", $page);
+//setNextPrev("template=a_artwork, a_aw_collection={$page->a_aw_collection->id}, sort=title", $page);
+setNextPrev("template=a_artwork, sort=title", $page);
 
 // populate regions
 region('browserTitle', "$page->title, {$page->parent->title}");

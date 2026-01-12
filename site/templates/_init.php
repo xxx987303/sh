@@ -32,3 +32,12 @@ if($input->get->logout) {
     $session->logout();
     $session->redirect($pages->get('/sh/')->url);
 }
+
+if($input->post->logout && $user->isLoggedin()) {
+    if(!$session->CSRF->validate('logout')) { throw new WireException('Invalid CSRF token'); }
+    $session->logout();
+
+    // Hard stop + redirect
+    $session->redirect($pages->get('/sh/')->url, false);
+    exit;
+}

@@ -9,6 +9,8 @@
  */
 /** @var Config $config */
 /** @var Page $page */
+global $SPOT_id;
+if (!$user->hasRole('superuser')) $user->language = $languages->get('russian');
 ?><!DOCTYPE html>
 <html lang="<?=(empty($languages)?'en':_x('en', 'HTML language code'))?>">
     <head>
@@ -25,13 +27,17 @@
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/uikit.gradient.min.css' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/slidenav.gradient.min.css' />
 	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/tooltip.min.css' />
-    <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/variations.css' />
-	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.css' />
-	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.min.css' />
+	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/variations.css' />
+	<?php if((string)@$SPOT_id == 'h') { ?>
+        <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.css' />
+        <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.min.css' />
+	<?php } elseif ((string)@$SPOT_id == 'd') {?>
+        <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/Dymkovo.css' />
+	<?php } ?>
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/objects.css' />
 <?php
         // Set h_spot as the default start page
-        //if($_SERVER['REQUEST_URI']==config('urls')->root) echo "<meta http-equiv='Refresh' content=\"0; url='".$config->urls->root."h_spot/'\" />\n";
+        //if($_SERVER['REQUEST_URI']==config('urls')->root) echo "<meta http-equiv='Refresh' content=\"0; url='".$config->urls->root."{@$SPOT_id}_spot/'\" />\n";
 
         // Are we in the search page?
         $in_search = (!empty($page) && strpos($page->url,'search/') !== false);

@@ -69,7 +69,7 @@ if ($XXL) {
 	     x("div class='uk-width-2-3 uk-width-small-4-5' style='padding-top:0;margin-bottom:15px'",
 	       x("a href='$page->url' class='uk-text-bold'",$page->title)).
 	     x("div class='uk-width-1-3 uk-width-small-1-5'",
-	       x("div class='object-city uk-text-muted'",$caption->title)).
+	       x("div class='object-city uk-text-muted'",is_object($caption)?$caption->title:"")).
 	     $image.
 	     x("div class='uk-width-2-3 uk-width-small-4-5'",
 	       x("div class='uk-grid uk-grid-small uk-margin-small-bottom' style='text-size:smaller'",$listTaggedFields))).
