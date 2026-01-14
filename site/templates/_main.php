@@ -10,7 +10,7 @@
 /** @var Config $config */
 /** @var Page $page */
 global $SPOT_id;
-if (!$user->hasRole('superuser')) $user->language = $languages->get('russian');
+if (!$GLOBALS['SU'])  $user->language = $languages->get('russian');
 ?><!DOCTYPE html>
 <html lang="<?=(empty($languages)?'en':_x('en', 'HTML language code'))?>">
     <head>

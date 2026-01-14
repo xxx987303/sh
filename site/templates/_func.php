@@ -27,6 +27,7 @@ $lookingForBug = false;
  */
 function _tn(String $text, $spot='h'){
     $text = escape_uml($text,'decode');
+    if (pages()->get("template=h_brand, title={$text}")->id)  return $text;
     if (preg_match("/^[a-zA-Z ]*$/", $text)) return substr($text,-1) == 's' ? $text : "{$text}s";
     if ($text == 'Коллекционер') return 'Коллекционеры';
     if ($text == 'Владелец')     return 'Владельцы';
@@ -81,9 +82,13 @@ function _t(String $text, $spot='h') {
 	elseif ($b == 'Quite rare')       $b = __("2 of 4",$SPOT_id);
 	elseif ($b == 'Rare')             $b = __("3 of 4",$SPOT_id);
 	elseif ($b == 'Very rare')        $b = __("4 of 4",$SPOT_id);
+	elseif ($b == 'Remix')            $b = __("Remix", $SPOT_id);
+	elseif ($b == 'Limited Edition')  $b = __('Limited Edition',  $spot);
+	elseif ($b == 'Special Edition')  $b = __('Special Edition',  $spot);
 	elseif ($b == 'Maximum')          $b = __('Maximum',$spot);
 	elseif ($b == 'Minimum')          $b = __('Minimum',$spot);
 	elseif ($b == 'Artist')           $b = __('Artist', $spot);
+	elseif ($b == 'Designer')         $b = __('Designer',$spot);
 	elseif ($b == 'Museums')          $b = __('Museums',$spot);
 	elseif ($b == 'bandana')          $b = __('bandana',$spot);
 	else  echo x("pre","_t('$a':'$b' spot=$spot)");
@@ -99,19 +104,18 @@ function _t(String $text, $spot='h') {
  * Include "next" / "previous" page buttons
  */
 function setNextPrev(String $selector, Page &$page) {
+    $selector = restrictedSelector($selector);
     if (empty($np_keys=@$_GET['np_keys'])) {
 	$selector = str_replace('sort=title','sort=name',$selector);
 	// See who requests this page
-	if (preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection))s/([^/]*)/).*;", (string)@$_SERVER['HTTP_REFERER'], $m)) {
+	if (($r=(string)@$_SERVER['HTTP_REFERER']) && preg_match("/(h_aw_options=[a-zA-Z0-9]*)/", $r, $m)) {
+	    $selector = "$m[1], sort=h_aw_person";
+	} elseif (preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection))s/([^/]*)/?).*;", $r, $m)){
 	    $f = str_replace("$m[4]", "aw_{$m[4]}", $m[2]);
 	    if (fields()->get($f)) {
-		$selector = ($f=='h_aw_collection'
-		    ? str_replace('!=5842|6331', "=$m[5]", $selector)
-	            :  $selector . ", $f={$m[5]}");
-	    }else{
-		// echo x("pre style=color:red;font-weight:bold","??? setNextPrev: attempt to select $f={$m[5]}");
+		if(0)$selector = ($f=='h_aw_collection' ? str_replace('!=5842|6331', "=$m[5]", $selector) :  $selector . ", $f={$m[5]}");
+		$selector .= ", $f={$m[5]}";
 	    }
-	    // tidy_dump($m,$selector);
 	}
 	$idWas = $page->id;
 	$k = 0;
@@ -126,7 +130,7 @@ function setNextPrev(String $selector, Page &$page) {
     }
     //tidy_dump($np_pages);
     
-
+    // Get the list of pages and save their IDs in input keys
     if (isset($_GET['key'])) {
 	$key = $_GET['key'];
 	if ($page->id != ($x=pages()->get($np_pages[$key]))->id) $page = $x;
@@ -165,9 +169,23 @@ function getInputKey(String $key) {
  */
 function fieldViewable(Field $f, String $tag="") {
     $reply = (empty($tag) ? true : $f->hasTag($tag)) &&
-	     ($f->hasTag('restricted') ? User()->hasPermission('see-restricted') : true);
+	     (($f->hasTag('restricted') ? User()->hasPermission('see-restricted') : true) ||
+	      ($f->hasTag('prices')     ? User()->hasPermission('see-prices')     : true) );
     //echo x("pre", "fieldViewable($f->name,$tag): ".var_export($reply, true));
     return $reply;
+}
+
+/**
+ * Exclude from the search restricted pages
+ */
+function restrictedSelector($selector) {
+    if (User()->hasPermission('see-restricted') ||
+	preg_match("/(h_aw_collection)/",$selector) ||
+	!preg_match("/\bh_/",$selector)) return $selector;
+    $cols = []; foreach(pages()->find("template=h_collection") as $c) $cols[] = $c->id;
+    $selector = ($was=$selector) . ", h_aw_collection!=".join('|',$cols);
+    //echo x("pre","{$was} ==> {$selector}");
+    return $selector;
 }
 
 /**

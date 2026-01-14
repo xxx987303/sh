@@ -11,8 +11,15 @@ $saveToDB = false;
 //tidy_dump(pages()->get(5906)); exit;
 //foreach(pages()->find("template=a_artwork") as $p){if($p->parent->id!=5906)$p->parent='/a_spot/a_artworks/';$p->save();tidy_dump($p);} exit;
 //foreach(pages()->find("template=a_artwork") as $p){if($p->parent->id!=5906) tidy_dump($p);} exit;
-foreach(pages()->find("title^=Purchase") as $p) {echo "{$p->id};  {$p->title};  {$p->name}\n";tidy_dump($p);} exit;
+//foreach(pages()->find("title^=Purchase") as $p) {echo "{$p->id};  {$p->title};  {$p->name}\n";tidy_dump($p);} exit;
 //foreach (languages() as $l) tidy_dump($l); exit;
+$ref = 'http://localhost/sh/fr-home/search/?SPOT_id=h&h_aw_options=2&sort=h_aw_options';
+preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection|aw_option))s/([^/]*)/?).*;", $ref, $m);
+preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection|aw_option))s/([^/&]*)[/&]?);", $ref, $m);
+preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection|aw_option))s/?);", $ref, $m);
+tidy_dump($m);
+exit;
+
 if(0){
 echo  languages()->get('russian')."\n"; exit;
 foreach(users()->find("template=user") as $u){

@@ -25,45 +25,15 @@ foreach (explode('&', $SITE_input) as $item) {
 	header(sprintf("Location: {$site_home->url}%s_spot/%s_{$matches[2]}s/%s/", $matches[1], $matches[1], $p->name));
 	exit;
     } elseif ($f = fields()->get($k)) {
+        $selector .= restrictedSelector(fieldSelector($input, $f, $summary));
+/*
         $selector .= fieldSelector($input, $f, $summary);
 	if (str_starts_with($k, 'h_aw_') && !$user->hasPermission('see-full-menu') && $k!='h_aw_collection') {
 	    $selector .= "h_aw_collection!=5842|6331, h_aw_brand=$hermes, ";
 	}
+*/
     }
 }
-
-/*
-if(getInputKey($B=$SPOT_id.'_brand')) {
-    $brandName = $sanitizer->pageName(getInputKey($B));
-    $_brand = pages("/{$B}s/$brandName/");
-    if($_brand->id) {
-	$selector .= $SPOT_id."_aw_brand=$_brand, ";
-	$summary[$B] = $_brand->title;
-	$input->whitelist($B, $_brand->name);
-    }
-}
-
-if(getInputKey($P=$SPOT_id.'_person')) {
-  $personName = $sanitizer->pageName(getInputKey($P));
-  $_person = pages("/{$P}s/$personName/");
-  if($_person->id) {
-    $selector .= $SPOT_id."_aw_person=$_person, ";
-    $summary[$P] = $_person->title;
-    $input->whitelist($P, $_person->name);
-  }
-}
-
-// search by X_person & X_artwork fields
-if ($SPOT_id) foreach ([($i1=$SPOT_id.'_artwork'),($i2=$SPOT_id.'_person')] as $tp) {
-    foreach (templates()->get($tp)->fields as $f) {
-        $key = $f->name;
-        // Skip fields already processed above
-        if(($value=getInputKey($key)) && !in_array($key, [$i1,$i2])){ 
-            $selector .= "template=$tp, " . fieldSelector($input, $f, $summary);
-        }
-    }
-}
- */
 
 foreach(['keywords'] as $kw){
     if($v=getInputKey($kw)) {

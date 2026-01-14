@@ -20,6 +20,8 @@ include_once("./_debug.php");  // debug functions
  *
  */
 
+$SU = $GLOBALS['SU'] = $user->hasRole('superuser');
+
 region('*', '');
 region('browserTitle', page('title'));
 region('headline',     page('title'));

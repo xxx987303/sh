@@ -7,6 +7,9 @@
 [31mgetPage(): OK 2 - template=h_brand, title~=Hermes(B[m
 [31mgetPage(): OK 2 - template=h_artwork, title~=1821 hommage a l'amitie(B[m
 >>>  OK 1821-hommage-a-lamite.h_aw_person             5806
+[34mNOTICE: -- instanceof Page key=>h_aw_options value=>EL type=>FieldtypeOptions inputfieldClass=>InputfieldCheckboxes(B[m
+[34mNOTICE: -- $type == FieldtypeOptions(B[m
+[34mNOTICE: inputfieldClass = InputfieldCheckboxes(B[m
 >>>  OK 1821-hommage-a-lamite.h_aw_options            EL
 [31mb_debug::_dbg(): [size:''->'Gavroche'  cmt:'G'->''  options=](B[m
 
@@ -65,9 +68,16 @@
 [31mcreatePage(): args=template=>h_person hook=>title name=>Marie-Françoise Faconnet(B[m
 [31mcreatePage(): selector=template=h_person, title=Marie-Françoise Faconnet(B[m
 [31mcreatePage(): PAGE ALREADY EXISTS selector="template=h_person, title=Marie-Françoise Faconnet"(B[m
+[34mNOTICE: -- instanceof Page key=>title value=>Marie-Françoise Faconnet type=>FieldtypePageTitleLanguage(B[m
+[34mNOTICE: -- setKeyValue_simple(title)(B[m
 >>>  OK marie-francoise-faconnet.title                Marie-Françoise Faconnet
+[34mNOTICE: -- instanceof Page key=>h_av_firstname value=>Marie-Françoise type=>FieldtypeTextLanguage(B[m
+[34mNOTICE: -- setKeyValue_simple(h_av_firstname)(B[m
 >>>  OK marie-francoise-faconnet.h_av_firstname       Marie-Françoise
+[34mNOTICE: -- instanceof Page key=>h_av_lastname value=>Faconnet type=>FieldtypeTextLanguage(B[m
+[34mNOTICE: -- setKeyValue_simple(h_av_lastname)(B[m
 >>>  OK marie-francoise-faconnet.h_av_lastname        Faconnet
+[34mNOTICE: -- instanceof Page key=>h_av_duty value=>Designer type=>FieldtypeOptions inputfieldClass=>InputfieldCheckboxes(B[m
 >>>  OK marie-francoise-faconnet.h_av_duty            Designer
 >>>  OK marie-francoise-faconnet.name                 marie-francoise-faconnet
 [31mgetPage(): OK 1 - template=h_person, h_av_lastname^=Diatkine, h_av_firstname^=Cyrille(B[m
@@ -75,6 +85,7 @@
 [31mgetPage(): OK 1 - template=h_artwork, title^=astrologie nouvelle(B[m
 >>>  OK astrologie-nouvelle.h_aw_person               5967
 >>>  OK astrologie-nouvelle.h_aw_person               5804
+[34mNOTICE: -- instanceof Page key=>h_aw_options value=>ES type=>FieldtypeOptions inputfieldClass=>InputfieldCheckboxes(B[m
 >>>  OK astrologie-nouvelle.h_aw_options              ES
 
 ======================================================================================
@@ -191,8 +202,11 @@
 [31mcreatePage(): args=template=>h_person hook=>title name=>Benoît-Pierre Emery(B[m
 [31mcreatePage(): selector=template=h_person, title=Benoît-Pierre Emery(B[m
 [31mcreatePage(): PAGE ALREADY EXISTS selector="template=h_person, title=Benoît-Pierre Emery"(B[m
+[34mNOTICE: -- instanceof Page key=>title value=>Benoît-Pierre Emery type=>FieldtypePageTitleLanguage(B[m
 >>>  OK 320-benot-pierre-emery.title                  Benoît-Pierre Emery
+[34mNOTICE: -- instanceof Page key=>h_av_firstname value=>Benoît-Pierre type=>FieldtypeTextLanguage(B[m
 >>>  OK 320-benot-pierre-emery.h_av_firstname         Benoît-Pierre
+[34mNOTICE: -- instanceof Page key=>h_av_lastname value=>Emery type=>FieldtypeTextLanguage(B[m
 >>>  OK 320-benot-pierre-emery.h_av_lastname          Emery
 >>>  OK 320-benot-pierre-emery.h_av_duty              Designer
 >>>  OK 320-benot-pierre-emery.name                   320-benot-pierre-emery
@@ -372,9 +386,16 @@
 [31mcreatePage(): args=template=>h_artwork hook=>title name=>Hermès-sellier(B[m
 [31mcreatePage(): selector=template=h_artwork, title=Hermès-sellier(B[m
 [31mcreatePage(): PAGE ALREADY EXISTS selector="template=h_artwork, title=Hermès-sellier"(B[m
+[34mNOTICE: -- instanceof Page key=>title value=>Hermès-sellier type=>FieldtypePageTitleLanguage(B[m
 >>>  OK hermes-sellier.title                          Hermès-sellier
+[34mNOTICE: -- instanceof Page key=>h_aw_size value=>Gavroche type=>FieldtypePage inputfield=>InputfieldSelect derefAsPage=>1(B[m
+[34mNOTICE: -- type == FieldtypePage && key->inputfield == 'InputfieldSelect'(B[m
 >>>  OK hermes-sellier.h_aw_size                      Gavroche
+[34mNOTICE: -- instanceof Page key=>h_aw_brand value=>5835 type=>FieldtypePage inputfield=>InputfieldAsmSelect derefAsPage=>1(B[m
+[34mNOTICE: -- type == FieldtypePage && key->inputfield == 'InputfieldAsmSelect'(B[m
 >>>  OK hermes-sellier.h_aw_brand                     Hermès
+[34mNOTICE: -- instanceof Page key=>h_aw_year value=>2009/2012 type=>FieldtypeText(B[m
+[34mNOTICE: -- setKeyValue_simple(h_aw_year)(B[m
 >>>  OK hermes-sellier.h_aw_year                      2009/2012
 [34mNOTICE: Skip... Trying to assign h_aw_seller=NullPage(B[m
 >>>  OK hermes-sellier.name                           hermes-sellier
@@ -415,6 +436,7 @@
            Jeu de Omnibus et DameBlanche  Gianpaolo Pagni           2018                                 !!!!!!!! Gianpaolo Pagni
 [31mgetPage(): OK 1 - template=h_artwork, title^=jeu de omnibus et dameblanche(B[m
 >>>  OK 202-jeu-de-omnibus-et-dameblanche.h_aw_person 6108
+[34mNOTICE: -- instanceof Page key=>h_aw_options value=>Remix type=>FieldtypeOptions inputfieldClass=>InputfieldCheckboxes(B[m
 >>>  OK 202-jeu-de-omnibus-et-dameblanche.h_aw_options Remix
 
 ======================================================================================
@@ -451,8 +473,8 @@
 >>>  OK le-saut-h.h_aw_person                         5804
 
 ======================================================================================
-[31mgetPage(): OK 1 - template=h_person, h_av_lastname^=Pierre, h_av_firstname^=Marie(B[m
-2025-06    Le sacres d'Hiver              Marie Pierre              2022            Gavroche             !!!!!!!! Marie Pierre
+[31mgetPage(): OK 1 - template=h_person, h_av_firstname^=Pierre Marie(B[m
+2025-06    Le sacres d'Hiver              Pierre Marie              2022            Gavroche             !!!!!!!! Pierre Marie Agin
 [31mgetPage(): OK 1 - template=h_artwork, title^=le sacres d'hiver(B[m
 >>>  OK le-sacres-dhiver.h_aw_person                  6113
 
@@ -492,7 +514,7 @@
 >>>  OK muzerolles.h_aw_person                        5792
 
 ======================================================================================
-           Les Nouveaux Amoureux de Paris Marie Pierre              2021            Bandana              !!!!!!!! Marie Pierre
+           Les Nouveaux Amoureux de Paris Pierre Marie              2021            Bandana              !!!!!!!! Pierre Marie Agin
 [31mgetPage(): OK 1 - template=h_artwork, title^=les nouveaux amoureux de paris(B[m
 >>>  OK les-nouveaux-amoureux-de-paris.h_aw_person    6113
 
@@ -585,7 +607,7 @@
 
 ======================================================================================
            Mors a la conetable            Henri d'Origny            1970/1985                            !!!!!!!! Henri d'Origny
-[31mgetPage(): OK 1 - template=h_artwork, title^=mors a la conetable(B[m
+[31mgetPage(): OK 2 - template=h_artwork, title~=mors a la conetable(B[m
 >>>  OK mors-a-la-conetable.h_aw_person               5807
 
 ======================================================================================
@@ -647,8 +669,10 @@
 [31mcreatePage(): args=template=>h_person hook=>title name=>Marie-Françoise Héron(B[m
 [31mcreatePage(): selector=template=h_person, title=Marie-Françoise Héron(B[m
 [31mcreatePage(): PAGE ALREADY EXISTS selector="template=h_person, title=Marie-Françoise Héron"(B[m
+[34mNOTICE: -- instanceof Page key=>title value=>Marie-Françoise Héron type=>FieldtypePageTitleLanguage(B[m
 >>>  OK 321-franoise-heron.title                      Marie-Françoise Héron
 >>>  OK 321-franoise-heron.h_av_firstname             Marie-Françoise
+[34mNOTICE: -- instanceof Page key=>h_av_lastname value=>Héron type=>FieldtypeTextLanguage(B[m
 >>>  OK 321-franoise-heron.h_av_lastname              Héron
 >>>  OK 321-franoise-heron.h_av_duty                  Designer
 >>>  OK 321-franoise-heron.name                       321-franoise-heron
@@ -693,8 +717,8 @@
 >>>  OK qalamdan.h_aw_person                          5815
 
 ======================================================================================
-[31mgetPage(): OK 1 - template=h_person, h_av_lastname^=Peron, h_av_firstname^=Pierre(B[m
-2024-06-15 Quadrige                       Pierre Peron              2019            66x66                !!!!!!!! Pierre Peron
+[31mgetPage(): OK 2 - template=h_person, h_av_lastname~=Peron, h_av_firstname~=Pierre(B[m
+2024-06-15 Quadrige                       Pierre Peron              2019            66x66                !!!!!!!! Pierre Péron
 [31mgetPage(): OK 1 - template=h_artwork, title^=quadrige(B[m
 >>>  OK quadrige.h_aw_person                          6138
 
@@ -863,6 +887,7 @@
            Zabavushka                     Evgenia Miro              2009                                 !!!!!!!! Evgenia Miro (Miroshnichenko)
 [31mgetPage(): OK 1 - template=h_artwork, title^=zabavushka(B[m
 >>>  OK zabavushka.h_aw_person                        5794
+[34mNOTICE: -- instanceof Page key=>h_aw_options value=>Sold type=>FieldtypeOptions inputfieldClass=>InputfieldCheckboxes(B[m
 >>>  OK zabavushka.h_aw_options                       Sold
 
 ======================================================================================
@@ -886,11 +911,11 @@
 [34mNOTICE: doingVariations 'Les Voitures a Transformation'(B[m
            Les Voitures a Transformation  Françoise de La Perrière 1965/1980                            !!!!!!!! Françoise de La Perrière
 [31mgetPage(): OK 1 - template=h_artwork, name^=281-les-voitures-transformation-variations1(B[m
->>>  OK 281-les-voitures-transformation-v.h_aw_person 5802
+>>>  OK 281-les-voitures-transformation-var.h_aw_person 5802
 
 ======================================================================================
            Les Voitures a Transformation  Françoise de La Perrière 1965/1980                            !!!!!!!! Françoise de La Perrière
->>>  OK 281-les-voitures-transformation-v.h_aw_person 5802
+>>>  OK 281-les-voitures-transformation-var.h_aw_person 5802
 
 ======================================================================================
 [34mNOTICE: doingVariations 'Plumes'(B[m

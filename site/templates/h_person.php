@@ -12,7 +12,7 @@ region('content',files()->render('./includes/object-page.php',
 				       'related'=> pages("limit=20, id!=$page->id, body*=" . sanitizer()->selectorValue($page->title)),
 				       'width'  => 300, // Images width
 				       )).
-       renderObjectList(findObjects("h_aw_person=$page",'h_artwork'),
+       renderObjectList(findObjects(restrictedSelector("h_aw_person=$page"),'h_artwork'),
 			$cols=2,
 			$showPagination=false,
 			$headline=__('Artworks of ')." ".$page->title));
