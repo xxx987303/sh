@@ -5,16 +5,11 @@
 # Would be nice to replace JPEG fils by WEBP, but native ProcessWire rejects those
 #
 
-WEBP='NO!!'
 dryRun=
 
 # ProcessWire images location
-R=$(cd $(dirname $0); pwd -P | sed s,/tools.*$,,)/site/assets/files
-echo $R | sed s,/site.*$,,
-echo $R | sed s,/site.*$,,
-echo $R | sed s,/site.*$,,
-echo
-sleep 3
+# R=$(cd $(dirname $0); pwd -P | sed s,/tools.*$,,)/site/assets/files
+R=/Users/yb/Sites/sh/site/assets/files
 
 # Returns number of dots in the input string
 function countDots() {
@@ -39,34 +34,35 @@ for parentDir in $(ls -1 $R); do
 		[ $parentDir != 6106 ] && [ $parentDir != 5841 ] && continue
 	fi
     }
-    echo ==========================$parentDir
+
+    nacts=0
     for item in $(ls -1); do
 	if [[ -d $item ]]; then
-	    [ -n "$dryRun" ] && echo "  --dir  $item"
+	    echo -n
+#	    [ -n "$dryRun" ] && echo "  --dir  $item"
 	elif [[ -h "$item" ]]; then
-	    [ -n "$dryRun" ] && echo "  --link $item"
-	    [ -a $item ] ||  {
-		echo -n "  --drop link " ;
-		rm -vf $item
+#	    [ -n "$dryRun" ] && {
+#		[ $nacts = 0 ] && echo ==========================$parentDir
+#		(( nacts++ ))
+#		echo "  --link $item"
+#	    }
+	    [ -a $item ] || {
+		[ $nacts = 0 ] && echo ==========================$parentDir
+		(( nacts++ ))
+		echo -n "  --drop link "
+		[ -z "$dryRun" ] && rm -vf $item || echo $item
 	    }
 	elif [[ -f "$item" ]]; then
 	    [ -n "$(file "$item" 2>&1| grep JSON)" ] && continue
 	    [ -n "$(file "$item" 2>&1| grep image)" ] && {
-		[ -n "$dryRun" ] && echo -n "  --img $item"
-		
+#		[ -n "$dryRun" ] && {
+#		    [ $nacts = 0 ] && echo ==========================$parentDir
+#		    (( nacts++ ))
+#		    echo -n "  --img $item"
+#		}
 		a=($(echo $item|sed 's/\./ /g'))
 		n=$(countDots $item)
-		rootO=${a[0]}.${a[$n]}
-		rootW=${a[0]}.webp
-		[ $WEBP = 'y' ] && {
-		    if [ ${a[$n]} = "webp" ]; then continue; fi
-		    root=$rootW
-		    if [ ! -f $rootW ]; then ln -svf $rootO $rootW; fi
-		    itemW=$(echo $item|sed s/${a[$n]}/webp/)
-		    echo "        $itemW"
-		} || {
-		    root=$rootO
-		}
+		root=${a[0]}.${a[$n]}
 		
 		if [ ! -f $root ]; then
 		    echo "????? '$root' is not in the root"
@@ -76,14 +72,14 @@ for parentDir in $(ls -1 $R); do
 		
 		if [[ $item = $root ]]; then
 		    # We got the root file
-		    [ -n "$dryRun" ] && echo "    GOT ROOT $root"
-		elif [ $WEBP = 'y' ]; then
-		    echo -n
+		    echo -n #		    [ -n "$dryRun" ] && echo "    GOT ROOT $root"
 		else
 		    # Remove the file to save space, replace it by a link
-		    [ -n "$dryRun" ] &&
-			{ echo; echo "    cd $R/$parentDir && rm -vf $item && ln -svf $root $item";
-			} ||            { cd $R/$parentDir && rm -vf $item && ln -svf $root $item; }
+		    [ $nacts = 0 ] && echo ==========================$parentDir
+		    (( nacts++ ))
+                    [ -n "$dryRun" ] &&
+			{ echo "    cd $R/$parentDir && rm -f $item && ln -svf $root $item";
+			} ||      { cd $R/$parentDir && rm -f $item && ln -svf $root $item; }
 		fi
 	    }
 	else

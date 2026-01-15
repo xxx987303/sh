@@ -29,7 +29,7 @@ CREATE TABLE `caches` (
   `expires` datetime NOT NULL,
   PRIMARY KEY (`name`),
   KEY `expires` (`expires`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,7 +54,7 @@ CREATE TABLE `field_a_av_date` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `field_a_av_duty` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +162,7 @@ CREATE TABLE `field_a_av_firstname` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,7 +222,7 @@ CREATE TABLE `field_a_av_lastname` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -273,7 +273,7 @@ CREATE TABLE `field_a_av_school` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -311,7 +311,7 @@ CREATE TABLE `field_a_av_url` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -346,7 +346,7 @@ CREATE TABLE `field_a_aw_base` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -404,7 +404,7 @@ CREATE TABLE `field_a_aw_collection` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -471,7 +471,7 @@ CREATE TABLE `field_a_aw_condition` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -529,7 +529,7 @@ CREATE TABLE `field_a_aw_copy_artwork` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -560,7 +560,7 @@ CREATE TABLE `field_a_aw_featured` (
   `data` tinyint(4) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -591,7 +591,7 @@ CREATE TABLE `field_a_aw_link` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -638,7 +638,7 @@ CREATE TABLE `field_a_aw_more` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -697,7 +697,7 @@ CREATE TABLE `field_a_aw_person` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -759,7 +759,7 @@ CREATE TABLE `field_a_aw_possession` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -812,7 +812,7 @@ CREATE TABLE `field_a_aw_provenance` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -876,7 +876,7 @@ CREATE TABLE `field_a_aw_signature` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -944,7 +944,7 @@ CREATE TABLE `field_a_aw_size` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1005,7 +1005,7 @@ CREATE TABLE `field_a_aw_technique` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1065,7 +1065,7 @@ CREATE TABLE `field_a_aw_url` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1112,7 +1112,7 @@ CREATE TABLE `field_a_aw_year` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1181,7 +1181,7 @@ CREATE TABLE `field_a_c_address` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1215,7 +1215,7 @@ CREATE TABLE `field_a_c_duty` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1249,7 +1249,7 @@ CREATE TABLE `field_a_c_person` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1276,7 +1276,7 @@ CREATE TABLE `field_a_c_url` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1306,7 +1306,7 @@ CREATE TABLE `field_a_p_artwork` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1350,7 +1350,7 @@ CREATE TABLE `field_a_p_currency` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1392,7 +1392,7 @@ CREATE TABLE `field_a_p_date` (
   `data` datetime NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1435,7 +1435,7 @@ CREATE TABLE `field_a_p_object_number` (
   `data` int(11) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1475,7 +1475,7 @@ CREATE TABLE `field_a_p_person` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1505,7 +1505,7 @@ CREATE TABLE `field_a_p_price_final` (
   `data` int(11) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1547,7 +1547,7 @@ CREATE TABLE `field_a_p_price_start` (
   `data` int(11) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1590,7 +1590,7 @@ CREATE TABLE `field_a_p_seller` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1643,7 +1643,7 @@ CREATE TABLE `field_a_s_address` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1676,7 +1676,7 @@ CREATE TABLE `field_a_s_duty` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1708,7 +1708,7 @@ CREATE TABLE `field_admin_theme` (
   `data` int(11) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1743,7 +1743,7 @@ CREATE TABLE `field_body` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2141,7 +2141,7 @@ CREATE TABLE `field_countries` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2168,7 +2168,7 @@ CREATE TABLE `field_country` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2264,7 +2264,7 @@ CREATE TABLE `field_d_av_duty` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2303,7 +2303,7 @@ CREATE TABLE `field_d_av_firstname` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2342,7 +2342,7 @@ CREATE TABLE `field_d_av_lastname` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2372,7 +2372,7 @@ CREATE TABLE `field_d_av_url` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2400,7 +2400,7 @@ CREATE TABLE `field_d_aw_featured` (
   `data` tinyint(4) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2430,7 +2430,7 @@ CREATE TABLE `field_d_aw_person` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2459,7 +2459,7 @@ CREATE TABLE `field_d_aw_size` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2489,7 +2489,7 @@ CREATE TABLE `field_d_aw_type` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2522,7 +2522,7 @@ CREATE TABLE `field_email` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2556,7 +2556,7 @@ CREATE TABLE `field_figcaption` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2644,7 +2644,7 @@ CREATE TABLE `field_h_av_date` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2733,7 +2733,7 @@ CREATE TABLE `field_h_av_duty` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2844,7 +2844,7 @@ CREATE TABLE `field_h_av_firstname` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2951,7 +2951,7 @@ CREATE TABLE `field_h_av_lastname` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3049,7 +3049,7 @@ CREATE TABLE `field_h_av_url` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3092,7 +3092,7 @@ CREATE TABLE `field_h_aw_base` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3163,7 +3163,7 @@ CREATE TABLE `field_h_aw_brand` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3355,7 +3355,7 @@ CREATE TABLE `field_h_aw_collection` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3388,7 +3388,7 @@ CREATE TABLE `field_h_aw_condition` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3554,7 +3554,7 @@ CREATE TABLE `field_h_aw_day0` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3661,7 +3661,7 @@ CREATE TABLE `field_h_aw_featured` (
   `data` tinyint(4) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3709,7 +3709,7 @@ CREATE TABLE `field_h_aw_more` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3891,7 +3891,7 @@ CREATE TABLE `field_h_aw_options` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3930,7 +3930,7 @@ CREATE TABLE `field_h_aw_person` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4125,7 +4125,7 @@ CREATE TABLE `field_h_aw_popularity` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4287,7 +4287,7 @@ CREATE TABLE `field_h_aw_possession` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4317,7 +4317,7 @@ CREATE TABLE `field_h_aw_price` (
   `data` int(11) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4385,7 +4385,7 @@ CREATE TABLE `field_h_aw_rarity` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4548,7 +4548,7 @@ CREATE TABLE `field_h_aw_seller` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4618,7 +4618,7 @@ CREATE TABLE `field_h_aw_size` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4718,7 +4718,7 @@ CREATE TABLE `field_h_aw_sizes` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4745,7 +4745,7 @@ CREATE TABLE `field_h_aw_url` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4815,7 +4815,7 @@ CREATE TABLE `field_h_aw_year` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5000,7 +5000,7 @@ CREATE TABLE `field_h_br_duty` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5041,7 +5041,7 @@ CREATE TABLE `field_h_br_url` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5082,7 +5082,7 @@ CREATE TABLE `field_h_c_person` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5113,7 +5113,7 @@ CREATE TABLE `field_h_p_artwork` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5144,7 +5144,7 @@ CREATE TABLE `field_h_p_currency` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5174,7 +5174,7 @@ CREATE TABLE `field_h_p_date` (
   `data` datetime NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5204,7 +5204,7 @@ CREATE TABLE `field_h_p_object_number` (
   `data` int(11) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5234,7 +5234,7 @@ CREATE TABLE `field_h_p_person` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5260,7 +5260,7 @@ CREATE TABLE `field_h_p_price_final` (
   `data` int(11) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5289,7 +5289,7 @@ CREATE TABLE `field_h_p_price_start` (
   `data` int(11) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5319,7 +5319,7 @@ CREATE TABLE `field_h_p_seller` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5359,7 +5359,7 @@ CREATE TABLE `field_h_s_address` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5396,7 +5396,7 @@ CREATE TABLE `field_h_s_url` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(250)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5451,7 +5451,7 @@ CREATE TABLE `field_images` (
   KEY `ratio` (`ratio`),
   FULLTEXT KEY `description` (`description`),
   FULLTEXT KEY `filedata` (`filedata`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5914,7 +5914,7 @@ CREATE TABLE `field_language` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -5961,7 +5961,7 @@ CREATE TABLE `field_language_files` (
   KEY `filesize` (`filesize`),
   FULLTEXT KEY `description` (`description`),
   FULLTEXT KEY `filedata` (`filedata`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6005,7 +6005,7 @@ CREATE TABLE `field_language_files_site` (
   KEY `filesize` (`filesize`),
   FULLTEXT KEY `description` (`description`),
   FULLTEXT KEY `filedata` (`filedata`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6124,7 +6124,7 @@ CREATE TABLE `field_pass` (
   `salt` char(32) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=ascii COLLATE=ascii_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=ascii;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6159,7 +6159,7 @@ CREATE TABLE `field_permissions` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6201,7 +6201,7 @@ CREATE TABLE `field_process` (
   `data` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6266,7 +6266,7 @@ CREATE TABLE `field_roles` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6317,7 +6317,7 @@ CREATE TABLE `field_title` (
   FULLTEXT KEY `data5753` (`data5753`),
   FULLTEXT KEY `data5754` (`data5754`),
   FULLTEXT KEY `data5755` (`data5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6801,7 +6801,7 @@ CREATE TABLE `fieldgroups` (
   `name` varchar(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=152 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=152 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6875,7 +6875,7 @@ CREATE TABLE `fieldgroups_fields` (
   `sort` int(11) unsigned NOT NULL DEFAULT 0,
   `data` text DEFAULT NULL,
   PRIMARY KEY (`fieldgroups_id`,`fields_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7104,7 +7104,7 @@ CREATE TABLE `fields` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `type` (`type`)
-) ENGINE=MyISAM AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7246,7 +7246,7 @@ CREATE TABLE `fieldtype_options` (
   FULLTEXT KEY `title5753_value5753` (`title5753`,`value5753`),
   FULLTEXT KEY `title5754_value5754` (`title5754`,`value5754`),
   FULLTEXT KEY `title5755_value5755` (`title5755`,`value5755`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7356,7 +7356,7 @@ CREATE TABLE `modules` (
   `created` timestamp NOT NULL DEFAULT '2017-02-04 22:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `class` (`class`)
-) ENGINE=MyISAM AUTO_INCREMENT=209 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=209 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7530,7 +7530,7 @@ CREATE TABLE `pages` (
   KEY `created` (`created`),
   KEY `status` (`status`),
   KEY `published` (`published`)
-) ENGINE=MyISAM AUTO_INCREMENT=6346 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6346 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8026,7 +8026,7 @@ CREATE TABLE `pages_access` (
   `ts` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`pages_id`),
   KEY `templates_id` (`templates_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8111,7 +8111,7 @@ CREATE TABLE `pages_parents` (
   `pages_id` int(10) unsigned NOT NULL,
   `parents_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`parents_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8195,7 +8195,7 @@ CREATE TABLE `pages_sortfields` (
   `pages_id` int(10) unsigned NOT NULL DEFAULT 0,
   `sortfield` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`pages_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8224,7 +8224,7 @@ CREATE TABLE `session_login_throttle` (
   `attempts` int(10) unsigned NOT NULL DEFAULT 0,
   `last_attempt` int(10) unsigned NOT NULL,
   PRIMARY KEY (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8257,7 +8257,7 @@ CREATE TABLE `templates` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `fieldgroups_id` (`fieldgroups_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
