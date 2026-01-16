@@ -6,8 +6,9 @@
  *     list($day0, $carreTitle, $ln, $fn, $year, $cmt, $price, $size, $www)
  *
  */
-require_once __dir__ . '/debug.php';
+require_once __dir__ . "/debug.php";
 require_once "/Users/yb/Sites/sh/index.php";
+require_once __dir__ . "/../site/templates/_func_missing.php";
 
 $SHOW_TIDY_R_LIST = true;
 $SHOW_AUTHORS = false;
