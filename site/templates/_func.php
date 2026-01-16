@@ -169,16 +169,18 @@ function fieldViewable(Field $f, String $tag="") {
 }
 
 /**
- * Exclude from the search restricted pages
+ * Exclude from the search restricted H-pages.
+ * The restricted fields have tag 'restricted'
+ * At the time being the access is restricted to pages with
+ * template "h_collection" and non-Hermes manufactures.
+ * The full access requires the 'see-restricted' permission.
  */
-function restrictedSelector($selector) {
+function restrictedSelector($selector, $forURL=false) {
     if (User()->hasPermission('see-restricted') ||
-	preg_match("/(h_aw_collection)/",$selector) ||
 	!preg_match("/\bh_/",$selector)) return $selector;
     $cols = []; foreach(pages()->find("template=h_collection") as $c) $cols[] = $c->id;
-    $selector = ($was=$selector) . ", h_aw_collection!=".join('|',$cols);
-    //echo x("pre","{$was} ==> {$selector}");
-    return $selector;
+    $h = pages()->get("title=Hermès")->id;
+    return getValidSelector("$selector,h_aw_brand=$h,h_aw_collection!=".join('|',$cols));
 }
 
 /**
@@ -202,7 +204,13 @@ function getRandomFeatured($nCols=3, $spot=null) {
 }
 
 /**
- * Show object variations, if any
+ * Show object variations, if any.
+ *  Today there are 2 types of object variaions:
+ * h_spot: Scarves with the same title, but of different colors
+ * a_spot: Copies of a panting
+ *
+ * Varitions have pages starting with the same characters strings,
+ * so they are easily matched.
  */
 function getVariations(Page $page) {
     global $SPOT_id;
@@ -287,6 +295,21 @@ function getKeyValue(Page $page, Field $field) {
     }
     if ($lookingForBug) echo "getKeyValue($page->id,$field->name,$field->type) = $reply<br>";
     return $reply;
+}
+
+/**
+ */
+function getValidSelector($selectorArg) {
+    $reply = [];
+    foreach (explode(',', trim(str_replace('=!','!=',$selectorArg),', ')) as $item) {
+	if (isEmpty(trim($item))) continue;
+	list($k,$v) = preg_split("/ *= */", trim($item),2);
+	if (isEmpty($v)) continue;
+	$reply[] = "$k=$v";
+    }
+    $selector = implode(',', array_unique($reply));
+    //if ($selectorArg != $selector) echo "'$selectorArg' ==> <br>'$selector'<br>";
+    return $selector;
 }
 
 /**

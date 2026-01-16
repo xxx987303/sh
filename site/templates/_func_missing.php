@@ -16,3 +16,12 @@ if (!function_exists('str_starts_with')) {
 	return (strpos($haystack, $needle) === 0);
     }
 }
+
+/**
+ *
+ */
+function isEmpty($item) {
+    return ($item === 0 || $item === '0'
+          ? false
+          : empty($item));
+}

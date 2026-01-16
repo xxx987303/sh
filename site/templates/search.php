@@ -19,11 +19,12 @@ $hermes = pages()->get('title=Hermès')->id;
 foreach (explode('&', $SITE_input) as $item) {
     if (!str_contains($item,'=')) continue;
     list($k,$v) = explode('=',str_replace('_c_person','_aw_person',$item));
-    if (preg_match("/([adh])_aw_(person|collection)/", $k, $matches)) {
+    if (is_numeric($v) && preg_match("/([adh])_aw_(person|collection)/", $k, $matches)) {
 	// Redirect the page if posible
-	$p = pages()->get($v);
-	header(sprintf("Location: {$site_home->url}%s_spot/%s_{$matches[2]}s/%s/", $matches[1], $matches[1], $p->name));
-	exit;
+	if (($p = pages()->get($v))->id) {
+	    header(sprintf("Location: {$site_home->url}%s_spot/%s_{$matches[2]}s/%s/", $matches[1], $matches[1], $p->name));
+	    exit;
+	}
     } elseif ($f = fields()->get($k)) {
         $selector .= restrictedSelector(fieldSelector($input, $f, $summary));
 /*
@@ -89,8 +90,7 @@ region('content',
        files()->render('./includes/search_summary.php', ['items' => $summary]) .
        (empty($selector)
 	   ? x("div class='uk-alert'",  __('No results from the search...'))	      
-           : renderObjectList(findObjects($selector,''),
-			      $cols=2)));
+           : renderObjectList(findObjects(getValidSelector($selector),''),$cols=2)));
 
 /**
  * we are allowing these GET vars in the format of 999, 999-9999, or 999+
@@ -107,7 +107,9 @@ function fieldSelector(WireInput $input, Field $field, Array &$summary) {
 
     $key = $field->name;
     if($value = getInputKey($key)) {
-        if(preg_match(";[,/];", $value)) { // see if the value is given as a list (i.e. items separated by a comma)
+	if(preg_match(";h_aw_collection!=([0-9|]*);", $key,$m)) {
+	    $selector .= "h_aw_collection!=$m[1],";
+        }elseif(preg_match(";[,/];", $value)) { // see if the value is given as a list (i.e. items separated by a comma)
 	    // Operator "~|=" also works, but "%=" does not...
             $selector .= "$key=". ($value=str_replace([',','/'],'|',$value));
             $summary[$key] = $value;
@@ -149,13 +151,4 @@ function fieldSelector(WireInput $input, Field $field, Array &$summary) {
         $selector .= ', ';
     }
     return $selector;
-}
-
-/**
- *
- */
-function isEmpty($item) {
-    return ($item === 0 || $item === '0'
-          ? false
-          : empty($item));
 }
