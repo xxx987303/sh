@@ -3,7 +3,10 @@
 # iMac2013 runs an old mysql, old php, etc, be carefull...
 #
 
-[ $(hostname -s) == "lap2022-M2" ] && { echo "??? You can't run it from the \"Master host\""; exit; } 
+[ $(hostname -s) == "lap2022-M2" ] && {
+    echo "??? You can't run this script from the \"Master host\", it breaks the egg/chicken principle";
+    exit;
+}
 
 function say(){
     echo; echo "=========================================================" $@

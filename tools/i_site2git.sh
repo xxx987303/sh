@@ -14,6 +14,11 @@ function say(){
 
 cd $git
 
+say "Syncing modules is NOT done by this script, do it manually..."
+#rsync -avnc --delete $sh/modules/ $git/site/modules/
+sh_diff.sh $sh/modules/ $git/site/modules/ | grep -v ^$
+sleep 5
+
 say "Cleaning assets"
 $git/tools/compactor.sh
 
