@@ -1,7 +1,7 @@
 <?php namespace ProcessWire;
 
 if (empty($cols)) $cols = 1; 
-if($headline)   echo x("h2",$headline);
+if($headline)   echo x("h2 style='margin-top:revert;'",$headline);
 if($pagination) echo x("div class='uk-grid uk-margin-bottom pagination'",
 		       x("div class='uk-width-medium-2-3'",$pagination).
 		       x("div class='uk-width-medium-1-3'",$sortSelect));

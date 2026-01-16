@@ -8,15 +8,7 @@
  *
  */
 
-/**
- * Returns an array of valid artwork sort propertie
- *
- * The keys for the array are normally the field name
- * The values for the array are the printable label
- *
- * @return array
- *
- */
+require_once __dir__ . '/_func_missing.php';
 
 if (!defined('CLI_MODE')) define('CLI_MODE',false);
 global $lookingForBug;
@@ -33,7 +25,7 @@ function _tn(String $text, $spot='h'){
     if ($text == 'Владелец')     return 'Владельцы';
     if ($text == 'Художник')     return 'Художники';
     if ($text == 'Продавец')     return 'Продавцы';
-    echo x("pre","_tn({$text}, {$spot})");
+    echo x("pre","_tn({$text})");
     return "?$text";
 }
 
@@ -41,62 +33,63 @@ function _tn(String $text, $spot='h'){
  * Translate text coming from variables
  */
 function _t(String $text, $spot='h') {
-    global $SPOT_id;
   //$text = escape_uml($text,'decode');
     $text = str_replace('%20', ' ',  $text);
     if (in_array($text, ['Мистерия А.М.Кассандры','Maison Carré Foundation'])) return $text;
     if (str_starts_with($text,'Pierre Péron, dans son appartement')) return __('Pierre Péron, dans son appartement');
     if (preg_match("/Got as.*Voyage en/", $text))                    return __('Got as "Voyage en Étoffes"');
-    if ($text == 'Louvre')           return __('Louvre',  $SPOT_id);
-    if ($text == 'Scarves Search')   return __('Scarves Search',  $SPOT_id);
-    if ($text == 'Paintings Search') return __('Paintings Search',$SPOT_id);
-    if ($text == 'Dymkovo Search')   return __('Dymkovo Search',  $SPOT_id);
-    if ($text == 'Toys Search')      return __('Dymkovo Search',  $SPOT_id);
-    if ($text == 'Photo from Wiki')                return __('Photo from Wiki',  $SPOT_id);
-    if ($text == 'Bienvenue à l’atelier')          return __('Bienvenue à l’atelier',  $SPOT_id);
-    if ($text == 'Probably a copy of:')            return __('Probably a copy of:',     $spot);
-    if ($text == 'Probably an origin for copy of:')return __('Probably an origin for copy of:',     $spot);
-    if ($text == 'Gemäldegalerie Old Masters')     return __('Gemäldegalerie Old Masters',  $spot);
-    if ($text == 'Unknown collection')             return __('Unknown collection',      $spot);
-    if ($text == 'Mystery of A.M.Cassandre')       return __('Mystery of A.M.Cassandre',$spot);
-    if ($text == 'Lost auctions')                  return __('Lost auctions',           $spot);
-    if (strpos($text,'Leiden collection'))         return __('Non-Leiden collection',   $spot);
+    if (preg_match("/Arrangement.*pieces|CASSANDRE pour/", $text))   return $text;
+    if (preg_match("/Arrangement.*pieces/", $text))                  return __('Arrangement with match sticks and puzzle pieces');
+    if ($text == 'Louvre')           return __('Louvre');
+    if ($text == 'Scarves Search')   return __('Scarves Search');
+    if ($text == 'Paintings Search') return __('Paintings Search');
+    if ($text == 'Dymkovo Search')   return __('Dymkovo Search');
+    if ($text == 'Toys Search')      return __('Dymkovo Search');
+    if ($text == 'Photo from Wiki')                return __('Photo from Wiki');
+    if ($text == 'Bienvenue à l’atelier')          return __('Bienvenue à l’atelier');
+    if ($text == 'Probably a copy of:')            return __('Probably a copy of:');
+    if ($text == 'Probably an origin for copy of:')return __('Probably an origin for copy of:');
+    if ($text == 'Gemäldegalerie Old Masters')     return __('Gemäldegalerie Old Masters');
+    if ($text == 'Unknown collection')             return __('Unknown collection');
+    if ($text == 'Mystery of A.M.Cassandre')       return __('Mystery of A.M.Cassandre');
+    if ($text == 'Lost auctions')                  return __('Lost auctions');
+    if (strpos($text,'Leiden collection'))         return __('Non-Leiden collection');
 
     if (strpos($text,':')) {
 	list($a,$b) = explode(':',$text);
 	$a = trim($a);
-	$b = trim(str_replace(' to ', ' '.__('to',$spot).' ', $b));
-	if     ($a == 'Popularity') $a = __('Popularity', $SPOT_id);
-	elseif ($a == 'Rarity')     $a = __('Rarity',$SPOT_id);
-	elseif ($a == 'Seller')     $a = __('Seller',$SPOT_id);
-	elseif ($a == 'Price')      $a = __('Price',$SPOT_id);
-	elseif ($a == 'Year')       $a = __('Year',$SPOT_id);
-	elseif ($a == 'Role')       $a = __('Role',$SPOT_id);
-	elseif ($a == 'Collection type') $a = __('Collection type',$SPOT_id);
-	elseif ($a == 'keywords')         $a = __('keywords',$SPOT_id);
-	if     ($b == 'Common')           $b = __("1 of 4",$SPOT_id);
-	elseif ($b == 'Medium beloved')   $b = __("2 of 4",$SPOT_id);
-	elseif ($b == 'Beloved')          $b = __("3 of 4",$SPOT_id);
-	elseif ($b == 'Very beloved')     $b = __("4 of 4",$SPOT_id);
-	elseif ($b == 'Not uncommon')     $b = __("1 of 4",$SPOT_id);
-	elseif ($b == 'Quite rare')       $b = __("2 of 4",$SPOT_id);
-	elseif ($b == 'Rare')             $b = __("3 of 4",$SPOT_id);
-	elseif ($b == 'Very rare')        $b = __("4 of 4",$SPOT_id);
-	elseif ($b == 'Remix')            $b = __("Remix", $SPOT_id);
-	elseif ($b == 'Limited Edition')  $b = __('Limited Edition',  $spot);
-	elseif ($b == 'Special Edition')  $b = __('Special Edition',  $spot);
-	elseif ($b == 'Maximum')          $b = __('Maximum',$spot);
-	elseif ($b == 'Minimum')          $b = __('Minimum',$spot);
-	elseif ($b == 'Artist')           $b = __('Artist', $spot);
-	elseif ($b == 'Designer')         $b = __('Designer',$spot);
-	elseif ($b == 'Museums')          $b = __('Museums',$spot);
-	elseif ($b == 'bandana')          $b = __('bandana',$spot);
-	else  echo x("pre","_t('$a':'$b' spot=$spot)");
+	$b = trim(str_replace(' to ', ' '.__('to').' ', $b));
+	if     ($a == 'Popularity') $a = __('Popularity');
+	elseif ($a == 'Rarity')     $a = __('Rarity');
+	elseif ($a == 'Seller')     $a = __('Seller');
+	elseif ($a == 'Price')      $a = __('Price');
+	elseif ($a == 'Year')       $a = __('Year');
+	elseif ($a == 'Role')       $a = __('Role');
+	elseif ($a == 'Collection type') $a = __('Collection type');
+	elseif ($a == 'keywords')         $a = __('keywords');
+	if     ($b == 'Common')           $b = __("1 of 4");
+	elseif ($b == 'Medium beloved')   $b = __("2 of 4");
+	elseif ($b == 'Beloved')          $b = __("3 of 4");
+	elseif ($b == 'Very beloved')     $b = __("4 of 4");
+	elseif ($b == 'Not uncommon')     $b = __("1 of 4");
+	elseif ($b == 'Quite rare')       $b = __("2 of 4");
+	elseif ($b == 'Rare')             $b = __("3 of 4");
+	elseif ($b == 'Very rare')        $b = __("4 of 4");
+	elseif ($b == 'Remix')            $b = __("Remix");
+	elseif ($b == 'Limited Edition')  $b = __('Limited Edition');
+	elseif ($b == 'Special Edition')  $b = __('Special Edition');
+	elseif ($b == 'Maximum')          $b = __('Maximum');
+	elseif ($b == 'Minimum')          $b = __('Minimum');
+	elseif ($b == 'Artist')           $b = __('Artist');
+	elseif ($b == 'Designer')         $b = __('Designer');
+	elseif ($b == 'Museums')          $b = __('Museums');
+	elseif ($b == 'bandana')          $b = __('bandana');
+	else  echo x("pre","_t('$a':'$b')");
 	return "$a: $b";
     }
     
-    echo x("pre","_t($text, $spot)");
-    return $text.' '.__("not yet ready",$SPOT_id);
+    echo x("pre","_t($text)");
+    return $text;  // .' '.__("not yet ready");
 }
 
 
@@ -478,10 +471,8 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
     
     $selector = (string) $pages->getSelectors();
     //if($selector) $selector = makePrettySelector($selector);
-    //$selector = str_replace('sort=sort', 'sort=name', $selector);
     $selector = preg_replace('/sort=[\w]*,?/', '', $selector);
     if (strpos($selector,'a_aw_')!==false) $selector .= ', sort=a_aw_person';
-    //echo x("pre",$selector);
     $out = files()->render("./includes/{$context}-list.php",
 			   ['context' => $context,
 			    'cols'    => $cols,
