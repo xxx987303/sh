@@ -1,0 +1,9 @@
+{
+    "file": "site\/templates\/_main.php",
+    "textdomain": "site--templates--_main-php",
+    "translations": {
+        "927d494f66da686736a9161eac706b3e": {
+            "text": "Data and photos from private sources and Wikipedia"
+        }
+    }
+}

@@ -7,13 +7,12 @@
 
 /** @var Page $page */
 
-//setNextPrev("template=a_artwork, a_aw_collection={$page->a_aw_collection->id}, sort=title", $page);
-setNextPrev("template=a_artwork, sort=title", $page);
+setNextPrev("template=a_artwork, sort=a_aw_person", $page);
 
 // populate regions
 region('browserTitle', "$page->title, {$page->parent->title}");
 
-// related a_artworks are those that mention the same title in their body copy
+// "related a_artworks" are those that mention the same title in their body copy
 region('content', files()->render('./includes/object-page.php',
 				  array('page'   => $page,
 					'related'=> pages("limit=20, id!=$page->id, body*=" . sanitizer()->selectorValue($page->title)),

@@ -1,5 +1,24 @@
 /**
- * Varitions + Main images starting from the second one
+ * Automatic switch from 2 columns to 1 column for narrow switch
+ */
+.auto-width-600 {
+    max-width: 900px;
+}
+
+.auto-width-content {
+/*  max-width: 900px; */
+    margin: auto;
+    padding: 1.5rem;
+    column-count: 1;
+    column-gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .auto-width-content { column-count: 2; }
+}
+
+/**
+ * Varitions + Main images (small starting from the second one)
  */ 
 ul.variations,
 ul.horizontal{

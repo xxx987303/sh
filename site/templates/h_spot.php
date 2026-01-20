@@ -11,4 +11,4 @@ if ($page->images && ($photo = $page->images->getRandom()))
 			   array('photo'   => $photo->maxWidth(1600),
 				 'caption' => sanitizer()->entitiesMarkdown($photo->description))));
 region('content+',
-       renderObjectList(getRandomFeatured(3), 3, false, __('Featured Scarves')));
+       renderObjectList(getRandomFeatured(4), 2, false, __('Featured Scarves')));

@@ -7,9 +7,11 @@
  *   $width       Image(s) width
  *   $o           Orientation: R - images on the right (default L - on the left). Images are twice wider then text
  *   $ncells      Number of cells in the row
+ *   $skip        Skip title printing
  */
 
 $lookingForBug = false;
+$GLOBALS['skip'] = (string)@$skip;
 
 getSpotURLs();
 if (empty($o)) $o = 'L'; // images on the left (if not on the rigth) hand site
@@ -65,26 +67,24 @@ if (!function_exists('ProcessWire\o_p_images')) {
 }
 
 /**
- *
+ * Tag 'page' - fields used by function o_p_text (templates x_person|x_artwork|x_collection|x_provider)
+ *     'list' - fields used in small grey rounded objects "case3" (templates x_artwork)  
+ *     'caption' - Text in the up-right corner
  */
 if (!function_exists('ProcessWire\o_p_text')) {
     function o_p_text(String $c, Page $page, PageArray $related, $tag='page'){
-	global $lookingForBug, $SPOT_id;
+	global $lookingForBug, $SPOT_id, $skip;
 	    
 	echo "<div class='uk-width-medium-$c'>\n" . x("h2",$page->title);
 	getVariations($page);
 	echo "<table class='uk-table object-info'> <tbody>\n";
 	foreach($page->fields as $f) {
-            if (fieldViewable($f,$tag) && ($v=getKeyValue($page, $f))) {
+	    if (!empty($skip) && $f->name == $skip) continue;
+            if (fieldViewable($f,$tag,$page) && ($v=getKeyValue($page, $f))) {
 		echo x('tr',x('th',$f->getLabel()) . x('td', $v));
 	    }
 	}
 	echo "</tbody></table>\n";
-	
-	//
-	// body
-	//
-	if (!empty($page->body)) echo $page->body;
 
 	//
 	// Whatever related
@@ -118,3 +118,4 @@ echo "<div class='uk-grid uk-grid-medium'>\n";
 if ($o == 'L'){ o_p_images(c1, $page, $pages, $width); o_p_text  (c2, $page, $related);  }
 else          { o_p_text  (c2, $page, $related);       o_p_images(c1, $page, $pages, $width); }
 echo "</div>\n";
+if (!empty($page->body)) echo x("div class=auto-width-content style=max-width:100%",$page->body);

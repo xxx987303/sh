@@ -53,7 +53,7 @@ if (!$GLOBALS['SU'])  $user->language = $languages->get('russian');
 		  echo "\t<link rel='alternate' hreflang='$hreflang' href='$url' />\n";
               }
         }
-	include("./includes/google-analytics.php");
+        if(!in_array(config('httpHost'), ['localhost','127.0.0.1'])) include("./includes/google-analytics.php");
 	?>
     </head>
 
@@ -94,6 +94,7 @@ if (!$GLOBALS['SU'])  $user->language = $languages->get('russian');
 			 <span class='foot-text'>Powered by <a href='https://processwire.com'>ProcessWire Open Source CMS</a></span>
 			 <span class='foot-line uk-text-small'>Data and photos from Wikipedia and private sources</span>
 		    -->
+			 <?php echo x("span class='foot-line uk-text-small'",__("disclamer1")); ?>
 		</div>
 	    </div>
 	</footer>

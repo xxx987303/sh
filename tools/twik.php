@@ -8,29 +8,65 @@ require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
 
-//tidy_dump(pages()->get(5906)); exit;
-//foreach(pages()->find("template=a_artwork") as $p){if($p->parent->id!=5906)$p->parent='/a_spot/a_artworks/';$p->save();tidy_dump($p);} exit;
-//foreach(pages()->find("template=a_artwork") as $p){if($p->parent->id!=5906) tidy_dump($p);} exit;
-//foreach(pages()->find("title^=Purchase") as $p) {echo "{$p->id};  {$p->title};  {$p->name}\n";tidy_dump($p);} exit;
-//foreach (languages() as $l) tidy_dump($l); exit;
-$ref = 'http://localhost/sh/fr-home/search/?SPOT_id=h&h_aw_options=2&sort=h_aw_options';
-preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection|aw_option))s/([^/]*)/?).*;", $ref, $m);
-preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection|aw_option))s/([^/&]*)[/&]?);", $ref, $m);
-preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection|aw_option))s/?);", $ref, $m);
-tidy_dump($m);
-exit;
-
-if(0){
-echo  languages()->get('russian')."\n"; exit;
-foreach(users()->find("template=user") as $u){
-    //$u->password='tb1';
-    //$u->save();
-    tidy_dump($u);
-}
-exit;
+if(1){
+    $l = [];
+    foreach(pages()->find("limit=9999") as $p){
+	echo "$p->status $p->title\n";
+	@$l[$p->name]++;
+	//tidy_dump($p);
+    }
+    foreach($l as $name=>$count) {
+	if ($count == 1) continue;
+	echo "$count - $name\n";
+    }
+    exit;
 }
 
 if(1){
+    echo "2010-10-26/28, Hösten moderna auktion, lot 730\n";
+    echo "Hans Erik Börjesons collection _AO_ https://weekend.di.se/nyheter/konstsamlaren-saljer-livsverk-1; (see more) _AC_\n";
+    echo "https://www.bukowskis.com/en/auctions/E255/lots/1009015-david-teniers-d-y-after-oil-on-panel-19th-century-bears-signature\n";
+    foreach(pages()->find("template=a_artwork") as $p){
+	if (empty(trim($p->a_aw_provenance))) continue;
+	echo "\n\n{$p->a_aw_provenance}\n";
+	tidy_dump($p,$p->a_aw_provenance);
+    }
+    exit;
+}
+
+if(0){
+    foreach([6347 => 'Hermès Flagship',] as $idRoot=>$title){
+	$var = 1;
+	foreach (pages("title=$title") as $p) {
+	    if ($p->id != $idRoot && !strpos($p->name, 'variations')) {
+		$nameRoot = pages()->get($idRoot)->name;
+		//echo "nameRoot = $nameRoot\n";
+		while ((pages()->get($name="$nameRoot-variations{$var}"))->id){
+		    $var++;
+		}
+		$p->name = $name;
+		if (0) {
+		    $p->save();
+		    exit;
+		}
+	    }
+	    echo "{$p->id} {$p->name}\n";
+	}
+    }
+    exit;
+}
+
+if(0){
+    echo  languages()->get('russian')."\n"; exit;
+    foreach(users()->find("template=user") as $u){
+	//$u->password='tb1';
+	//$u->save();
+	tidy_dump($u);
+    }
+    exit;
+}
+
+if(0){
     $t = 'Photo from Wiki';
     foreach(pages()->find("template=h_artwork") as $p){
 	if (in_array($p->id,[6332,6335]) || empty(trim($c=(string)$p->figcaption))) continue;

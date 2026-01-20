@@ -1,5 +1,9 @@
 {
     "file": "site\/templates\/_main.php",
     "textdomain": "site--templates--_main-php",
-    "translations": []
+    "translations": {
+        "927d494f66da686736a9161eac706b3e": {
+            "text": "Donn\u00e9es et photos provenant de sources priv\u00e9es et de Wikip\u00e9dia"
+        }
+    }
 }

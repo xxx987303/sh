@@ -14,42 +14,34 @@ getSpotURLs();
 
 $selector = '';
 $summary  = [];
-
 $hermes = pages()->get('title=Hermès')->id;
 foreach (explode('&', $SITE_input) as $item) {
     if (!str_contains($item,'=')) continue;
     list($k,$v) = explode('=',str_replace('_c_person','_aw_person',$item));
-    if (is_numeric($v) && preg_match("/([adh])_aw_(person|collection)/", $k, $matches)) {
-	// Redirect the page if posible
+    // Redirect the page if posible
+    if (is_numeric($v) && preg_match("/([adh])_([a-z]*)_(person|collection|possession|artwork)/", $k, $m)) {
 	if (($p = pages()->get($v))->id) {
-	    header(sprintf("Location: {$site_home->url}%s_spot/%s_{$matches[2]}s/%s/", $matches[1], $matches[1], $p->name));
+	    header(sprintf("Location:%s%s_spot/%s_{$m[3]}s/%s/", $site_home->url, $m[1], $m[1], $p->name));
 	    exit;
 	}
     } elseif ($f = fields()->get($k)) {
         $selector .= restrictedSelector(fieldSelector($input, $f, $summary));
-/*
-        $selector .= fieldSelector($input, $f, $summary);
-	if (str_starts_with($k, 'h_aw_') && !$user->hasPermission('see-full-menu') && $k!='h_aw_collection') {
-	    $selector .= "h_aw_collection!=5842|6331, h_aw_brand=$hermes, ";
-	}
-*/
     }
 }
 
-foreach(['keywords'] as $kw){
-    if($v=getInputKey($kw)) {
-	if (strpos($v,'=') !== false) {
-	    list($k,$value) = explode('=',$v);
-            $selector .= "$k=$value,";
-            $summary[$k] = $sanitizer->entities($value);
-	} else {
-            $value = $sanitizer->selectorValue($v);
-            $selector .= ($kw=='keywords' ? "title|body%=$value, " : "tags=$value");
-            $summary[$kw] = $sanitizer->entities($value);
-	}
-	if ($lookingForBug) echo x('pre', "search.php() $kw: value = $value");
-        $input->whitelist($kw, $value);
+if($v=getInputKey('keywords')) {
+    if (preg_match("/(%[0-9A_Z]*)/", $v)) $v = $sanitizer->transliterate(urldecode($v));
+    if (strpos($v,'=') !== false) {
+	list($k,$value) = explode('=',$v);
+        $selector .= "$k=$value,";
+        $summary[$k] = $sanitizer->entities($value);
+    } else {
+        $value = $sanitizer->selectorValue($v);
+        $selector .= str_replace('"','',"title|body%=$value, ");
+        $summary['keywords'] = $sanitizer->entities($value);
     }
+    if ($lookingForBug) echo x('pre', "search.php() 'keywords': value = '$value'");
+    $input->whitelist('keywords', $value);
 }
 
 if ($lookingForBug) {
@@ -109,7 +101,13 @@ function fieldSelector(WireInput $input, Field $field, Array &$summary) {
     if($value = getInputKey($key)) {
 	if(preg_match(";h_aw_collection!=([0-9|]*);", $key,$m)) {
 	    $selector .= "h_aw_collection!=$m[1],";
-        }elseif(preg_match(";[,/];", $value)) { // see if the value is given as a list (i.e. items separated by a comma)
+	    /*
+	}elseif ($key == 'a_aw_possession') {
+	    $selector .= "template=a_possession,id=$value";
+	}elseif ($key == 'a_p_artwork') {
+	    $selector .= "template=a_artwork,id=$value";
+	     */
+	}elseif(preg_match(";[,/];", $value)) { // see if the value is given as a list (i.e. items separated by a comma)
 	    // Operator "~|=" also works, but "%=" does not...
             $selector .= "$key=". ($value=str_replace([',','/'],'|',$value));
             $summary[$key] = $value;

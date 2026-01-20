@@ -14,6 +14,8 @@ if (!defined('CLI_MODE')) define('CLI_MODE',false);
 global $lookingForBug;
 $lookingForBug = false;
 
+getSpotURLs();
+
 /**
  * Translate text coming from variables in plural
  */
@@ -25,7 +27,7 @@ function _tn(String $text, $spot='h'){
     if ($text == 'Владелец')     return 'Владельцы';
     if ($text == 'Художник')     return 'Художники';
     if ($text == 'Продавец')     return 'Продавцы';
-    echo x("pre","_tn({$text})");
+    reportProblem(x("pre","_tn({$text})"));
     return "?$text";
 }
 
@@ -33,7 +35,6 @@ function _tn(String $text, $spot='h'){
  * Translate text coming from variables
  */
 function _t(String $text, $spot='h') {
-  //$text = escape_uml($text,'decode');
     $text = str_replace('%20', ' ',  $text);
     if (in_array($text, ['Мистерия А.М.Кассандры','Maison Carré Foundation'])) return $text;
     if (str_starts_with($text,'Pierre Péron, dans son appartement')) return __('Pierre Péron, dans son appartement');
@@ -59,15 +60,18 @@ function _t(String $text, $spot='h') {
 	list($a,$b) = explode(':',$text);
 	$a = trim($a);
 	$b = trim(str_replace(' to ', ' '.__('to').' ', $b));
+
 	if     ($a == 'Popularity') $a = __('Popularity');
 	elseif ($a == 'Rarity')     $a = __('Rarity');
 	elseif ($a == 'Seller')     $a = __('Seller');
 	elseif ($a == 'Price')      $a = __('Price');
 	elseif ($a == 'Year')       $a = __('Year');
 	elseif ($a == 'Role')       $a = __('Role');
-	elseif ($a == 'Collection type') $a = __('Collection type');
+	elseif ($a == 'Collection type')  $a = __('Collection type');
 	elseif ($a == 'keywords')         $a = __('keywords');
-	if     ($b == 'Common')           $b = __("1 of 4");
+
+	if (is_numeric($b) || (pages()->get("title=$b"))->id) $x = 0;
+	elseif ($b == 'Common')           $b = __("1 of 4");
 	elseif ($b == 'Medium beloved')   $b = __("2 of 4");
 	elseif ($b == 'Beloved')          $b = __("3 of 4");
 	elseif ($b == 'Very beloved')     $b = __("4 of 4");
@@ -84,12 +88,17 @@ function _t(String $text, $spot='h') {
 	elseif ($b == 'Designer')         $b = __('Designer');
 	elseif ($b == 'Museums')          $b = __('Museums');
 	elseif ($b == 'bandana')          $b = __('bandana');
-	else  echo x("pre","_t('$a':'$b')");
+	elseif(@$GLOBALS['SU']) reportProblem(x("pre","_t('$a':'$b')"));
 	return "$a: $b";
     }
-    
-    echo x("pre","_t($text)");
+    reportProblem(x("pre","_t($text)"));
     return $text;  // .' '.__("not yet ready");
+}
+
+/**
+ */
+function reportProblem($text) {
+    if(@$GLOBALS['SU']) echo $text;
 }
 
 
@@ -150,7 +159,7 @@ function getInputKey(String $key) {
     static  $inputData;
     if (empty($inputData) && !empty($SITE_input)) {
         foreach (explode('&',$SITE_input) as $item) {
-            $inputData[explode('=',$item)[0]] = (string)explode('=',$item)[1];
+            if (strpos($item,'=')) $inputData[explode('=',$item)[0]] = (string)explode('=',$item)[1];
         }
     }
     if ($key == '*') tidy_dump($inputData);
@@ -160,11 +169,20 @@ function getInputKey(String $key) {
 /**
  * Check that the field is viewable
  */
-function fieldViewable(Field $f, String $tag="") {
-    $reply = (empty($tag) ? true : $f->hasTag($tag)) &&
-	     (($f->hasTag('restricted') ? User()->hasPermission('see-restricted') : true) ||
-	      ($f->hasTag('prices')     ? User()->hasPermission('see-prices')     : true) );
-    //echo x("pre", "fieldViewable($f->name,$tag): ".var_export($reply, true));
+function fieldViewable($field, String $tag="", $page=null) {
+    global $dejaVuDebug, $SPOT_id;
+    if ($reply = (empty($field)
+	        ? false
+		: (empty($tag) ? true : $field->hasTag($tag)) &&
+		  (($field->hasTag('restricted') ? User()->hasPermission("see-{$SPOT_id}-restricted") : true) ||
+		   ($field->hasTag('prices')     ? User()->hasPermission("see-{$SPOT_id}-prices")     : true) ))) {
+	if (is_object($page)) {
+	    $reply = !(empty($page->$field) ||
+		       ($page->$field instanceof SelectableOptionArray && !count($page->$field)));
+	}
+    }
+//  if($reply) if (!@$dejaVuDebug[$field->name.$tag.$reply]++)
+//     echo x("pre", "fieldViewable($field->name,$tag,".($page?$page->name:"")."): ".var_export($reply, true));
     return $reply;
 }
 
@@ -176,11 +194,18 @@ function fieldViewable(Field $f, String $tag="") {
  * The full access requires the 'see-restricted' permission.
  */
 function restrictedSelector($selector, $forURL=false) {
-    if (User()->hasPermission('see-restricted') ||
-	!preg_match("/\bh_/",$selector)) return $selector;
-    $cols = []; foreach(pages()->find("template=h_collection") as $c) $cols[] = $c->id;
-    $h = pages()->get("title=Hermès")->id;
-    return getValidSelector("$selector,h_aw_brand=$h,h_aw_collection!=".join('|',$cols));
+    global $SPOT_id;
+    if (User()->hasPermission("see-{$SPOT_id}-restricted") ||
+	!preg_match("/\b{$SPOT_id}_/",$selector)) return $selector;
+    switch($SPOT_id){
+	case 'h':
+	    $colls = []; foreach(pages()->find("template=h_collection") as $c) $colls[] = $c->id;
+	    $h = pages()->get("title=Hermès")->id;
+	    return getValidSelector("$selector,h_aw_brand=$h,h_aw_collection!=".join('|',$colls));
+	case 'a':
+	default:
+    }
+    return $selector;
 }
 
 /**
@@ -219,7 +244,7 @@ function getVariations(Page $page) {
 	if ($page->template != $tp) continue;
 	$case1 = count($variations=pages()->find("name*={$page->name}-{$hook}"));
 	$case2 = preg_match("/(.*)-{$hook}/", $page->name, $match);
-	$case3 = $tp=='a_artwork' && ($id=pages()->get("name=".preg_replace("/-{$hook}/", "", $page->name))->id) && $id != $page->id;
+	$case3 = $tp=='a_artwork' && ($id=pages()->get("name=".preg_replace("/-{$hook}.*/", "", $page->name))->id) && $id != $page->id;
 	//echo"'$case1' '$case2' '$case3'<br>";
 	if (!$case1 && !$case2 && !$case3) return;
 	
@@ -229,6 +254,7 @@ function getVariations(Page $page) {
 	    foreach(pages()->find("name*={$match[1]}-{$hook}") as $p) $variations->add($p);	    
 	}
 	$variations->add($page);
+	$variations->sort('-name');
 	
 	$links = "<ul class='variations'>";
 	foreach ($variations as $k=>$var) {
@@ -245,8 +271,9 @@ function getVariations(Page $page) {
 			x("div class='flex overflow-x-auto items-center md:flex-wrap scrollbar-hide snap-x snap-mandatory'",
 			  x("a href='{$var->url}' class='$class'",
 			    x("img class='w-full' src='$src' alt=''").
-			    ($description ? x("div class='caption uk-text-small uk-text-muted'",
-					      x("span style=font-size:small",$description)) : ""))));
+			    ($description
+				? x("div class='caption uk-text-small uk-text-muted'",x("span style=font-size:small",$description))
+			        : ""))));
         }
  	echo x("div class='pt-2 pb-4 px-4'",
 	       ($hook == 'donor-of' ? x('div',x('strong',_t('Probably a' . ($case3 ? 'n origin for' : '') . ' copy of:','a'))) : "") .
@@ -258,43 +285,68 @@ function getVariations(Page $page) {
 /**
  * Prepare value for rendering
  */
-function getKeyValue(Page $page, Field $field) {
-    global $SPOT_id, $SPOT_search, $lookingForBug;
+function getKeyValue(Page $page, Field $field, int $truncate=0) {
+    global $SPOT_id, $SPOT_search, $spot_home, $lookingForBug;
+
+    // href
+    $href = function($p, Field $f, $v) {
+	global $SPOT_id, $SPOT_search,$spot_home;
+	$href= ($f->name == 'a_p_artwork'
+	    ? "{$spot_home->url}a_artworks/{$p->name}/"
+	  //? "{$spot_home->url}a_possessions/{$p->a_aw_possession->first->name}/"
+	    : "{$SPOT_search}{$f->name}={$v}&sort={$f->name}");
+	return $href;
+    };
     
+    // Trancater
+    $t = function(String $text, int $truncate) {
+        return ($truncate>0 ? sanitizer()->truncate($text,['maxLength'=>$truncate, 'more'=>'…']) : $text);
+    };
+
+    $reply = [];
     if (empty($value = (string)$page->$field)) return false;
     if (($o=$page->$field) instanceof PageArray) {
-	return (count($o) ? $o->each(x("a href='$SPOT_search{$field->name}={id}'", "{title}")." <br>") : false);	      
-    } elseif (strpos($field->name, '_url') !== false || $field->type == 'FieldtypeURL') {
-	$reply = strpos($value,'href=') === false
-	? x("a target='_blank' href='$value'", __("Click to see",$SPOT_id)." (".__("opens in another window",$SPOT_id).")")
-	: $value.__('Click to see',$SPOT_id).'</a>';
+	foreach($o as $p) $reply[] = x("a href='".$href($p,$field,$value)."'", $t($p->title,$truncate));
+	//return (count($o) ? $o->each(x("a href='$SPOT_search{$field->name}={id}'", "{title}")." <br>") : false);	      
+    } elseif (strpos($field->name, '_url') || $field->type == 'FieldtypeURL') {
+	$reply[] = strpos($value,'href=') === false
+	    ? x("a target='_blank' href='$value'", __("Click to see (opens in another window)"))
+	    : $value.__('Click to see').'</a>';
     } elseif ($field->type == 'FieldtypeDatetime') {
-        $reply = date("Y-m-d",(int)$value);
+        $reply[] = date("Y-m-d",(int)$value);
     } elseif (strpos($field->name,'options')) {
-        $reply = x("strong",$page->$field->title);
-    } elseif (strpos($field->name,'price')) {
-        $reply = number_format($value,0,","," ").' SEK';
+        $reply[] = x("strong",$page->$field->title);
+    } elseif (preg_match("/price|payed/",$field->name)) {
+        $reply[] = number_format($value,0,","," ").' SEK';
     } elseif (in_array($field->type, ['FieldtypePageTitle', 'FieldtypePageTitleLanguage'])) {   
-	$reply = x("a href=''", $value);
+	$reply[] = x("a href=''", $value);
     } elseif (in_array($field->type, ['FieldtypeInteger', 'FieldtypeEmail',   'FieldtypeText',    'FieldtypeTextLanguage',
     				      'FieldtypeTextarea','FieldtypeTextareaLanguage',])) {
-	$reply = x("a href='{$SPOT_search}$field->name=$value'", $value);
+	$reply[] = $t($value,$truncate);
+	//$reply[] = x("a href='".$href($page,$field,$value)."'", $t($value,$truncate));
     } elseif ($e = getEmoji($field->name, $value)) {
-	$reply = $e;
+	$reply[] = $e;
     } elseif ($field->type == 'FieldtypeOptions') {
-	$reply = substr($page->get($field->name)->each(", <a href='{$SPOT_search}{$field->name}={value}'>{title}</a>"),2);
+	foreach($page->get($field->name) as $p) $reply[] = x("a href='".$href($p,$field,$value)."'", $t($p->title,$truncate));
+	//$reply = substr($page->get($field->name)->each(", <a href='{$SPOT_search}{$field->name}={value}'>{title}</a>"),2);
     } elseif ($field->type == 'FieldtypePage') {
-	$reply = pages()->get($value)->title;
+	$reply[] = pages()->get($value)->title;
     } else {
 	echo "<spone style=color:red>getKeyValue($page->name) Not yet ready, $field->name, $field->type)</spone><br>\n";
-        $reply = $value;
+        $reply[] = $value;
     }
+
     // Search URL
-    if (is_string($reply) && strpos($reply, "href=") === false) {
-	$reply = x("a href='{$SPOT_search}{$field->name}={$value}&sort={$field->name}'",$reply);
+    $replyMerged = "";
+    foreach($reply as $r) {
+	if (is_string($r) && strpos($r, "href=") === false) {
+	    $replyMerged .= x("a href='".$href($page,$field,$value)."'",$t($r,$truncate));
+	} else {
+	    $replyMerged .= $r;
+	}
     }
-    if ($lookingForBug) echo "getKeyValue($page->id,$field->name,$field->type) = $reply<br>";
-    return $reply;
+    if ($lookingForBug) echo x("pre","getKeyValue($page->id,$field->name,$field->type) = ".escape_uml($replyMerged,'encode'));
+    return empty($replyMerged) ? false : $replyMerged;
 }
 
 /**
@@ -383,28 +435,29 @@ function x($tag, $text=''){
  * @return PageArray
  *
  */
-function findObjects(String $selector, String $template_name='artwork', Int $limit=20) {
-    return pages($selector);
-//echo x("pre",$selector);
-    $validSorts = getValidSorts($template_name);
-
-    // check if there is a valid 'sort' var in the GET variable
-    // if no valid sort, then use 'title' as a default
-    if (!($sort = sanitizer('name', input()->get('sort'))) || !isset($validSorts[$sort])) $sort = 'name';
-    
-    // whitelist the sort value so that it is retained in pagination
-    if($sort != 'name') input()->whitelist('sort', $sort);
-    
-    // expand on the provided selector to limit it to $limit sorted object
-    $selector = (empty($template_name)?"":"template=$template_name, ")."limit=$limit, " . trim($selector, ", ");
-    
-    // check if there are any keyword searches in the selector by looking for the presence of ~= operator.
-    // if present, then omit the 'sort' param, since ProcessWire sorts by
-    // relevance when no sort specified.
-    if(strpos($selector, "~=") === false) $selector .= ", sort=$sort";
-    
-    // now call upon ProcessWire to find the objects for u
-echo x("pre",$selector);
+function findObjects(String $selectorArg, String $template_name='artwork', Int $limit=20) {
+    $selector = trim($selectorArg, ", ");
+    if (false) {
+	$validSorts = getValidSorts($template_name);
+	
+	// check if there is a valid 'sort' var in the GET variable
+	// if no valid sort, then use 'title' as a default
+	if (!($sort = sanitizer('name', input()->get('sort'))) || !isset($validSorts[$sort])) $sort = 'name';
+	
+	// whitelist the sort value so that it is retained in pagination
+	if($sort != 'name') input()->whitelist('sort', $sort);
+	
+	// expand on the provided selector to limit it to $limit sorted object
+	$selector = (empty($template_name)?"":"template=$template_name, ")."limit=$limit, " . $selector;
+	
+	// check if there are any keyword searches in the selector by looking for the presence of ~= operator.
+	// if present, then omit the 'sort' param, since ProcessWire sorts by
+	// relevance when no sort specified.
+	if(strpos($selector, "~=") === false) $selector .= ", sort=$sort";
+	
+	// now call upon ProcessWire to find the objects for u
+	echo x("pre",$selector);
+    }
     return pages($selector);
 }
 
@@ -458,7 +511,7 @@ function renderImageList(PageArray $pages, $cols=1, $showPagination=true, $headl
     return renderObjectList($pages,$cols,$showPagination,$headline,'_image');
 }
 function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $headline='', $key='') {
-    global $config;
+    global $config, $SPOT_id;
     
     if (!count($pages)) return;
     $pagination = $sortSelect = '';
@@ -483,7 +536,7 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
     foreach($pages as $object) {
 	if (empty($object->fields)) continue;
 	$renderedObject = renderObjectListItem($object, $context, $key, $object->featuredPage);
-	$type='';foreach($object->fields as $f) if(preg_match($needle,$f) && ($o=$object->$f)) $type = $o->title;
+	$type=''; foreach($object->fields as $f) if(preg_match($needle,$f) && ($o=$object->$f)) $type = $o->title;
 	if ($type) foreach(explode(',',$type) as $t) $itemsByType[trim($t)][] = $renderedObject;
 	else  $items[] = $renderedObject;
     }
@@ -493,10 +546,12 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
     }
     
     $selector = (string) $pages->getSelectors();
-    //if($selector) $selector = makePrettySelector($selector);
+
+    // Cancel the "default" sorting, better to have on input $items already sorted
+    // or just sort by the authors
     $selector = preg_replace('/sort=[\w]*,?/', '', $selector);
-    if (strpos($selector,'a_aw_')!==false) $selector .= ', sort=a_aw_person';
-    $out = files()->render("./includes/{$context}-list.php",
+    if (strpos($selector,'_aw_')!==false) $selector .= ", sort={$SPOT_id}_aw_person";
+    return files()->render("./includes/{$context}-list.php",
 			   ['context' => $context,
 			    'cols'    => $cols,
 			    'pages'   => $pages,
@@ -505,8 +560,7 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
 			    'itemsByType' => $itemsByType,
 			    'pagination'  => $pagination,
 			    'sortSelect'  => $sortSelect,
-			    'selector'    => $selector,]);
-    return $out;
+			    'selector'    => $selector]);
 }
 
 /**
@@ -516,23 +570,22 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
  * @return string
  *
  */
-function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
+function renderObjectListItem(Page $page, $context='ul', $key='', $imgXXL=null){
     global $SPOT_id;
     /** @var Pageimages $images */
-    $images = $page->get('images');
-    
-    // make a thumbnail from a random object featured image
-    if ($imgArg === null) {
+    $images = ($page->template=='a_possession'
+	     ? ($artwork=$page->a_p_artwork->first)->get('images')
+	     : $page->get('images'));
+    // Make a thumbnail
+    if ($imgXXL === null) {
 	if(!empty($images) && ($image = $images->first())) {
-	    // our thumbnail is 200px wide with proportional height
-	    $thumb = ($SPOT_id == 'a' ? $image->height(250) : $image->width(200));
-	    $img   = $thumb->url;
+	    //$thumb = ($SPOT_id == 'a' ? $image->height(250) : $image->width(200));
+	    $img   = $image->height(111)->url;
 	} else {
 	    $img = config()->urls->templates . "styles/images/photo_placeholder.png";
 	}
     } else {
-	$thumb = $imgArg->height(500);
-	$img   = $thumb->url;
+	$img   = $imgXXL->height(500)->url;
     }
     $description = (($d=$page->figcaption) ? sanitizer()->truncate($d,['maxLength'=>20, 'more'=>'…']) : "");
     
@@ -540,38 +593,19 @@ function renderObjectListItem(Page $page, $context='ul', $key='', $imgArg=null){
     // the property "unknown" is just something we made up and are setting to the page.
     $page->set('unknown', '??');
     
-    // Object caption (tag 'caption') av_duty|br_duty|aw_brand etc
+    // Object caption (tag 'caption') for the up-right corner
     foreach ($page->fields as $f) {
-	if(!fieldViewable($f, 'caption'))    continue;
-	if(empty($v=$page->get($f->name)))continue;
-	$caption = getKeyValue($page, $f);
+	if(fieldViewable($f, 'caption', $page))	{ $caption = getKeyValue($page, $f); break; }
     }
-/*
-    foreach (getTaggedFields($page,'caption') as $f){ // 
-	$v = $page->get($f);
-	if ($v instanceof PageArray){
-	    $caption = $v->each("{title}<br>");
-	}elseif (is_array($f)){
-	    $caption = $f['value'];
-	}elseif ($v->type instanceof FieldtypeOptions){
-	    $caption = substr($v->each(", {title}"),2);
-	}else{
-	    if (is_object($v) && empty($value = $v->title)) $value = $v;
-	    if (!empty($value)) $caption = $value;
-	}
-    }
-*/
-    if (empty($caption) && !empty($page->parent)) $caption = $page->parent->get("title");
-    $out = files()->render("./includes/{$context}-list-item$key.php", // say, ul-list-item.php
+    if (empty($caption) && !empty($p=$page->parent)) $caption = $p->get("title");
+    return files()->render("./includes/{$context}-list-item$key.php", // say, ul-list-item.php
 			   array('page' => $page,
-				 'XXL'  => ($imgArg !== null),
+				 'XXL'  => ($imgXXL !== null),
 				 'img'  => $img,
 				 'description' => $description,
 				 'caption' => sanitizer()->truncate((empty($caption) ? "" : $caption),['maxLength'=>20, 'more'=>'…']),
 				 'summary' => summarizeText(strip_tags(empty($b=$page->get('body'))?"":$b), 100)
     ));
-    
-    return $out;
 }
 
 /**
@@ -625,15 +659,15 @@ function renderPagination(PageArray $items) {
  *
  */
 function makePrettySelector($selector) {
-  if(preg_match('/(person|parent)=(\d+)/', $selector, $matches)) {
-    if($page = pages()->get($matches[2]))
-      $selector = str_replace($matches[0], "$matches[1]={$page->path}", $selector);
-    if($matches[1] == 'parent') $selector = str_replace("template=artwork, ", "", $selector); // template not necessary here
-  }
-  $selector = sanitizer('entities', $selector);
-  $span = "<span class='uk-text-nowrap'>";
-  $selector = $span . str_replace(", ", ",</span> $span ", $selector) . "</span>";
-  return $selector;
+    if(preg_match('/(person|parent)=(\d+)/', $selector, $matches)) {
+	if($page = pages()->get($matches[2]))
+	    $selector = str_replace($matches[0], "$matches[1]={$page->path}", $selector);
+	if($matches[1] == 'parent') $selector = str_replace("template=artwork, ", "", $selector); // template not necessary here
+    }
+    $selector = sanitizer('entities', $selector);
+    $span = "<span class='uk-text-nowrap'>";
+    $selector = $span . str_replace(", ", ",</span> $span ", $selector) . "</span>";
+    return $selector;
 }
 
 /**
@@ -656,23 +690,7 @@ function summarizeText($text, $maxLength = 500) {
     }
     
     $summary = sanitizer()->truncate(strip_tags($summary), ['maxLength'=>$maxLength, 'more'=>'…']); 
-    /*
-       if(strlen($summary) <= $maxLength) return $summary;
-       $summary = strip_tags($summary);
-       $summary = substr($summary, 0, $maxLength);
-       $lastPos = 0;
-       
-       foreach(array('. ', '!', '?') as $punct) {
-                // truncate to last sentence
-                $pos = strrpos($summary, $punct);
-                if($pos > $lastPos) $lastPos = $pos;
-       }
-       
-       // if no last sentence was found, truncate to last space
-       if(!$lastPos) $lastPos = strrpos($summary, ' ');
-       if ($lastPos) $summary = substr($summary, 0, $lastPos + 1); // and truncate to last sentence
-*/
-        return $summary;
+    return $summary;
 }
 
 /**
@@ -703,58 +721,6 @@ function getSpotURLs(){
 }
 	
 /**
- *
- */
-function getTaggedFields($page,$context='page'){
-    global $config, $SPOT_search, $dejaVuTags, $lookingForBug;
-    $reply = WireArray();
-    $dejaVuFields = [];
-    if (!empty($page) && !empty($page->fields)){
-	foreach ($page->fields as $f) {
-	    //if(!$f->hasTag($context))         continue;
-	    if(!fieldViewable($f, $context))    continue;
-	    if(empty($v=$page->get($f->name)))continue;
-	    if (@$dejaVuFields[$f->name]++) continue;
-	    if ($f->type instanceof FieldtypeOptions){
-		if (!count($v)) continue;
-		$value = (in_array($f->name,$config->emojiFields)
-		    ? substr($v->each(", {value}"),2)
-		    : substr($v->each(", {title}"),2));
-	    }elseif ($f->type instanceof FieldtypeURL || strpos($f->name, '_url')) {
-		$value = x("a href='$v'",__('Click to see',$SPOT_id));
-	    }elseif ($f->type instanceof FieldtypeDatetime){
-		$value = date("Y-m-d",(int)$v);
-	    }elseif (strpos($f->name,'price')){
-		$value = number_format($v,0,","," ").' SEK';
-	    }else{
-		$value = $v;
-	    }
-	    if (empty($value) || empty(trim($value))) continue;
-	  //printf("%s=%s %s <br>\n",$f->name,$value,tidy_dump($page->get($f->name),'get_object_name'));
-	    $reply->add($i=['field' => $f->name,
-			    'id'    => $f->id,
-			    'label' => $page->getField($f->name)->getLabel(),
-			    'value' => $value,
-			  //'url'   => sprintf("%s%s=%s",$SPOT_search,$f->name,$value),
-			    'url'   => sprintf("%s%s=%s",$SPOT_search,$f->name,(string)$page->$f),]);
-if($lookingForBug && empty(@$dejaVuTags[$z=joinX($i)]++)) print joinX($i).'<br>';
-	}
-    }
-    if (!$reply->count) {
-	$reply->add($i=['label' => $config->debug ? "<em>".__("No data for tag",$SPOT_id)." \"$context\"</em>" : "",
-			'value' => "",
-			'url' => "",
-			'comment'=> "<!-- DUMMY ------------------------------------>\n"]);
-    }
-    if($lookingForBug && $config->debug) {
-	$i = $context . ($fields=implode(', ', array_keys($dejaVuFields)));
-	if (empty($dejaVuTags[$i])) echo "tag \"$context\": $fields<br>";
-	$dejaVuTags[$i] = true;
-    }
-    return $reply;
-}
-
-/**
  * Get the variable type
  * Returns string, like "int", "string", "object|Template", etc
  */
@@ -769,104 +735,6 @@ function getType($o, $id=null) {
     if (!empty($id)) $result = "getType($id) =  $result";
     return $result;
 }
-
-/**
- * Return value or title of the page field
- * ER data (if available) has presedence over "person"
- *
- * @param $f_name string
- * @param $page  page
- * @param $returnValue bool (default "true")
- * @return string
- */
-function getValue(string $f_name, $page_arg, bool $returnValue = true, bool $silent = true) {
-
-    if ( $page_arg instanceof BasicClass) { $page_arg = $page_arg->page(); }
-    if (!$page_arg instanceof Page)       { return null; }
-    if (in_array($f_name,['id','title'])) { return $page_arg->$f_name; }
-    if (function_exists('config_getFieldAttrs')) {
-	if (($access=config_getFieldAttrs($f_name, 'access')) == 'admin' && !ORG_admin_here ||
-	    ($access == 'auth') && !bAuth::authenticated()) {
-            return null;
-	}
-    }
-
-    if (in_array($f_name, ['url','name','parent'])) {
-        $field = $f_name; // 'name' and others are built-in field
-    } else {
-        $field = ($f_name instanceof Field ? $f_name : fields()->get($f_name));
-        if (!$field instanceof Field) { $reply = []; }
-    }
-
-    if (!isset($reply) || $page_arg->template == 'person') {
-	if (empty($reply)) { $reply = []; }
-        switch ($page_arg->template) {
-            case 'person':
-                if (!empty($page_arg->av_current_er)) {
-            // Implement precedense of "ER" over "person"
-                    foreach ($page_arg->av_current_er as $er) {
-                        foreach ([preg_replace('/^av_/', 'er_', $f_name), $f_name] as $fn) {
-                            if (!empty($f=fields()->get($fn)) && $er->hasField($f)) {
-                                      $pages[] = [$er, $f];
-                                      break;
-                            }
-                        }
-                    }
-                }
-                break;
-            case 'ea_emp_record':
-                // There are 2 position fields in the page: er_position & er_org_position
-                if (strpos($f_name, '_position') && !empty($page_arg->er_type) && count($page_arg->er_type)) {
-                    $field = fields()->get(strpos(@$page_arg->er_type->last->value, '_org') ? 'er_org_position' : 'er_position');
-                }
-                $pages = [[$page_arg, $field]];
-                break;
-        }
-
-        $reply = [];
-        if (empty($pages)) {
-            $pages = (is_object($field) ? [[$page_arg, $field]] : []);
-        }
-        foreach ($pages as list($page,$field)) {
-            if ($field->name != $f_name) {
-                $fname_changed = 1;
-            }
-            if ($field->name != $f_name && ($page_arg->template == 'person')) {
-                $reply[] = getValue($field->name, $page, $returnValue);
-            } elseif (!empty($page) && !empty($page->$field)) {
-                if ($page->$field instanceof WireArray && count($page->$field)) {
-		    $each = ($returnValue ? 'value' : 'title');
-                    $reply = array_merge($reply, $page->$field->each("{$each}"));
-                } elseif ($field->type == 'FieldtypeYaml') {
-		    return $page->$field;
-		} elseif ($field->type == 'FieldtypeDatetime') {
-                    // Convert "Y" to "Y-01-01 12:00:00"
-                    if (($date=$page->$field) > 1900 && $date < 2100) { $date = b_time::noon($date, 1, 1); }
-                    $reply[] = ($returnValue ? $date : date("Y-m-d", $date));
-                } elseif ($field->hasTag('date')) {
-                    $reply[] = b_time::datetime2date($page->$field);
-                } elseif ($sf=$field->searchFields) {
-                    $reply[] = $page->$field->$sf;
-                } else {
-                    $reply[] = $page->$field;
-                }
-            }
-        }
-        $reply = array_unique($reply);
-        sort($reply);
-    }
-
-    if (!defined('VALUES_SEPARATOR')) define('VALUES_SEPARATOR','/');
-    if (!$silent && !(DEBUG<2 && empty($reply))) {
-        if (DEBUG>1 || @$fname_changed || count($reply)>1) {
-            if (DEBUG>1) {
-                b_debug::_dbg(var_export(join(VALUES_SEPARATOR, $reply), true) . (is_object($field) && @$fname_changed ? " (".@$field->name.")" : ""), 'y');
-            }
-        }
-    }
-    return join(VALUES_SEPARATOR, $reply);
-}
-
 
 /**
  */
@@ -943,14 +811,51 @@ function navUserIcon() {
 
 /**
  */
-function navSearchForm() {
+function navSearchLogin(Page $page, $showEdit=true) {
+    global $config, $spot_home, $site_home, $SPOT_id, $dejaVu;
+    if (@$dejaVu++) return "";
+
+//    echo "showEdit = ".var_export($showEdit,true)."<br>";
     $action = $GLOBALS['SPOT_search'];
-    return x("form class='pw-search-form' data-action='$action' action='$action' method='get'",
-	     x("label for='search' class='visually-hidden'",_x('Search:', 'label')).
-	     x("input type='text' name='keywords' id='search' placeholder='"._x('Search', 'placeholder')."'").
-	     x("input type='hidden' name='tags' value='$GLOBALS[SPOT_id]'").
-	     x("button type='submit' name='submit' class='visually-hidden'", _x('Search', 'button')));
+    $reply =  "\n<!-- Search and login -->\n".
+	      "<ul class='uk-navbar-nav' style='align-items:center;display:inline-flex;float:right;list-style-type:none;'>\n";
+    
+    //if ($spot_home != $site_home) {
+
+    // Edit & Login
+    if ($showEdit) $reply .= (!user()->isLoggedin()
+	? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //  .' '.__('Login')))
+	: (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit',$SPOT_id))) : "").
+	  x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout',$SPOT_id)));
+    // Search
+    $reply .=  x("li",
+		 x("form class='pw-search-form' data-action='$action' action='$action' method='get'",
+		   x("label for='search' class='visually-hidden'",_x('Search:', 'label')).
+		   x("input type='text' name='keywords' id='search' placeholder='"._x('Search', 'placeholder')."'").
+		   x("input type='hidden' name='tags' value='$GLOBALS[SPOT_id]'").
+		   x("button type='submit' name='submit' class='visually-hidden'", _x('Search', 'button')))).
+	       x("li",navUserIcon());
+    //}
+    $reply .= "</ul>\n<!-- /Search and login -->\n";
+    return $reply;
 }
+
+/**
+ * Minimal menu, shown from search page
+     */
+function getMinimalMenu(string $SPOT_id='spot') {
+    global $spot_home, $site_home;
+    //if ($spot_home == $site_home) return "";
+    $items = [];
+    foreach(['spot','artworks','persons'] as $tp) {
+        if (($p = pages()->get("template={$SPOT_id}_$tp"))->id) {
+	    $active = (empty($items) ? "uk-active" : ""); 
+		if ($url=@$p->url) $items[] = x("li class='menu-item $active'", x("a href='$url'", x("h3",$p->title)));
+	}
+    }
+    echo x("ul class='uk-navbar-nav float_left'",
+	   join("\n",$items)) . navSearchLogin(page(), false);
+};
 
 /**
  * Output <div id='masthead'...</div>
@@ -965,56 +870,26 @@ function masthead(Page $page, Languages $languages, User $user) {
 	list($s0,$s1) = $addStyle ? [" style='","'"] : ["",""];
 	return $s0 . $color . ($active ? " font-weight:bold;font-style:italic" : "").$s1;
     };
-
-    /**
-     * Minimal menu, shown from search page
-     */
-    $getMinimalMenu = function(string $SPOT_id) {
-	global $spot_home, $site_home, $SPOT_id;
-	//if ($spot_home == $site_home) return "";
-	$items = [];
-	foreach(['spot','artworks','persons'] as $tp) {
-            if (($p = pages()->get("template={$SPOT_id}_$tp"))->id) {
-		$active = (empty($items) ? "uk-active" : ""); 
-		if ($url=@$p->url) $items[] = x("li class='menu-item $active'", x("a href='$url'", x("h3",$p->title)));
-	    }
-	}
-	return x("ul class='uk-navbar-nav float_left'",join("\n",$items));
-    };
 ?>
-    <div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
-	<div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
-	    <h2 style='float:left;<?= $sh(false) ?>'>
-		<?php
-		//$site_home->set('headline', 'Home');
-		foreach($page->parents as $k=>$p) {
-		    if ($k==0) { echo region('first_item'); continue; }
-		    echo ($l=x("a href='{$p->url}'", $p->title) . x("i class='uk-icon-angle-right'"));
-		}
-		echo "<!--  region(headline)  -->\n";
-		echo region('headline');
-		echo "<!-- /region(headline)  -->\n";
-		?>
-	    </h2>
-	    <!-- Search and login -->
-	    <ul class='uk-navbar-nav' style='align-items:center; display:inline-flex; float:right; list-style-type:"";'>
-		<?php
-		if ($spot_home != $site_home) {
-		    echo (user()->isGuest()
-			? x("li",x("a href='{$config->urls->admin}login/'",x("i class='uk-icon-user'"))) //  .' '.__('Login')))
-			: (page()->editable() ? x("li",x("a href='$page->editUrl'",x("i class='uk-icon-edit'").' '.__('Edit',$SPOT_id))) : "").
-			  x("li",x("a href='{$config->urls->admin}login/logout/'"),  x("i class='uk-icon-user'").' '.__('Logout',$SPOT_id)));
-		    echo x("li",navSearchForm());
-		    echo x("li",navUserIcon());
-		}
-		?>
-	    </ul>
-	</div>
-	
-	<nav id='topnav' class='uk-navbar uk-navbar-attached uk-hidden-small'>
-	    <div class='uk-container uk-container-center'>
-		<ul class='uk-navbar-nav float_left'>
-		    <!-- Main navigation -->
+<div id='masthead' class='uk-margin-large-top uk-margin-bottom'>
+    <div id='primary-headline' class='uk-container uk-container-center uk-margin-bottom'>
+	<h2 style='float:left;<?= $sh(false) ?>'>
+	    <?php
+	    //$site_home->set('headline', 'Home');
+	    foreach($page->parents as $k=>$p) {
+		if ($k==0) { echo region('first_item'); continue; }
+		echo ($l=x("a href='{$p->url}'", $p->title) . x("i class='uk-icon-angle-right'"));
+	    }
+	    echo "<!--  region(headline)  -->\n".region('headline')."<!-- /region(headline)  -->\n";
+	    ?>
+	</h2>
+	<?php echo navSearchLogin($page); ?>
+    </div>
+    
+    <nav id='topnav' class='uk-navbar uk-navbar-attached uk-hidden-small'>
+	<div class='uk-container uk-container-center'>
+	    <ul class='uk-navbar-nav float_left'>
+		<!-- Main navigation -->
 <?php
 //echo "page=$page->title, spot_home=$spot_home->title, rootParent title=".$page->rootParent->title.", page parent=".$page->parent->title."<br>";
 
@@ -1031,7 +906,7 @@ foreach(($SPOT_url
     // : (empty($SPOT_id)
     //	   ? [$site_home]
     //           : [pages()->get("{$SPOT_id}_spot")])) as $item) {
-    if (!$item->viewable()) continue;
+    if (empty($item) || !$item->viewable()) continue;
     if(!$user->hasPermission('see-full-menu') && preg_match("/".join('|',$restricted_pages).'/', $item->template)) continue;
     if (preg_match(";spot/;",$item->url) && !$SPOT_url)  continue;
      // Detect the active tab
@@ -1064,7 +939,7 @@ foreach(($SPOT_url
 }
 ksort($items);
 if (count($items) > 1) foreach($items as $k=>$v) echo $v;
-else       echo $getMinimalMenu($SPOT_id);
+else getMinimalMenu();
 ?>
 		</ul>
 		<?php
