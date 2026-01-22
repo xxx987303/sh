@@ -49,6 +49,7 @@ $config->ártworkItems = ['h' => 'Scarves',
 $config->colorHermes  = '#a85600';
 $config->colorDymkove = '#4e858f';
 $config->logoutRedirect = '/sh/';
+$config->mh = 150; // Thumbs max-hight in px's
 
 /*
    $config->imageSizerOptions = array(

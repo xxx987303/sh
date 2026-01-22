@@ -29,6 +29,7 @@ region('mainHeader',   '');
 region('content',      page('body'));
 region('sidebar',      '');
 region('sidebarHeader','');
+region('afterText','');
 
 if($input->get->logout) {
     $session->logout();

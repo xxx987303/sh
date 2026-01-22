@@ -1,14 +1,21 @@
 /**
- * Automatic switch from 2 columns to 1 column for narrow switch
+ * Automatic switch from 2 columns to 1 column for narrow screen
  */
 .auto-width-600 {
-    max-width: 900px;
+    max-width: 100%;
+    padding-top:0;
+    max-width:100%;
+    margin: auto;
+    column-count: 1;
+    column-gap: 2rem;
 }
 
 .auto-width-content {
-/*  max-width: 900px; */
+/*  max-width: 900px;
+    padding: 1.5rem;  */
+    padding-top:0;
+    max-width:100%;
     margin: auto;
-    padding: 1.5rem;
     column-count: 1;
     column-gap: 2rem;
 }

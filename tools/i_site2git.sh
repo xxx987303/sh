@@ -15,7 +15,7 @@ function say(){
 cd $git
 
 say "Syncing modules is NOT done by this script, do it manually..."
-#rsync -avnc --delete $sh/modules/ $git/site/modules/
+sh_diff.sh
 sh_diff.sh $sh/modules/ $git/site/modules/ | grep -v ^$
 sleep 5
 
@@ -25,10 +25,15 @@ $git/tools/compactor.sh
 say "Cleaning site caches"
 rm -rf $sh/assets/cache/* $sh/assets/sessions/* $sh/assets/logs/*
 
-say "Syncing assets with git"
+say "Syncing photos with git"
 rsync -avc --delete $sh/assets/files/ $git/site/assets/files/
 git add $git/site/assets/files/
 git status site/assets/files/
+
+say "DRY RUN Syncing assets with git"
+#rsync -avcn --delete $sh/                $git/site/ --exclude assets/cache --exclude assets/logs --exclude assets/sessions --exclude assets/
+rsync -avcn --delete $sh/                $git/site/ --exclude assets/
+sleep 5
 
 say "Exporting sql to git"
 mysqldump -u yb -p --opt --ignore-table-data=cms-pw-sh.caches cms-pw-sh > $sql

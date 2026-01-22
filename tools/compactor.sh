@@ -39,13 +39,7 @@ for parentDir in $(ls -1 $R); do
     for item in $(ls -1); do
 	if [[ -d $item ]]; then
 	    echo -n
-#	    [ -n "$dryRun" ] && echo "  --dir  $item"
 	elif [[ -h "$item" ]]; then
-#	    [ -n "$dryRun" ] && {
-#		[ $nacts = 0 ] && echo ==========================$parentDir
-#		(( nacts++ ))
-#		echo "  --link $item"
-#	    }
 	    [ -a $item ] || {
 		[ $nacts = 0 ] && echo ==========================$parentDir
 		(( nacts++ ))
@@ -55,11 +49,6 @@ for parentDir in $(ls -1 $R); do
 	elif [[ -f "$item" ]]; then
 	    [ -n "$(file "$item" 2>&1| grep JSON)" ] && continue
 	    [ -n "$(file "$item" 2>&1| grep image)" ] && {
-#		[ -n "$dryRun" ] && {
-#		    [ $nacts = 0 ] && echo ==========================$parentDir
-#		    (( nacts++ ))
-#		    echo -n "  --img $item"
-#		}
 		a=($(echo $item|sed 's/\./ /g'))
 		n=$(countDots $item)
 		root=${a[0]}.${a[$n]}
@@ -87,8 +76,3 @@ for parentDir in $(ls -1 $R); do
 	fi
     done
 done
-
-#testLine="test.of.counter.."
-#echo "got reply countDots($testLine)="$(countDots $testLine)
-#echo "--------------------------------------------"
-

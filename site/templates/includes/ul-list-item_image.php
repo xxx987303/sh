@@ -9,7 +9,7 @@ echo sprintf("\n  <!-- ------------------------------------ %s ------------->\n"
 	    : x("div style='padding-bottom:15px'",
 	      x("a href='{$page->url}'",x("strong",sanitizer()->truncate($page->title,['maxLength'=>20, 'more'=>'…']))))).
 	   x("a href='{$page->url}'",
-	     x("img src='$img' alt='{$page->title}' max-height:'250'").
+	     x("img src='$img' alt='{$page->title}' style='max-height:250px'").
              x("div class='caption uk-text-small uk-text-muted'",
                x("span style=font-size:small",$description)))))) .
      sprintf("\n  <!-- ------------------------------------ /%s ------------->\n",basename(__file__));

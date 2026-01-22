@@ -112,7 +112,7 @@ function setNextPrev(String $selector, Page &$page) {
 	// See who requests this page
 	if (($r=(string)@$_SERVER['HTTP_REFERER']) && preg_match("/(h_aw_options=[a-zA-Z0-9]*)/", $r, $m)) {
 	    $selector = "$m[1], sort=h_aw_person";
-	} elseif (preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection))s/([^/]*)/?).*;", $r, $m)){
+	} elseif (preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection|school))s/([^/]*)/?).*;", $r, $m)){
 	    $f = str_replace("$m[4]", "aw_{$m[4]}", $m[2]);
 	    if (fields()->get($f)) {
 		if(0)$selector = ($f=='h_aw_collection' ? str_replace('!=5842|6331', "=$m[5]", $selector) :  $selector . ", $f={$m[5]}");
@@ -571,16 +571,15 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
  *
  */
 function renderObjectListItem(Page $page, $context='ul', $key='', $imgXXL=null){
-    global $SPOT_id;
-    /** @var Pageimages $images */
+    global $SPOT_id, $config;
+
     $images = ($page->template=='a_possession'
 	     ? ($artwork=$page->a_p_artwork->first)->get('images')
 	     : $page->get('images'));
     // Make a thumbnail
     if ($imgXXL === null) {
 	if(!empty($images) && ($image = $images->first())) {
-	    //$thumb = ($SPOT_id == 'a' ? $image->height(250) : $image->width(200));
-	    $img   = $image->height(111)->url;
+	    $img   = $image->height($config->mh)->url;
 	} else {
 	    $img = config()->urls->templates . "styles/images/photo_placeholder.png";
 	}
@@ -679,17 +678,15 @@ function makePrettySelector($selector) {
  *
  */
 function summarizeText($text, $maxLength = 500) {
-
-    if(!strlen($text)) return '';
-    $summary = trim($text);
-    
-    // Get the first phrase
-    if (stripos($summary,"<p>") !== false && stripos($summary,"</p>") !== false){
-        $t = explode("</p>",str_replace("</P>","</p>",$summary));
-        return trim(str_ireplace("<p>","",$t[0]))."…";
+    if (!empty($summary=trim($text))){
+	// Get the first <p>....</p> as summary if posible
+	if (stripos($summary,"<p>") !== false && stripos($summary,"</p>") !== false){
+            $t = explode("</p>",str_replace("</P>","</p>",$summary));
+            $summary = trim(str_ireplace("<p>","",$t[0]))."…";
+	} else {
+	    $summary = sanitizer()->truncate(strip_tags($summary), ['maxLength'=>$maxLength, 'more'=>'…']); 
+	}
     }
-    
-    $summary = sanitizer()->truncate(strip_tags($summary), ['maxLength'=>$maxLength, 'more'=>'…']); 
     return $summary;
 }
 

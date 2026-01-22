@@ -19,7 +19,7 @@ foreach (explode('&', $SITE_input) as $item) {
     if (!str_contains($item,'=')) continue;
     list($k,$v) = explode('=',str_replace('_c_person','_aw_person',$item));
     // Redirect the page if posible
-    if (is_numeric($v) && preg_match("/([adh])_([a-z]*)_(person|collection|possession|artwork)/", $k, $m)) {
+    if (is_numeric($v) && preg_match("/([adh])_([a-z]*)_(person|collection|possession|artwork|school)/", $k, $m)) {
 	if (($p = pages()->get($v))->id) {
 	    header(sprintf("Location:%s%s_spot/%s_{$m[3]}s/%s/", $site_home->url, $m[1], $m[1], $p->name));
 	    exit;

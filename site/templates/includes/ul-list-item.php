@@ -64,9 +64,9 @@ if ($XXL) {
     echo x("div class='ul-list-item rounded-area'",
 	   x("div class='uk-grid uk-grid-medium'",
 	     $image.
-	     x("div class='uk-width-2-3 uk-width-small-4-5'",
+	     x("div class='uk-width-2-3 uk-width-small-3-4'",
 	       x("div class='uk-grid uk-grid-small uk-margin-small-bottom'",
-		 x("div class='uk-width-1-1 uk-width-small-2-5 uk-margin-small-bottom'",
+		 x("div class='uk-width-1-1 uk-width-small-4-4 uk-margin-small-bottom'",
 		   x("a href='$page->url' class='uk-text-bold'",$page->title).
 		   x("div class='object-city uk-text-muted'",$caption))))).
 	   $summary);

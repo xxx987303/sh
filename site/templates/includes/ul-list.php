@@ -26,7 +26,7 @@ if(!empty($itemsByType)){
 if(empty($items) && empty($itemsByType)){
     echo x("div class='uk-alert uk-alert-danger'",
 	   x("i class='uk-icon-warning'")." No objects found");
-}elseif($selector && $user->hasPermission('see-full-menu')) {
+}elseif(false && $selector && $user->hasPermission('see-full-menu')) {
     echo x("p class='uk-alert uk-margin-bottom'",
 	   "The selector used to find the pages shown above is:<br />".
 	   x("span class='pw-selector'",$selector));
