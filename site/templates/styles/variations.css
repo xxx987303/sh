@@ -1,18 +1,16 @@
 /**
  * Automatic switch from 2 columns to 1 column for narrow screen
  */
-.auto-width-600 {
+.auto-width-single {
     max-width: 100%;
-    padding-top:0;
-    max-width:100%;
+    padding-top:1rem;
     margin: auto;
     column-count: 1;
     column-gap: 2rem;
 }
 
 .auto-width-content {
-/*  max-width: 900px;
-    padding: 1.5rem;  */
+/*  padding: 1.5rem;  */
     padding-top:0;
     max-width:100%;
     margin: auto;
@@ -20,8 +18,13 @@
     column-gap: 2rem;
 }
 
+.auto-width-placeholder {
+    display: none;
+}
+
 @media (min-width: 768px) {
     .auto-width-content { column-count: 2; }
+    .auto-width-placeholder { display: block; }
 }
 
 /**
@@ -53,7 +56,7 @@ ul.horizontal li{
 .sh-gallery-container img { width:100%; display:block; } 
 .sh-prev, .sh-next {
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   top: 50%;              /* Positions them at the vertical middle */
   transform: translateY(-50%); /* Perfectly centers vertically */
   padding: 16px;
@@ -67,7 +70,7 @@ ul.horizontal li{
   z-index: 10;           /* Ensures arrows stay on top of the image */
 }
 .sh-next {  right: 0;  border-radius: 3px 0 0 3px; }
-.sh-prev {  left: 0;c}
+.sh-prev {  left:  0; }
 .sh-prev:hover, .sh-next:hover {  background-color: rgba(0, 0, 0, 0.8); }
 
 /**

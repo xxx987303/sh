@@ -1,10 +1,7 @@
 <?php namespace ProcessWire;
 /**
- * Render pages
+ * Render pages with tag 'list' (grey buttons on the page)
  */
-
-if (is_object($caption)) tidy_dump($caption,'caption');
-//$caption = 'Caption';
 
 $fieldOrder = ['_aw_price',
 	       '_aw_size',
@@ -16,12 +13,9 @@ $fieldOrder = ['_aw_price',
  * Render a field
  */
 $getItem = function(Page $page, Field $field) {
-    $value = (($emoji=getEmoji($field->name, (string)$page->$field, true))
-	? $emoji
-	: getKeyValue($page, $field, 15));
-    //echo x("pre","{$field->name}: $value");
     return x("div class='uk-width-1-3 uk-width-small-1-5'",
-	     $value . x("div",x("small class='uk-text-muted'",$field->getLabel())));
+	     getKeyValue($page, $field, 15) .
+	     x("div",x("small class='uk-text-muted'",$field->getLabel())));
 };
 
 //

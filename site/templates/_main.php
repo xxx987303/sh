@@ -87,7 +87,7 @@ if (!$GLOBALS['SU'])  $user->language = $languages->get('russian');
 	    </div>
 	</div> <!--/main-->
 	
-	<footer id='foot' class='uk-margin-large-top'>
+	<footer id='foot'> <!-- class='uk-margin-large-top' -->
 	    <div class='uk-container uk-container-center uk-margin-bottom'>
 		<div class='uk-text-muted uk-text-center'>
 		    <!--

@@ -73,14 +73,13 @@ em {
 
 
 #foot {
-  border-top: 1px solid #ddd;
-  padding: 27px 0; }
-  #foot .foot-line {
-    display: block; }
-  @media screen and (max-width: 767px) {
-    #foot .foot-text {
-      white-space: nowrap;
-      display: block; } }
+    border-top: 1px solid #ddd;
+    padding: 5px 0;
+}
+#foot .foot-line { display: block; }
+@media screen and (max-width: 767px) {
+    #foot .foot-text { white-space: nowrap; display: block; }
+}
 
 #offcanvas-toggle {
   position: absolute;

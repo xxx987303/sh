@@ -31,7 +31,6 @@ git add $git/site/assets/files/
 git status site/assets/files/
 
 say "DRY RUN Syncing assets with git"
-#rsync -avcn --delete $sh/                $git/site/ --exclude assets/cache --exclude assets/logs --exclude assets/sessions --exclude assets/
 rsync -avcn --delete $sh/                $git/site/ --exclude assets/
 sleep 5
 

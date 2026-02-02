@@ -43,9 +43,9 @@ switch ($GLOBALS['SPOT_id']) {
 	
     case 'a':
 	$t = "template=a_artwork,";
-	echo x("li",x("a href='$GLOBALS[SPOT_search]a_p_price_final=@1&&limit=6&sort=a_p_price_final'",
+	echo x("li",x("a href='$GLOBALS[SPOT_search]{$t}a_p_price_final=@1&&limit=6&sort=a_p_price_final'",
 		      __('Cheapest paintings'))); 
-	echo x("li",x("a href='$GLOBALS[SPOT_search]a_p_price_final=@1&limit=6&sort=-a_p_price_final'",
+	echo x("li",x("a href='$GLOBALS[SPOT_search]{$t}a_p_price_final=@1&limit=6&sort=-a_p_price_final'",
 		      __('Most expensive paintings'))); 
 	break;
 	

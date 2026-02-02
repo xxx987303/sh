@@ -124,6 +124,5 @@ if ($o == 'L'){ o_p_images(c1, $page, $pages, $width); o_p_text  (c2, $page, $re
 else          { o_p_text  (c2, $page, $related);       o_p_images(c1, $page, $pages, $width); }
 echo "</div>\n";
 
-if ($page->template != 'a_school' && !empty($page->body)){
-    echo x("div class=auto-width-content style=max-width:100%",$page->body);
-}
+if ($page->template != 'a_school') echo renderBodyInTwoColumns($page);
+

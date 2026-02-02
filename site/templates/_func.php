@@ -41,6 +41,15 @@ function _t(String $text, $spot='h') {
     if (preg_match("/Got as.*Voyage en/", $text))                    return __('Got as "Voyage en Étoffes"');
     if (preg_match("/Arrangement.*pieces|CASSANDRE pour/", $text))   return $text;
     if (preg_match("/Arrangement.*pieces/", $text))                  return __('Arrangement with match sticks and puzzle pieces');
+    if ($text == 'About Designer')    return __('About Designer');
+    if ($text == 'About Collector')   return __('About Collector');
+    if ($text == 'About Owner')       return __('About Owner');
+    if ($text == 'About Seller')      return __('About Seller');
+    if ($text == 'About Artist')      return __('About Artist');
+    if ($text == 'About h_brand')     return __('About Brand');
+    if ($text == 'About h_artwork')   return __('About Scarf');
+    if ($text == 'About h_seller')    return __('About Source');
+    if ($text == 'About h_collection')return __('About Collection');
     if ($text == 'Louvre')           return __('Louvre');
     if ($text == 'Scarves Search')   return __('Scarves Search');
     if ($text == 'Paintings Search') return __('Paintings Search');
@@ -91,7 +100,7 @@ function _t(String $text, $spot='h') {
 	elseif(@$GLOBALS['SU']) reportProblem(x("pre","_t('$a':'$b')"));
 	return "$a: $b";
     }
-    reportProblem(x("pre","_t($text)"));
+    reportProblem(x("pre","_t($text,$spot)"));
     return $text;  // .' '.__("not yet ready");
 }
 
@@ -110,14 +119,11 @@ function setNextPrev(String $selector, Page &$page) {
     if (empty($np_keys=@$_GET['np_keys'])) {
 	$selector = str_replace('sort=title','sort=name',$selector);
 	// See who requests this page
-	if (($r=(string)@$_SERVER['HTTP_REFERER']) && preg_match("/(h_aw_options=[a-zA-Z0-9]*)/", $r, $m)) {
-	    $selector = "$m[1], sort=h_aw_person";
+	if (($r=(string)@$_SERVER['HTTP_REFERER']) && preg_match("/(([adh])_aw_options=[a-zA-Z0-9]*)/", $r, $m)) {
+	    $selector = "$m[1], sort=$m[2]_aw_person";
 	} elseif (preg_match(";.*((([adh]_)(seller|person|artwork|brand|collection|school))s/([^/]*)/?).*;", $r, $m)){
 	    $f = str_replace("$m[4]", "aw_{$m[4]}", $m[2]);
-	    if (fields()->get($f)) {
-		if(0)$selector = ($f=='h_aw_collection' ? str_replace('!=5842|6331', "=$m[5]", $selector) :  $selector . ", $f={$m[5]}");
-		$selector .= ", $f={$m[5]}";
-	    }
+	    if (fields()->get($f)) $selector .= ", $f={$m[5]}";
 	}
 	$idWas = $page->id;
 	$k = 0;
@@ -285,17 +291,16 @@ function getVariations(Page $page) {
 /**
  * Prepare value for rendering
  */
-function getKeyValue(Page $page, Field $field, int $truncate=0) {
+function getKeyValue(Object $page, Field $field, int $truncate=0, $returnValue=false) {
     global $SPOT_id, $SPOT_search, $spot_home, $lookingForBug;
 
     // href
-    $href = function($p, Field $f, $v) {
+    $href = function(Object $p, Field $f, $v) {
 	global $SPOT_id, $SPOT_search,$spot_home;
-	$href= ($f->name == 'a_p_artwork'
+	return ($f->name == 'a_p_artwork'
 	    ? "{$spot_home->url}a_artworks/{$p->name}/"
 	  //? "{$spot_home->url}a_possessions/{$p->a_aw_possession->first->name}/"
 	    : "{$SPOT_search}{$f->name}={$v}&sort={$f->name}");
-	return $href;
     };
     
     // Trancater
@@ -317,7 +322,8 @@ function getKeyValue(Page $page, Field $field, int $truncate=0) {
     } elseif (strpos($field->name,'options')) {
         $reply[] = x("strong",$page->$field->title);
     } elseif (preg_match("/price|payed/",$field->name)) {
-        $reply[] = number_format($value,0,","," ").' SEK';
+	$currency = empty($c=$page->currency->title) ? 'SEK' : $c;
+	$reply[] = number_format($value,0,","," ")." $currency";
     } elseif (in_array($field->type, ['FieldtypePageTitle', 'FieldtypePageTitleLanguage'])) {   
 	$reply[] = x("a href=''", $value);
     } elseif (in_array($field->type, ['FieldtypeInteger', 'FieldtypeEmail',   'FieldtypeText',    'FieldtypeTextLanguage',
@@ -327,7 +333,10 @@ function getKeyValue(Page $page, Field $field, int $truncate=0) {
     } elseif ($e = getEmoji($field->name, $value)) {
 	$reply[] = $e;
     } elseif ($field->type == 'FieldtypeOptions') {
-	foreach($page->get($field->name) as $p) $reply[] = x("a href='".$href($p,$field,$value)."'", $t($p->title,$truncate));
+	foreach($page->get($field->name) as $p){
+	    if ($returnValue) return $p->title;
+	    $reply[] = x("a href='".$href($p,$field,$value)."'", $t($p->title,$truncate));
+	}
 	//$reply = substr($page->get($field->name)->each(", <a href='{$SPOT_search}{$field->name}={value}'>{title}</a>"),2);
     } elseif ($field->type == 'FieldtypePage') {
 	$reply[] = pages()->get($value)->title;
@@ -339,11 +348,12 @@ function getKeyValue(Page $page, Field $field, int $truncate=0) {
     // Search URL
     $replyMerged = "";
     foreach($reply as $r) {
-	if (is_string($r) && strpos($r, "href=") === false) {
+	if (is_string($r) && !preg_match("/href=/",$r) && !$returnValue) {
 	    $replyMerged .= x("a href='".$href($page,$field,$value)."'",$t($r,$truncate));
 	} else {
 	    $replyMerged .= $r;
 	}
+	if ($returnValue) break;
     }
     if ($lookingForBug) echo x("pre","getKeyValue($page->id,$field->name,$field->type) = ".escape_uml($replyMerged,'encode'));
     return empty($replyMerged) ? false : $replyMerged;
@@ -461,11 +471,37 @@ function findObjects(String $selectorArg, String $template_name='artwork', Int $
     return pages($selector);
 }
 
+function getTitleForAbout(Page $page) {
+    $of = $page->of(false);
+    $lang = User()->language;
+    //User()->language = Languages()->get("default");
+    switch ($page->template->name) {
+	case 'a_person': $d = getKeyValue($page, fields()->get('a_av_duty'), 0, true); break;
+	case 'h_person': $d = getKeyValue($page, fields()->get('h_av_duty'), 0, true); break;
+	default: $d = $page->template->name;
+    }
+    $reply = x("h3",_t("About $d") . " \"{$page->title}\"");
+    $page->of($of);
+    User()->language = $lang;
+    return $reply;
+}
+
+/**
+ *
+ */
+function renderBodyInTwoColumns(Page $page) {
+    return (preg_match("/\<div.*auto-width-content/", $page->body)
+	  ? $page->body
+	  : (empty($b=$page->body) ? "" : x("div class='auto-width-single'",
+					    getTitleForAbout($page)) .
+				            x("div class='auto-width-content'", $b)));
+}
+
+
 /**
  * Render the <thead> portion of a Object list table
  *
  * @return string
- *
  */
 function renderObjectListSort($template_name='artwork') {
 
@@ -753,14 +789,13 @@ function getEmoji($fieldName, String $level, bool $returnImage=false) {
     global $SPOT_search, $config;
     list($emojiDir, $fn) = [__dir__.'/../assets/files/0000/', "$level.png"];
     if (in_array($fieldName, $config->emojiFields) && file_exists($ph=realpath(str_replace(' ','',$emojiDir.$fn)))) {
-	$treeRoot = '/sh/';
-	$anker = x("a href='{$SPOT_search}$fieldName=$level'",
-		   ($image = x("img src=".x("'",preg_replace(";.*{$treeRoot};",$treeRoot,$ph)))));
+	$anker = x("a href='$SPOT_search$fieldName=$level'",
+		   ($image = "<img src=\"".preg_replace(";.*".$config->treeRoot.";",$config->treeRoot,$ph)."\"/>"));
 	$reply = $returnImage ? $image : $anker;
     } else {
 	$reply = false;
     }
-    //echo "getEmoji($fieldName,$fn): ".var_export($reply,true)."<br>";
+    //if($reply)echo "getEmoji($fieldName,$fn,$returnImage): ".escape_uml(var_export($reply,true),'encode')."<br>";
     return $reply;
 }
 

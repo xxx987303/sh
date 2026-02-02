@@ -78,7 +78,7 @@ INSERT INTO `field_a_av_date` VALUES
 (5880,'1763‑1814','','',''),
 (5882,'','','',''),
 (5883,'','1629 – 1670','',''),
-(5885,'','','',''),
+(5885,'1610 – 1690','','',''),
 (5887,'1846‑1920','','',''),
 (5892,'1929 - 1993','','',''),
 (5889,'','','',''),
@@ -337,7 +337,8 @@ INSERT INTO `field_a_av_url` VALUES
 (5863,'https://en.wikipedia.org/wiki/Jan_van_Eyck'),
 (5874,'https://www.nashteatr.com/2024/07/16/415-let-so-dnja-rozhdenija-gollandskogo-hudozhnika-salomona-koninka/'),
 (5871,'https://www.svtplay.se/video/eQJz55j/tva-broder-tva-varldar?video=visa'),
-(6356,'https://www.storicang.it/a/caravaggio-artista-tra-il-pennello-e-spada_14933');
+(6356,'https://www.storicang.it/a/caravaggio-artista-tra-il-pennello-e-spada_14933'),
+(5885,'https://en.wikipedia.org/wiki/David_Teniers_the_Younger');
 /*!40000 ALTER TABLE `field_a_av_url` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -1809,7 +1810,7 @@ INSERT INTO `field_body` VALUES
 (5793,'<p>Caty Latham — also known as Cathy Latham-Audibert — is a remarkable artist whose work at Hermès spans more than 45 extraordinary years. She is especially celebrated for creating <em>Clés</em>, one of the top ten best-selling Hermès scarves of all time, as well as for her clever self-referential designs.</p>\n\n<p>Her earliest two creations, <em>Clés</em> and <em>Vendanges</em>, were released without a signature. For the next decade she signed her work as “.Caty.” before eventually adopting the signature “Latham.” This evolution has become part of her story, reflecting the long and creative journey behind her designs.</p>','<p>Кэти Латам, известная также как Кэти Латам-Одибер, — выдающаяся художница, посвятившая Hermès более 45 невероятных лет. Особенно прославилась она платком <em>Clés</em>, вошедшим в десятку самых продаваемых платков Hermès за всю историю, а также своими изящными, самоироничными и «самоописательными» дизайнами.</p>\n\n<p>Её первые две работы — <em>Clés</em> и <em>Vendanges</em> — выпускались без подписи. Позже, в течение примерно десяти лет, она подписывала свои дизайны как “.Caty.”, а затем перешла к подписи “Latham.” Эта смена подписи стала частью её творческой биографии и отражает долгий путь развития её стиля.</p>','<p>Caty Latham — également connue sous le nom de Cathy Latham-Audibert — est une artiste exceptionnelle dont la collaboration avec Hermès s’étend sur plus de 45 années admirables. Elle est surtout reconnue pour avoir créé <em>Clés</em>, l’un des dix carrés Hermès les plus vendus de tous les temps, ainsi que pour ses motifs subtilement autoréférentiels.</p>\n\n<p>Ses deux premières créations, <em>Clés</em> et <em>Vendanges</em>, ont été publiées sans signature. Par la suite, elle a signé ses dessins “.Caty.” pendant une dizaine d’années avant d’adopter la signature “Latham.” Cette évolution fait aujourd’hui partie de son histoire et témoigne de son long parcours créatif.</p>','<p>Caty Latham — även känd som Cathy Latham-Audibert — är en enastående konstnär som arbetat med Hermès i över 45 imponerande år. Hon är särskilt känd för att ha skapat <em>Clés</em>, en av de tio mest sålda Hermès-sjalarnas genom tiderna, samt för sina lekfulla och självrefererande mönster.</p>\n\n<p>Hennes två första design, <em>Clés</em> och <em>Vendanges</em>, gavs ut utan signatur. Under det följande decenniet signerade hon sina verk med “.Caty.” innan hon så småningom gick över till signaturen “Latham.” Denna utveckling är idag en del av hennes historia och speglar den långa kreativa resa bakom hennes arbete.</p>\n\n<hr />'),
 (5794,'<hr />\n<p><strong>Evgenia about herself:</strong></p>\n\n<p>I was born in Kharkiv, Ukraine, and I’ve loved drawing for as long as I can remember. I studied at the Kharkiv State Art School and later at the Academy of Decorative Arts in Saint Petersburg.</p>\n\n<p>My homeland — the birthplace of great artists like Kazimir Malevich — gave me a deep feeling for color, rhythm, and harmony. After graduating from the Academy, I began my creative career and became a member of the Russian Union of Artists and Designers.</p>\n\n<p>I’ve always been fascinated by symbols — those ancient signs that people used to express faith, wisdom, and their understanding of the world. I love exploring their meanings and turning them into patterns, ornaments, and decorative stories.</p>\n\n<p>My works have been exhibited in the UK, France, Germany, Sweden, Russia, and the USA. For many years I worked mostly in Russia. My passion for theater and music led to wonderful collaborations with the Tchaikovsky Symphony Orchestra and the Mariinsky Theatre. Some of my designs were even produced by the famous Imperial Porcelain Factory in Saint Petersburg.</p>\n\n<p>In 2004, my life took a new turn when I started working with Hermès. It was both an honor and a challenge — I became the first contemporary Russian designer to collaborate with the house. I created designs for scarves, enamel bracelets, and porcelain, bringing to them the beauty and spirit of Russian ornament and culture.</p>\n\n<p>Since then, I’ve also worked with other prestigious brands — in France (Pierre Frey, Emaux de Longwy, Beauvillé, J. Seignolles), in the UK (Wedgwood), in Italy (Provasi), and with many private clients in Russia.</p>\n\n<p>Today, my designs can be found in some of the most beautiful stores around the world. But for me, the real joy is when someone looks at my work and feels warmth, wonder, and inspiration.</p>','<p><strong>Евгения о себе:</strong></p>\n\n<p>Я родилась в Харькове, Украина. С самого детства любила рисовать и мечтала стать художником. Училась сначала в Харьковском художественном училище, потом — в Академии декоративно-прикладного искусства в Петербурге.</p>\n\n<p>Моя родина — земля талантливых художников, например Казимира Малевича. Думаю, именно оттуда у меня любовь к цвету и ритму, к сочетанию форм и деталей. После Академии я начала работать дизайнером и вступила в Союз художников и дизайнеров России.</p>\n\n<p>Меня всегда тянуло к символам — знакам, которые люди создавали с древних времён. В каждом из них спрятан смысл, мудрость, вера. Мне нравится искать эти значения и превращать их в орнаменты, украшения и узоры.</p>\n\n<p>Мои работы выставлялись в разных странах — от Великобритании и Франции до США и Швеции. Долгое время я жила и работала в России. Любовь к театру и музыке подарила мне удивительные проекты — сотрудничество с Большим симфоническим оркестром имени Чайковского и Мариинским театром. Некоторые мои дизайны даже выпускались на Императорском фарфоровом заводе в Петербурге.</p>\n\n<p>В 2004 году в моей жизни появился Hermès. Это была встреча, которая всё изменила. Я создавала для них дизайны шарфов, браслетов, фарфора. Это был невероятный опыт — ведь я стала первым современным российским дизайнером, кто работал с Hermès. Мне хотелось показать им красоту русских орнаментов и передать дух нашей культуры.</p>\n\n<p>Позже я сотрудничала и с другими известными брендами — во Франции, Великобритании, Италии, а также с многими заказчиками в России.</p>\n\n<p>Сегодня мои работы можно увидеть в лучших магазинах мира. Но для меня главное — когда человек, глядя на мой рисунок, чувствует радость, тепло и вдохновение.</p>','',''),
 (5795,'<p>Son of <a href=\"/sh/h_spot/h_persons/188-vladimir-rybaltchenko/\">Vladimir Rybaltchenko</a> and the great-grandnephew of <a href=\"/sh/h_spot/h_persons/224-philippe-ledoux/\">Philippe Ledoux</a>.</p>','','',''),
-(5796,'','','',''),
+(5796,'<p>Here is Alexander Tsybin</p>','','',''),
 (5797,'<p>Great-nephew of <a href=\"/sh/h_spot/h_persons/224-philippe-ledoux/\">Philippe Ledoux</a> and father of <a href=\"/sh/h_spot/h_persons/186-dimitri-rybaltchenko/\">Dimitri Rybaltchenko</a>.</p>','<p>Внучатый племянник <a href=\"/sh/h_spot/h_persons/224-philippe-ledoux/\">Philippe Ledoux</a> и отец <a href=\"/sh/h_spot/h_persons/186-dimitri-rybaltchenko/\">Дмитрия Рыбальченко</a></p>','',''),
 (5798,'<p><strong>The father of carré</strong></p>\n\n<p>The idea of ​​a carré, to print exclusive designs on a square piece of silk came about in the 1930s.  At that time Robert Dumas, son of Emile, then president of the design house Hermès, with talented designers behind him, was able to quickly convince his father about this idea and the Hermès carré as we know it, was born.</p>\n\n<p>Hugo Grygkar not only designed the very first carré for Hermès, but he also became Hermès’ most prolific artist.  Born on December 9, 1907 in Munich to a Czech family, he grew up in Germany where he from an early age attended the studio of his father, who was a tinsmith and bronze sculptor.  In 1914, his family left for France and settled first in Brittany, in Lannion, and later in the Parisian suburbs.  In his youth, Hugo was a diligent artist and an avid reader, who also loved to write.  A very private and modest person, Hugo kept his education somewhat of a mystery but he most likely attended l’Academie des Beaux-Arts and then the Studio La Ruche in Paris.  In 1939 along with his father, Hugo joined a special corps in the French army made up of Czech volunteers.  Although dismissed after a few months due to kidney disease, this commitment helped him obtain French citizenship.  He married in 1942 and two years later had a daughter, Beatrice.</p>\n\n<p>After the war, in a difficult economic environment, in addition to designing scarves for Hermès, Hugo also worked as an illustrator and commercial artist, producing movie posters and some drawings for magazines like Vogue.</p>\n\n<p>Many of the carrés he designed during the forties were created in the tradition of the great illustrators.  Maxims, proverbs and aphorisms come to life in playful ways. Hugo with his great sense of humor created carrés that are in complete contrast to the hard times of the war and the immediate postwar period.  A great example being the caricature styled <strong>Lettre de Napoléon a Murat d’après Caran D’Ache</strong><em> </em>(Caran D’Ache, pseudonym of a 19th century French satirist and political cartoonist Emmanuel Poiré, whose first work glorified Napoleon’s era)(Murat, the brother-in-law of Napoléon Bonaparte).</p>\n\n<p>Many of his earlier designs have been re-issued several times, so there can be up to three different versions with no copyright, early copyright and modern copyrights.</p>\n\n<p>He produced over 100 designs and never signed his work.</p>','','',''),
 (5799,'<p>Philippe Ledoux was a superb artist and did some wonderful book illustrations as well as designing some of the most popular scarves for Hermès.</p>\n\n<p>His characterisation, eye for historical detail, and handling of perspective and three dimensional view is staggering. Ships and horses were often his subjects but people his speciality. You will have seen some of his designs in my other guides, La Promenade de Longchamps being a long term favourite with the fakers.</p>\n\n<p><em>By Hermès Scarf Guides </em></p>','<p>Ledoux был превосходным художником и создал как замечательные книжные иллюстрации, так и многие из самых популярных шарфов для Hermès.</p>\n\n<p>Его \"La Promenade de Longchamps\" стал чемпионом по количеству подделок.</p>\n\n<p>Его взгляд на исторические детали и обращение с перспективой и трехмерным пространством ошеломляют. Корабли и лошади часто были его сюжетами, но коньком все-таки были люди.</p>\n\n<p><em>По материалам Hermès Scarf Guides </em></p>','',''),
@@ -1857,7 +1858,7 @@ INSERT INTO `field_body` VALUES
 (5839,'<p>Baume &amp; Mercier was founded as \"Frères Baume\" in 1830 by brothers Louis-Victor and Célestin Baume in <a href=\"https://en.wikipedia.org/wiki/Les_Bois\" title=\"Les Bois\">Les Bois</a>, a village in the Swiss Jura.</p>\n\n<p>The Swiss watch manufacturer expanded in London in 1851 under the name \"Baume Brothers\". By the late 19th century, the company had an established international reputation, and its timepieces had set accuracy records and won a number of timekeeping competitions.</p>\n\n<p>With an average selling price of between US$2,000 and US$5,000, Baume &amp; Mercier watches are in the mid-range luxury watch market.</p>','','',''),
 (5840,'<p><strong>Lanvin</strong> is a French multinational high fashion house, which was founded by <a href=\"https://en.wikipedia.org/wiki/Jeanne_Lanvin\" title=\"Jeanne Lanvin\">Jeanne Lanvin</a> in 1889.</p>\n\n<p>It is the third oldest French fashion house still in operation.</p>','','<p><strong>Lanvin</strong> est une maison de couture française créée en 1889 par <a href=\"https://fr.wikipedia.org/wiki/Jeanne_Lanvin\" title=\"Jeanne Lanvin\">Jeanne Lanvin</a>.</p>\n\n<p>Elle est la plus ancienne maison de couture française encore en activité.</p>','<p><strong>Lanvin</strong> är ett franskt modehut grundat av <a href=\"https://sv.wikipedia.org/w/index.php?title=Jeanne_Lanvin&amp;action=edit&amp;redlink=1\" title=\"Jeanne Lanvin [inte skriven än]\">Jeanne Lanvin</a> år 1889.</p>\n\n<p>Hon öppnade modehuset i Paris 1889 och under hela 1900-talet hörde det till de ledande, särskilt på 1920-talet med folkdräktsinspirerade kläder. Åren 1950–1963 leddes huset av <a href=\"https://sv.wikipedia.org/wiki/Antonio_Castillo\" title=\"Antonio Castillo\">Antonio Castillo</a> och hette då Lanvin-Castillo.</p>\n\n<p><a href=\"https://sv.wikipedia.org/w/index.php?title=Alber_Elbaz&amp;action=edit&amp;redlink=1\" title=\"Alber Elbaz [inte skriven än]\">Alber Elbaz</a> och <a href=\"https://sv.wikipedia.org/w/index.php?title=Lucas_Ossendrijver&amp;action=edit&amp;redlink=1\" title=\"Lucas Ossendrijver [inte skriven än]\">Lucas Ossendrijver</a> på Lanvin har under hösten 2010 ett designersamarbete med <a href=\"https://sv.wikipedia.org/wiki/H%26M\" title=\"H&amp;M\">H&amp;M</a>.</p>'),
 (5841,'<p>French couturier, born Granville, France.1905.</p>\n\n<p>Unknown on February 11, 1947, he was famous on the 12th. He had just launched the «New Look».</p>\n\n<p><em>\"The dresses are my dreams\"</em>, wrote Christian Dior, <em>\"but the chimaeras which have passed from the realm of dreams to that of objects intended to be worn\".</em><br />\nChristian Dior\'s chimeras carried him to the pinnacle.</p>\n\n<p>Died in Montecatini, Italy, 1957</p>\n\n<p> </p>','<p>Christian Dior </p>','<p>Inconnu le 11 février 1947, il était célèbre le 12. Il venait de lancer le «New Look».</p>\n\n<p><em>\"Les robes sont mes chimères\"</em>, écrivait Christian Dior, \"<em>mais des chimè tres apprivoisées qui sont passées du royaume des rêves jusqu\'à celui des objets destinés à être portés</em>».<br />\nLes chimères de Christian Dior l\'ont porté au pinacle.</p>\n\n<p> </p>',''),
-(5842,'<p>A few items from Tsybin family collection</p>','<p>Коллекция Александра и Екатерины Цыбиных насчитывает более 700 уникальных дизайнов платков и входит в тройку крупнейших коллекций в мире.</p>\n\n<p>Недавно во Всероссийском музее декоративно-прикладного и народного искусства прошла выставка «Шелковый лабиринт» из сотни экспонатов коллекции Цыбиных. Она была приурочена к 80-летию выпуска первого платка Hermès.</p>\n\n<p>Несколько объектов с этой выставки представлены ниже.</p>','',''),
+(5842,'<p>A few items from Tsybin family collection</p>','<p>Коллекция Александра и Екатерины Цыбиных насчитывает более 700 уникальных дизайнов платков и входит в тройку крупнейших коллекций в мире.</p>\n\n<p>Недавно во Всероссийском музее декоративно-прикладного и народного искусства в Москве прошла выставка «Шелковый лабиринт» из сотни экспонатов коллекции Цыбиных. Она была приурочена к 80-летию выпуска первого платка Hermès.</p>\n\n<p>Несколько объектов с этой выставки представлены ниже.</p>','',''),
 (5843,'','','',''),
 (5844,'<p>My first carré Hermès</p>','<p>Мой первый платок Hermès</p>','<p>Mon premier carré Hermès</p>','<p>Min första Carré Hermès</p>'),
 (5845,'','','',''),
@@ -1911,7 +1912,9 @@ INSERT INTO `field_body` VALUES
 (5879,'<p>Samoylov was a Russian stage actor, associated with Alexandrinsky Theatre in Saint Petersburg.</p>\n\n<p>Initially an opera singer, he was also an artist whose several albums of paintings include the gallery of stage self-portraits, amounting to a visual autobiography</p>','<p>Родился в знаменитой семье оперных певцов В.М.Самойлова и С.В.Черниковой-Самойловой. Сестры — известные актрисы Александринского театра: Надежда Самойлова и Вера Самойлова.</p>\n\n<p>Воспитывался в Горном корпусе и Лесном институте и был уже офицером, когда по желанию отца, заметившего в нём артистическое дарование и хороший голос, дебютировал в Александринском театре в заглавной партии оперы Э.Н.Мегюля «Иосиф прекрасный».</p>\n\n<p>Диапазон его ролей поражает своим разнообразием. Никто, как он, не умел представить настоящего барина с утонченными манерами и речью. Роли Кречинского, графа в тургеневской «Провинциалке», старого барина в пьесе Пальма после Самойлова не находили исполнителя, который хотя бы несколько был на уровне его творчества.</p>\n\n<p>Талантливость натуры С. не исчерпывалась областью одного лишь драматического искусства.</p>\n\n<p>Он превосходно рисовал (некоторые его картины побывали на выставках), хорошо знал музыку и сочинял романсы; карикатуры его отличались бойкостью и остроумием.</p>\n\n<p>В обществе это был любезный, приятный собеседник, сыпавший анекдотами, остротами и меткими замечаниями.</p>\n\n<p>В 1884 г. Петербург торжественно отпраздновал 50-летний юбилей его деятельности; в этот день Самойлов в последний раз появился на сцене, исполнив отрывок из третьего акта драмы «Ришелье».</p>','',''),
 (5882,'<p>Götgatan 116, lgh 1202, 11862 STOCKHOLM</p>','<p>Götgatan 116, lgh 1202, 11862 STOCKHOLM</p>','<p>Götgatan 116, lgh 1202, 11862 STOCKHOLM</p>','<p>Götgatan 116, lgh 1202, 11862 STOCKHOLM</p>'),
 (5883,'<p>The son of the prominent genre painter David Teniers the Elder and Dymphna Cornelisse de Wilde (also called <i> Dymphna Hendrikx </i> ) Three of his brothers were also painters: <a href=\"/sh/a_spot/a_persons/2306-david-teniers-ii-the-younger/\">David the Younger</a> who became the most successful of the Teniers painting dynasty, Juliaan III (1616–79) and Theodoor (1619–97).</p>\n\n<p>Abraham Teniers likely trained with his father and older brother David. He was admitted as a ‘wijnmeester’ (i.e. son of a master) in the Antwerp Guild of Saint Luke in 1646.</p>\n\n<p>Abraham married Isabelle de Roore on 16 July 1644. He was a captain of the local <i>schutterij</i> (civil militia) of Antwerp. He was active in the local chamber of rhetoric called the <i>Olyftack;</i> (Olive branch) where he was received as a captain in 1660. In the Guild year 1661-62 Franciscus Bock was registered as his pupil.</p>\n\n<p>Like his brother David before him, Abraham found appreciation at the court in Brussels and the art-loving Archduke Leopold Wilhelm of Austria – then the governor of the Southern Netherlands and a resident of Brussels – appointed him as court painter.</p>\n\n<p>Abraham died in Antwerp.</p>','','',''),
-(5885,'<p>Flemish painter, printmaker, draughtsman, miniaturist painter, staffage painter, copyist and art curator. He is now best remembered as the leading Flemish genre painter of his day.</p>\n\n<p>He was an innovator in a wide range of genres such as history, genre, landscape, portrait and still life. Teniers is particularly known for developing the peasant genre, the tavern scene, pictures of collections and scenes with alchemists and physicians.</p>\n\n<h2>Various \"Trick Track Players\"</h2>\n\n<h2>Various \"Lute players\"</h2>\n\n<div class=\"align_left\"><img alt=\"2000_CSK_08821_0228_000().jpg\" src=\"https://www.christies.com/img/LotImages/2000/CSK/2000_CSK_08821_0228_000().jpg\" />Playing lute</div>\n\n<p>He was an innovator in a wide range of genres such as history, genre, landscape, portrait and still life. Teniers is particularly known for developing the peasant genre, the tavern scene, pictures of collections and scenes with alchemists and physicians.</p>\n\n<div class=\"align_left\"><a href=\"https://www.christies.com/lotfinder/Lot/follower-of-david-teniers-ii-a-peasant-1845383-details.aspx\">A peasant playing a lute in a tavern interior</a> <a href=\"https://www.christies.com/img/LotImages/2000/CSK/2000_CSK_08821_0228_000().jpg\">A peasant playing a lute in a tavern interior</a></div>\n\n<div class=\"align_right\"><a href=\"https://www.christies.com/lotfinder/Lot/circle-of-david-teniers-ii-1610-1690-1845379-details.aspx#content\">Playing lute 2</a> <a href=\"https://www.christies.com/img/LotImages/2000/CSK/2000_CSK_08821_0224_000().jpg\">Playing lute 2</a></div>\n\n<p>test line</p>\n\n<p> </p>','<p>Один из наиболее значимых художников и гравёров фламандской школы, наряду со своими соотечественниками Рубенсом и ван Дейком.</p>\n\n<p>Старший и наиболее успешный из 4 сыновей художника Тенирса Старшего (David Teniers, the Elder) и Димфны Вилде (Dymphna Wylde).</p>','',''),
+(5885,'<p>Flemish painter, printmaker, draughtsman, miniaturist painter, staffage painter, copyist and art curator. He is now best remembered as the leading Flemish genre painter of his day.</p>\n\n<p>He was an innovator in a wide range of genres such as history, genre, landscape, portrait and still life. Teniers is particularly known for developing the peasant genre, the tavern scene, pictures of collections and scenes with alchemists and physicians.</p>\n\n<h2>Various \"Trick Track Players\"</h2>\n\n<h2>Various \"Lute players\"</h2>\n\n<div class=\"align_left\"><img alt=\"\" src=\"https://www.christies.com/img/LotImages/2000/CSK/2000_CSK_08821_0228_000().jpg\" />\n<div>Playing lute (Christies)</div>\n</div>\n\n<div class=\"align_left\"><img alt=\"A peasant playing a lute in a tavern interior\" src=\"https://www.christies.com/lotfinder/Lot/follower-of-david-teniers-ii-a-peasant-1845383-details.aspx\" />\n<div>A peasant playing a lute in a tavern interior (Christies)</div>\n</div>\n\n<div><a href=\"https://www.christies.com/img/LotImages/2000/CSK/2000_CSK_08821_0228_000().jpg\">A peasant playing a lute in a tavern interior</a></div>\n\n<div class=\"align_right\"><a href=\"https://www.christies.com/lotfinder/Lot/circle-of-david-teniers-ii-1610-1690-1845379-details.aspx#content\">Playing lute 2</a> <a href=\"https://www.christies.com/img/LotImages/2000/CSK/2000_CSK_08821_0224_000().jpg\">Playing lute 2</a></div>','<p>Один из наиболее значимых художников и гравёров фламандской школы, наряду со своими соотечественниками Рубенсом и ван Дейком.</p>\n\n<p>Старший и наиболее успешный из 4 сыновей художника Тенирса Старшего (David Teniers, the Elder) и Димфны Вилде (Dymphna Wylde).</p>','',''),
+(6359,'','','',''),
+(6360,'<p>Originally from Paris, Théo de Gueltzl studied at Central Saint Martins in London, graduating in 2014.</p>\n\n<p>Initially focusing on fine art, he developed a long-standing partnership with Hermès, contributing intricate drawings for their textile designs.</p>\n\n<p>Documenting his travels through photography became a parallel obsession.</p>\n\n<p>Meanwhile, de Gueltzl continues to develop his design practice. He most recently completed an animated video of Bob Marley’s ‘Redemption Song,’ commissioned by the Marley family to mark what would have been his 75th birthday.</p>\n\n<p>He is regularly published by Vogue France, Vogue US, M Le magazine du Monde, AnOther, and More or Less, and includes Hermès and Louis Vuitton amongst his commissioned work.</p>','','',''),
 (5887,'','','',''),
 (5893,'','','',''),
 (5894,'Bukowskis is a Scandinavian fine art and antique auction house established in 1870 by the Polish nobleman Henryk Bukowski in Stockholm, Sweden. In 1979, an office was opened in Helsinki, Finland.','','',''),
@@ -2167,8 +2170,9 @@ INSERT INTO `field_body` VALUES
 (6325,'','','',''),
 (6326,'<p>Il est un descendant des Hermès, famille fondatrice qui contrôle la société toujours, avec 70% du capital</p>\n\n<p>En 2003, à la demande de <a href=\"/sh/h_spot/h_persons/328-jean-louis-dumas/\">Jean-Louis Dumas</a>, et à la suite du décès de sa mère, Axel Dumas rejoint Hermès à la direction financière, puis en tant que directeur commercial France.</p>\n\n<p>En 2006, il est nommé <em>directeur général d’Hermès Bijouterie</em>, puis en 2008, <em>directeur général d’Hermès Maroquinerie Sellerie. </em>En 2011, Axel Dumas est nommé directeur général des opérations d’<em>Hermès International</em>. En 2013, il devient gérant d’<em>Hermès International</em>,</p>\n\n<p>Sa rémunération pour l\'année 2022 bénéficie de la seconde plus grande hausse par rapport à l\'année précédente parmi les dirigeants du <a class=\"mw-redirect\" href=\"https://fr.wikipedia.org/wiki/CAC40\" title=\"CAC40\">CAC40</a>.</p>\n\n<p><em>Wikipedia</em></p>','<p>6-e поколение семьи Hermès, по сей день контролирующей компанию и владеющей 70% капитала.</p>\n\n<p>В 2003 году по просьбе <a href=\"/sh/h_spot/h_persons/328-jean-louis-dumas/\">Jean-Louis Dumas</a> Axel присоединился к Hermès сначала в финансовом отделе, а затем в качестве директора по продажам во Франции.</p>\n\n<p>Через 3 года он был назначен генеральным директором <em>Hermès Jewelry</em>, а затем в 2008 году — генеральным директором <em>Hermès Leather Goods and Saddlery</em>. В 2011 году Axel был назначен операционным директором <em>Hermès International</em>, а в 2013 он стал ее управляющим директором.</p>\n\n<p>Его назначение дало за 2022 год  второй по величине рост доходов по списку CAC 40.</p>\n\n<p><em>По материалам Wikipedia</em></p>','',''),
 (6337,'','','',''),
+(6358,'','','',''),
 (6338,'','<p>Долгое время эта картина считалась работой Рембрандта. Картина полностью выполнена в стиле Рембрандта, и, более того, находилась рядом с «Философом» Рембрандта в Лувре, зал 31 вплоть до 1754 года.</p>\n\n<p>Коллекция герцога де Шуазеля (продажа 1772 года).</p>\n\n<p>Коллекция Людовика XVI, приобретенная на аукционе графа де Водрейля, Париж, 1784 год (как и картина Рембрандта).</p>','<p>Tableau d\'idée tout à fait rembranesque et mis du reste en pendant au XVIIIe siècle (déjà en 1754) avec le Philosophe de Rembrandt (Louvre,Paris,salle 31).</p>\n\n<p>Collection du duc de Choiseul (vente de 1772)</p>\n\n<p>Collection de Louis XVI, acquis à la vente du comte de Vaudreuil, Paris, 1784 (comme Rembrandt)</p>',''),
-(6346,'<p>Jeff\'s collection Hermes Scarf Guides (Мельбурн, Виктория, Австралия) fragments. </p>\n\n<p>Just a few nice items...</p>','','',''),
+(6346,'<p>Jeff\'s collection <em>Hermes Scarf Guides (Мельбурн, Виктория, Австралия) </em>fragments. </p>\n\n<p>Just a few nice items...</p>','','',''),
 (6347,'<p>Observed through Dimitri Rybaltchenko\'s telescope, this boat has an air of Faubourg about it, with its evenly paved stones visible on the bow and display windows where celebrations seem to be in full swing, under the slightly envious gaze of the Greek gods.</p>\n\n<p>As a truly legendary landmark, the great Hermès ship has been sailing the seas for a century, revealing its majestic sails to the rhythm of the wind blown by a thousand pegasuses.</p>\n\n<p><em>Hermes Scarf Guides</em></p>','<p>Обнаруженный в телескоп <a href=\"http://localhost/sh/ru-home/h_spot/h_persons/186-dimitri-rybaltchenko/\">Rybaltchenko</a>, этот корабль напоминает улицу Faubourg: ровная мощеная дорожка на носу и витрины, где, кажется, вовсю идут празднества под слегка завистливым взглядом греческих богов.</p>\n\n<p>Как поистине легендарная достопримечательность, великий корабль Hermès бороздит моря уже столетие, демонстрируя свои величественные паруса в ритме ветра, дующего в тысячах пегасов.</p>\n\n<p><em>Hermes Scarf Guides</em></p>','',''),
 (6348,'','','',''),
 (6349,'','','',''),
@@ -2177,7 +2181,7 @@ INSERT INTO `field_body` VALUES
 (6352,'','','',''),
 (6353,'','','',''),
 (6356,'','<p>Michelangelo Merisi, известный как Караваджо по названию родного города своей семьи, родился в Милане.</p>\n\n<p>В 1577 году семья Меризи переехала в Караваджо, ныне провинция Бергамо, чтобы избежать чумы. Однако эпидемия унесла жизнь его отца, и его мать с четырьмя детьми вернулись в Милан.</p>\n\n<p>Там молодой человек учился у миланского художника, пока, благодаря дружбе своего деда с Костанцей Колонной, маркизой Караваджо, не переехал в Рим в 1592 году. Он остановился у Пандольфо Пуччи, мецената собора Святого Петра, которого художник прозвал «монсеньором Салатом» из-за его скудной еды, состоявшей из салата.</p>\n\n<p>Через несколько месяцев, устав от обращения прелата, Караваджо нашел приют у трактирщика и начал работать в различных мастерских, создавая свои первые работы.</p>\n\n<p>В своих работах он уже продемонстрировал неприятие идеальной красоты, которую художники эпохи Возрождения стремились воспроизвести на своих полотнах, и проявил свою склонность к реализму и натурализму, используя в качестве моделей беспризорных детей.</p>\n\n<p><strong>.... Надо бы дописать</strong></p>\n\n<p><em>National Geographic</em></p>','',''),
-(6357,'<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<p>Below is a structured art-historical explanation of how Caravaggio (the master) and Valentin de Boulogne (his follower rather than formal student) each created powerful versions of “The Cardsharps,” and why both paintings are considered outstanding examples of Baroque realism.</p>\n\n<p>Caravaggio was not a formal teacher to Valentin de Boulogne. Rather, Valentin was part of the Caravaggisti: painters who studied Caravaggio’s works closely in Rome and adopted, adapted, and extended his visual language. The relationship is therefore one of artistic lineage and influence, not workshop apprenticeship.</p>\n</div>\n\n<p> </p>\n\n<p> </p>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<h1>Caravaggio:<br />\nThe Cardsharps (c. 1594)</h1>\n\n<p><img alt=\"The_Cardsharps\" src=\"https://upload.wikimedia.org/wikipedia/commons/8/8e/Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg\" /></p>\n\n<h2>Caravaggio’s model</h2>\n\n<h3>Radical realism</h3>\n\n<p>This grounded the scene in everyday life, making the deception immediately believable.</p>\n\n<h3>Psychological storytelling</h3>\n\n<p>Caravaggio captures the exact moment before the con succeeds, engaging the viewer as a witness.</p>\n\n<h3>Light as a narrative tool</h3>\n\n<p>Although early in his career, Caravaggio already uses directional light to:</p>\n\n<ul>\n	<li> Emphasize faces and hands</li>\n	<li> Reveal hidden intentions</li>\n	<li> Separate innocence from deceit</li>\n</ul>\n\n<h3>Light is not decorative;</h3>\n\n<p>It clarifies the moral structure of the scene.</p>\n\n<h3>Compositional intimacy</h3>\n\n<p>Figures are cropped close to the picture plane, pulling the viewer into the space of the table. This was highly innovative and influential.</p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<h1>Valentin de Boulogne:<br />\nThe Cardsharps (c. 1629)</h1>\n\n<p><img alt=\"The Cardsharps\" src=\"https://www.pubhist.com/works/59/large/valentin_boulogne_card_sharps.jpg\" /></p>\n\n<h2>How Valentin expanded Caravaggio’s model</h2>\n\n<h3>Intensified chiaroscuro: Valentin pushes Caravaggio’s lighting further:</h3>\n\n<ul>\n	<li> Deeper shadows</li>\n	<li> Sharper contrasts</li>\n	<li> More dramatic spotlighting</li>\n	<li> The darkness feels heavier, more oppressive, heightening tension.</li>\n</ul>\n\n<h3>Emotional gravity</h3>\n\n<p>Where Caravaggio’s figures are alert and cunning, Valentin’s are:</p>\n\n<ul>\n	<li> More solemn</li>\n	<li> More introspective</li>\n	<li> Often morally ambiguous</li>\n	<li> His cardsharps feel trapped in their roles rather than playfully deceptive.</li>\n</ul>\n\n<h3>Greater complexity and density</h3>\n\n<p>Valentin often adds:</p>\n\n<ul>\n	<li> More figures</li>\n	<li> Richer textures</li>\n	<li> A tighter clustering of bodies</li>\n</ul>\n\n<p>This creates a sense of claustrophobia and inevitability, reinforcing themes of vice and fate.</p>\n\n<h3>French temperament, Roman language</h3>\n\n<p>Though working in Rome, Valentin brings a distinctly French seriousness:</p>\n\n<ul>\n	<li> Less theatrical flair</li>\n	<li> More moral weight</li>\n	<li> A quieter, darker mood</li>\n	<li>His painting feels less anecdotal and more existential.</li>\n</ul>\n</div>\n\n<div class=\"auto-width-600\">\n<h1>Why both paintings are “fantastic”</h1>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<table>\n	<thead>\n		<tr>\n			<th><em>Aspect</em></th>\n			<th>Caravaggio</th>\n			<th>Valentin de Boulogne</th>\n		</tr>\n	</thead>\n	<tbody>\n		<tr>\n			<td><em>Innovation:</em></td>\n			<td>Invents the genre scene as high art</td>\n			<td>Deepens and darkens the genre</td>\n		</tr>\n		<tr>\n			<td><em>Mood:</em></td>\n			<td>Lively, alert, cunning</td>\n			<td>Heavy, tense, morally somber</td>\n		</tr>\n		<tr>\n			<td><em>Light:</em></td>\n			<td>Clarifying, descriptive</td>\n			<td>Dramatic, oppressive</td>\n		</tr>\n		<tr>\n			<td><em>Viewer role:</em></td>\n			<td>Witness to a clever trick</td>\n			<td>Observer of moral decay</td>\n		</tr>\n	</tbody>\n</table>\n\n<p> </p>\n\n<p><strong>In summary:</strong><br />\nCaravaggio created The Cardsharps by inventing a new visual language of realism, immediacy, and psychological clarity. Valentin de Boulogne absorbed that language and transformed it into something darker, more emotionally complex, and more morally charged. Together, the two works demonstrate how a revolutionary idea can be both originated and profoundly evolved within a single artistic tradition.</p>\n\n<p><em>With help from AI</em></p>\n</div>','<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<p>Ниже приведено структурированное искусствоведческое объяснение того, как Караваджо (мастер) и Валентин де Булонь (его последователь, а не формальный ученик) создали мощные версии картины «Карточные шулеры», и почему обе картины считаются выдающимися образцами барочного реализма.</p>\n\n<p>Караваджо не был формальным учителем Валентина де Булоня. Скорее, Валентин был частью караваджистов: художников, которые внимательно изучали работы Караваджо в Риме и переняли, адаптировали и расширили его визуальный язык.</p>\n\n<p>Таким образом, эти отношения основаны на художественной преемственности и влиянии, а не на мастерском ученичестве.</p>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<h1>Караваджо:<br />\nКарточные шулеры (ок. 1594)</h1>\n<img alt=\"The_Cardsharps\" src=\"https://upload.wikimedia.org/wikipedia/commons/8/8e/Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg\" />\n<h2>Модель Караваджо</h2>\n\n<h3>Радикальный реализм</h3>\n\n<p>Это придало сцене реалистичность, сделав обман сразу же правдоподобным.</p>\n\n<h3>Психологическое повествование</h3>\n\n<p>Караваджо запечатлел точный момент перед тем, как афера увенчалась успехом, вовлекая зрителя в качестве свидетеля.</p>\n\n<h3>Свет как повествовательный инструмент</h3>\n\n<p>Хотя Караваджо только начал свою карьеру, он уже использует направленный свет для:</p>\n\n<ul>\n	<li>Подчеркивания лиц и рук</li>\n	<li>Раскрытия скрытых намерений</li>\n	<li>Разделения невинности и обмана</li>\n</ul>\n\n<h3>Свет не является декоративным элементом;</h3>\n\n<p>Он проясняет моральную структуру сцены.</p>\n\n<h3>Композиционная интимность</h3>\n\n<p>Фигуры обрезаны близко к плоскость изображения, вовлекающая зрителя в пространство стола. Это было очень новаторским и влиятельным подходом.</p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<h1>Валентин де Булонь:<br />\nКарточные шулеры (ок. 1629)</h1>\n<img alt=\"Карточные шулеры\" src=\"https://www.pubhist.com/works/59/large/valentin_boulogne_card_sharps.jpg\" />\n<h2>Как Валентин расширил модель Караваджо</h2>\n\n<h3>Усиленная светотень: Валентин развивает освещение Караваджо дальше:</h3>\n\n<ul>\n	<li>Более глубокие тени</li>\n	<li>Более резкие контрасты</li>\n	<li>Более драматичное освещение</li>\n	<li>Темнота ощущается тяжелее, более гнетущей, усиливая напряжение.</li>\n</ul>\n\n<h3>Эмоциональная глубина</h3>\n\n<p>Если фигуры Караваджо бдительны и хитры, то фигуры Валентина:</p>\n\n<ul>\n	<li>Более торжественные</li>\n	<li>Более интроспективные</li>\n	<li>Часто морально неоднозначные</li>\n	<li>Его карточные шулеры кажутся запертыми в своих ролях, а не игриво обманчивыми.</li>\n</ul>\n\n<h3>Большая сложность и плотность</h3>\n\n<p>Валентин часто добавляет:</p>\n\n<ul>\n	<li>Больше фигур</li>\n	<li>Более богатая текстура</li>\n	<li>Более плотная скопление тел</li>\n</ul>\n\n<p>Это создает ощущение клаустрофобии и неизбежности, усиливая темы порока и судьбы.</p>\n\n<h3>Французский темперамент, римский язык</h3>\n\n<p>Хотя Валентин работает в Риме, он привносит отчетливо французскую серьезность:</p>\n\n<ul>\n	<li>Меньше театрального колорита</li>\n	<li>Больше морального веса</li>\n	<li>Более спокойное, мрачное настроение</li>\n	<li>Его живопись кажется менее анекдотической и более экзистенциальной.</li>\n</ul>\n</div>\n\n<div class=\"auto-width-600\" style=\"padding-top:2rem;\">\n<h1>Почему обе картины «фантастические»</h1>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<table>\n	<thead>\n		<tr>\n			<th><em>Аспект</em></th>\n			<th>Караваджо</th>\n			<th>Валентин де Булонь</th>\n		</tr>\n	</thead>\n	<tbody>\n		<tr>\n			<td><em>Инновация:</em></td>\n			<td>Изобретает жанровую сцену как высокое искусство</td>\n			<td>Углубляет и затемняет жанр</td>\n		</tr>\n		<tr>\n			<td><em>Настроение:</em></td>\n			<td>Живое, внимательное, хитрое</td>\n			<td>Тяжелое, напряженное, морально мрачное</td>\n		</tr>\n		<tr>\n			<td><em>Светлое:</em></td>\n			<td>Проясняющее, описательное</td>\n			<td>Драматичное, гнетущее</td>\n		</tr>\n		<tr>\n			<td><em>Роль зрителя:</em></td>\n			<td>Свидетель хитрого трюка</td>\n			<td>Наблюдатель морального разложения</td>\n		</tr>\n	</tbody>\n</table>\n\n<p><strong>Вкратце:</strong><br />\nКараваджо создал «Карточных шулеров», изобретя новый визуальный язык реализма, непосредственности и психологической ясности. Валентин де Булонь перенял этот язык и преобразовал его в нечто более мрачное, эмоционально сложное и морально заряженное. Вместе эти две работы демонстрируют, как революционная идея может зародиться и глубоко развиться в рамках одной художественной традиции.</p>\n\n<p><em>С помощью ИИ</em></p>\n</div>','<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<p>Vous trouverez ci-dessous une explication structurée, d\'un point de vue historico-artistique, de la manière dont Caravage (le maître) et Valentin de Boulogne (son disciple plutôt que son élève) ont chacun créé des versions saisissantes des « Tricheurs », et pourquoi ces deux tableaux sont considérés comme des exemples exceptionnels du réalisme baroque.</p>\n\n<p>Caravage n\'a pas été le maître de Valentin de Boulogne. Ce dernier appartenait plutôt au groupe des caravagesques : des peintres qui ont étudié de près l\'œuvre de Caravage à Rome et qui ont adopté, adapté et enrichi son langage visuel. La relation relève donc d\'une filiation et d\'une influence artistiques, et non d\'un apprentissage en atelier.</p>\n</div>\n\n<p> </p>\n\n<p> </p>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<h1>Caravage :<br />\nLes Tricheurs (vers 1594)</h1>\n\n<p><img alt=\"The_Cardsharps\" src=\"https://upload.wikimedia.org/wikipedia/commons/8/8e/Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg\" /></p>\n\n<h2>Le modèle de Caravage</h2>\n\n<h3>Réalisme radical</h3>\n\n<p>Ceci ancrait la scène dans la vie quotidienne, Rendre la supercherie immédiatement crédible.</p>\n\n<h3>Narration psychologique</h3>\n\n<p>Caravage saisit l\'instant précis qui précède la réussite de l\'escroquerie, faisant du spectateur un témoin privilégié.</p>\n\n<h3>La lumière comme outil narratif</h3>\n\n<p>Bien qu\'au début de sa carrière, Caravage utilise déjà la lumière directionnelle pour :</p>\n\n<ul>\n	<li> Mettre en valeur les visages et les mains</li>\n	<li> Révéler les intentions cachées</li>\n	<li> Distinguer l\'innocence de la tromperie</li>\n</ul>\n\n<h3>La lumière n\'est pas décorative ;</h3>\n\n<p>Elle clarifie la dimension morale de la scène.</p>\n\n<h3>Intimité de la composition</h3>\n\n<p>Les personnages sont cadrés au ras du cadre, plongeant le spectateur au cœur de l\'espace de la table.</p>\nC\'était une œuvre très novatrice et influente.\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<h1>Valentin de Boulogne :<br />\nLes Tricheurs (vers 1629)</h1>\n\n<p><img alt=\"Les Tricheurs\" src=\"https://www.pubhist.com/works/59/large/valentin_boulogne_card_sharps.jpg\" /></p>\n\n<h2>Comment Valentin a développé le modèle du Caravage</h2>\n\n<h3>Claire-obscur intensifié : Valentin pousse plus loin la lumière du Caravage :</h3>\n\n<ul>\n	<li>Ombres plus profondes</li>\n	<li>Contrastes plus marqués</li>\n	<li>Éclairage plus dramatique</li>\n	<li> L\'obscurité paraît plus pesante, plus oppressante, accentuant la tension.</li>\n</ul>\n\n<h3>Gravité émotionnelle</h3>\n\n<p>Là où les figures du Caravage sont alertes et rusées, celles de Valentin le sont :</p>\n\n<ul>\n	<li> Plus solennelles</li>\n	<li> Plus introspectives</li>\n	<li> Souvent moralement ambiguës</li>\n	<li> Ses tricheurs semblent prisonniers de leurs rôles plutôt que de jouer la carte de la tromperie.</li>\n</ul>\n\n<h3>Plus grande complexité et densité</h3>\n\n<p>Valentin ajoute souvent :</p>\n\n<ul>\n	<li> Plus de figures</li>\n	<li> Des textures plus riches</li>\n	<li> Un regroupement plus serré des corps</li>\n</ul>\n\n<p>Cela crée un sentiment de claustrophobie et d\'inéluctabilité, renforçant les thèmes du vice et Destin.</p>\n\n<h3>Tempérament français, langue romaine</h3>\n\n<p>Bien qu\'il travaille à Rome, Valentin apporte une gravité typiquement française :</p>\n\n<ul>\n	<li>Moins de théâtralité</li>\n	<li>Plus de profondeur morale</li>\n	<li>Une atmosphère plus sombre et plus calme</li>\n	<li>Sa peinture semble moins anecdotique et plus existentielle.</li>\n</ul>\n</div>\n\n<div class=\"auto-width-600\">\n<h1>Pourquoi ces deux tableaux sont « fantastiques »</h1>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<table>\n	<thead>\n		<tr>\n			<th><em>Aspect</em></th>\n			<th>Caravage</th>\n			<th>Valentin de Boulogne</th>\n		</tr>\n	</thead>\n	<tbody>\n		<tr>\n			<td><em>Innovation :</em></td>\n			<td>Invente la scène de genre comme un art majeur</td>\n			<td>Approfondit et assombrit le genre</td>\n		</tr>\n		<tr>\n			<td><em>Ambiance :</em></td>\n			<td>Vif, alerte, rusé</td>\n			<td>Lourd, tendu, moralement sombre</td>\n		</tr>\n		<tr>\n			<td><em>Lumière :</em></td>\n			<td>Clarifiant, descriptif</td>\n			<td>Dramatique, oppressant</td>\n		</tr>\n		<tr>\n			<td><em>Rôle du spectateur :</em></td>\n			<td>Témoin d\'une ruse ingénieuse</td>\n			<td>Observateur de la morale déclin</td>\n		</tr>\n	</tbody>\n</table>\n\n<p> </p>\n\n<p><strong>En résumé :</strong><br />\nCaravage a créé Les Tricheurs en inventant un nouveau langage visuel empreint de réalisme, d’immédiateté et de clarté psychologique. Valentin de Boulogne s’est approprié ce langage et l’a transformé en une œuvre plus sombre, plus complexe émotionnellement et plus chargée moralement. Ensemble, ces deux œuvres démontrent comment une idée révolutionnaire peut naître et évoluer profondément au sein d’une même tradition artistique.</p>\n\n<p><em>Avec l’aide de l’IA</em></p>\n</div>','');
+(6357,'<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<p>Below is a structured art-historical explanation of how Caravaggio (the master) and Valentin de Boulogne (his follower rather than formal student) each created powerful versions of “The Cardsharps,” and why both paintings are considered outstanding examples of Baroque realism.</p>\n\n<p>Caravaggio was not a formal teacher to Valentin de Boulogne. Rather, Valentin was part of the Caravaggisti: painters who studied Caravaggio’s works closely in Rome and adopted, adapted, and extended his visual language. The relationship is therefore one of artistic lineage and influence, not workshop apprenticeship.</p>\n</div>\n\n<p> </p>\n\n<p> </p>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<h1>Caravaggio:<br />\nThe Cardsharps (c. 1594)</h1>\n\n<p><img alt=\"The_Cardsharps\" src=\"https://upload.wikimedia.org/wikipedia/commons/8/8e/Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg\" /></p>\n\n<h2>Caravaggio’s model</h2>\n\n<h3>Radical realism</h3>\n\n<p>This grounded the scene in everyday life, making the deception immediately believable.</p>\n\n<h3>Psychological storytelling</h3>\n\n<p>Caravaggio captures the exact moment before the con succeeds, engaging the viewer as a witness.</p>\n\n<h3>Light as a narrative tool</h3>\n\n<p>Although early in his career, Caravaggio already uses directional light to:</p>\n\n<ul>\n	<li> Emphasize faces and hands</li>\n	<li> Reveal hidden intentions</li>\n	<li> Separate innocence from deceit</li>\n</ul>\n\n<h3>Light is not decorative;</h3>\n\n<p>It clarifies the moral structure of the scene.</p>\n\n<h3>Compositional intimacy</h3>\n\n<p>Figures are cropped close to the picture plane, pulling the viewer into the space of the table. This was highly innovative and influential.</p>\n\n<div class=\"auto-width-placeholder\">\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n</div>\n\n<h1>Valentin de Boulogne:<br />\nThe Cardsharps (c. 1629)</h1>\n\n<p><img alt=\"The Cardsharps\" src=\"https://www.pubhist.com/works/59/large/valentin_boulogne_card_sharps.jpg\" /></p>\n\n<h2>How Valentin expanded Caravaggio’s model</h2>\n\n<h3>Intensified chiaroscuro: Valentin pushes Caravaggio’s lighting further:</h3>\n\n<ul>\n	<li> Deeper shadows</li>\n	<li> Sharper contrasts</li>\n	<li> More dramatic spotlighting</li>\n	<li> The darkness feels heavier, more oppressive, heightening tension.</li>\n</ul>\n\n<h3>Emotional gravity</h3>\n\n<p>Where Caravaggio’s figures are alert and cunning, Valentin’s are:</p>\n\n<ul>\n	<li> More solemn</li>\n	<li> More introspective</li>\n	<li> Often morally ambiguous</li>\n	<li> His cardsharps feel trapped in their roles rather than playfully deceptive.</li>\n</ul>\n\n<h3>Greater complexity and density</h3>\n\n<p>Valentin often adds:</p>\n\n<ul>\n	<li> More figures</li>\n	<li> Richer textures</li>\n	<li> A tighter clustering of bodies</li>\n</ul>\n\n<p>This creates a sense of claustrophobia and inevitability, reinforcing themes of vice and fate.</p>\n\n<h3>French temperament, Roman language</h3>\n\n<p>Though working in Rome, Valentin brings a distinctly French seriousness:</p>\n\n<ul>\n	<li> Less theatrical flair</li>\n	<li> More moral weight</li>\n	<li> A quieter, darker mood</li>\n	<li>His painting feels less anecdotal and more existential.</li>\n</ul>\n</div>\n\n<div class=\"auto-width-single\">\n<h1>Why both paintings are “fantastic”</h1>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<table>\n	<thead>\n		<tr>\n			<th><em>Aspect</em></th>\n			<th>Caravaggio</th>\n			<th>Valentin de Boulogne</th>\n		</tr>\n	</thead>\n	<tbody>\n		<tr>\n			<td><em>Innovation:</em></td>\n			<td>Invents the genre scene as high art</td>\n			<td>Deepens and darkens the genre</td>\n		</tr>\n		<tr>\n			<td><em>Mood:</em></td>\n			<td>Lively, alert, cunning</td>\n			<td>Heavy, tense, morally somber</td>\n		</tr>\n		<tr>\n			<td><em>Light:</em></td>\n			<td>Clarifying, descriptive</td>\n			<td>Dramatic, oppressive</td>\n		</tr>\n		<tr>\n			<td><em>Viewer role:</em></td>\n			<td>Witness to a clever trick</td>\n			<td>Observer of moral decay</td>\n		</tr>\n	</tbody>\n</table>\n\n<p> </p>\n\n<p><strong>In summary:</strong><br />\nCaravaggio created The Cardsharps by inventing a new visual language of realism, immediacy, and psychological clarity. Valentin de Boulogne absorbed that language and transformed it into something darker, more emotionally complex, and more morally charged. Together, the two works demonstrate how a revolutionary idea can be both originated and profoundly evolved within a single artistic tradition.</p>\n\n<p><em>With help from AI</em></p>\n</div>','<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<p>Ниже приведено структурированное искусствоведческое объяснение того, как Караваджо (мастер) и Валентин де Булонь (его последователь, а не формальный ученик) создали мощные версии картины «Карточные шулеры», и почему обе картины считаются выдающимися образцами барочного реализма.</p>\n\n<p>Караваджо не был формальным учителем Валентина де Булоня. Скорее, Валентин был частью караваджистов: художников, которые внимательно изучали работы Караваджо в Риме и переняли, адаптировали и расширили его визуальный язык.</p>\n\n<p>Таким образом, эти отношения основаны на художественной преемственности и влиянии, а не на мастерском ученичестве.</p>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<h1>Караваджо:<br />\nКарточные шулеры (ок. 1594)</h1>\n<img alt=\"The_Cardsharps\" src=\"https://upload.wikimedia.org/wikipedia/commons/8/8e/Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg\" />\n<h2>Модель Караваджо</h2>\n\n<h3>Радикальный реализм</h3>\n\n<p>Это придало сцене реалистичность, сделав обман сразу же правдоподобным.</p>\n\n<h3>Психологическое повествование</h3>\n\n<p>Караваджо запечатлел точный момент перед тем, как афера увенчалась успехом, вовлекая зрителя в качестве свидетеля.</p>\n\n<h3>Свет как повествовательный инструмент</h3>\n\n<p>Хотя Караваджо только начал свою карьеру, он уже использует направленный свет для:</p>\n\n<ul>\n	<li>Подчеркивания лиц и рук</li>\n	<li>Раскрытия скрытых намерений</li>\n	<li>Разделения невинности и обмана</li>\n</ul>\n\n<h3>Свет не является декоративным элементом;</h3>\n\n<p>Он проясняет моральную структуру сцены.</p>\n\n<h3>Композиционная интимность</h3>\n\n<p>Фигуры обрезаны близко к плоскость изображения, вовлекающая зрителя в пространство стола. Это было очень новаторским и влиятельным подходом.</p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<h1>Валентин де Булонь:<br />\nКарточные шулеры (ок. 1629)</h1>\n<img alt=\"Карточные шулеры\" src=\"https://www.pubhist.com/works/59/large/valentin_boulogne_card_sharps.jpg\" />\n<h2>Как Валентин расширил модель Караваджо</h2>\n\n<h3>Усиленная светотень: Валентин развивает освещение Караваджо дальше:</h3>\n\n<ul>\n	<li>Более глубокие тени</li>\n	<li>Более резкие контрасты</li>\n	<li>Более драматичное освещение</li>\n	<li>Темнота ощущается тяжелее, более гнетущей, усиливая напряжение.</li>\n</ul>\n\n<h3>Эмоциональная глубина</h3>\n\n<p>Если фигуры Караваджо бдительны и хитры, то фигуры Валентина:</p>\n\n<ul>\n	<li>Более торжественные</li>\n	<li>Более интроспективные</li>\n	<li>Часто морально неоднозначные</li>\n	<li>Его карточные шулеры кажутся запертыми в своих ролях, а не игриво обманчивыми.</li>\n</ul>\n\n<h3>Большая сложность и плотность</h3>\n\n<p>Валентин часто добавляет:</p>\n\n<ul>\n	<li>Больше фигур</li>\n	<li>Более богатая текстура</li>\n	<li>Более плотная скопление тел</li>\n</ul>\n\n<p>Это создает ощущение клаустрофобии и неизбежности, усиливая темы порока и судьбы.</p>\n\n<h3>Французский темперамент, римский язык</h3>\n\n<p>Хотя Валентин работает в Риме, он привносит отчетливо французскую серьезность:</p>\n\n<ul>\n	<li>Меньше театрального колорита</li>\n	<li>Больше морального веса</li>\n	<li>Более спокойное, мрачное настроение</li>\n	<li>Его живопись кажется менее анекдотической и более экзистенциальной.</li>\n</ul>\n</div>\n\n<div class=\"auto-width-600\" style=\"padding-top:2rem;\">\n<h1>Почему обе картины «фантастические»</h1>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<table>\n	<thead>\n		<tr>\n			<th><em>Аспект</em></th>\n			<th>Караваджо</th>\n			<th>Валентин де Булонь</th>\n		</tr>\n	</thead>\n	<tbody>\n		<tr>\n			<td><em>Инновация:</em></td>\n			<td>Изобретает жанровую сцену как высокое искусство</td>\n			<td>Углубляет и затемняет жанр</td>\n		</tr>\n		<tr>\n			<td><em>Настроение:</em></td>\n			<td>Живое, внимательное, хитрое</td>\n			<td>Тяжелое, напряженное, морально мрачное</td>\n		</tr>\n		<tr>\n			<td><em>Светлое:</em></td>\n			<td>Проясняющее, описательное</td>\n			<td>Драматичное, гнетущее</td>\n		</tr>\n		<tr>\n			<td><em>Роль зрителя:</em></td>\n			<td>Свидетель хитрого трюка</td>\n			<td>Наблюдатель морального разложения</td>\n		</tr>\n	</tbody>\n</table>\n\n<p><strong>Вкратце:</strong><br />\nКараваджо создал «Карточных шулеров», изобретя новый визуальный язык реализма, непосредственности и психологической ясности. Валентин де Булонь перенял этот язык и преобразовал его в нечто более мрачное, эмоционально сложное и морально заряженное. Вместе эти две работы демонстрируют, как революционная идея может зародиться и глубоко развиться в рамках одной художественной традиции.</p>\n\n<p><em>С помощью ИИ</em></p>\n</div>','<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<p>Vous trouverez ci-dessous une explication structurée, d\'un point de vue historico-artistique, de la manière dont Caravage (le maître) et Valentin de Boulogne (son disciple plutôt que son élève) ont chacun créé des versions saisissantes des « Tricheurs », et pourquoi ces deux tableaux sont considérés comme des exemples exceptionnels du réalisme baroque.</p>\n\n<p>Caravage n\'a pas été le maître de Valentin de Boulogne. Ce dernier appartenait plutôt au groupe des caravagesques : des peintres qui ont étudié de près l\'œuvre de Caravage à Rome et qui ont adopté, adapté et enrichi son langage visuel. La relation relève donc d\'une filiation et d\'une influence artistiques, et non d\'un apprentissage en atelier.</p>\n</div>\n\n<p> </p>\n\n<p> </p>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<h1>Caravage :<br />\nLes Tricheurs (vers 1594)</h1>\n\n<p><img alt=\"The_Cardsharps\" src=\"https://upload.wikimedia.org/wikipedia/commons/8/8e/Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg\" /></p>\n\n<h2>Le modèle de Caravage</h2>\n\n<h3>Réalisme radical</h3>\n\n<p>Ceci ancrait la scène dans la vie quotidienne, Rendre la supercherie immédiatement crédible.</p>\n\n<h3>Narration psychologique</h3>\n\n<p>Caravage saisit l\'instant précis qui précède la réussite de l\'escroquerie, faisant du spectateur un témoin privilégié.</p>\n\n<h3>La lumière comme outil narratif</h3>\n\n<p>Bien qu\'au début de sa carrière, Caravage utilise déjà la lumière directionnelle pour :</p>\n\n<ul>\n	<li> Mettre en valeur les visages et les mains</li>\n	<li> Révéler les intentions cachées</li>\n	<li> Distinguer l\'innocence de la tromperie</li>\n</ul>\n\n<h3>La lumière n\'est pas décorative ;</h3>\n\n<p>Elle clarifie la dimension morale de la scène.</p>\n\n<h3>Intimité de la composition</h3>\n\n<p>Les personnages sont cadrés au ras du cadre, plongeant le spectateur au cœur de l\'espace de la table.</p>\nC\'était une œuvre très novatrice et influente.\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<h1>Valentin de Boulogne :<br />\nLes Tricheurs (vers 1629)</h1>\n\n<p><img alt=\"Les Tricheurs\" src=\"https://www.pubhist.com/works/59/large/valentin_boulogne_card_sharps.jpg\" /></p>\n\n<h2>Comment Valentin a développé le modèle du Caravage</h2>\n\n<h3>Claire-obscur intensifié : Valentin pousse plus loin la lumière du Caravage :</h3>\n\n<ul>\n	<li>Ombres plus profondes</li>\n	<li>Contrastes plus marqués</li>\n	<li>Éclairage plus dramatique</li>\n	<li> L\'obscurité paraît plus pesante, plus oppressante, accentuant la tension.</li>\n</ul>\n\n<h3>Gravité émotionnelle</h3>\n\n<p>Là où les figures du Caravage sont alertes et rusées, celles de Valentin le sont :</p>\n\n<ul>\n	<li> Plus solennelles</li>\n	<li> Plus introspectives</li>\n	<li> Souvent moralement ambiguës</li>\n	<li> Ses tricheurs semblent prisonniers de leurs rôles plutôt que de jouer la carte de la tromperie.</li>\n</ul>\n\n<h3>Plus grande complexité et densité</h3>\n\n<p>Valentin ajoute souvent :</p>\n\n<ul>\n	<li> Plus de figures</li>\n	<li> Des textures plus riches</li>\n	<li> Un regroupement plus serré des corps</li>\n</ul>\n\n<p>Cela crée un sentiment de claustrophobie et d\'inéluctabilité, renforçant les thèmes du vice et Destin.</p>\n\n<h3>Tempérament français, langue romaine</h3>\n\n<p>Bien qu\'il travaille à Rome, Valentin apporte une gravité typiquement française :</p>\n\n<ul>\n	<li>Moins de théâtralité</li>\n	<li>Plus de profondeur morale</li>\n	<li>Une atmosphère plus sombre et plus calme</li>\n	<li>Sa peinture semble moins anecdotique et plus existentielle.</li>\n</ul>\n</div>\n\n<div class=\"auto-width-600\">\n<h1>Pourquoi ces deux tableaux sont « fantastiques »</h1>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<table>\n	<thead>\n		<tr>\n			<th><em>Aspect</em></th>\n			<th>Caravage</th>\n			<th>Valentin de Boulogne</th>\n		</tr>\n	</thead>\n	<tbody>\n		<tr>\n			<td><em>Innovation :</em></td>\n			<td>Invente la scène de genre comme un art majeur</td>\n			<td>Approfondit et assombrit le genre</td>\n		</tr>\n		<tr>\n			<td><em>Ambiance :</em></td>\n			<td>Vif, alerte, rusé</td>\n			<td>Lourd, tendu, moralement sombre</td>\n		</tr>\n		<tr>\n			<td><em>Lumière :</em></td>\n			<td>Clarifiant, descriptif</td>\n			<td>Dramatique, oppressant</td>\n		</tr>\n		<tr>\n			<td><em>Rôle du spectateur :</em></td>\n			<td>Témoin d\'une ruse ingénieuse</td>\n			<td>Observateur de la morale déclin</td>\n		</tr>\n	</tbody>\n</table>\n\n<p> </p>\n\n<p><strong>En résumé :</strong><br />\nCaravage a créé Les Tricheurs en inventant un nouveau langage visuel empreint de réalisme, d’immédiateté et de clarté psychologique. Valentin de Boulogne s’est approprié ce langage et l’a transformé en une œuvre plus sombre, plus complexe émotionnellement et plus chargée moralement. Ensemble, ces deux œuvres démontrent comment une idée révolutionnaire peut naître et évoluer profondément au sein d’une même tradition artistique.</p>\n\n<p><em>Avec l’aide de l’IA</em></p>\n</div>','');
 /*!40000 ALTER TABLE `field_body` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -2212,7 +2216,7 @@ LOCK TABLES `field_body2` WRITE;
 /*!40000 ALTER TABLE `field_body2` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `field_body2` VALUES
-(6357,'<p> </p>\n\n<p>Caravaggists - this truly unique style of the Baroque era was named after <a href=\"../../a_persons/caravaggio\">Caravaggio</a>, a reformer artist, the founder of realism.</p>\n\n<p>Who remembers today that Caravaggio committed a murder in his youth?  Despite his life on the run, the artist managed to gather a circle of students and followers — caravaggists.</p>\n\n<p>The trend developed in Italy at the 16th — 17th centuries, as well as in Holland, Germany and Spain.</p>\n\n<p> </p>','<p>Караваджисты — этот поистине уникальный стиль эпохи барокко получил свое название в честь <a href=\"../../a_persons/caravaggio/\">Караваджо</a>, художника-реформатора, основателя реализма.</p>\n\n<p>Кто сегодня помнит, что в молодости Караваджо совершил убийство? Несмотря на жизнь в бегах, художнику удалось собрать круг учеников и последователей — караваджистов.</p>\n\n<p>Это направление развилось в Италии в XVI–XVII веках, а также в Голландии, Германии и Испании.</p>','','');
+(6357,'<p> </p>\n\n<p>Caravaggists - this truly unique style of the Baroque era was named after <a href=\"../../a_persons/caravaggio\">Caravaggio</a>, a reformer artist, the founder of realism.</p>\n\n<p>Who remembers today that Caravaggio committed a murder in his youth?  Despite his life on the run, the artist managed to gather a circle of followers — caravaggists.</p>\n\n<p>The trend developed in Italy at the 16th — 17th centuries, as well as in Holland, Germany and Spain.</p>\n\n<p> </p>','<p>Караваджисты — этот поистине уникальный стиль эпохи барокко получил свое название в честь <a href=\"../../a_persons/caravaggio/\">Караваджо</a>, художника-реформатора, основателя реализма.</p>\n\n<p>Кто сегодня помнит, что в молодости Караваджо совершил убийство? Несмотря на жизнь в бегах, художнику удалось вдохновить круг последователей — караваджистов.</p>\n\n<p>Это направление развилось в Италии в XVI–XVII веках, а также в Голландии, Германии и Испании.</p>','','');
 /*!40000 ALTER TABLE `field_body2` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -2312,6 +2316,7 @@ INSERT INTO `field_country` VALUES
 (6138,6003,0),
 (6177,6003,0),
 (6326,6003,0),
+(6360,6003,0),
 (5794,6004,0),
 (5836,6007,0),
 (5968,6007,0),
@@ -2341,6 +2346,35 @@ INSERT INTO `field_country` VALUES
 (5877,6336,0),
 (5900,6336,0);
 /*!40000 ALTER TABLE `field_country` ENABLE KEYS */;
+UNLOCK TABLES;
+commit;
+
+--
+-- Table structure for table `field_currency`
+--
+
+DROP TABLE IF EXISTS `field_currency`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `field_currency` (
+  `pages_id` int(10) unsigned NOT NULL,
+  `data` int(10) unsigned NOT NULL,
+  `sort` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`pages_id`,`sort`),
+  KEY `data` (`data`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `field_currency`
+--
+
+LOCK TABLES `field_currency` WRITE;
+/*!40000 ALTER TABLE `field_currency` DISABLE KEYS */;
+set autocommit=0;
+INSERT INTO `field_currency` VALUES
+(6358,2,0);
+/*!40000 ALTER TABLE `field_currency` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
 
@@ -2808,7 +2842,8 @@ INSERT INTO `field_h_av_date` VALUES
 (6161,'1883 – 1970'),
 (5798,'1907 - 1959'),
 (6326,'Born 1970-07-03'),
-(6177,'1943-2008');
+(6177,'1943-2008'),
+(6360,'Born 1993');
 /*!40000 ALTER TABLE `field_h_av_date` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -2911,7 +2946,8 @@ INSERT INTO `field_h_av_duty` VALUES
 (6311,1,0),
 (6177,1,0),
 (6310,1,0),
-(5807,4,1);
+(5807,4,1),
+(6360,1,0);
 /*!40000 ALTER TABLE `field_h_av_duty` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3018,7 +3054,8 @@ INSERT INTO `field_h_av_firstname` VALUES
 (6312,'','Michèle','',''),
 (6311,'','Jean','',''),
 (6177,'Anne Marie','','',''),
-(6310,'','Antoine','','');
+(6310,'','Antoine','',''),
+(6360,'Théo de','','','');
 /*!40000 ALTER TABLE `field_h_av_firstname` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3125,7 +3162,8 @@ INSERT INTO `field_h_av_lastname` VALUES
 (6312,'','Duchêne','',''),
 (6311,'','Fougerolle','',''),
 (6177,'Cassandre','','',''),
-(6310,'','de Jacquelot','','');
+(6310,'','de Jacquelot','',''),
+(6360,'de Gueltzl','','','');
 /*!40000 ALTER TABLE `field_h_av_lastname` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3429,6 +3467,7 @@ INSERT INTO `field_h_aw_brand` VALUES
 (6348,5835,0),
 (6349,5835,0),
 (6350,5835,0),
+(6358,5835,0),
 (6014,5836,0),
 (5848,5837,0),
 (6013,5840,0),
@@ -3689,6 +3728,7 @@ INSERT INTO `field_h_aw_day0` VALUES
 (6098,'2022-06'),
 (6101,'2023-12-02'),
 (6102,'2023-05'),
+(6358,'2026-02-02'),
 (6179,'2022-12-09'),
 (6112,'2023-03'),
 (6114,'2025-06'),
@@ -3979,7 +4019,8 @@ INSERT INTO `field_h_aw_more` VALUES
 (6347,'','','',''),
 (6348,'','','',''),
 (6349,'','','',''),
-(6350,'','','','');
+(6350,'','','',''),
+(6358,'','','','');
 /*!40000 ALTER TABLE `field_h_aw_more` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -4217,7 +4258,8 @@ INSERT INTO `field_h_aw_person` VALUES
 (5982,6311,1),
 (5851,6312,1),
 (6101,6312,1),
-(6068,6315,1);
+(6068,6315,1),
+(6358,6360,0);
 /*!40000 ALTER TABLE `field_h_aw_person` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -4477,7 +4519,8 @@ INSERT INTO `field_h_aw_price` VALUES
 (5974,80),
 (6148,850),
 (6107,1610),
-(6335,2450);
+(6335,2450),
+(6358,290);
 /*!40000 ALTER TABLE `field_h_aw_price` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -4710,7 +4753,9 @@ INSERT INTO `field_h_aw_seller` VALUES
 (6149,6285,0),
 (6222,6285,0),
 (6277,6285,0),
-(5974,6294,0);
+(5974,6294,0),
+(6120,6359,0),
+(6358,6359,0);
 /*!40000 ALTER TABLE `field_h_aw_seller` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -5097,7 +5142,8 @@ INSERT INTO `field_h_aw_year` VALUES
 (6332,'1970'),
 (6335,'2007'),
 (6349,'2024'),
-(6350,'2024');
+(6350,'2024'),
+(6358,'2022');
 /*!40000 ALTER TABLE `field_h_aw_year` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -5493,7 +5539,8 @@ INSERT INTO `field_h_s_address` VALUES
 (6162,'','','',''),
 (6284,'','','',''),
 (6285,'','','',''),
-(6294,'','','','');
+(6294,'','','',''),
+(6359,'','','','');
 /*!40000 ALTER TABLE `field_h_s_address` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -5530,7 +5577,8 @@ INSERT INTO `field_h_s_url` VALUES
 (6162,'https://www.kaplans.se/'),
 (6284,'https://www.beyondretro.com/pages/store-locator-zinken'),
 (6285,'https://www.metropol.se/start/Default.asp'),
-(6294,'https://www.popstockholm.se/');
+(6294,'https://www.popstockholm.se/'),
+(6359,'https://hopcash.ch/');
 /*!40000 ALTER TABLE `field_h_s_url` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -5654,7 +5702,7 @@ INSERT INTO `field_images` VALUES
 (5873,'l__vilardi.jpg',0,'[\"\"]','2020-09-13 15:21:14','2020-09-13 15:21:14','',NULL,0,0,NULL,NULL,NULL),
 (5874,'salomon_de_koninck.jpg',0,'[\"\"]','2020-09-13 15:21:14','2020-09-13 15:21:14','',NULL,0,0,NULL,NULL,NULL),
 (5877,'peter_joseph_minjon.jpg',0,'[\"\"]','2020-09-13 15:21:16','2020-09-13 15:21:16','',NULL,0,0,NULL,NULL,NULL),
-(5878,'robert_falk.png',0,'[\"\"]','2020-09-13 15:21:16','2020-09-13 15:21:16','',NULL,0,0,NULL,NULL,NULL),
+(5878,'untitled.png',0,'[\"\"]','2026-01-23 10:47:28','2026-01-23 10:47:28','{\"uploadName\":\"Untitled.png\"}',491723,41,41,493,457,1.08),
 (5879,'basil_samoilov.png',0,'[\"\"]','2020-09-13 15:21:16','2020-09-13 15:21:16','',NULL,0,0,NULL,NULL,NULL),
 (5880,'andries_vermeulen.png',0,'[\"\"]','2020-09-13 15:21:17','2020-09-13 15:21:17','',NULL,0,0,NULL,NULL,NULL),
 (5882,'haik_mhitaryan.png',0,'[\"\"]','2020-09-13 15:21:18','2020-09-13 15:21:18','',NULL,0,0,NULL,NULL,NULL),
@@ -5676,6 +5724,7 @@ INSERT INTO `field_images` VALUES
 (5905,'lost_auctions.jpg',0,'[\"\"]','2020-09-13 15:21:25','2020-09-13 15:21:25','',NULL,0,0,NULL,NULL,NULL),
 (5907,'000022.jpg',0,'[\"\"]','2020-09-13 15:21:26','2020-09-13 15:21:26','',117750,0,0,1127,760,1.48),
 (5908,'000025.jpg',0,'[\"\"]','2020-09-13 15:21:26','2020-09-13 15:21:26','',NULL,0,0,NULL,NULL,NULL),
+(6358,'hermes-carre-90-robe-legere-2.jpg',1,'[\"\"]','2026-02-02 17:06:25','2026-02-02 17:06:25','',161351,41,41,800,800,1.00),
 (5909,'untitled_2.png',3,'[\"\"]','2026-01-21 14:35:07','2026-01-21 14:35:07','{\"uploadName\":\"Untitled 2.png\"}',1998240,41,41,1250,730,1.71),
 (5910,'card-sharpers_002932.jpg',0,'[\"\"]','2020-09-13 15:21:27','2020-09-13 15:21:27','',2411906,0,0,2000,1300,1.54),
 (5910,'card-sharpers_002920.jpg',1,'[\"\"]','2020-09-13 15:21:27','2020-09-13 15:21:27','',8443150,0,0,3000,2587,1.16),
@@ -6017,7 +6066,10 @@ INSERT INTO `field_images` VALUES
 (6138,'63e130bf8c08904cb43ce0c7.jpeg',0,'[\"\"]','2026-01-11 15:37:36','2026-01-11 15:37:36','',714986,41,41,1200,750,1.60),
 (6090,'untitled.jpg',0,'[\"\"]','2026-01-11 17:04:09','2026-01-11 17:04:09','{\"uploadName\":\"Untitled.jpg\"}',484218,41,41,890,682,1.30),
 (6288,'untitled.jpg',0,'[\"\"]','2026-01-12 08:52:54','2026-01-12 08:52:54','{\"uploadName\":\"Untitled.jpg\"}',41371,41,41,278,296,0.94),
-(6142,'untitled.jpg',0,'[\"\"]','2025-12-15 07:35:49','2025-12-15 07:35:49','{\"uploadName\":\"Untitled.jpg\"}',461045,41,41,927,956,0.97);
+(6142,'untitled.jpg',0,'[\"\"]','2025-12-15 07:35:49','2025-12-15 07:35:49','{\"uploadName\":\"Untitled.jpg\"}',461045,41,41,927,956,0.97),
+(6358,'hermes-carre-90-robe-legere-3.jpg',2,'[\"\"]','2026-02-02 17:06:25','2026-02-02 17:06:25','',169419,41,41,800,800,1.00),
+(6358,'hermes-carre-90-robe-legere.jpg',0,'[\"\"]','2026-02-02 17:06:25','2026-02-02 17:06:25','',137539,41,41,800,800,1.00),
+(6360,'8c2720d9ac531eec287579169a1996d5-pic.jpeg',0,'[\"\"]','2026-02-02 18:25:21','2026-02-02 18:25:21','',25077,41,41,300,300,1.00);
 /*!40000 ALTER TABLE `field_images` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -6135,99 +6187,86 @@ LOCK TABLES `field_language_files_site` WRITE;
 /*!40000 ALTER TABLE `field_language_files_site` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `field_language_files_site` VALUES
-(5755,'site--templates--h_artworks-php.json',1,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',126,0,0),
-(5755,'site--templates--h_spot-php.json',0,'[\"\"]','2020-09-18 13:52:11','2020-09-18 13:52:11','',313,0,0),
 (5751,'site--templates--_func-php.json',2,'[\"\"]','2026-01-07 17:48:49','2026-01-07 17:48:49','',116,41,41),
 (5751,'site--templates--a_collections-php.json',3,'[\"\"]','2026-01-10 21:23:02','2026-01-10 21:23:02','',132,41,41),
-(5755,'site--templates--h_collection-php.json',3,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',233,0,0),
-(5755,'site--templates--h_brand-php.json',2,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',223,0,0),
+(5755,'site--templates--includes--object-page-php.json',9,'[\"\"]','2026-01-07 16:06:18','2026-01-07 16:06:18','',148,41,41),
+(5755,'site--templates--_main-php.json',10,'[\"\"]','2026-01-17 06:05:47','2026-01-17 06:05:47','',258,41,41),
 (5751,'site--templates--includes--object-page-php.json',1,'[\"\"]','2026-01-07 16:06:32','2026-01-07 16:06:32','',331,41,41),
-(5755,'site--templates--h_person-php.json',4,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',225,0,0),
+(5755,'site--templates--h_sellers-php.json',8,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',124,0,0),
+(5755,'site--templates--h_seller-php.json',7,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',225,0,0),
 (5751,'site--templates--a_collection-php.json',4,'[\"\"]','2026-01-10 21:25:48','2026-01-10 21:25:48','',130,41,41),
 (5751,'site--templates--_main-php.json',5,'[\"\"]','2026-01-17 06:00:39','2026-01-17 06:00:39','',116,41,41),
-(5753,'site--templates--includes--search_summary-php.json',37,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',299,41,41),
-(5753,'site--templates--includes--object-page-php.json',35,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',392,41,41),
-(5753,'site--templates--includes--search_form-php.json',36,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',262,41,41),
-(5753,'site--templates--h_size-php.json',34,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',238,41,41),
-(5753,'site--templates--h_collections-php.json',33,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',270,41,41),
-(5753,'site--templates--h_brands-php.json',32,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',242,41,41),
-(5754,'site--templates--includes--search_summary-php.json',35,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',154,41,41),
-(5754,'site--templates--includes--search_form_short-php.json',34,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',160,41,41),
-(5754,'site--templates--includes--search_form-php.json',33,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',148,41,41),
-(5754,'site--templates--includes--object-page-php.json',32,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',148,41,41),
-(5754,'site--templates--h_size-php.json',31,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',118,41,41),
-(5754,'site--templates--h_collections-php.json',30,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',132,41,41),
-(5754,'site--templates--h_brands-php.json',29,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',122,41,41),
-(5755,'site--templates--h_persons-php.json',5,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',124,0,0),
+(5754,'site--templates--includes--sidebar-links-php.json',31,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',873,41,41),
+(5754,'site--templates--includes--search_summary-php.json',30,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',270,41,41),
+(5754,'site--templates--includes--search_form_short-php.json',29,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',431,41,41),
 (5755,'site--templates--h_possession-php.json',6,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',242,0,0),
-(5755,'site--templates--h_search-php.json',7,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',0,0,0),
-(5755,'site--templates--h_seller-php.json',8,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',225,0,0),
-(5755,'site--templates--h_sellers-php.json',9,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',124,0,0),
-(5755,'site--templates--includes--object-page-php.json',10,'[\"\"]','2026-01-07 16:06:18','2026-01-07 16:06:18','',148,41,41),
-(5755,'site--templates--_main-php.json',11,'[\"\"]','2026-01-17 06:05:47','2026-01-17 06:05:47','',116,41,41),
-(5753,'site--templates--a_school-php.json',38,'[\"\"]','2026-01-22 14:02:50','2026-01-22 14:02:50','',122,41,41),
-(5753,'site--templates--h_brand_test-php.json',31,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',130,41,41),
-(5753,'site--templates--country-php.json',30,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',381,41,41),
-(5753,'site--templates--a_spot-php.json',29,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',299,41,41),
-(5753,'site--templates--a_sellers-php.json',28,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',256,41,41),
-(5753,'site--templates--a_seller-php.json',27,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',255,41,41),
-(5753,'site--templates--a_schools-php.json',26,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',312,41,41),
-(5753,'site--templates--a_possession-php.json',25,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',256,41,41),
-(5753,'site--templates--a_persons-php.json',24,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',268,41,41),
-(5753,'site--templates--a_person-php.json',23,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',242,41,41),
-(5753,'site--templates--a_collections-php.json',22,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',270,41,41),
-(5753,'site--templates--a_collection-php.json',21,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',250,41,41),
-(5753,'site--templates--_func-php.json',19,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',6717,41,41),
-(5753,'site--templates--a_artworks-php.json',20,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',126,41,41),
-(5753,'site--templates--d_spot-php.json',18,'[\"\"]','2020-09-17 10:10:52','2020-09-17 10:10:52','',299,0,0),
-(5753,'site--templates--includes--search_form_short-php.json',17,'[\"\"]','2020-09-18 10:01:15','2020-09-18 10:01:15','',507,0,0),
-(5753,'site--templates--d_persons-php.json',16,'[\"\"]','2020-09-17 10:10:52','2020-09-17 10:10:52','',262,0,0),
-(5753,'site--templates--d_person-php.json',15,'[\"\"]','2020-09-17 10:10:52','2020-09-17 10:10:52','',242,0,0),
-(5753,'site--templates--d_artworks-php.json',14,'[\"\"]','2020-09-17 10:10:52','2020-09-17 10:10:52','',252,0,0),
-(5753,'site--templates--h_artworks-php.json',13,'[\"\"]','2020-09-17 10:08:08','2020-09-17 10:08:08','',720,0,0),
-(5753,'site--templates--h_spot-php.json',12,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',293,0,0),
-(5753,'site--templates--h_sellers-php.json',11,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',256,0,0),
-(5753,'site--templates--h_possession-php.json',9,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',269,0,0),
-(5753,'site--templates--h_seller-php.json',10,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',122,0,0),
-(5753,'site--templates--h_persons-php.json',8,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',268,0,0),
-(5753,'site--templates--h_collection-php.json',6,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',268,0,0),
-(5753,'site--templates--h_person-php.json',7,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',242,0,0),
-(5753,'site--templates--h_brand-php.json',5,'[\"\"]','2020-09-17 10:06:02','2020-09-17 10:06:02','',120,0,0),
-(5753,'site--templates--_main-php.json',4,'[\"\"]','2020-09-17 10:03:06','2020-09-17 10:03:06','',402,0,0),
-(5753,'site--templates--home-php.json',1,'[\"\"]','2020-06-19 15:41:08','2020-06-19 15:41:08','',114,0,0),
-(5753,'site--templates--search-php.json',2,'[\"\"]','2020-06-19 15:41:08','2020-06-19 15:41:08','',297,0,0),
-(5753,'site--templates--includes--person-list-php.json',3,'[\"\"]','2020-06-19 15:41:08','2020-06-19 15:41:08','',0,0,0),
-(5753,'site--templates--includes--sidebar-links-php.json',0,'[\"\"]','2020-06-16 13:11:08','2020-06-16 13:11:08','',1725,0,0),
-(5754,'site--templates--h_brand_test-php.json',28,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',130,41,41),
-(5754,'site--templates--d_spot-php.json',27,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',118,41,41),
-(5754,'site--templates--d_persons-php.json',26,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',124,41,41),
-(5754,'site--templates--d_person-php.json',25,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',122,41,41),
-(5754,'site--templates--d_artworks-php.json',24,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',126,41,41),
-(5754,'site--templates--country-php.json',23,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',120,41,41),
-(5754,'site--templates--a_schools-php.json',19,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',124,41,41),
-(5754,'site--templates--a_seller-php.json',20,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',122,41,41),
-(5754,'site--templates--a_sellers-php.json',21,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',124,41,41),
-(5754,'site--templates--a_spot-php.json',22,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',118,41,41),
-(5754,'site--templates--a_person-php.json',16,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',122,41,41),
-(5754,'site--templates--a_persons-php.json',17,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',124,41,41),
-(5754,'site--templates--a_possession-php.json',18,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',130,41,41),
-(5754,'site--templates--a_collections-php.json',15,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',132,41,41),
-(5754,'site--templates--a_collection-php.json',14,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',130,41,41),
-(5754,'site--templates--a_artworks-php.json',13,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',126,41,41),
-(5754,'site--templates--_main-php.json',12,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',116,41,41),
-(5754,'site--templates--_func-php.json',11,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',116,41,41),
-(5754,'site--templates--search-php.json',10,'[\"\"]','2026-01-06 21:52:18','2026-01-06 21:52:18','',236,41,41),
-(5754,'site--templates--h_sellers-php.json',9,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',124,0,0),
-(5754,'site--templates--h_seller-php.json',8,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',224,0,0),
-(5754,'site--templates--h_search-php.json',7,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',214,0,0),
-(5754,'site--templates--h_possession-php.json',6,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',238,0,0),
-(5754,'site--templates--h_persons-php.json',5,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',124,0,0),
-(5754,'site--templates--h_person-php.json',4,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',224,0,0),
-(5754,'site--templates--h_collection-php.json',3,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',130,0,0),
-(5754,'site--templates--h_brand-php.json',2,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',222,0,0),
-(5754,'site--templates--h_artworks-php.json',1,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',126,0,0),
-(5754,'site--templates--h_spot-php.json',0,'[\"\"]','2020-09-18 13:50:14','2020-09-18 13:50:14','',319,0,0),
-(5754,'site--templates--includes--sidebar-links-php.json',36,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',152,41,41),
+(5755,'site--templates--h_persons-php.json',5,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',124,0,0),
+(5755,'site--templates--h_person-php.json',4,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',225,0,0),
+(5755,'site--templates--h_collection-php.json',3,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',233,0,0),
+(5755,'site--templates--h_brand-php.json',2,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',223,0,0),
+(5755,'site--templates--h_spot-php.json',0,'[\"\"]','2020-09-18 13:52:11','2020-09-18 13:52:11','',313,0,0),
+(5755,'site--templates--h_artworks-php.json',1,'[\"\"]','2020-09-18 14:10:42','2020-09-18 14:10:42','',126,0,0),
+(5753,'site--templates--includes--search_summary-php.json',31,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',299,41,41),
+(5753,'site--templates--includes--search_form-php.json',30,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',262,41,41),
+(5753,'site--templates--includes--object-page-php.json',29,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',392,41,41),
+(5753,'site--templates--h_size-php.json',28,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',238,41,41),
+(5753,'site--templates--h_collections-php.json',27,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',270,41,41),
+(5753,'site--templates--h_brands-php.json',26,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',242,41,41),
+(5753,'site--templates--country-php.json',25,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',381,41,41),
+(5753,'site--templates--a_spot-php.json',24,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',299,41,41),
+(5753,'site--templates--a_sellers-php.json',23,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',256,41,41),
+(5753,'site--templates--a_seller-php.json',22,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',255,41,41),
+(5753,'site--templates--a_possession-php.json',20,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',256,41,41),
+(5753,'site--templates--a_schools-php.json',21,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',312,41,41),
+(5753,'site--templates--a_persons-php.json',19,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',268,41,41),
+(5753,'site--templates--a_person-php.json',18,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',242,41,41),
+(5753,'site--templates--a_collections-php.json',17,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',270,41,41),
+(5753,'site--templates--includes--search_form_short-php.json',13,'[\"\"]','2020-09-18 10:01:15','2020-09-18 10:01:15','',507,0,0),
+(5753,'site--templates--d_spot-php.json',14,'[\"\"]','2020-09-17 10:10:52','2020-09-17 10:10:52','',299,0,0),
+(5753,'site--templates--_func-php.json',15,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',8037,41,41),
+(5753,'site--templates--a_collection-php.json',16,'[\"\"]','2026-01-06 20:00:49','2026-01-06 20:00:49','',250,41,41),
+(5753,'site--templates--d_persons-php.json',12,'[\"\"]','2020-09-17 10:10:52','2020-09-17 10:10:52','',262,0,0),
+(5753,'site--templates--h_artworks-php.json',9,'[\"\"]','2020-09-17 10:08:08','2020-09-17 10:08:08','',720,0,0),
+(5753,'site--templates--d_artworks-php.json',10,'[\"\"]','2020-09-17 10:10:52','2020-09-17 10:10:52','',252,0,0),
+(5753,'site--templates--d_person-php.json',11,'[\"\"]','2020-09-17 10:10:52','2020-09-17 10:10:52','',242,0,0),
+(5753,'site--templates--h_sellers-php.json',7,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',256,0,0),
+(5753,'site--templates--h_spot-php.json',8,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',293,0,0),
+(5753,'site--templates--h_possession-php.json',6,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',269,0,0),
+(5753,'site--templates--h_persons-php.json',5,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',268,0,0),
+(5753,'site--templates--search-php.json',1,'[\"\"]','2020-06-19 15:41:08','2020-06-19 15:41:08','',297,0,0),
+(5753,'site--templates--_main-php.json',2,'[\"\"]','2020-09-17 10:03:06','2020-09-17 10:03:06','',402,0,0),
+(5753,'site--templates--h_collection-php.json',3,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',268,0,0),
+(5753,'site--templates--h_person-php.json',4,'[\"\"]','2020-09-17 10:06:03','2020-09-17 10:06:03','',242,0,0),
+(5753,'site--templates--includes--sidebar-links-php.json',0,'[\"\"]','2020-06-16 13:11:08','2020-06-16 13:11:08','',2037,0,0),
+(5754,'site--templates--includes--search_form-php.json',28,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',248,41,41),
+(5754,'site--templates--includes--object-page-php.json',27,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',336,41,41),
+(5754,'site--templates--h_size-php.json',26,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',213,41,41),
+(5754,'site--templates--h_collections-php.json',25,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',227,41,41),
+(5754,'site--templates--h_brands-php.json',24,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',217,41,41),
+(5754,'site--templates--a_sellers-php.json',17,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',220,41,41),
+(5754,'site--templates--a_spot-php.json',18,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',221,41,41),
+(5754,'site--templates--country-php.json',19,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',304,41,41),
+(5754,'site--templates--d_artworks-php.json',20,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',216,41,41),
+(5754,'site--templates--d_person-php.json',21,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',220,41,41),
+(5754,'site--templates--d_persons-php.json',22,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',216,41,41),
+(5754,'site--templates--d_spot-php.json',23,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',217,41,41),
+(5754,'site--templates--a_possession-php.json',14,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',233,41,41),
+(5754,'site--templates--a_schools-php.json',15,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',223,41,41),
+(5754,'site--templates--a_seller-php.json',16,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',226,41,41),
+(5754,'site--templates--a_persons-php.json',13,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',217,41,41),
+(5754,'site--templates--a_person-php.json',12,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',226,41,41),
+(5754,'site--templates--a_collections-php.json',11,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',227,41,41),
+(5754,'site--templates--a_collection-php.json',10,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',228,41,41),
+(5754,'site--templates--_main-php.json',9,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',277,41,41),
+(5754,'site--templates--_func-php.json',8,'[\"\"]','2026-01-06 22:31:11','2026-01-06 22:31:11','',3789,41,41),
+(5754,'site--templates--search-php.json',7,'[\"\"]','2026-01-06 21:52:18','2026-01-06 21:52:18','',236,41,41),
+(5754,'site--templates--h_sellers-php.json',6,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',216,0,0),
+(5754,'site--templates--h_possession-php.json',5,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',238,0,0),
+(5754,'site--templates--h_persons-php.json',4,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',226,0,0),
+(5754,'site--templates--h_person-php.json',3,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',224,0,0),
+(5754,'site--templates--h_artworks-php.json',1,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',515,0,0),
+(5754,'site--templates--h_collection-php.json',2,'[\"\"]','2020-09-18 14:03:40','2020-09-18 14:03:40','',234,0,0),
+(5754,'site--templates--h_spot-php.json',0,'[\"\"]','2020-09-18 13:50:14','2020-09-18 13:50:14','',224,0,0),
 (5751,'site--templates--h_spot-php.json',0,'[\"\"]','2020-10-11 17:22:07','2020-10-11 17:22:07','',118,0,0);
 /*!40000 ALTER TABLE `field_language_files_site` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -6918,7 +6957,10 @@ INSERT INTO `field_title` VALUES
 (6354,'Can see the A object prices','','',''),
 (6355,'Can view A fields with tag \'restricted\'','','',''),
 (6356,'Caravaggio','Караваджо','',''),
-(6357,'Caravaggisti','Караваджисты','','');
+(6357,'Caravaggisti','Караваджисты','',''),
+(6358,'Robe Légère','','',''),
+(6359,'HopCash','','',''),
+(6360,'Théo de Gueltzl','','','');
 /*!40000 ALTER TABLE `field_title` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -7040,6 +7082,7 @@ INSERT INTO `fieldgroups_fields` VALUES
 (123,43,5,'{\"columnWidth\":70}'),
 (99,101,2,NULL),
 (3,102,4,NULL),
+(114,226,0,'{\"columnWidth\":20}'),
 (110,126,1,'{\"columnWidth\":33}'),
 (149,1,0,NULL),
 (110,1,0,'{\"columnWidth\":33}'),
@@ -7143,7 +7186,10 @@ INSERT INTO `fieldgroups_fields` VALUES
 (150,1,0,'{\"columnWidth\":25}'),
 (150,230,1,'{\"columnWidth\":25}'),
 (150,43,2,'{\"columnWidth\":25}'),
-(114,43,20,'{\"columnWidth\":40}'),
+(114,1,1,'{\"columnWidth\":40}'),
+(114,138,2,'{\"columnWidth\":20}'),
+(114,142,3,'{\"columnWidth\":20}'),
+(114,143,4,'{\"columnWidth\":20}'),
 (57,1,0,''),
 (146,1,0,'{\"columnWidth\":20}'),
 (146,241,1,'{\"columnWidth\":20}'),
@@ -7161,11 +7207,6 @@ INSERT INTO `fieldgroups_fields` VALUES
 (146,236,4,'{\"columnWidth\":20}'),
 (146,43,5,'{\"columnWidth\":40}'),
 (151,1,0,NULL),
-(114,226,0,'{\"columnWidth\":20}'),
-(114,1,1,'{\"columnWidth\":40}'),
-(114,138,2,'{\"columnWidth\":20}'),
-(114,142,3,'{\"columnWidth\":20}'),
-(114,143,4,'{\"columnWidth\":20}'),
 (114,135,5,'{\"columnWidth\":20}'),
 (114,145,6,'{\"columnWidth\":20}'),
 (114,229,7,'{\"columnWidth\":20}'),
@@ -7175,12 +7216,14 @@ INSERT INTO `fieldgroups_fields` VALUES
 (114,225,11,'{\"columnWidth\":20}'),
 (114,232,12,'{\"columnWidth\":20}'),
 (114,233,13,'{\"columnWidth\":20}'),
-(114,146,14,'{\"columnWidth\":20}'),
-(114,137,15,'{\"columnWidth\":20}'),
-(114,139,16,'{\"columnWidth\":20}'),
-(114,128,17,'{\"columnWidth\":20}'),
-(114,243,18,'{\"columnWidth\":20,\"maxlength\":2048}'),
-(114,44,19,'{\"columnWidth\":40}'),
+(114,249,14,NULL),
+(114,146,15,'{\"columnWidth\":20}'),
+(114,137,16,'{\"columnWidth\":20}'),
+(114,139,17,'{\"columnWidth\":20}'),
+(114,128,18,'{\"columnWidth\":20}'),
+(114,243,19,'{\"columnWidth\":20,\"maxlength\":2048}'),
+(114,44,20,'{\"columnWidth\":40}'),
+(114,43,21,'{\"columnWidth\":40}'),
 (131,44,15,'{\"columnWidth\":40}'),
 (131,43,16,'{\"columnWidth\":40}'),
 (131,184,1,'{\"columnWidth\":20}'),
@@ -7230,7 +7273,7 @@ CREATE TABLE `fields` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `type` (`type`)
-) ENGINE=MyISAM AUTO_INCREMENT=249 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=250 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7336,7 +7379,8 @@ INSERT INTO `fields` VALUES
 (243,'FieldtypeText','figcaption',0,'figcaption','{\"textformatters\":[\"TextformatterEntities\"]}'),
 (247,'FieldtypeOptions','a_av_duty',0,'Role','{\"columnWidth\":33,\"label5753\":\"\\u0420\\u043e\\u043b\\u044c\",\"label5755\":\"Role\",\"label5754\":\"Role\",\"inputfieldClass\":\"InputfieldCheckboxes\",\"required\":1,\"optionColumns\":0,\"tags\":\"caption page\",\"collapsed\":0}'),
 (245,'FieldtypeInteger','a_p_payed',0,'Total price','{\"label5753\":\"\\u041e\\u043f\\u043b\\u0430\\u0447\\u0435\\u043d\\u043e\",\"zeroNotEmpty\":1,\"inputType\":\"text\",\"size\":10,\"tags\":\"page list prices\"}'),
-(248,'FieldtypeTextareaLanguage','body2',1,'Body2','{\"inputfieldClass\":\"InputfieldCKEditor\",\"rows\":15,\"theme_advanced_buttons1\":\"formatselect,|,bold,italic,|,bullist,numlist,|,link,unlink,|,image,|,codemagic,|,fullscreen\",\"theme_advanced_blockformats\":\"p,h2,h3,h4,blockquote\",\"plugins\":\"autosave,inlinepopups,safari,codemagic,media,paste,fullscreen\",\"valid_elements\":\"@[id|class],div[id|class],a[href|target|name],strong\\/b,em\\/i,br,img[src|id|class|width|height|alt],ul,ol,li,p[class],h2,h3,h4,blockquote,-p,-table[border=0|cellspacing|cellpadding|width|frame|rules|height|align|summary|bgcolor|background|bordercolor],-tr[rowspan|width|height|align|valign|bgcolor|background|bordercolor],tbody,thead,tfoot,#td[colspan|rowspan|width|height|align|valign|bgcolor|background|bordercolor|scope],#th[colspan|rowspan|width|height|align|valign|scope],code\",\"contentType\":0,\"minlength\":0,\"maxlength\":0,\"showCount\":0,\"toolbar\":\"Format, Styles, -, Bold, Italic, -, RemoveFormat\\nNumberedList, BulletedList, -, Blockquote\\nPWLink, Unlink, Anchor\\nPWImage, Table, HorizontalRule, SpecialChar\\nPasteText, PasteFromWord\\nScayt, -, Sourcedialog\",\"inlineMode\":0,\"useACF\":0,\"usePurifier\":1,\"formatTags\":\"p;h1;h2;h3;h4;h5;h6;pre;address\",\"extraPlugins\":[\"pwimage\",\"pwlink\",\"sourcedialog\"],\"removePlugins\":\"image,magicline\",\"langBlankInherit\":0,\"extraAllowedContent\":\"div[class]\",\"collapsed\":0}');
+(248,'FieldtypeTextareaLanguage','body2',1,'Body2','{\"inputfieldClass\":\"InputfieldCKEditor\",\"rows\":15,\"theme_advanced_buttons1\":\"formatselect,|,bold,italic,|,bullist,numlist,|,link,unlink,|,image,|,codemagic,|,fullscreen\",\"theme_advanced_blockformats\":\"p,h2,h3,h4,blockquote\",\"plugins\":\"autosave,inlinepopups,safari,codemagic,media,paste,fullscreen\",\"valid_elements\":\"@[id|class],div[id|class],a[href|target|name],strong\\/b,em\\/i,br,img[src|id|class|width|height|alt],ul,ol,li,p[class],h2,h3,h4,blockquote,-p,-table[border=0|cellspacing|cellpadding|width|frame|rules|height|align|summary|bgcolor|background|bordercolor],-tr[rowspan|width|height|align|valign|bgcolor|background|bordercolor],tbody,thead,tfoot,#td[colspan|rowspan|width|height|align|valign|bgcolor|background|bordercolor|scope],#th[colspan|rowspan|width|height|align|valign|scope],code\",\"contentType\":0,\"minlength\":0,\"maxlength\":0,\"showCount\":0,\"toolbar\":\"Format, Styles, -, Bold, Italic, -, RemoveFormat\\nNumberedList, BulletedList, -, Blockquote\\nPWLink, Unlink, Anchor\\nPWImage, Table, HorizontalRule, SpecialChar\\nPasteText, PasteFromWord\\nScayt, -, Sourcedialog\",\"inlineMode\":0,\"useACF\":0,\"usePurifier\":1,\"formatTags\":\"p;h1;h2;h3;h4;h5;h6;pre;address\",\"extraPlugins\":[\"pwimage\",\"pwlink\",\"sourcedialog\"],\"removePlugins\":\"image,magicline\",\"langBlankInherit\":0,\"extraAllowedContent\":\"div[class]\",\"collapsed\":0}'),
+(249,'FieldtypeOptions','currency',0,'Currency','{\"inputfieldClass\":\"InputfieldSelect\",\"collapsed\":0}');
 /*!40000 ALTER TABLE `fields` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -7465,7 +7509,9 @@ INSERT INTO `fieldtype_options` VALUES
 (242,'3','Средние, < 25см','3',2,NULL,NULL,NULL,NULL,NULL,NULL),
 (242,'4','Крупные, >30см','4',3,NULL,NULL,NULL,NULL,NULL,NULL),
 (247,'1','Artist','1',0,'Художник','1',NULL,NULL,NULL,NULL),
-(194,'6','Pastel','pas',5,'Пастель','pas',NULL,NULL,NULL,NULL);
+(194,'6','Pastel','pas',5,'Пастель','pas',NULL,NULL,NULL,NULL),
+(249,'1','SEK','',0,NULL,NULL,NULL,NULL,NULL,NULL),
+(249,'2','CHF','',1,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `fieldtype_options` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -7651,7 +7697,7 @@ CREATE TABLE `pages` (
   KEY `created` (`created`),
   KEY `status` (`status`),
   KEY `published` (`published`)
-) ENGINE=MyISAM AUTO_INCREMENT=6358 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6361 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7723,9 +7769,9 @@ INSERT INTO `pages` VALUES
 (5750,22,2,'languages',16,'2020-06-11 06:38:48',41,'2020-06-11 06:38:48',41,'2020-06-11 10:38:48',4,NULL,1,NULL,1,NULL,1),
 (5751,5750,45,'default',16,'2026-01-17 05:00:39',41,'2020-06-11 06:38:48',41,'2020-06-11 10:38:48',0,NULL,1,NULL,1,NULL,1),
 (5752,22,2,'language-translator',1040,'2020-06-11 06:38:48',41,'2020-06-11 06:38:48',41,'2020-06-11 10:38:48',5,NULL,1,NULL,1,NULL,1),
-(5753,5750,45,'russian',16,'2026-01-22 13:03:40',41,'2020-06-11 06:42:03',41,'2020-06-11 10:42:03',1,NULL,1,NULL,1,NULL,1),
-(5754,5750,45,'french',16,'2026-01-07 10:52:32',41,'2020-06-11 06:50:10',41,'2020-06-11 10:50:10',2,NULL,1,NULL,1,NULL,1),
-(5755,5750,45,'swedish',16,'2026-01-17 05:05:47',41,'2020-06-11 06:50:44',41,'2020-06-11 10:50:44',3,NULL,1,NULL,1,NULL,1),
+(5753,5750,45,'russian',16,'2026-01-23 18:30:26',41,'2020-06-11 06:42:03',41,'2020-06-11 10:42:03',1,NULL,1,NULL,1,NULL,1),
+(5754,5750,45,'french',16,'2026-01-23 18:31:57',41,'2020-06-11 06:50:10',41,'2020-06-11 10:50:10',2,NULL,1,NULL,1,NULL,1),
+(5755,5750,45,'swedish',16,'2026-01-23 18:32:19',41,'2020-06-11 06:50:44',41,'2020-06-11 10:50:44',3,NULL,1,NULL,1,NULL,1),
 (5786,1,56,'countries',2049,'2025-11-28 07:30:11',41,'2020-07-24 07:05:06',40,'2020-07-24 09:05:06',8,NULL,1,NULL,1,NULL,1),
 (6171,5834,69,'omega',1,'2026-01-07 14:31:47',40,'2025-11-19 10:01:23',40,'2025-11-19 11:01:23',11,NULL,1,NULL,1,NULL,0),
 (5789,1,61,'h_spot',32,'2026-01-17 04:40:58',41,'2020-09-13 13:20:37',40,'2020-09-13 15:20:37',6,NULL,1,NULL,1,NULL,0),
@@ -7734,7 +7780,7 @@ INSERT INTO `pages` VALUES
 (5793,5791,70,'168-cathy-latham-audibert',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:42',40,'2020-09-13 15:20:42',1,NULL,1,NULL,1,NULL,0),
 (5794,5791,70,'171-evgenia-miro-miroshnichenko',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:43',40,'2020-09-13 15:20:43',2,NULL,1,NULL,1,NULL,0),
 (5795,5791,70,'186-dimitri-rybaltchenko',32,'2026-01-07 17:44:11',41,'2020-09-13 13:20:43',40,'2020-09-13 15:20:43',3,NULL,1,NULL,1,NULL,0),
-(5796,5791,70,'187-aleksandr-zybin',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:44',40,'2020-09-13 15:20:44',4,NULL,1,NULL,1,NULL,0),
+(5796,5791,70,'187-aleksandr-zybin',32,'2026-01-23 17:48:50',41,'2020-09-13 13:20:44',40,'2020-09-13 15:20:44',4,NULL,1,NULL,1,NULL,0),
 (5797,5791,70,'188-vladimir-rybaltchenko',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:44',40,'2020-09-13 15:20:44',5,NULL,1,NULL,1,NULL,0),
 (5798,5791,70,'199-hugo-grygkar',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:44',40,'2020-09-13 15:20:44',6,NULL,1,NULL,1,NULL,0),
 (5799,5791,70,'224-philippe-ledoux',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:45',40,'2020-09-13 15:20:45',7,NULL,1,NULL,1,NULL,0),
@@ -7775,12 +7821,12 @@ INSERT INTO `pages` VALUES
 (5834,5789,66,'h_brands',1,'2026-01-07 14:31:47',40,'2020-09-13 13:20:57',40,'2020-09-13 15:20:57',3,NULL,1,NULL,1,NULL,0),
 (5835,5834,69,'185-herms',1,'2026-01-07 14:31:47',40,'2020-09-13 13:20:57',40,'2020-09-13 15:20:57',0,NULL,1,NULL,1,NULL,0),
 (5836,5834,69,'196-salvatore-ferrogamo',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:57',40,'2020-09-13 15:20:57',1,NULL,1,NULL,1,NULL,0),
-(5837,5834,69,'243-tiffany-co',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:57',40,'2020-09-13 15:20:57',2,NULL,1,NULL,1,NULL,0),
+(5837,5834,69,'243-tiffany-co',32,'2026-01-23 17:53:19',41,'2020-09-13 13:20:57',40,'2020-09-13 15:20:57',2,NULL,1,NULL,1,NULL,0),
 (5838,5834,69,'246-nina-ricci',1,'2026-01-07 14:31:47',40,'2020-09-13 13:20:58',40,'2020-09-13 15:20:58',3,NULL,1,NULL,1,NULL,0),
 (5839,5834,69,'280-baume-mercier',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:58',40,'2020-09-13 15:20:58',4,NULL,1,NULL,1,NULL,0),
 (5840,5834,69,'2279-lanvin',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:58',40,'2020-09-13 15:20:58',5,NULL,1,NULL,1,NULL,0),
 (5841,5834,69,'2297-christian-dior',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:58',40,'2020-09-13 15:20:58',6,NULL,1,NULL,1,NULL,0),
-(5842,6306,63,'197-maison-carr-foundation',1,'2026-01-20 17:14:26',41,'2020-09-13 13:20:59',40,'2020-09-13 15:20:59',4,NULL,1,NULL,1,NULL,0),
+(5842,6306,63,'197-maison-carr-foundation',1,'2026-01-23 06:09:40',41,'2020-09-13 13:20:59',40,'2020-09-13 15:20:59',4,NULL,1,NULL,1,NULL,0),
 (5843,5789,67,'h_artworks',1,'2026-01-07 14:31:47',40,'2020-09-13 13:20:59',40,'2020-09-13 15:20:59',5,NULL,1,NULL,1,NULL,0),
 (5844,5843,60,'169-cheval-turc',32,'2026-01-12 16:49:46',41,'2020-09-13 13:20:59',40,'2020-09-13 15:20:59',0,NULL,1,NULL,1,NULL,0),
 (5845,5842,60,'198-hemisphaerium-coeli-boreale',1,'2026-01-07 14:31:45',40,'2020-09-13 13:21:00',40,'2020-09-13 15:21:00',0,NULL,1,NULL,1,NULL,0),
@@ -7811,13 +7857,13 @@ INSERT INTO `pages` VALUES
 (5872,5858,74,'74-a-collomb',32,'2026-01-19 18:09:11',41,'2020-09-13 13:21:13',40,'2020-09-13 15:21:13',8,NULL,1,NULL,1,NULL,0),
 (5873,5858,74,'116-l-vilardi',32,'2026-01-19 18:09:20',41,'2020-09-13 13:21:14',40,'2020-09-13 15:21:14',9,NULL,1,NULL,1,NULL,0),
 (5874,5858,74,'158-salomon-koninck',32,'2026-01-19 18:09:27',41,'2020-09-13 13:21:14',40,'2020-09-13 15:21:14',10,NULL,1,NULL,1,NULL,0),
-(5878,5858,74,'276-robert-falk',32,'2026-01-22 17:24:59',41,'2020-09-13 13:21:16',40,'2020-09-13 15:21:16',12,NULL,1,NULL,1,NULL,0),
+(5878,5858,74,'276-robert-falk',32,'2026-01-23 09:47:48',41,'2020-09-13 13:21:16',40,'2020-09-13 15:21:16',12,NULL,1,NULL,1,NULL,0),
 (5877,5858,74,'233-peter-joseph-minjon',32,'2026-01-19 18:09:45',41,'2020-09-13 13:21:15',40,'2020-09-13 15:21:15',11,NULL,1,NULL,1,NULL,0),
 (5879,5858,74,'286-basil-samoylov',32,'2026-01-19 18:10:00',41,'2020-09-13 13:21:16',40,'2020-09-13 15:21:16',13,NULL,1,NULL,1,NULL,0),
 (5880,5858,74,'293-andries-vermeulen',32,'2026-01-19 18:10:08',41,'2020-09-13 13:21:17',40,'2020-09-13 15:21:17',14,NULL,1,NULL,1,NULL,0),
 (5883,5858,74,'2299-abraham-teniers',32,'2026-01-21 08:20:31',41,'2020-09-13 13:21:18',40,'2020-09-13 15:21:18',16,NULL,1,NULL,1,NULL,0),
 (5882,5858,74,'2163-haik-mhitaryan',32,'2026-01-19 18:10:13',41,'2020-09-13 13:21:17',40,'2020-09-13 15:21:17',15,NULL,1,NULL,1,NULL,0),
-(5885,5858,74,'2306-david-teniers-ii-the-younger',32,'2026-01-19 18:10:28',41,'2020-09-13 13:21:19',40,'2020-09-13 15:21:19',17,NULL,1,NULL,1,NULL,0),
+(5885,5858,74,'2306-david-teniers-ii-the-younger',32,'2026-01-24 08:58:49',41,'2020-09-13 13:21:19',40,'2020-09-13 15:21:19',17,NULL,1,NULL,1,NULL,0),
 (5887,5858,74,'2314-vladimir-makovskiy',1,'2026-01-19 18:10:36',41,'2020-09-13 13:21:20',40,'2020-09-13 15:21:20',18,NULL,1,NULL,1,NULL,0),
 (5892,5858,74,'3410-marcel-genay',32,'2026-01-19 18:10:55',41,'2020-09-13 13:21:22',40,'2020-09-13 15:21:22',21,NULL,1,NULL,1,NULL,0),
 (5889,5858,74,'2917-unknown-dutch-artist',32,'2026-01-19 18:10:47',41,'2020-09-13 13:21:20',40,'2020-09-13 15:21:20',20,NULL,1,NULL,1,NULL,0),
@@ -8030,7 +8076,7 @@ INSERT INTO `pages` VALUES
 (6117,5843,60,'les-courses',32,'2026-01-12 16:37:33',41,'2025-11-01 18:36:01',40,'2025-11-01 19:36:01',117,NULL,1,NULL,1,NULL,0),
 (6118,5843,60,'les-nouveaux-amoureux-de-paris',32,'2026-01-12 16:37:39',41,'2025-11-01 18:36:02',40,'2025-11-01 19:36:02',118,NULL,1,NULL,1,NULL,0),
 (6119,5791,70,'sefedin-ibrahim-alamin',32,'2026-01-07 14:31:48',40,'2025-11-01 18:36:02',40,'2025-11-01 19:36:02',54,NULL,1,NULL,1,NULL,0),
-(6120,5843,60,'les-perles-de-tourkana',32,'2026-01-12 16:37:44',41,'2025-11-01 18:36:02',40,'2025-11-01 19:36:02',119,NULL,1,NULL,1,NULL,0),
+(6120,5843,60,'les-perles-de-tourkana',32,'2026-02-02 17:13:36',41,'2025-11-01 18:36:02',40,'2025-11-01 19:36:02',119,NULL,1,NULL,1,NULL,0),
 (6121,5843,60,'ludovicus-magnus',32,'2026-01-12 16:37:50',41,'2025-11-01 18:36:02',40,'2025-11-01 19:36:02',120,NULL,1,NULL,1,NULL,0),
 (6122,5843,60,'mega-chariot',32,'2026-01-14 09:21:27',41,'2025-11-01 18:36:02',40,'2025-11-01 19:36:02',121,NULL,1,NULL,1,NULL,0),
 (6123,5791,70,'filipe-jardim',32,'2026-01-13 10:28:45',41,'2025-11-01 18:36:02',40,'2025-11-01 19:36:02',55,NULL,1,NULL,1,NULL,0),
@@ -8130,7 +8176,7 @@ INSERT INTO `pages` VALUES
 (6342,29,3,'mb',1,'2026-01-12 12:05:56',41,'2026-01-12 12:04:23',41,'2026-01-12 13:05:56',5,NULL,1,NULL,1,NULL,1),
 (6345,31,5,'see-h-prices',1,'2026-01-19 18:30:45',41,'2026-01-12 17:34:24',41,'2026-01-12 18:35:00',16,NULL,1,NULL,1,NULL,1),
 (6344,29,3,'ab',1,'2026-01-12 12:10:19',41,'2026-01-12 12:07:43',41,'2026-01-12 13:09:04',7,NULL,1,NULL,1,NULL,1),
-(6346,6306,63,'hermes-scarf-guides',1,'2026-01-19 14:40:51',41,'2026-01-17 21:19:50',41,'2026-01-17 22:27:54',2,NULL,1,NULL,1,NULL,1),
+(6346,6306,63,'hermes-scarf-guides',1,'2026-01-24 08:21:41',41,'2026-01-17 21:19:50',41,'2026-01-17 22:27:54',2,NULL,1,NULL,1,NULL,1),
 (6347,5843,60,'hermes-flagship',1,'2026-01-19 11:27:26',41,'2026-01-17 21:26:11',41,'2026-01-17 22:38:44',155,NULL,1,NULL,1,NULL,1),
 (6348,5843,60,'hermes-flagship-variations1',1,'2026-01-18 07:58:39',41,'2026-01-17 21:47:34',41,'2026-01-17 22:50:21',156,NULL,1,NULL,1,NULL,0),
 (6349,5843,60,'hermes-flagship-variations2',1,'2026-01-18 07:56:30',41,'2026-01-17 22:43:12',41,'2026-01-17 23:45:39',157,NULL,1,NULL,1,NULL,0),
@@ -8141,7 +8187,10 @@ INSERT INTO `pages` VALUES
 (6354,31,5,'see-a-prices',1,'2026-01-19 18:44:45',41,'2026-01-19 18:44:00',41,'2026-01-19 19:44:14',17,NULL,1,NULL,1,NULL,1),
 (6355,31,5,'see-a-restricted',1,'2026-01-19 18:46:31',41,'2026-01-19 18:45:58',41,'2026-01-19 19:46:06',18,NULL,1,NULL,1,NULL,1),
 (6356,5858,74,'caravaggio',1,'2026-01-22 12:49:21',41,'2026-01-20 09:53:18',41,'2026-01-20 10:55:06',23,NULL,1,NULL,1,NULL,0),
-(6357,5861,73,'caravaggio-methodics',1,'2026-01-22 13:55:59',41,'2026-01-21 17:39:06',41,'2026-01-21 18:39:25',2,NULL,1,NULL,1,NULL,1);
+(6357,5861,73,'caravaggio-methodics',1,'2026-01-23 13:32:56',41,'2026-01-21 17:39:06',41,'2026-01-21 18:39:25',2,NULL,1,NULL,1,NULL,1),
+(6358,5843,60,'robe-legere',1,'2026-02-02 16:47:24',41,'2026-02-02 16:02:01',41,'2026-02-02 17:06:31',159,NULL,1,NULL,1,NULL,0),
+(6359,5827,71,'hopcash',1,'2026-02-02 16:11:34',41,'2026-02-02 16:09:49',41,'2026-02-02 17:10:34',10,NULL,1,NULL,0,NULL,0),
+(6360,5791,70,'theo-de-gueltzl',1,'2026-02-02 17:25:21',41,'2026-02-02 16:46:04',41,'2026-02-02 17:46:50',66,NULL,1,NULL,1,NULL,0);
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -8236,7 +8285,8 @@ INSERT INTO `pages_access` VALUES
 (6354,2,'2026-01-19 18:44:00'),
 (6355,2,'2026-01-19 18:45:58'),
 (6356,1,'2026-01-20 09:53:18'),
-(6357,1,'2026-01-21 17:39:06');
+(6357,1,'2026-01-21 17:39:06'),
+(6359,65,'2026-02-02 16:09:49');
 /*!40000 ALTER TABLE `pages_access` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -8409,7 +8459,7 @@ LOCK TABLES `session_login_throttle` WRITE;
 /*!40000 ALTER TABLE `session_login_throttle` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `session_login_throttle` VALUES
-('yb',1,1768972362);
+('yb',2,1770048033);
 /*!40000 ALTER TABLE `session_login_throttle` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -8455,7 +8505,7 @@ INSERT INTO `templates` VALUES
 (56,'countries',110,0,0,'{\"childTemplates\":[57],\"parentTemplates\":[1],\"slashUrls\":1,\"altFilename\":\"countries\",\"compile\":3,\"tags\":\"a h\",\"modified\":1766754552,\"ns\":\"ProcessWire\",\"_lazy\":\"*\"}'),
 (57,'country',111,0,0,'{\"parentTemplates\":[56],\"slashUrls\":1,\"altFilename\":\"country\",\"compile\":3,\"tags\":\"a h\",\"modified\":1767773893,\"ns\":\"ProcessWire\",\"_lazy\":\"*\"}'),
 (59,'spot',113,0,0,'{\"noChildren\":1,\"parentTemplates\":[1],\"slashUrls\":1,\"altFilename\":\"spot\",\"compile\":3,\"label\":\"Redirecting spot\",\"tags\":\"top\",\"modified\":1766754662,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041f\\u0440\\u0438\\u043c\\u0435\\u0440\",\"label5755\":\"Exempel\",\"label5754\":\"Exemple\",\"_lazy\":\"*\"}'),
-(60,'h_artwork',114,0,0,'{\"useRoles\":1,\"editRoles\":[5735],\"createRoles\":[5735],\"noInherit\":1,\"parentTemplates\":[67,63],\"slashUrls\":1,\"altFilename\":\"h_artwork\",\"compile\":3,\"label\":\"Scarf\",\"tags\":\"h\",\"modified\":1768645938,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041f\\u043b\\u0430\\u0442\\u043e\\u043a\",\"label5754\":\"Carr\\u00e9\",\"_lazy\":1,\"roles\":[37,5735,6290]}'),
+(60,'h_artwork',114,0,0,'{\"useRoles\":1,\"editRoles\":[5735],\"createRoles\":[5735],\"noInherit\":1,\"parentTemplates\":[67,63],\"slashUrls\":1,\"altFilename\":\"h_artwork\",\"compile\":3,\"label\":\"Scarf\",\"tags\":\"h\",\"modified\":1770049284,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041f\\u043b\\u0430\\u0442\\u043e\\u043a\",\"label5754\":\"Carr\\u00e9\",\"_lazy\":1,\"roles\":[37,5735,6290]}'),
 (61,'h_spot',115,0,0,'{\"childTemplates\":[67,66,64,68,65,98],\"parentTemplates\":[61],\"slashUrls\":1,\"altFilename\":\"h_spot\",\"compile\":3,\"label\":\"Herm\\u00e8s and other\",\"tags\":\"h\",\"modified\":1768926625,\"ns\":\"ProcessWire\",\"label5753\":\"Herm\\u00e8s \\u0438 \\u0434\\u0440\\u0443\\u0433\\u0438\\u0435\",\"label5755\":\"Herm\\u00e8s och andra\",\"label5754\":\"Herm\\u00e8s et des autres\",\"_lazy\":1}'),
 (98,'h_collections',151,0,0,'{\"noParents\":-1,\"childTemplates\":[63],\"parentTemplates\":[61],\"slashUrls\":1,\"compile\":3,\"label\":\"Collections\",\"tags\":\"h\",\"modified\":1768929854,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u0438\",\"label5755\":\"Samlingar\",\"label5754\":\"Collections\",\"_lazy\":1}'),
 (63,'h_collection',117,0,0,'{\"sortfield\":221,\"childTemplates\":[60],\"parentTemplates\":[98],\"slashUrls\":1,\"altFilename\":\"h_collection\",\"compile\":3,\"label\":\"Collection\",\"tags\":\"h\",\"modified\":1768929773,\"ns\":\"ProcessWire\",\"_lazy\":1,\"label5753\":\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"}'),
@@ -8464,8 +8514,8 @@ INSERT INTO `templates` VALUES
 (66,'h_brands',120,0,0,'{\"childTemplates\":[69],\"parentTemplates\":[61],\"slashUrls\":1,\"altFilename\":\"h_brands\",\"compile\":3,\"label\":\"Brands\",\"tags\":\"h\",\"modified\":1767625323,\"ns\":\"ProcessWire\",\"label5753\":\"\\u0411\\u0440\\u0435\\u043d\\u0434\\u044b\",\"label5755\":\"M\\u00e4rken\",\"label5754\":\"Les marques\",\"_lazy\":1}'),
 (67,'h_artworks',121,0,0,'{\"childTemplates\":[60],\"parentTemplates\":[61],\"slashUrls\":1,\"altFilename\":\"h_artworks\",\"compile\":3,\"label\":\"Scarves\",\"tags\":\"h\",\"modified\":1768381542,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041f\\u043b\\u0430\\u0442\\u043a\\u0438\",\"label5755\":\"Halsdukar\",\"label5754\":\"Carr\\u00e9s\",\"_lazy\":1}'),
 (68,'h_possessions',122,0,0,'{\"useRoles\":1,\"childTemplates\":[72],\"parentTemplates\":[61],\"slashUrls\":1,\"altFilename\":\"h_possessions\",\"compile\":3,\"label\":\"Possessions\",\"tags\":\"h\",\"modified\":1766754552,\"ns\":\"ProcessWire\",\"label5753\":\"\\u0411\\u0443\\u0445\\u0433\\u0430\\u043b\\u0442\\u0435\\u0440\\u0438\\u044f\",\"label5755\":\"Fakturor\",\"label5754\":\"Les Factures\",\"_lazy\":\"*\",\"roles\":[6290]}'),
-(69,'h_brand',123,0,0,'{\"useRoles\":1,\"editRoles\":[5735],\"createRoles\":[5735],\"parentTemplates\":[66],\"slashUrls\":1,\"altFilename\":\"h_brand\",\"compile\":3,\"tags\":\"h\",\"modified\":1767776738,\"ns\":\"ProcessWire\",\"_lazy\":1,\"roles\":[37,5735,6290]}'),
-(70,'h_person',124,0,0,'{\"useRoles\":1,\"editRoles\":[5735],\"createRoles\":[5735],\"noInherit\":1,\"parentTemplates\":[64],\"slashUrls\":1,\"altFilename\":\"h_person\",\"compile\":3,\"tags\":\"h\",\"modified\":1768383425,\"ns\":\"ProcessWire\",\"_lazy\":1,\"roles\":[37,5735,6290]}'),
+(69,'h_brand',123,0,0,'{\"useRoles\":1,\"editRoles\":[5735],\"createRoles\":[5735],\"parentTemplates\":[66],\"slashUrls\":1,\"altFilename\":\"h_brand\",\"compile\":3,\"label\":\"Brand\",\"tags\":\"h\",\"modified\":1769185900,\"ns\":\"ProcessWire\",\"_lazy\":1,\"roles\":[37,5735,6290]}'),
+(70,'h_person',124,0,0,'{\"useRoles\":1,\"editRoles\":[5735],\"createRoles\":[5735],\"noInherit\":1,\"parentTemplates\":[64],\"slashUrls\":1,\"altFilename\":\"h_person\",\"compile\":3,\"label\":\"Artist\",\"tags\":\"h\",\"modified\":1769186036,\"ns\":\"ProcessWire\",\"_lazy\":1,\"roles\":[37,5735,6290]}'),
 (71,'h_seller',125,0,0,'{\"parentTemplates\":[65],\"slashUrls\":1,\"altFilename\":\"h_seller\",\"compile\":3,\"tags\":\"h\",\"modified\":1767776845,\"ns\":\"ProcessWire\",\"_lazy\":1}'),
 (72,'h_possession',126,0,0,'{\"useRoles\":1,\"parentTemplates\":[68],\"slashUrls\":1,\"altFilename\":\"h_possession\",\"compile\":3,\"tags\":\"h\",\"modified\":1766754552,\"ns\":\"ProcessWire\",\"_lazy\":\"*\"}'),
 (73,'a_school',127,0,0,'{\"slashUrls\":1,\"altFilename\":\"a_school\",\"compile\":3,\"label\":\"School\",\"tags\":\"a\",\"modified\":1769088017,\"ns\":\"ProcessWire\",\"_lazy\":1,\"label5753\":\"\\u0428\\u043a\\u043e\\u043b\\u0430\"}'),
@@ -8499,4 +8549,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-01-22 18:43:54
+-- Dump completed on 2026-02-02 18:48:19
