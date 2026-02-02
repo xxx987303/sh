@@ -1,4 +1,5 @@
-<?php namespace ProcessWire;
+<?php
+//<?php namespace ProcessWire;
 
 /**
  * ProcessWire SH site by Iouri Belokopytov. Copyright 2020-2025 Iouri Belokopytov
@@ -6,12 +7,15 @@
  * Debugging tools
  */
 
-require_once __dir__."/../../../Sites/sh/index.php";
-require_once __dir__.'/functions.php';
-require_once __dir__.'/../site/templates/_debug.php';
-if (!defined('CLI_MODE')) define ('CLI_MODE', true);
+if (__NAMESPACE__ == 'ProcessWire') {
+    require_once __dir__."/../../../Sites/sh/index.php";
+    require_once __dir__.'/functions.php';
+    require_once __dir__.'/../site/templates/_debug.php';
+    
+    $user->language = $languages->getDefault();
+}
 
-$user->language = $languages->getDefault();
+if (!defined('CLI_MODE')) define ('CLI_MODE', true);
 
 /**
  * Initialise internal debug
@@ -246,10 +250,12 @@ class say
         return "\n$msg\n";
     }
 
-    static function hl(string $text = 'Unexpected error', $c = ['r'], $keepCR = false) {
+    static function hl(string $text = 'Unexpected error', $c = ['r'], $keepCR = false, $only_one=false) {
         static $text_previous = '?';
-        if ($text == $text_previous) return;
-        $text_previous = $text;
+        if ($only_one) {
+	    if ($text == $text_previous) return;
+            $text_previous = $text;
+	}
         if (CLI_MODE) {
             fwrite(STDERR, self::color($text, $c, $keepCR)."\n");
         } else {

@@ -48,7 +48,8 @@ $config->ártworkItems = ['h' => 'Scarves',
 			 'd' => 'Toys'];
 $config->colorHermes  = '#a85600';
 $config->colorDymkove = '#4e858f';
-$config->logoutRedirect = '/sh/';
+$config->treeRoot = DIRECTORY_SEPARATOR.basename(dirname(dirname(__file__))).DIRECTORY_SEPARATOR;
+$config->logoutRedirect = $config->treeRoot;
 $config->mh = 150; // Thumbs max-hight in px's
 
 /*

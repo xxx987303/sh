@@ -9,24 +9,8 @@ require_once "/Users/yb/Sites/sh/index.php";
 $saveToDB = false;
 
 if(1){
-    //foreach(pages("limit=9999, name^=caravaggio") as $p) {
-    foreach(pages("limit=9999, name^=281-") as $p) {
-	if ($images = $p->images) {
-	    echo "--------------------------------{$p->name} {$p->images}\n";
-	    foreach($images as $image) {
-tidy_dump($image);
-		$newName = "";
-		//if (0 || $newName = $image->rename("caravaggio.jpg")) echo "Rename OK\n";		    
-		//else tidy_dump(var_export($newName,true),"???????????????????? RENAME FAILES");
-		$area = dirname($image->filename).'/';
-		if (file_exists($n="$image->filename")) echo "OK $n\n";
-		else			                echo "?? $n\n";
-		foreach($image->getVariations() as $var) {
-		    if (file_exists($n="$area$var")) echo "OK $n\n";
-		    else			     echo "?? $n\n";
-		}
-	    }
-	}
+    foreach (pages()->get(("template=a_schools"))->children as $p) {
+	echo "{$p->template} {$p->title}\n";
     }
     exit;
 }
