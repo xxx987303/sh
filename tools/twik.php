@@ -3,13 +3,43 @@
  * include "0_fields.txt";
  */ 
 require_once __dir__ . '/debug.php';
-require_once __dir__ . '/../site/templates/_func.php';
+require_once "/Users/yb/Sites/sh/site/templates/_func.php";
 require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
 
 if(1){
-    foreach (pages()->get(("template=a_schools"))->children as $p) {
+    //
+    // Fill currency && h_aw_price_SEK
+    //
+    foreach(pages()->find("template=h_artwork") as $p) {
+	    printf("Set h_aw_price_SEK: %-30s %5s SEK\n", $p->title, $p->h_aw_price_SEK);
+continue;
+	//foreach(pages()->find("currency=CHF,template=h_artwork") as $p) {
+	if (empty($p->h_aw_price)) continue;
+	$mods = 0;
+	$p->of(false);
+	if (!$p->currency->title) {
+	    $mods++;
+	    $p->currency = 'SEK';
+	    printf("Set currency:       %-30s %5s %s\n", $p->title, $p->h_aw_price, $p->currency->title);
+	}
+	if (empty($h_aw_price_SEK)) {
+	    $mods++;
+	    $p->h_aw_price_SEK = currencyToSEK($p->h_aw_price,$p->currency->title);
+	    printf("Set h_aw_price_SEK: %-30s %5s SEK\n", $p->title, $p->h_aw_price_SEK);
+	}
+	//if (@$count++ > 5) exit;
+//	if ($mods) $p->save();
+	//tidy_dump($p);
+	//exit;
+	//printf("%-40s %s SEK\n",$p->title, currencyToSEK($p->h_aw_price,$p->currency->title));
+    }
+    exit;
+}
+
+if(0){
+    foreach (pages()->find("template=h_artwork") as $p) {
 	echo "{$p->template} {$p->title}\n";
     }
     exit;
