@@ -1,5 +1,4 @@
-<?php
-//<?php namespace ProcessWire;
+<?php namespace ProcessWire;
 
 /**
  * ProcessWire SH site by Iouri Belokopytov. Copyright 2020-2025 Iouri Belokopytov

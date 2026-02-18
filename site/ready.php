@@ -10,3 +10,5 @@ if(!defined("PROCESSWIRE")) die();
  * copy of all ProcessWire API variables.
  *
  */
+
+include_once './templates/_hooks.php';

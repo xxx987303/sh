@@ -2,13 +2,47 @@
 /**
  * include "0_fields.txt";
  */ 
+
+define('CLI_MODE', true);
+
 require_once __dir__ . '/debug.php';
 require_once "/Users/yb/Sites/sh/site/templates/_func.php";
 require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
 
+tidy_dump(User()->name,'user');
+
 if(1){
+    $SPOT_id = 'h';
+    foreach(pages()->find("template=h_artwork") as $p) {
+	foreach($p->fields as $f){
+	    $r = fieldViewable($f, 'restricted');
+	    //echo "$f->name '$r' ".var_export($f->hasTag('restricted'),true)."\n";
+	   printf("%20s %s\n",$f->name ,var_export($r,true));
+	}
+	exit;
+    }
+    exit;
+}
+
+
+if(0){
+    //
+    //Fix arrival date
+    //
+    foreach(pages()->find("template=h_artwork") as $p) {
+	if (empty($p->h_aw_day0)) continue;
+	preg_match("/(\d*)-?(\d*)?-?(\d\d)?$/",$p->h_aw_day0,$m);
+	//if (!empty($m[3])) continue;
+	//$p->h_aw_day0 = $m[1];
+	//$p->save();
+	printf("%-30s %12s - %s\n",$sanitizer->transliterate($p->title), $p->h_aw_day0, joinX($m));
+    }
+    exit;
+}
+
+if(0){
     //
     // Fill currency && h_aw_price_SEK
     //
