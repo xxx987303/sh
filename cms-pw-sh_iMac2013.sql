@@ -6206,11 +6206,11 @@ set autocommit=0;
 INSERT INTO `field_language` VALUES
 (41,5751,0),
 (40,5753,0),
-(5972,5753,0),
 (6340,5753,0),
 (6341,5753,0),
 (6342,5753,0),
-(6344,5753,0);
+(6344,5753,0),
+(5972,5754,0);
 /*!40000 ALTER TABLE `field_language` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -7863,7 +7863,7 @@ INSERT INTO `pages` VALUES
 (6187,6185,96,'70x70',1,'2026-01-07 14:31:48',40,'2025-11-27 10:15:09',40,'2025-11-27 11:15:09',0,NULL,1,NULL,1,NULL,0),
 (6325,5843,60,'cuivreries-variant-variations2',1,'2026-01-07 14:31:47',40,'2025-12-27 18:28:59',40,'2025-12-27 19:28:59',158,NULL,1,NULL,1,NULL,0),
 (6168,5791,70,'leigh-cooke',1,'2026-01-15 21:31:38',41,'2025-11-18 04:42:46',41,'2025-11-18 05:46:42',63,NULL,1,NULL,1,NULL,0),
-(5735,30,4,'artwork-editor',1,'2026-02-18 11:55:41',41,'2011-09-24 06:23:39',41,'2011-09-24 10:23:39',2,NULL,1,NULL,1,NULL,1),
+(5735,30,4,'artwork-editor',1,'2026-02-18 12:11:19',41,'2011-09-24 06:23:39',41,'2011-09-24 10:23:39',2,NULL,1,NULL,1,NULL,1),
 (5738,31,5,'page-lister',1,'2025-12-26 11:14:27',41,'2017-02-06 02:27:26',40,'2017-02-06 04:27:26',9,NULL,1,NULL,1,NULL,1),
 (5739,3,2,'lister',1,'2017-02-06 02:27:26',40,'2017-02-06 02:27:26',40,'2017-02-06 04:27:26',9,NULL,1,NULL,1,NULL,1),
 (5740,3,2,'recent-pages',1,'2017-02-06 02:27:46',40,'2017-02-06 02:27:46',40,'2017-02-06 04:27:46',10,NULL,1,NULL,1,NULL,1),
@@ -8044,7 +8044,7 @@ INSERT INTO `pages` VALUES
 (5959,5958,87,'2857-lyudmila-vereshchagina',32,'2026-01-12 09:05:04',41,'2020-09-13 13:21:51',40,'2020-09-13 15:21:51',0,NULL,1,NULL,1,NULL,0),
 (5960,5957,90,'d_artworks',32,'2026-01-07 14:31:45',40,'2020-09-13 13:21:51',40,'2020-09-13 15:21:51',1,NULL,1,NULL,1,NULL,0),
 (5961,5960,92,'2865-shchuka',32,'2026-01-07 14:31:45',40,'2020-09-13 13:21:51',40,'2020-09-13 15:21:51',0,NULL,1,NULL,1,NULL,0),
-(5972,29,3,'margo',1,'2025-12-20 06:51:30',41,'2020-09-13 16:03:24',41,'2020-09-13 18:04:05',2,NULL,1,NULL,1,NULL,1),
+(5972,29,3,'margo',1,'2026-02-18 12:08:13',41,'2020-09-13 16:03:24',41,'2020-09-13 18:04:05',2,NULL,1,NULL,1,NULL,1),
 (5974,5843,60,'afrika',32,'2026-02-11 14:07:52',41,'2020-09-13 16:59:12',5972,'2020-09-13 18:59:42',10,NULL,1,NULL,1,NULL,0),
 (5965,5843,60,'armes-de-paris',32,'2026-02-09 17:58:26',41,'2020-09-13 14:46:01',41,'2020-09-13 16:47:14',6,NULL,1,NULL,1,NULL,0),
 (5966,5843,60,'armes-de-chasse',32,'2026-02-11 14:09:28',41,'2020-09-13 14:51:24',41,'2020-09-13 16:52:12',7,NULL,1,NULL,1,NULL,0),
@@ -8052,7 +8052,7 @@ INSERT INTO `pages` VALUES
 (5968,5791,70,'la-torre',32,'2026-01-15 10:08:45',41,'2020-09-13 15:09:36',41,'2020-09-13 17:10:02',36,NULL,1,NULL,1,NULL,0),
 (5969,5843,60,'astrologie-nouvelle',32,'2026-02-09 18:26:16',41,'2020-09-13 15:13:19',41,'2020-09-13 17:13:23',8,NULL,1,NULL,1,NULL,0),
 (5973,5791,70,'robert-dallet',32,'2026-01-18 07:18:41',41,'2020-09-13 16:55:19',5972,'2020-09-13 18:56:10',37,NULL,1,NULL,1,NULL,0),
-(5975,5843,60,'avenue-des-acacias',32,'2026-02-18 11:50:25',40,'2020-09-13 17:07:50',5972,'2020-09-13 19:08:38',11,NULL,1,NULL,1,NULL,0),
+(5975,5843,60,'avenue-des-acacias',32,'2026-02-18 13:50:03',5972,'2020-09-13 17:07:50',5972,'2020-09-13 19:08:38',11,NULL,1,NULL,1,NULL,0),
 (5976,5843,60,'brazil',0,'2026-01-12 16:26:17',41,'2020-09-14 08:17:38',5972,'2020-09-14 10:17:46',12,NULL,1,NULL,1,NULL,0),
 (5977,5843,60,'bride-de-cour',32,'2026-01-12 16:26:21',41,'2020-09-14 14:14:07',5972,'2020-09-14 16:15:12',13,NULL,1,NULL,1,NULL,0),
 (5979,5843,60,'casse-noisette',32,'2026-01-12 16:26:29',41,'2020-09-14 14:23:16',5972,'2020-09-14 16:24:31',15,NULL,1,NULL,1,NULL,0),
@@ -8566,7 +8566,7 @@ LOCK TABLES `session_login_throttle` WRITE;
 /*!40000 ALTER TABLE `session_login_throttle` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `session_login_throttle` VALUES
-('yb',1,1771415715);
+('margo',1,1771420517);
 /*!40000 ALTER TABLE `session_login_throttle` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -8617,11 +8617,11 @@ INSERT INTO `templates` VALUES
 (98,'h_collections',151,0,0,'{\"noParents\":-1,\"childTemplates\":[63],\"parentTemplates\":[61],\"slashUrls\":1,\"compile\":3,\"label\":\"Collections\",\"tags\":\"h\",\"modified\":1768929854,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u0438\",\"label5755\":\"Samlingar\",\"label5754\":\"Collections\",\"_lazy\":1}'),
 (63,'h_collection',117,0,0,'{\"sortfield\":221,\"childTemplates\":[60],\"parentTemplates\":[98],\"slashUrls\":1,\"altFilename\":\"h_collection\",\"compile\":3,\"label\":\"Collection\",\"tags\":\"h\",\"modified\":1768929773,\"ns\":\"ProcessWire\",\"_lazy\":1,\"label5753\":\"\\u041a\\u043e\\u043b\\u043b\\u0435\\u043a\\u0446\\u0438\\u044f\"}'),
 (64,'h_persons',118,0,0,'{\"childTemplates\":[70],\"parentTemplates\":[61],\"slashUrls\":1,\"altFilename\":\"h_persons\",\"compile\":3,\"label\":\"People\",\"tags\":\"h\",\"modified\":1767864538,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041b\\u044e\\u0434\\u0438\",\"label5755\":\"M\\u00e4nniskor\",\"label5754\":\"Les gens\",\"_lazy\":1}'),
-(65,'h_sellers',119,0,0,'{\"useRoles\":1,\"childTemplates\":[71],\"parentTemplates\":[61],\"slashUrls\":1,\"altFilename\":\"h_sellers\",\"compile\":3,\"label\":\"Providers\",\"tags\":\"h\",\"modified\":1766754552,\"ns\":\"ProcessWire\",\"label5753\":\"\\u0418\\u0441\\u0442\\u043e\\u0447\\u043d\\u0438\\u043a\\u0438\",\"label5755\":\"Leverant\\u00f6rer\",\"label5754\":\"Les fournisseurs\",\"_lazy\":\"*\",\"roles\":[5735,6290]}'),
+(65,'h_sellers',119,0,0,'{\"useRoles\":1,\"childTemplates\":[71],\"parentTemplates\":[61],\"slashUrls\":1,\"altFilename\":\"h_sellers\",\"compile\":3,\"label\":\"Providers\",\"tags\":\"h\",\"modified\":1771416647,\"ns\":\"ProcessWire\",\"label5753\":\"\\u0418\\u0441\\u0442\\u043e\\u0447\\u043d\\u0438\\u043a\\u0438\",\"label5755\":\"Leverant\\u00f6rer\",\"label5754\":\"Les fournisseurs\",\"_lazy\":\"*\",\"roles\":[6290]}'),
 (66,'h_brands',120,0,0,'{\"childTemplates\":[69],\"parentTemplates\":[61],\"slashUrls\":1,\"altFilename\":\"h_brands\",\"compile\":3,\"label\":\"Brands\",\"tags\":\"h\",\"modified\":1767625323,\"ns\":\"ProcessWire\",\"label5753\":\"\\u0411\\u0440\\u0435\\u043d\\u0434\\u044b\",\"label5755\":\"M\\u00e4rken\",\"label5754\":\"Les marques\",\"_lazy\":1}'),
 (67,'h_artworks',121,0,0,'{\"childTemplates\":[60],\"parentTemplates\":[61],\"slashUrls\":1,\"altFilename\":\"h_artworks\",\"compile\":3,\"label\":\"Scarves\",\"tags\":\"h\",\"modified\":1768381542,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041f\\u043b\\u0430\\u0442\\u043a\\u0438\",\"label5755\":\"Halsdukar\",\"label5754\":\"Carr\\u00e9s\",\"_lazy\":1}'),
 (68,'h_possessions',122,0,0,'{\"useRoles\":1,\"childTemplates\":[72],\"parentTemplates\":[61],\"slashUrls\":1,\"altFilename\":\"h_possessions\",\"compile\":3,\"label\":\"Possessions\",\"tags\":\"h\",\"modified\":1766754552,\"ns\":\"ProcessWire\",\"label5753\":\"\\u0411\\u0443\\u0445\\u0433\\u0430\\u043b\\u0442\\u0435\\u0440\\u0438\\u044f\",\"label5755\":\"Fakturor\",\"label5754\":\"Les Factures\",\"_lazy\":\"*\",\"roles\":[6290]}'),
-(69,'h_brand',123,0,0,'{\"useRoles\":1,\"editRoles\":[5735],\"createRoles\":[5735],\"parentTemplates\":[66],\"slashUrls\":1,\"altFilename\":\"h_brand\",\"compile\":3,\"label\":\"Brand\",\"tags\":\"h\",\"modified\":1769185900,\"ns\":\"ProcessWire\",\"_lazy\":1,\"roles\":[37,5735,6290]}'),
+(69,'h_brand',123,0,0,'{\"useRoles\":1,\"parentTemplates\":[66],\"slashUrls\":1,\"altFilename\":\"h_brand\",\"compile\":3,\"label\":\"Brand\",\"tags\":\"h\",\"modified\":1771416647,\"ns\":\"ProcessWire\",\"_lazy\":\"*\",\"roles\":[37,5735,6290]}'),
 (70,'h_person',124,0,0,'{\"useRoles\":1,\"editRoles\":[5735],\"createRoles\":[5735],\"noInherit\":1,\"parentTemplates\":[64],\"slashUrls\":1,\"altFilename\":\"h_person\",\"compile\":3,\"label\":\"Artist\",\"tags\":\"h\",\"modified\":1770669341,\"ns\":\"ProcessWire\",\"_lazy\":1,\"roles\":[37,5735,6290]}'),
 (71,'h_seller',125,0,0,'{\"parentTemplates\":[65],\"slashUrls\":1,\"altFilename\":\"h_seller\",\"compile\":3,\"tags\":\"h\",\"modified\":1767776845,\"ns\":\"ProcessWire\",\"_lazy\":1}'),
 (72,'h_possession',126,0,0,'{\"useRoles\":1,\"parentTemplates\":[68],\"slashUrls\":1,\"altFilename\":\"h_possession\",\"compile\":3,\"tags\":\"h\",\"modified\":1766754552,\"ns\":\"ProcessWire\",\"_lazy\":\"*\"}'),
@@ -8637,7 +8637,7 @@ INSERT INTO `templates` VALUES
 (82,'a_persons',136,0,0,'{\"childTemplates\":[74],\"parentTemplates\":[79],\"slashUrls\":1,\"altFilename\":\"a_persons\",\"compile\":3,\"label\":\"Painters\",\"tags\":\"a\",\"modified\":1767944662,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041f\\u0435\\u0440\\u0441\\u043e\\u043d\\u0430\\u043b\\u0438\\u0438\",\"label5755\":\"Konstn\\u00e4rer\",\"label5754\":\"Les Artistes\",\"_lazy\":1}'),
 (83,'a_sellers',137,0,0,'{\"useRoles\":1,\"childTemplates\":[78],\"parentTemplates\":[79],\"slashUrls\":1,\"altFilename\":\"a_sellers\",\"compile\":3,\"label\":\"My art depositories\",\"tags\":\"a\",\"modified\":1769102797,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041c\\u043e\\u0438 \\u0438\\u0441\\u0442\\u043e\\u0447\\u043d\\u0438\\u043a\\u0438\",\"label5755\":\"Mina konstposter\",\"label5754\":\"Les d\\u00e9p\\u00f4ts d\'art\",\"_lazy\":1,\"roles\":[6290]}'),
 (84,'a_artworks',138,0,0,'{\"childTemplates\":[77],\"parentTemplates\":[79],\"slashUrls\":1,\"altFilename\":\"a_artworks\",\"compile\":3,\"label\":\"Paintings\",\"tags\":\"a\",\"modified\":1769080021,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u044b\",\"label5755\":\"M\\u00e5lningar\",\"label5754\":\"Peintures\",\"_lazy\":1}'),
-(85,'a_possessions',139,0,0,'{\"useRoles\":1,\"childTemplates\":[76],\"parentTemplates\":[79],\"slashUrls\":1,\"altFilename\":\"a_possessions\",\"compile\":3,\"label\":\"Possessions\",\"tags\":\"a\",\"modified\":1768815767,\"ns\":\"ProcessWire\",\"label5753\":\"\\u0411\\u0443\\u0445\\u0433\\u0430\\u043b\\u0442\\u0435\\u0440\\u0438\\u044f\",\"label5755\":\"Facturen\",\"label5754\":\"Factures d\'achat\",\"_lazy\":1,\"roles\":[5735,6290]}'),
+(85,'a_possessions',139,0,0,'{\"useRoles\":1,\"childTemplates\":[76],\"parentTemplates\":[79],\"slashUrls\":1,\"altFilename\":\"a_possessions\",\"compile\":3,\"label\":\"Possessions\",\"tags\":\"a\",\"modified\":1771416647,\"ns\":\"ProcessWire\",\"label5753\":\"\\u0411\\u0443\\u0445\\u0433\\u0430\\u043b\\u0442\\u0435\\u0440\\u0438\\u044f\",\"label5755\":\"Facturen\",\"label5754\":\"Factures d\'achat\",\"_lazy\":\"*\",\"roles\":[6290]}'),
 (87,'d_person',141,0,0,'{\"slashUrls\":1,\"altFilename\":\"d_person\",\"compile\":3,\"tags\":\"d\",\"modified\":1768203123,\"ns\":\"ProcessWire\",\"_lazy\":1}'),
 (88,'d_spot',142,0,0,'{\"childTemplates\":[90,89,91],\"parentTemplates\":[1],\"slashUrls\":1,\"altFilename\":\"d_spot\",\"compile\":3,\"label\":\"Dymkovo toys\",\"tags\":\"d\",\"modified\":1766754413,\"ns\":\"ProcessWire\",\"label5753\":\"\\u0414\\u044b\\u043c\\u043a\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f \\u0438\\u0433\\u0440\\u0443\\u0448\\u043a\\u0430\",\"label5755\":\"Dymkovo leksaker\",\"label5754\":\"Dymkovo jouets\",\"_lazy\":\"*\"}'),
 (89,'d_persons',143,0,0,'{\"childTemplates\":[87],\"parentTemplates\":[88],\"slashUrls\":1,\"altFilename\":\"d_persons\",\"compile\":3,\"label\":\"People\",\"tags\":\"d\",\"modified\":1766754413,\"ns\":\"ProcessWire\",\"label5753\":\"\\u041f\\u0435\\u0440\\u0441\\u043e\\u043d\\u0430\\u043b\\u0438\\u0438\",\"label5754\":\"Les gents\",\"_lazy\":\"*\"}'),
@@ -8656,4 +8656,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-02-18 12:57:10
+-- Dump completed on 2026-02-18 15:14:42
