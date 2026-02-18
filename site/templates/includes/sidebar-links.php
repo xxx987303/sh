@@ -31,9 +31,9 @@ switch ($GLOBALS['SPOT_id']) {
 	
         echo x("li",x("a href='$GLOBALS[SPOT_search]h_aw_popularity=3,4&sort=-h_aw_popularity'",
 		      __('Most popular scarves')));
-	echo x("li",x("a href='$GLOBALS[SPOT_search]".$ss(restrictedSelector('h_aw_price=@1'))."&limit=6&sort=h_aw_price'",
+	echo x("li",x("a href='$GLOBALS[SPOT_search]".$ss(restrictedSelector('h_aw_price_SEK=@1'))."&limit=6&sort=h_aw_price_SEK'",
 		      __('Cheapest scarves'))); 
-	echo x("li",x("a href='$GLOBALS[SPOT_search]h_aw_price=@1&limit=6&sort=-h_aw_price'",
+	echo x("li",x("a href='$GLOBALS[SPOT_search]h_aw_price_SEK=@1&limit=6&sort=-h_aw_price_SEK'",
 		      __('Most expensive scarves'))); 
 	echo x("li",x("a href='$GLOBALS[SPOT_search]h_aw_year=".sprintf("%s-%s&sort=-h_aw_year",date("Y")-10,date("Y"))."'",
 		      __('Artworks from the last decade'))); 

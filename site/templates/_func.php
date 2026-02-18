@@ -289,11 +289,27 @@ function getVariations(Page $page) {
 }
 
 /**
+ */
+function currencyToSEK($value, $currency='SEK') {
+    $rates = ['SEK'=> 1,
+	      'USD'=> 8.9199,
+	      'EUR'=>10.5181,
+	      'CHF'=>11.4687,
+	      'GBP'=>12.1972];
+    $reply =($currency && in_array(($c=strToUpper($currency)), array_keys($rates))
+	? $value * $rates[$c]
+	: $value);
+    if ($reply != $value) say::hl("currencyToSEK($value,$currency): $reply SEK",'y');
+    return $reply;
+    
+}
+
+/**
  * Prepare value for rendering
  */
 function getKeyValue(Object $page, Field $field, int $truncate=0, $returnValue=false) {
     global $SPOT_id, $SPOT_search, $spot_home, $lookingForBug;
-
+    
     // href
     $href = function(Object $p, Field $f, $v) {
 	global $SPOT_id, $SPOT_search,$spot_home;
@@ -732,6 +748,7 @@ function summarizeText($text, $maxLength = 500) {
 function getSpotURLs(){
     global $SPOT_id, $SPOT_url, $SPOT_root, $SPOT_search, $SITE_input, $spot_home, $site_home;
     if (!isset($spot_home)) {
+	if (empty(@$_SERVER['REQUEST_URI'])) $_SERVER['REQUEST_URI'] = '';
 	preg_match('/(\?.*)/', $_SERVER['REQUEST_URI'], $url_match);
 	$SITE_input  = (empty($i=@$url_match[0]) ? '' : str_replace('?','',$i));
 
