@@ -16,12 +16,16 @@ tidy_dump(User()->name,'user');
 if(1){
     $SPOT_id = 'h';
     foreach(pages()->find("template=h_artwork") as $p) {
-	foreach($p->fields as $f){
-	    $r = fieldViewable($f, 'restricted');
-	    //echo "$f->name '$r' ".var_export($f->hasTag('restricted'),true)."\n";
-	   printf("%20s %s\n",$f->name ,var_export($r,true));
+	foreach($p->fields as $field){
+	    foreach(fields()->getTags() as $tag){
+		$pe = User()->hasPermission($p="see-{$SPOT_id}-{$tag}");
+		if($field->hasTag($tag) && !$pe) $reply = false; 
+		printf("%20s %s\n",$field->name ,var_export($reply,true));
+	    }
 	}
 	exit;
+	$r = fieldViewable($f, 'restricted');
+	//echo "$f->name '$r' ".var_export($f->hasTag('restricted'),true)."\n";
     }
     exit;
 }
@@ -171,8 +175,8 @@ tidy_dump($p);
 	$donor->status5754 = 1;
 	$donor->parent = '/a_spot/a_artworks/';
 	if (!$donor->id) if (!$saveToDB) $donor->id = 111111; else $donor->save();
-tidy_dump($donor, $donorName);
-exit;
+	tidy_dump($donor, $donorName);
+	exit;
 	
 	foreach($donorOld->fields as $f) {
 	    if (str_starts_with($f->name, 'a_p_') ||

@@ -1,9 +1,9 @@
 /*M!999999\- enable the sandbox mode */ 
--- MariaDB dump 10.19-12.0.2-MariaDB, for osx10.21 (arm64)
+-- MariaDB dump 10.19-12.2.2-MariaDB, for osx10.21 (arm64)
 --
 -- Host: localhost    Database: cms-pw-sh
 -- ------------------------------------------------------
--- Server version	12.0.2-MariaDB
+-- Server version	12.2.2-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -61,9 +61,9 @@ CREATE TABLE `field_a_av_date` (
 -- Dumping data for table `field_a_av_date`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_av_date` WRITE;
 /*!40000 ALTER TABLE `field_a_av_date` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_av_date` VALUES
 (5868,'1875 - 1948','','',''),
 (5869,'1939-2022','','',''),
@@ -89,7 +89,8 @@ INSERT INTO `field_a_av_date` VALUES
 (6356,'1571 - 1610','','','');
 /*!40000 ALTER TABLE `field_a_av_date` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_av_duty`
@@ -111,9 +112,9 @@ CREATE TABLE `field_a_av_duty` (
 -- Dumping data for table `field_a_av_duty`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_av_duty` WRITE;
 /*!40000 ALTER TABLE `field_a_av_duty` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_av_duty` VALUES
 (5879,1,0),
 (5879,6,1),
@@ -142,7 +143,8 @@ INSERT INTO `field_a_av_duty` VALUES
 (6356,1,0);
 /*!40000 ALTER TABLE `field_a_av_duty` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_av_firstname`
@@ -173,9 +175,9 @@ CREATE TABLE `field_a_av_firstname` (
 -- Dumping data for table `field_a_av_firstname`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_av_firstname` WRITE;
 /*!40000 ALTER TABLE `field_a_av_firstname` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_av_firstname` VALUES
 (5859,'Rembrandt','Рембрандт','Rembrandt','Rembrandt'),
 (5863,'Jan','Ян','Jan','Jan'),
@@ -203,7 +205,8 @@ INSERT INTO `field_a_av_firstname` VALUES
 (6356,'Michelangelo','','','');
 /*!40000 ALTER TABLE `field_a_av_firstname` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_av_lastname`
@@ -234,9 +237,9 @@ CREATE TABLE `field_a_av_lastname` (
 -- Dumping data for table `field_a_av_lastname`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_av_lastname` WRITE;
 /*!40000 ALTER TABLE `field_a_av_lastname` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_av_lastname` VALUES
 (5859,'van Rijn','ван Рейн','van Rijn','van Rijn'),
 (5863,'van Eyck','ван Эйк','van Eyck','van Eyck'),
@@ -264,7 +267,8 @@ INSERT INTO `field_a_av_lastname` VALUES
 (6356,'Merisi','','','');
 /*!40000 ALTER TABLE `field_a_av_lastname` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_av_school`
@@ -286,9 +290,9 @@ CREATE TABLE `field_a_av_school` (
 -- Dumping data for table `field_a_av_school`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_av_school` WRITE;
 /*!40000 ALTER TABLE `field_a_av_school` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_av_school` VALUES
 (5859,5862,0),
 (5874,5862,0),
@@ -304,7 +308,8 @@ INSERT INTO `field_a_av_school` VALUES
 (6356,6357,0);
 /*!40000 ALTER TABLE `field_a_av_school` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_av_url`
@@ -326,9 +331,9 @@ CREATE TABLE `field_a_av_url` (
 -- Dumping data for table `field_a_av_url`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_av_url` WRITE;
 /*!40000 ALTER TABLE `field_a_av_url` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_av_url` VALUES
 (5859,'https://nl.wikipedia.org/wiki/Rembrandt_van_Rijn'),
 (5869,'http://lebed.com/2006/art4785.htm'),
@@ -341,7 +346,8 @@ INSERT INTO `field_a_av_url` VALUES
 (5885,'https://en.wikipedia.org/wiki/David_Teniers_the_Younger');
 /*!40000 ALTER TABLE `field_a_av_url` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_base`
@@ -363,9 +369,9 @@ CREATE TABLE `field_a_aw_base` (
 -- Dumping data for table `field_a_aw_base`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_base` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_base` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_base` VALUES
 (5907,1,0),
 (5908,1,0),
@@ -399,7 +405,8 @@ INSERT INTO `field_a_aw_base` VALUES
 (5940,3,0);
 /*!40000 ALTER TABLE `field_a_aw_base` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_collection`
@@ -421,9 +428,9 @@ CREATE TABLE `field_a_aw_collection` (
 -- Dumping data for table `field_a_aw_collection`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_collection` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_collection` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_collection` VALUES
 (5907,5900,0),
 (5908,5901,0),
@@ -459,7 +466,8 @@ INSERT INTO `field_a_aw_collection` VALUES
 (5936,5905,0);
 /*!40000 ALTER TABLE `field_a_aw_collection` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_condition`
@@ -490,9 +498,9 @@ CREATE TABLE `field_a_aw_condition` (
 -- Dumping data for table `field_a_aw_condition`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_condition` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_condition` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_condition` VALUES
 (5910,'Craquelure, Laying, Minor damage','Кракелюры, Натяжка холста, Небольшие повреждения','Craquelure, Couché, Petits dégâts','Krackelyr, Lagning, Mindre skador'),
 (5911,'','','',''),
@@ -527,7 +535,8 @@ INSERT INTO `field_a_aw_condition` VALUES
 (6353,'','','','');
 /*!40000 ALTER TABLE `field_a_aw_condition` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_copy_artwork`
@@ -549,16 +558,17 @@ CREATE TABLE `field_a_aw_copy_artwork` (
 -- Dumping data for table `field_a_aw_copy_artwork`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_copy_artwork` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_copy_artwork` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_copy_artwork` VALUES
 (5910,5907,0),
 (5914,5915,0),
 (5937,5938,0);
 /*!40000 ALTER TABLE `field_a_aw_copy_artwork` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_featured`
@@ -579,16 +589,17 @@ CREATE TABLE `field_a_aw_featured` (
 -- Dumping data for table `field_a_aw_featured`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_featured` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_featured` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_featured` VALUES
 (5932,1),
 (5913,1),
 (5923,1);
 /*!40000 ALTER TABLE `field_a_aw_featured` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_link`
@@ -610,9 +621,9 @@ CREATE TABLE `field_a_aw_link` (
 -- Dumping data for table `field_a_aw_link`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_link` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_link` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_link` VALUES
 (5915,4,0),
 (5926,4,0),
@@ -626,7 +637,8 @@ INSERT INTO `field_a_aw_link` VALUES
 (5923,6,0);
 /*!40000 ALTER TABLE `field_a_aw_link` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_more`
@@ -657,9 +669,9 @@ CREATE TABLE `field_a_aw_more` (
 -- Dumping data for table `field_a_aw_more`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_more` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_more` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_more` VALUES
 (5909,'','Копия довольно известной работы итальянца Raffaele Frigerio','',''),
 (5910,'','','',''),
@@ -695,7 +707,8 @@ INSERT INTO `field_a_aw_more` VALUES
 (6353,'','','','');
 /*!40000 ALTER TABLE `field_a_aw_more` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_person`
@@ -717,9 +730,9 @@ CREATE TABLE `field_a_aw_person` (
 -- Dumping data for table `field_a_aw_person`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_person` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_person` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_person` VALUES
 (5922,5859,0),
 (5907,5866,0),
@@ -758,7 +771,8 @@ INSERT INTO `field_a_aw_person` VALUES
 (5929,5930,0);
 /*!40000 ALTER TABLE `field_a_aw_person` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_possession`
@@ -780,9 +794,9 @@ CREATE TABLE `field_a_aw_possession` (
 -- Dumping data for table `field_a_aw_possession`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_possession` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_possession` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_possession` VALUES
 (5909,5942,0),
 (5910,5943,0),
@@ -804,7 +818,8 @@ INSERT INTO `field_a_aw_possession` VALUES
 (6353,6352,0);
 /*!40000 ALTER TABLE `field_a_aw_possession` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_provenance`
@@ -835,12 +850,13 @@ CREATE TABLE `field_a_aw_provenance` (
 -- Dumping data for table `field_a_aw_provenance`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_provenance` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_provenance` DISABLE KEYS */;
-set autocommit=0;
 /*!40000 ALTER TABLE `field_a_aw_provenance` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_signature`
@@ -871,9 +887,9 @@ CREATE TABLE `field_a_aw_signature` (
 -- Dumping data for table `field_a_aw_signature`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_signature` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_signature` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_signature` VALUES
 (5909,'L. Vilardi','L. Vilardi','L. Vilardi','L. Vilardi'),
 (5910,'','','',''),
@@ -909,7 +925,8 @@ INSERT INTO `field_a_aw_signature` VALUES
 (6353,'','','','');
 /*!40000 ALTER TABLE `field_a_aw_signature` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_size`
@@ -940,9 +957,9 @@ CREATE TABLE `field_a_aw_size` (
 -- Dumping data for table `field_a_aw_size`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_size` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_size` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_size` VALUES
 (5907,'94,5 x 137','','',''),
 (5908,'','','',''),
@@ -980,7 +997,8 @@ INSERT INTO `field_a_aw_size` VALUES
 (6353,'','','','');
 /*!40000 ALTER TABLE `field_a_aw_size` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_technique`
@@ -1002,9 +1020,9 @@ CREATE TABLE `field_a_aw_technique` (
 -- Dumping data for table `field_a_aw_technique`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_technique` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_technique` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_technique` VALUES
 (5907,2,0),
 (5908,2,0),
@@ -1040,7 +1058,8 @@ INSERT INTO `field_a_aw_technique` VALUES
 (5940,2,0);
 /*!40000 ALTER TABLE `field_a_aw_technique` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_url`
@@ -1062,9 +1081,9 @@ CREATE TABLE `field_a_aw_url` (
 -- Dumping data for table `field_a_aw_url`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_url` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_url` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_url` VALUES
 (5907,'https://skd-online-collection.skd.museum/Details/Index/415366'),
 (5910,'https://www.bukowskis.com/sv/lots/1006514-okand-konstnar-1800-tal-olja-pa-duk'),
@@ -1091,7 +1110,8 @@ INSERT INTO `field_a_aw_url` VALUES
 (5909,'http://www.metropol.se/auctions/detail.asp?OG={17006E49-067F-41E1-9226-9EBE6D087FDF}');
 /*!40000 ALTER TABLE `field_a_aw_url` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_aw_year`
@@ -1113,9 +1133,9 @@ CREATE TABLE `field_a_aw_year` (
 -- Dumping data for table `field_a_aw_year`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_aw_year` WRITE;
 /*!40000 ALTER TABLE `field_a_aw_year` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_aw_year` VALUES
 (5907,'1620'),
 (5908,''),
@@ -1151,7 +1171,8 @@ INSERT INTO `field_a_aw_year` VALUES
 (5940,'');
 /*!40000 ALTER TABLE `field_a_aw_year` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_c_address`
@@ -1182,9 +1203,9 @@ CREATE TABLE `field_a_c_address` (
 -- Dumping data for table `field_a_c_address`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_c_address` WRITE;
 /*!40000 ALTER TABLE `field_a_c_address` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_c_address` VALUES
 (5900,'Dresden','Дрезден','Dresden','Dresden'),
 (5901,'','','',''),
@@ -1194,7 +1215,8 @@ INSERT INTO `field_a_c_address` VALUES
 (5905,'','','','');
 /*!40000 ALTER TABLE `field_a_c_address` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_c_duty`
@@ -1216,9 +1238,9 @@ CREATE TABLE `field_a_c_duty` (
 -- Dumping data for table `field_a_c_duty`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_c_duty` WRITE;
 /*!40000 ALTER TABLE `field_a_c_duty` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_c_duty` VALUES
 (5900,2,0),
 (5901,3,0),
@@ -1228,7 +1250,8 @@ INSERT INTO `field_a_c_duty` VALUES
 (5905,4,0);
 /*!40000 ALTER TABLE `field_a_c_duty` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_c_person`
@@ -1250,12 +1273,13 @@ CREATE TABLE `field_a_c_person` (
 -- Dumping data for table `field_a_c_person`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_c_person` WRITE;
 /*!40000 ALTER TABLE `field_a_c_person` DISABLE KEYS */;
-set autocommit=0;
 /*!40000 ALTER TABLE `field_a_c_person` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_c_url`
@@ -1277,15 +1301,16 @@ CREATE TABLE `field_a_c_url` (
 -- Dumping data for table `field_a_c_url`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_c_url` WRITE;
 /*!40000 ALTER TABLE `field_a_c_url` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_c_url` VALUES
 (5900,'https://skd-online-collection.skd.museum/'),
 (5904,'https://www.louvre.fr/');
 /*!40000 ALTER TABLE `field_a_c_url` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_p_artwork`
@@ -1307,9 +1332,9 @@ CREATE TABLE `field_a_p_artwork` (
 -- Dumping data for table `field_a_p_artwork`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_p_artwork` WRITE;
 /*!40000 ALTER TABLE `field_a_p_artwork` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_p_artwork` VALUES
 (5942,5909,0),
 (5943,5910,0),
@@ -1332,7 +1357,8 @@ INSERT INTO `field_a_p_artwork` VALUES
 (6352,6353,0);
 /*!40000 ALTER TABLE `field_a_p_artwork` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_p_currency`
@@ -1354,9 +1380,9 @@ CREATE TABLE `field_a_p_currency` (
 -- Dumping data for table `field_a_p_currency`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_p_currency` WRITE;
 /*!40000 ALTER TABLE `field_a_p_currency` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_p_currency` VALUES
 (5942,1,0),
 (5943,1,0),
@@ -1375,7 +1401,8 @@ INSERT INTO `field_a_p_currency` VALUES
 (5956,1,0);
 /*!40000 ALTER TABLE `field_a_p_currency` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_p_date`
@@ -1396,9 +1423,9 @@ CREATE TABLE `field_a_p_date` (
 -- Dumping data for table `field_a_p_date`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_p_date` WRITE;
 /*!40000 ALTER TABLE `field_a_p_date` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_p_date` VALUES
 (5942,'2017-01-16 00:00:00'),
 (5943,'2018-02-13 00:00:00'),
@@ -1418,7 +1445,8 @@ INSERT INTO `field_a_p_date` VALUES
 (6352,'2009-06-15 00:00:00');
 /*!40000 ALTER TABLE `field_a_p_date` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_p_object_number`
@@ -1439,9 +1467,9 @@ CREATE TABLE `field_a_p_object_number` (
 -- Dumping data for table `field_a_p_object_number`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_p_object_number` WRITE;
 /*!40000 ALTER TABLE `field_a_p_object_number` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_p_object_number` VALUES
 (5944,1146),
 (5945,1052),
@@ -1457,7 +1485,8 @@ INSERT INTO `field_a_p_object_number` VALUES
 (5956,1009015);
 /*!40000 ALTER TABLE `field_a_p_object_number` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_p_payed`
@@ -1478,9 +1507,9 @@ CREATE TABLE `field_a_p_payed` (
 -- Dumping data for table `field_a_p_payed`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_p_payed` WRITE;
 /*!40000 ALTER TABLE `field_a_p_payed` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_p_payed` VALUES
 (5956,5769),
 (5954,3725),
@@ -1501,7 +1530,8 @@ INSERT INTO `field_a_p_payed` VALUES
 (5944,675);
 /*!40000 ALTER TABLE `field_a_p_payed` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_p_person`
@@ -1523,16 +1553,17 @@ CREATE TABLE `field_a_p_person` (
 -- Dumping data for table `field_a_p_person`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_p_person` WRITE;
 /*!40000 ALTER TABLE `field_a_p_person` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_p_person` VALUES
 (5946,5882,0),
 (5948,5882,0),
 (5952,5882,0);
 /*!40000 ALTER TABLE `field_a_p_person` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_p_price_final`
@@ -1553,9 +1584,9 @@ CREATE TABLE `field_a_p_price_final` (
 -- Dumping data for table `field_a_p_price_final`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_p_price_final` WRITE;
 /*!40000 ALTER TABLE `field_a_p_price_final` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_p_price_final` VALUES
 (5942,150),
 (5943,2222),
@@ -1576,7 +1607,8 @@ INSERT INTO `field_a_p_price_final` VALUES
 (6352,100);
 /*!40000 ALTER TABLE `field_a_p_price_final` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_p_price_start`
@@ -1597,9 +1629,9 @@ CREATE TABLE `field_a_p_price_start` (
 -- Dumping data for table `field_a_p_price_start`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_p_price_start` WRITE;
 /*!40000 ALTER TABLE `field_a_p_price_start` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_p_price_start` VALUES
 (5942,600),
 (5943,2500),
@@ -1619,7 +1651,8 @@ INSERT INTO `field_a_p_price_start` VALUES
 (6351,800);
 /*!40000 ALTER TABLE `field_a_p_price_start` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_p_seller`
@@ -1641,9 +1674,9 @@ CREATE TABLE `field_a_p_seller` (
 -- Dumping data for table `field_a_p_seller`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_p_seller` WRITE;
 /*!40000 ALTER TABLE `field_a_p_seller` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_p_seller` VALUES
 (5943,5894,0),
 (5946,5894,0),
@@ -1664,7 +1697,8 @@ INSERT INTO `field_a_p_seller` VALUES
 (5950,5896,0);
 /*!40000 ALTER TABLE `field_a_p_seller` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_s_address`
@@ -1695,9 +1729,9 @@ CREATE TABLE `field_a_s_address` (
 -- Dumping data for table `field_a_s_address`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_s_address` WRITE;
 /*!40000 ALTER TABLE `field_a_s_address` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_s_address` VALUES
 (5894,'Stockholm','Стокгольм','Stockholm','Stockholm'),
 (5895,'Stockholm','Стокгольм','Stockholm','Stockholm'),
@@ -1706,7 +1740,8 @@ INSERT INTO `field_a_s_address` VALUES
 (5898,'','','','');
 /*!40000 ALTER TABLE `field_a_s_address` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_a_s_duty`
@@ -1728,9 +1763,9 @@ CREATE TABLE `field_a_s_duty` (
 -- Dumping data for table `field_a_s_duty`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_a_s_duty` WRITE;
 /*!40000 ALTER TABLE `field_a_s_duty` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_a_s_duty` VALUES
 (5894,1,0),
 (5895,1,0),
@@ -1739,7 +1774,8 @@ INSERT INTO `field_a_s_duty` VALUES
 (5898,1,0);
 /*!40000 ALTER TABLE `field_a_s_duty` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_admin_theme`
@@ -1760,14 +1796,16 @@ CREATE TABLE `field_admin_theme` (
 -- Dumping data for table `field_admin_theme`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_admin_theme` WRITE;
 /*!40000 ALTER TABLE `field_admin_theme` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_admin_theme` VALUES
-(41,175);
+(41,175),
+(5972,175);
 /*!40000 ALTER TABLE `field_admin_theme` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_body`
@@ -1795,16 +1833,16 @@ CREATE TABLE `field_body` (
 -- Dumping data for table `field_body`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_body` WRITE;
 /*!40000 ALTER TABLE `field_body` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_body` VALUES
 (6162,'','','',''),
 (6196,'<h3><em>From abigail-goodman.com</em></h3>\n\n<p>I absolutely adore all designs by Leigh P. Cooke!</p>\n\n<p>Many of you have probably heard me rave about <em>I Like Flowers</em>, another stunning creation by Cooke that was recently reissued.</p>\n\n<p>Such amazing high contrast between the pencils and the background. </p>\n\n<p>-----------------------------------------------------------------------------------</p>\n\n<div class=\"Y3BBE\">\n<div>The</div>\n<strong class=\"Yjhzub\">\"À vos crayons!\"</strong> (French for \"To your pencils!\" or \"Take out your pencils!\") scarf is a noted Hermès design created by artist <strong class=\"Yjhzub\">Leigh P. Cooke</strong>.</div>\n\n<div class=\"Fsg96\"> </div>\n\n<div class=\"otQkpb\">Key Facts</div>\n\n<ul class=\"KsbFXc U6u95\">\n	<li><span class=\"T286Pc\"><strong class=\"Yjhzub\">Designer:</strong> Leigh P. Cooke, who began designing for Hermès in 2001 and is known for a realistic, detailed style.</span></li>\n	<li><span class=\"T286Pc\"><strong class=\"Yjhzub\">Original Issue:</strong> The design was first released in <strong class=\"Yjhzub\">2004</strong> (specifically for the <em class=\"eujQNb\">Plissé</em> or pleated version) and the standard 90cm silk carré. It has also been released in other formats, such as the 45cm Gavroche and the Twilly.</span></li>\n	<li><span class=\"T286Pc\"><strong class=\"Yjhzub\">Inspiration:</strong> The design was reportedly inspired by Cooke’s grade-school son.</span></li>\n	<li><span class=\"T286Pc\"><strong class=\"Yjhzub\">Visual Style:</strong> The scarf features a playful, hyper-realistic arrangement of colored pencils, pencil shavings, and graphite. It is celebrated for its technical complexity, as the design requires a high number of color screens to achieve its three-dimensional effect and realistic shadows.</span></li>\n</ul>\n\n<div class=\"Fsg96\"> </div>\n\n<div class=\"otQkpb\">Variations and Availability</div>\n\n<div class=\"Y3BBE\">As of 2026, this design continues to appear in secondary luxury markets and occasional Hermès reissues:</div>\n\n<ul class=\"KsbFXc U6u95\">\n	<li><span class=\"T286Pc\"><strong class=\"Yjhzub\">Carré 90:</strong> The classic 90x90 cm silk scarf.</span></li>\n	<li><span class=\"T286Pc\"><strong class=\"Yjhzub\">Plissé:</strong> A pleated version that accentuates the \"pops\" of color from the pencil graphics.</span></li>\n	<li><span class=\"T286Pc\"><strong class=\"Yjhzub\">Twilly:</strong> A thin silk ribbon format titled \"A Vos Crayons et Carre Libre\".</span></li>\n</ul>','','',''),
 (6185,'','','',''),
 (5786,'','','',''),
 (6161,'','','',''),
-(5789,'<center>\n<div class=\"rounded-area\">\n<h3>Hermès scarves are an investment, and it\'s much more fun than shares!</h3>\n\n<p><strong>Queen Elizabeth, Princess Margaret, Grace Kelly, Madonna, Catherine Deneuve, Victoria Beckham, Jennifer Lopez, Margo... </strong></p>\n\n<p><strong>What unites them?</strong><br />\n<em><strong>Right, Hermès!</strong></em></p>\n</div>\n</center>','<center>\n<div class=\"rounded-area\">\n<h3>Шарфы Hermés — это инвестиция, это гораздо сильнее акций!</h3>\n\n<h3>Queen Elizabeth, Princess Margaret, Grace Killy, Madonna, Catherine Deneuve, Марго...  Что всех объединяет?</h3>\n\n<div style=\"text-align:center;\">Ну конечно Hermès!</div>\n</div>\n</center>','',''),
+(5789,'<center>\n<div class=\"rounded-area\">\n<h3>Hermès scarves are an investment, and it\'s much more fun than shares!</h3>\n\n<p><strong>Queen Elizabeth, Princess Margaret, Grace Kelly, Madonna, Catherine Deneuve, Victoria Beckham, Jennifer Lopez, Margo... </strong></p>\n\n<p><strong>What unites them?</strong><br />\n<em><strong>Right, Hermès!</strong></em></p>\n</div>\n</center>','<center>\n<div class=\"rounded-area\">\n<h3>Шарфы Hermés — это инвестиция, это гораздо сильнее акций!</h3>\n\n<h3>Queen Elizabeth, Princess Margaret, Grace Killy, Madonna, Catherine Deneuve, Марго...  Что всех объединяет?</h3>\n\n<div style=\"text-align:center;\">Ну конечно Hermès!</div>\n</div>\n</center>','<center>\n<div class=\"rounded-area\">\n<h3>Les carrés Hermès sont un investissement, et c\'est bien plus agréable que les actions !</h3>\n\n<p><strong>La reine Elizabeth, la princesse Margaret, Grace Kelly, Madonna, Catherine Deneuve, Victoria Beckham, Jennifer Lopez, Margo…</strong></p>\n\n<p><strong>Qu\'ont-elles en commun ?</strong><br />\n<em><strong>Exactement, Hermès !</strong></em></p>\n</div>\n</center>',''),
 (5791,'','','',''),
 (5792,'','','',''),
 (5793,'<p>Caty Latham — also known as Cathy Latham-Audibert — is a remarkable artist whose work at Hermès spans more than 45 extraordinary years. She is especially celebrated for creating <em>Clés</em>, one of the top ten best-selling Hermès scarves of all time, as well as for her clever self-referential designs.</p>\n\n<p>Her earliest two creations, <em>Clés</em> and <em>Vendanges</em>, were released without a signature. For the next decade she signed her work as “.Caty.” before eventually adopting the signature “Latham.” This evolution has become part of her story, reflecting the long and creative journey behind her designs.</p>','<p>Кэти Латам, известная также как Кэти Латам-Одибер, — выдающаяся художница, посвятившая Hermès более 45 невероятных лет. Особенно прославилась она платком <em>Clés</em>, вошедшим в десятку самых продаваемых платков Hermès за всю историю, а также своими изящными, самоироничными и «самоописательными» дизайнами.</p>\n\n<p>Её первые две работы — <em>Clés</em> и <em>Vendanges</em> — выпускались без подписи. Позже, в течение примерно десяти лет, она подписывала свои дизайны как “.Caty.”, а затем перешла к подписи “Latham.” Эта смена подписи стала частью её творческой биографии и отражает долгий путь развития её стиля.</p>','<p>Caty Latham — également connue sous le nom de Cathy Latham-Audibert — est une artiste exceptionnelle dont la collaboration avec Hermès s’étend sur plus de 45 années admirables. Elle est surtout reconnue pour avoir créé <em>Clés</em>, l’un des dix carrés Hermès les plus vendus de tous les temps, ainsi que pour ses motifs subtilement autoréférentiels.</p>\n\n<p>Ses deux premières créations, <em>Clés</em> et <em>Vendanges</em>, ont été publiées sans signature. Par la suite, elle a signé ses dessins “.Caty.” pendant une dizaine d’années avant d’adopter la signature “Latham.” Cette évolution fait aujourd’hui partie de son histoire et témoigne de son long parcours créatif.</p>','<p>Caty Latham — även känd som Cathy Latham-Audibert — är en enastående konstnär som arbetat med Hermès i över 45 imponerande år. Hon är särskilt känd för att ha skapat <em>Clés</em>, en av de tio mest sålda Hermès-sjalarnas genom tiderna, samt för sina lekfulla och självrefererande mönster.</p>\n\n<p>Hennes två första design, <em>Clés</em> och <em>Vendanges</em>, gavs ut utan signatur. Under det följande decenniet signerade hon sina verk med “.Caty.” innan hon så småningom gick över till signaturen “Latham.” Denna utveckling är idag en del av hennes historia och speglar den långa kreativa resa bakom hennes arbete.</p>\n\n<hr />'),
@@ -1834,7 +1872,7 @@ INSERT INTO `field_body` VALUES
 (5815,'','','',''),
 (5816,'Madame Laurence Bourthoumieux (or Thioune, or L.T. or Toutsy),','','',''),
 (5817,'<p>A naturalist and artist with acute observational skills and precision, his designs include trees, plants, animals, birds and insects.</p>\n\n<p>Many of his Hermès designs are in the large format scarves and not available in the 90cm silk twill, for instance his 1997 design “Ecume”.</p>','','<p>Diplômé de l’école des Beaux-Arts de Bourges et des métiers d’art à Paris, Antoine de Jacquelot est particulièrement connu pour ses tapisseries. Il se définit comme un peintre cartonnier.</p>\n\n<p>Il a travaillé pour Hermès et a été plusieurs fois primé.</p>\n\n<p>Antoine de Jacquelot vit au cœur de la nature et en est un observateur privilégié pour avoir incessamment \"recueilli\" plantes et animaux, afin de les traduire avec la précision d\'un naturaliste.</p>\n\n<p>Passer de la toile ou du carton à la coloquinte et à la gourde comme support de peinture est une idée survenue lors de la mise en culture de son potager : \"il fallait bien que je trouve quoi faire de toutes ces coloquintes !\" Une belle opportunité qui, depuis un an et demi, inspire l’artiste : la matière et la forme du fruit une fois séché lui dictent donc le sujet. La flore prend alors des airs de faune, se transforme en poisson ou animaux de toutes sortes avec une maîtrise parfaite du pinceau et des couleurs.</p>\n\n<p><em>Publié dans <a href=\"http://leblogdevalmer.over-blog.com/tag/compost/\">Compost</a></em></p>',''),
-(5818,'<p>Alice Shirley is a British artist who has been a key collaborator with Hermès since 2012. Known for her intricate, hand-painted depictions of flora and fauna, her work for the house often focuses on wildlife conservation and mythological themes. </p>\n\n<p>She studied at <em>Central St Martins and the Royal Drawing School</em> in London, where she was \"headhunted\" by members of the Hermès family.</p>\n\n<p>Shirley\'s work intentionally excludes humans, emphasizing a wild nature that recovers best when left alone. She uses her platform to raise awareness and funds for conservation through organizations like the <em>World Land Trust </em>and the <em>International Union for Conservation of Nature.</em></p>\n\n<p><em>With a help from AI</em></p>','<p>Alice Shirley — британская художница, которая с 2012 года является ключевым партнером Hermès. Известная своими замысловатыми, расписанными вручную изображениями флоры и фауны, она часто работает для этого дома, затрагивая темы охраны дикой природы и мифологии.</p>\n\n<p>Она училась в <em>Центральном колледже искусств и дизайна</em>  и <em>Королевской школе рисунка</em> в Лондоне, где её «переманили» члены семьи Hermès.</p>\n\n<p>В своих работах Alice намеренно исключает людей, подчеркивая дикую природу, которая лучше всего восстанавливается, когда её оставляют в покое. Она использует свою известность для сбора средств на охрану природы через такие организации, как <em>Всемирный земельный фонд</em> и <em>Международный союз охраны природы.</em></p>\n\n<p><em>С помощью ИИ</em></p>','',''),
+(5818,'<p>Alice Shirley is a British artist who has been a key collaborator with Hermès since 2012. Known for her intricate, hand-painted depictions of flora and fauna, her work for the house often focuses on wildlife conservation and mythological themes. </p>\n\n<p>She studied at <em>Central St Martins and the Royal Drawing School</em> in London, where she was \"headhunted\" by members of the Hermès family.</p>\n\n<p>Shirley\'s work intentionally excludes humans, emphasizing a wild nature that recovers best when left alone. She uses her platform to raise awareness and funds for conservation through organizations like the <em>World Land Trust </em>and the <em>International Union for Conservation of Nature.</em></p>\n\n<p><em>With a help from AI</em></p>','<p>Alice Shirley — британская художница, которая с 2012 года является ключевым партнером Hermès. Известная своими замысловатыми, расписанными вручную изображениями флоры и фауны, она часто работает для этого дома, затрагивая темы охраны дикой природы и мифологии.</p>\n\n<p>Она училась в <em>Центральном колледже искусств и дизайна</em>  и <em>Королевской школе рисунка</em> в Лондоне, где её «переманили» члены семьи Hermès.</p>\n\n<p>В своих работах Alice намеренно исключает людей, подчеркивая дикую природу, которая лучше всего восстанавливается, когда её оставляют в покое. Она использует свою известность для сбора средств на охрану природы через такие организации, как <em>Всемирный земельный фонд</em> и <em>Международный союз охраны природы.</em></p>\n\n<p><em>С помощью ИИ</em></p>','<p>Alice Shirley est une artiste britannique qui collabore étroitement avec Hermès depuis 2012.</p>\n\n<p>Connue pour ses représentations minutieuses de la faune et de la flore, peintes à la main, son travail pour la maison Hermès se concentre souvent sur la conservation de la faune sauvage et les thèmes mythologiques.</p>\n\n<p>Elle a étudié à Central Saint Martins et à la Royal Drawing School de Londres, où elle a été recrutée par des membres de la famille Hermès.</p>\n\n<p>L\'œuvre de Shirley exclut volontairement la présence humaine, mettant en valeur une nature sauvage qui se régénère mieux lorsqu\'on la laisse tranquille.</p>\n\n<p>Elle utilise sa notoriété pour sensibiliser le public et collecter des fonds pour la conservation, notamment auprès d\'organisations telles que le World Land Trust et l\'Union internationale pour la conservation de la nature (UICN).</p>\n\n<p><em>Avec l\'aide de l\'intelligence artificielle.</em></p>',''),
 (5819,'<p>Hubert de Watrigant is a renowned French painter and one of the most prolific designers for Hermès, having collaborated with the fashion house regularly since 1989. </p>\n\n<p>Raised in the Landes region of France by a racehorse trainer, his work is deeply influenced by his equestrian heritage and a self-taught mastery of animal subjects. </p>\n\n<p>Beyond his work for Hermès, de Watrigant is a world-class animal painter whose works are held in the private collections of Queen Elizabeth II, the King of Morocco, and members of the Rothschild family. </p>\n\n<p>His style is often compared to Toulouse-Lautrec and Degas for its ability to capture fleeting, instinctive moments of movement. </p>\n\n<p><em>With a help from AI</em></p>','','',''),
 (5820,'<p>The artistic director of Hermès. Under his direction, the firm has seen its biggest growth in decades, with sales of 4 billion euros in 2014.</p>\n\n<p>Dumas is the son of <a href=\"/sh/h_spot/h_persons/328-jean-louis-dumas/\">Jean-Louis Dumas</a>, the former CEO of the Hermès Group. His mother was Rena (née Gregoriadès) Dumas (1937–2009), the Greek-born architect who founded Rena Dumas Architecture Intérieure in 1972 in Paris. Through his father\'s lineage, he is also the great-great-great grandson of Hermès founder <a href=\"/sh/h_spot/h_persons/330-thierry-herms/\">Thierry Hermès.</a></p>\n\n<p>In 1991, Dumas received a Bachelor of Arts degree in the visual arts from Brown University in Providence, Rhode Island, US, due to his parents\' belief that an education in America would be an advantage for his future participation in the family business. His father had spent a short time in the buyer-training program of Bloomingdales department store in New York City.</p>','<p>Dumas...</p>','',''),
 (5821,'<div>He was the transformative chairman and artistic director of Hermès from 1978 to 2006.</div>\n\n<div> </div>\n\n<div>A <strong>fifth-generation</strong> descendant of the founder, he is credited with evolving the brand from a traditional Parisian saddlery into a multibillion-euro global powerhouse while fiercely maintaining family control and artisanal quality.</div>\n\n<div>\n<p>Dumas oversaw a period of unprecedented growth, increasing annual sales from approximately <strong class=\"Yjhzub\">$50 million</strong> in the late 1970s to <strong class=\"Yjhzub\">$2.5 billion</strong> by 2009.<span class=\"uJ19be notranslate\"><span class=\"vKEkVd\">  </span></span><span class=\"T286Pc\">He aggressively expanded into Asian and American markets, opening flagship \"Maisons Hermès\" in cities like New York, Tokyo, and Seoul.</span></p>\n\n<p><span class=\"T286Pc\">He integrated new \"métiers\" (crafts) into the brand, including watchmaking, tableware, and jewelry. </span>Dumas was known for his \"poet and grocer\" dual identity—balancing artistic whimsy with sharp business acumen.<span class=\"uJ19be notranslate\"><span class=\"vKEkVd\"> </span></span></p>\n\n<div class=\"Fsg96\">\n<div class=\"Y3BBE\"><span class=\"T286Pc\">He was married to <strong class=\"Yjhzub\">Rena Dumas</strong>, a Greek-born architect who designed more than 300 Hermès boutiques.</span></div>\n\n<p><span class=\"T286Pc\">His son, <strong><a href=\"/sh/h_spot/h_persons/327-pierre-alexis-dumas/\">Pierre-Alexis Dumas</a></strong>, became the company’s artistic director in 2005. His nephew, <strong><a href=\"/sh/h_spot/h_persons/axel-dumas/\">Axel Dumas</a></strong>, has served as executive chairman since 2013.</span></p>\n\n<p><em>With help from AI</em></p>\n</div>\n</div>','<div class=\"Y3BBE\">\n<div>Потомок основателя Hermès в пятом поколении, человек, стоявший у руля фирмы с 1978 по 2006 год, занимая пост председателя и художественного руководителя.</div>\n\n<div> </div>\n\n<div>За годы правления Дюма полностью преобразил бренд, превратив традиционную парижскую мастерскую по производству седел в глобальную империю с миллиардными оборотами.</div>\n\n<div> </div>\n</div>\n\n<div class=\"Y3BBE\">Под его руководством компания пережила невероятный рост: годовые продажи выросли примерно с 50 миллионов долларов в конце 70-х до 2,5 миллиардов к 2009 году. Он активно осваивал рынки Азии и Америки, открывая флагманские \"Maison Hermès\" в Нью-Йорке, Токио, Сеуле, добавил новые направления — часы, посуду, украшения.</div>\n\n<div class=\"Y3BBE\"> </div>\n\n<div class=\"Y3BBE\">Дюма был известен своей двойственностью, он был \"поэтом и лавочником\" одновременно: сочетал художественную фантазию с острой деловой хваткой. При этом он отчаянно ценил семейный контроль и ручное качество.</div>\n\n<div class=\"Y3BBE\"> </div>\n\n<div class=\"Y3BBE\">Он был женат на Рене Дюма, архитекторе из Греции, которая, кстати, спроектировала более 300 бутиков Hermès. Его сын, Пьер-Алексис Дюма, стал художественным директором компании в 2005 году. А племянник, Аксель Дюма, занимает пост исполнительного председателя с 2013 года.</div>\n\n<div class=\"Y3BBE\">\n<p><em>При участии ИИ</em></p>\n</div>','<p>Jean-Louis Robert Frédéric Dumas-Hermès.</p>\n\n<p>Il dirigea et transforma Hermès de 1978 à 2006. Il développa notamment la présence de cette marque à l\'étranger, en Europe, en Asie, et aux États-Unis2.</p>\n\n<p>Il passa une licence en droit et sciences économiques à Paris, en 1959, et un diplôme de sciences politiques à Sciences Po, section Ecofi, en 1960. Il fait en partie son service militaire en Algérie, pendant la guerre pour l\'indépendance de ce pays juste avant les accords d\'Evian.</p>\n\n<p>Il est l\'oncle de Axel Dumas, le fils de <a href=\"../2298-robert-dumas\">Robert Dumas</a> et le frère d\'Olivier Dumas.</p>\n\n<p>Il décéda de la maladie de Parkinson à l\'âge de 72 ans.</p>',''),
@@ -1863,7 +1901,7 @@ INSERT INTO `field_body` VALUES
 (5844,'<p>My first carré Hermès</p>','<p>Мой первый платок Hermès</p>','<p>Mon premier carré Hermès</p>','<p>Min första Carré Hermès</p>'),
 (5845,'','','',''),
 (5846,'','<p>Первый платок (каре), выпущенный Hermès. Много раз переиздавался</p>','<p>Le mouchoir imprimé, comme accessoire de mode féminine indispensable d’une l’époque, apparaît au XIXe siècle vers 1867.</p>\n\n<p>Ce mouchoir, en se développant se rapprochera du foulard, pour devenir également masculin en se transformant en \"mouchoirs de cou\". Les soldats d’alors sont dotés de mouchoirs imprimés sur lesquels on trouve des motifs militaires, voir des instructions illustrées, pour les combattants analphabètes.</p>\n\n<p>Durant le début de la Première Guerre mondiale, les motifs imprimés sur le mouchoir de cou changeront, y compris pour les femmes où ceux-ci prennent une inspiration militaire ou tout du moins masculine.</p>\n\n<p>Alors que les manuels d’instruction militaire sont rendus obligatoires vers 1937, les soldats étant censés savoir lire, Hermès va s’inspirer de cette tradition. Tout juste un siècle après la création de la société par Thierry Hermès, Robert Dumas, directeur d’Hermès, réalise en 1937 le premier carré avec le nom de \"Jeu des omnibus et Dames blanches\" inspiré d’une sorte de jeu de Paris très populaire à l’époque.</p>',''),
-(5847,'<h3><em>From AI:</em></h3>\n\n<p>\"Les Folies Du Ciel\" celebrates the whimsical origins of aviation and man\'s early experiments with flights.</p>\n\n<p>It features a playful collection of historical hot air balloons, airships (<em class=\"eujQNb\">montgolfières</em>), and imaginary flying machines with flapping pennants like a dove.</p>\n\n<p>Here<em><strong> </strong><span class=\"T286Pc\"><strong class=\"Yjhzub\">Paz Universal:</strong> An imaginary airship shaped like a dove, based on a design from Spain circa 1880.</span></em></p>\n\n<p>Here <em><strong>Montgolfière</strong></em>: A depiction of the massive balloon that carried seven passengers over Lyons in 1784. Known for its delicate and ethereal detail, the design often features vibrant borders and a central field crowded with intricate aeronautical illustration</p>\n\n<h3><em>From The Hermès Spring-Summer 1994 Seasonal Scarf Booklet:</em></h3>\n\n<p>Madness on the part of the aeronauts who risked their lives, and mad expenditures on the part of the subscribers and spectators who financed such exploits.</p>\n\n<p>On November 21st, 1783, Etienne de Montgolfier\'s aerostat flew over Paris for 25 minutes.</p>\n\n<p>Alas, the balloons on this scarf did not all experience such celestial glory. Many remained at the project stage and are now among the archives preserved in the terrestrial silence of <a href=\"https://www.musee-armee.fr/en/home.html\">Musée des Invalides</a>.</p>\n\n<p> </p>','<h3><em>Навеяно ИИ:</em></h3>\n\n<p>«Les Folies Du Ciel» - это о причудливых истоках авиации. Здесь представлена ​​игривая коллекция реальных воздушных шаров (монгольфьеров) и воображаемых летательных аппаратов.</p>\n\n<p>Здесь «Paz Universal», воображаемый дирижабль в форме голубя по испанскому эскизу примерно 1880 года.</p>\n\n<p>Здесь «Montgolfière», огромный воздушный шар, который в 1784 году поднял семь пассажиров над Лионом.</p>\n\n<p>Дизайн привлекает своей изящной и воздушной детализацией, яркими рамками и центральным полем, заполненным замысловатыми аэронавигационными штучками.</p>\n\n<h3><em>Из буклета Hermès Весна-Лето 1994:</em></h3>\n\n<p>Безумие со стороны воздухоплавателей, рисковавших жизнью, и безумные траты со стороны подписчиков и зрителей, финансировавших такие подвиги.</p>\n\n<p>21 ноября 1783 года аэростат Этьена де Монгольфье пролетел над Парижем 25 минут.</p>\n\n<p>Увы, не все воздушные шары на этом платке испытали такую ​​небесную славу. Многие из них остались на стадии проекта и теперь хранятся в архивах, находящихся в земной тишине <a href=\"https://www.musee-armee.fr/en/home.html\">Musée des Invalides</a>.</p>\n\n<p> </p>','',''),
+(5847,'<h3><em>From AI:</em></h3>\n\n<p>\"Les Folies Du Ciel\" celebrates the whimsical origins of aviation and man\'s early experiments with flights.</p>\n\n<p>It features a playful collection of historical hot air balloons, airships (<em class=\"eujQNb\">montgolfières</em>), and imaginary flying machines with flapping pennants like a dove.</p>\n\n<p>Here<em><strong> </strong><span class=\"T286Pc\"><strong class=\"Yjhzub\">Paz Universal:</strong> An imaginary airship shaped like a dove, based on a design from Spain circa 1880.</span></em></p>\n\n<p>Here <em><strong>Montgolfière</strong></em>: A depiction of the massive balloon that carried seven passengers over Lyons in 1784. Known for its delicate and ethereal detail, the design often features vibrant borders and a central field crowded with intricate aeronautical illustration</p>\n\n<h3><em>From The Hermès Spring-Summer 1994 Seasonal Scarf Booklet:</em></h3>\n\n<p>Madness on the part of the aeronauts who risked their lives, and mad expenditures on the part of the subscribers and spectators who financed such exploits.</p>\n\n<p>On November 21st, 1783, Etienne de Montgolfier\'s aerostat flew over Paris for 25 minutes.</p>\n\n<p>Alas, the balloons on this scarf did not all experience such celestial glory. Many remained at the project stage and are now among the archives preserved in the terrestrial silence of <a href=\"https://www.musee-armee.fr/en/home.html\">Musée des Invalides</a>.</p>\n\n<p> </p>','<h3><em>Навеяно ИИ:</em></h3>\n\n<p>«Les Folies Du Ciel» - это о причудливых истоках авиации. Здесь представлена ​​игривая коллекция реальных воздушных шаров (монгольфьеров) и воображаемых летательных аппаратов.</p>\n\n<p>Здесь «Paz Universal», воображаемый дирижабль в форме голубя по испанскому эскизу примерно 1880 года.</p>\n\n<p>Здесь «Montgolfière», огромный воздушный шар, который в 1784 году поднял семь пассажиров над Лионом.</p>\n\n<p>Дизайн привлекает своей изящной и воздушной детализацией, яркими рамками и центральным полем, заполненным замысловатыми аэронавигационными штучками.</p>\n\n<h3><em>Из буклета Hermès Весна-Лето 1994:</em></h3>\n\n<p>Безумие со стороны воздухоплавателей, рисковавших жизнью, и безумные траты со стороны подписчиков и зрителей, финансировавших такие подвиги.</p>\n\n<p>21 ноября 1783 года аэростат Этьена де Монгольфье пролетел над Парижем 25 минут.</p>\n\n<p>Увы, не все воздушные шары на этом платке испытали такую ​​небесную славу. Многие из них остались на стадии проекта и теперь хранятся в архивах, находящихся в земной тишине <a href=\"https://www.musee-armee.fr/en/home.html\">Musée des Invalides</a>.</p>\n\n<p> </p>','<h3><em>De l\'IA :</em></h3>\n\n<p>« Les Folies du Ciel » célèbre les origines fantaisistes de l\'aviation et les premières expériences de vol de l\'homme.</p>\n\n<p>L\'exposition présente une collection ludique de montgolfières historiques, de dirigeables (<em class=\"eujQNb\">montgolfières</em>) et de machines volantes imaginaires aux fanions flottants, évoquant une colombe.</p>\n\n<p>Ici, <em><span class=\"T286Pc\"><strong class=\"Yjhzub\">Paz Universal :</strong> Un dirigeable imaginaire en forme de colombe, inspiré d\'un modèle espagnol datant d\'environ 1880.</span></em></p>\n\n<p>Ici, <em><strong>Montgolfière</strong></em> : Une représentation de l\'immense ballon qui transporta sept passagers au-dessus de Lyon en 1784. Avec ses détails délicats et aériens, le motif présente souvent des bordures éclatantes et un champ central richement orné d\'illustrations aéronautiques complexes.</p>\n\n<h3><em>Extrait du livret des carrés Hermès Printemps-Été 1994 :</em></h3>\n\n<p>Folie des aéronautes qui risquaient leur vie, et dépenses folles des souscripteurs et spectateurs qui finançaient ces exploits.</p>\n\n<p>Le 21 novembre 1783, l\'aérostat d\'Étienne de Montgolfier survola Paris pendant 25 minutes.</p>\n\n<p>Hélas, tous les ballons représentés sur ce carré n\'ont pas connu une telle gloire céleste. Nombre d\'entre elles sont restées au stade de projet et font désormais partie des archives conservées dans le silence terrestre du <a href=\"https://www.musee-armee.fr/en/home.html\">Musée des Invalides</a>.</p>\n\n<p> </p>',''),
 (5848,'','','',''),
 (5849,'<p>\"Les Voitures à Transformation\" désigne des carrosses hippomobiles du XIXe siècle, souvent des calèches ou coupés, qui étaient conçus pour être transformables afin de s\'adapter à différents usages ou saisons. Ces véhicules ingénieux et élégants sont l\'objet d\'un motif de design célèbre de la maison.</p>\n\n<p>Les voitures à transformation étaient à la pointe de la technologie pour leur époque, offrant des innovations comme des toits ouvrants ou des glaces actionnées par des systèmes ingénieux. Elles se caractérisaient par leur grande élégance, avec des détails comme le cannage, et étaient souvent associées à des promenades raffinées.</p>\n\n<p><em>Avec l’aide de IA</em></p>\n\n<h3><em>From The Hermès Fall-Winter 2017/18 Seasonal Scarf Booklet:<br />\nPanorama universel de la haute carrosserie et sellerie, Exposition universelle de Londres en 1851, par Guillon.</em></h3>\n\n<p>This composition is inspired by a grandly named volume in the mile Hermes collection. In the mid 19th century. French and international carriage designs were particularly dynamic and inventive, combining aesthetic appeal and technical innovation. At the London World\'s Fair of 1851, for example, a Paris workshop presented a modular carriage, and a coupé whose protective rain-hood could be raised or lowered at the press of a button. Convertible carriages were in vogue in France at the time, as evidenced by the ancestors of the soft-top car seen here, surrounding a central motif inspired by a caned panel, an effect often used at the time to decorate the body of the carriage.</p>','<h3><em>Навеяно ИИ</em></h3>\n\n<p><strong>Трансформирующиеся экипажи</strong> — это конные повозки XIX века, чаще всего кареты или купе, которые можно было перестраивать под разные нужды или времена года. </p>\n\n<p>Для своего времени эти изящные и умные конструкции были очень продвинутыми — с открывающимися крышами и стёклами, которые двигались с помощью хитрых механизмов.</p>\n\n<p>Они отличались утончённым внешним видом, с деталями вроде плетёных вставок, и как правило использовались для красивых прогулок.</p>\n\n<h3> </h3>\n\n<h3><em>Из буклета осенне-зимней коллекции шарфов Hermès 2017/18:</em></h3>\n\n<p>Композиция платка вдохновлена роскошными экипажaми из коллекции Hermès</p>\n\n<p>В середине XIX века французские и международные конструкции карет были особенно динамичными и изобретательными, сочетая эстетическую привлекательность и технические инновации.</p>\n\n<p>Например, на Всемирной выставке в Лондоне 1851 года парижская мастерская представила модульную карету и купе, защитный дождевой тент которого можно было поднимать или опускать нажатием кнопки.</p>\n\n<p>В то время во Франции были в моде кабриолеты, о чем свидетельствует представленный здесь автомобиль с мягкой крышей, центральная деталь которого — плетеная корзина, использовавшаяся для украшения кузовов карет.</p>','<div>\"Les Voitures à Transformation\" désigne des <strong class=\"Yjhzub\">carrosses hippomobiles du XIXe siècle, souvent des calèches ou coupés, qui étaient conçus pour être transformables</strong> afin de s\'adapter à différents usages ou saisons. Ces véhicules ingénieux et élégants sont l\'objet d\'un motif de design célèbre de la maison</div>\n\n<div class=\"Y3BBE\"> </div>\n\n<div class=\"Y3BBE\"><em>Avec l’aide de ChatGPT</em></div>\n\n<p> </p>',''),
 (6335,'<p>This scarf was sold by Kaplans Auktioner  as <em>\"Voyage en Étoffes\", </em></p>','<p>Случилось так, что <a class=\"uk-text-bold\" href=\"https://www.kaplans.se/en/auktioner/4171/vara/1883715\">Kaplans Auktioner</a> перепутал лоты и <a href=\"https://www.kaplans.se/en/auktioner/4171/vara/1883715\">продал</a> <em>Bolduc au carre, Caty Latham</em> вместо объявленного <em>Voyage en Étoffes, Annie Faivre</em>. Неприятно, но делать нечего, заметили это слишком поздно...</p>','',''),
@@ -2011,7 +2049,7 @@ INSERT INTO `field_body` VALUES
 (6016,'','','',''),
 (6008,'<p>Gucci was founded in 1921 by <a href=\"https://en.wikipedia.org/wiki/Guccio_Gucci\" title=\"Guccio Gucci\">Guccio Gucci</a> in Florence.</p>\n\n<p>Under the direction of his son  <a href=\"https://en.wikipedia.org/wiki/Aldo_Gucci\" title=\"Aldo Gucci\">Aldo Gucci</a>, the company became a worldwide-known brand, an icon of the Italian <em>Dolce Vita</em>.</p>\n\n<p>Following family feuds during the 1980s, the Gucci family was entirely ousted from the capital of the company by 1993. After this crisis, the brand was revived with a provocative \'Porno Chic\' props. In 1999, Gucci was acquired by the French conglomerate <a href=\"https://en.wikipedia.org/wiki/Pinault_Printemps_Redoute\" title=\"Pinault Printemps Redoute\">Pinault Printemps Redoute</a>.</p>\n\n<p>During the 2010s, Gucci became an iconic \'Geek-Chic\' brand.</p>','<p>В это время появляется современный логотип компании — переплетённые буквы <strong>GG</strong> (инициалы Гуччио Гуччи), шёлковый шарф <em>Flora</em>, который носила <a href=\"https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B5%D0%B9%D1%81_%D0%9A%D0%B5%D0%BB%D0%BB%D0%B8\" title=\"Грейс Келли\">Грейс Келли</a>, и сумка с ручкой через плечо <em>Jackie O</em>, которую сделала знаменитой <a href=\"https://ru.wikipedia.org/wiki/%D0%9A%D0%B5%D0%BD%D0%BD%D0%B5%D0%B4%D0%B8,_%D0%96%D0%B0%D0%BA%D0%BB%D0%B8%D0%BD\" title=\"Кеннеди, Жаклин\">Джеки Кеннеди</a>.</p>\n\n<p> </p>','',''),
 (6011,'','','',''),
-(6021,'<div class=\"qzhwtbm6 knvmm38d\">THIS TEXT MUST BE IMPROVED...</div>\n\n<div class=\"qzhwtbm6 knvmm38d\"> </div>\n\n<div class=\"qzhwtbm6 knvmm38d\"><strong><em><span class=\"d2edcug0 hpfvmrgz qv66sw1b c1et5uql oi732d6d ik7dh3pa ht8s03o8 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb iv3no6db jq4qci2q a3bd9o3v knj5qynh oo9gr5id hzawbc8m\"><span class=\"d2edcug0 hpfvmrgz qv66sw1b c1et5uql oi732d6d ik7dh3pa ht8s03o8 jq4qci2q a3bd9o3v knj5qynh oo9gr5id\">Aline Honore designs are very popular with the fakers and auctions for these scarves need to be approached with caution.</span></span></em></strong></div>\n\n<div class=\"qzhwtbm6 knvmm38d\">\n<p>She is a distinguished French artist and designer who has made an indelible mark on the world of Hermès scarves. Born and raised in France, Honoré pursued her artistic passions from an early age. She studied graphic arts and design at the esteemed <a href=\"http://www.ecole-estienne.paris/\">École Estienne</a> in Paris, laying the foundation for her future career in the creative realm. Before joining Hermès in 2005, Honoré gained valuable experience working in various creative fields, including advertising and illustration.</p>\n\n<p>Hermès provided the perfect canvas for Aline Honoré to showcase her talent in creating exquisite silk scarves. Her designs are characterized by intricate patterns, bold colors, and a touch of whimsy, which has become her signature style. Honoré is known for drawing inspiration from nature, history, mythology, and her love for travel and exploration.</p>\n\n<p>Throughout her tenure at Hermès, Aline Honoré has designed numerous scarves that have captivated collectors and Hermès aficionados alike. Some of her most notable designs include <em><a>Les ailes de la soie</a></em>, <em><a>L’art du sarasa</a></em>, <em><a>Parures des samouraïs</a>“</em> Her works are celebrated for their intricate details, layered symbolism, and elegant compositions, exemplifying the exceptional craftsmanship associated with the Hermès brand.</p>\n\n<p>In addition to her work with Hermès, Aline Honoré has collaborated with various organizations and cultural institutions to promote the arts and contribute to creative projects. Her dedication to her craft and pursuit of excellence have earned her a reputation as one of the most talented and respected designers within the Hermès family.</p>\n\n<p>Aline Honoré’s career has created a lasting legacy within the realm of luxury fashion. Her timeless designs continue to be sought after by collectors and Hermès enthusiasts, and her artistic vision will forever be an essential part of the Hermès narrative.</p>\n\n<p>Created by <a href=\"https://scarfsage.com\">ScarfSage.com</a></p>\n</div>','','',''),
+(6021,'<div class=\"qzhwtbm6 knvmm38d\"><em><strong style=\"color:#FF0000;\">ЭТОТ ТЕХТ НАДО ДОРАБАТЫВАТЬ И ПЕРЕВОДИТЬ...</strong></em></div>\n\n<div class=\"qzhwtbm6 knvmm38d\"> </div>\n\n<div class=\"qzhwtbm6 knvmm38d\"><strong><em><span class=\"d2edcug0 hpfvmrgz qv66sw1b c1et5uql oi732d6d ik7dh3pa ht8s03o8 a8c37x1j keod5gw0 nxhoafnm aigsh9s9 d3f4x2em fe6kdd0r mau55g9w c8b282yb iv3no6db jq4qci2q a3bd9o3v knj5qynh oo9gr5id hzawbc8m\"><span class=\"d2edcug0 hpfvmrgz qv66sw1b c1et5uql oi732d6d ik7dh3pa ht8s03o8 jq4qci2q a3bd9o3v knj5qynh oo9gr5id\">Aline Honore designs are very popular with the fakers and auctions for these scarves need to be approached with caution.</span></span></em></strong></div>\n\n<div class=\"qzhwtbm6 knvmm38d\">\n<p>She is a distinguished French artist and designer who has made an indelible mark on the world of Hermès scarves. Born and raised in France, Honoré pursued her artistic passions from an early age. She studied graphic arts and design at the esteemed <a href=\"http://www.ecole-estienne.paris/\">École Estienne</a> in Paris, laying the foundation for her future career in the creative realm. Before joining Hermès in 2005, Honoré gained valuable experience working in various creative fields, including advertising and illustration.</p>\n\n<p>Hermès provided the perfect canvas for Aline Honoré to showcase her talent in creating exquisite silk scarves. Her designs are characterized by intricate patterns, bold colors, and a touch of whimsy, which has become her signature style. Honoré is known for drawing inspiration from nature, history, mythology, and her love for travel and exploration.</p>\n\n<p>Throughout her tenure at Hermès, Aline Honoré has designed numerous scarves that have captivated collectors and Hermès aficionados alike. Some of her most notable designs include <em><a>Les ailes de la soie</a></em>, <em><a>L’art du sarasa</a></em>, <em><a>Parures des samouraïs</a>“</em> Her works are celebrated for their intricate details, layered symbolism, and elegant compositions, exemplifying the exceptional craftsmanship associated with the Hermès brand.</p>\n\n<p>In addition to her work with Hermès, Aline Honoré has collaborated with various organizations and cultural institutions to promote the arts and contribute to creative projects. Her dedication to her craft and pursuit of excellence have earned her a reputation as one of the most talented and respected designers within the Hermès family.</p>\n\n<p>Aline Honoré’s career has created a lasting legacy within the realm of luxury fashion. Her timeless designs continue to be sought after by collectors and Hermès enthusiasts, and her artistic vision will forever be an essential part of the Hermès narrative.</p>\n\n<p>Created by <a href=\"https://scarfsage.com\">ScarfSage.com</a></p>\n</div>','','',''),
 (6022,'<p><strong>Jacques Eudel</strong> is a distinguished French designer celebrated for his exceptional scarf designs for the world-renowned luxury brand, Hermès. With a flair for combining intricate patterns and vivid colors, Eudel’s work stands out as both captivating and timeless.</p>\n\n<p>Over the years, Eudel has created a wide range of remarkable scarves for Hermès, each showcasing his exceptional artistic talent and keen sense of aesthetics.</p>\n\n<p>Eudel’s artistic style is characterized by a unique fusion of traditional and modern elements, making his creations instantly recognizable and highly sought-after. His work transcends fashion trends, embodying the timeless elegance and sophistication that Hermès is known for.</p>\n\n<p>Throughout his career, Jacques Eudel has made a significant impact on the world of luxury fashion, and his designs continue to be cherished by fashion enthusiasts and collectors alike.</p>\n\n<p><em>Created by <a href=\"https://scarfsage.com\">ScarfSage.com</a></em></p>','','',''),
 (6023,'<p>Je dessine depuis mon plus jeune âge.</p>\n\n<p>Les contes et légendes du monde entier, les mythologies, la symbolique liée à la représentation des animaux et des végétaux dans différentes civilisations anciennes ou récentes, sont mes sources d’inspiration.</p>\n\n<p>Car pour moi, l’art du dessin et de la peinture doit être au service de la beauté de la vie.</p>\n\n<p>Après avoir fait des études d’Arts Plastiques, j’ai dessiné des illustrations pour la presse et pour des maisons d’édition en freelance.</p>\n\n<p>Ayant suivie une formation de dessin sur ordinateur, j’ai pu aussi créer des logos, des publicités et réaliser des mises en page de livres pour des maisons d’éditions.<br />\nMalgré la diversité de cette activité, l’exercice du dessin traditionnel et de la peinture me manquait.</p>\n\n<p><em>https://christinehenry.fr/</em></p>','<p>Я рисую с раннего детства. </p>\n\n<p>Источники вдохновения для меня - сказки и легенды со всего мира, мифология и символика, связанная с изображением животных и растений в различных древних и современных цивилизациях.</p>\n\n<p>После окончания факультета изобразительных искусств я работала внештатным иллюстратором для газет и издательств. Пройдя обучение компьютерному дизайну, я также создавала логотипы, рекламные объявления и макеты книг для издательств.</p>\n\n<p>Несмотря на разнообразие этой работы, мне не хватало практики традиционного рисования и живописи...</p>\n\n<p>https://christinehenry.fr/</p>','',''),
 (6024,'','','',''),
@@ -2062,7 +2100,7 @@ INSERT INTO `field_body` VALUES
 (6071,'','','',''),
 (6072,'','','',''),
 (6073,'','','',''),
-(6079,'<div>This silk scarf is a rare, collectible item that commemorates the Greek Revolution of 1821 and the historical friendship between France and Greece. <span class=\"T286Pc\">It is a historical piece that pays tribute to the Greek War of Independence against Ottoman rule, which began on March 25, 1821. It highlights the support Greece received from France during this time.</span></div>\n\n<p><span class=\"T286Pc\">The original design, simply titled \"1821\", was first issued in 1971 and then re-issued in 1985. The specific <strong><em>\"Hommage a l\'Amitié Franco-Hellénique\"</em></strong> subtitle was part of a special issue in 2005 for the opening of the Hermès store in Athens.</span></p>\n\n<p><span class=\"T286Pc\">The design features imagery related to the revolution and is widely believed to depict the Greek war hero <em>Theodoros Kolokotronis</em> on horseback in the center. It is a very detailed and vibrant design, known for \"popping\" visually.</span></p>\n\n<p><span class=\"T286Pc\">This particular scarf is considered rare, especially the limited special issues. According to some sources, only about 500 of each colorway/style were made for the special issues, making them highly sought after by collectors.</span></p>','<div class=\"Y3BBE\">\n<div>Этот шелковый платок — настоящая коллекционная редкость. Он посвящен Греческой революции 1821 года и многовековой дружбе между Францией и Грецией. Это не просто аксессуар, а дань памяти героям борьбы за независимость от Османской империи, начавшейся 25 марта 1821 года, и напоминание о той поддержке, которую Франция оказала греческому народу.</div>\n\n<div> </div>\n</div>\n\n<div class=\"Y3BBE\">Оригинальный дизайн этого платка под лаконичным названием «1821» был впервые представлен в 1971 году и переиздан в 1985-м. Однако именно это издание с подзаголовком <em>«Hommage a l\'Amitié Franco-Hellénique» (Дань франко-греческой дружбе) </em>вышло ограниченным тиражом в 2005 году специально к открытию бутика Hermès в Афинах.</div>\n\n<div class=\"Y3BBE\"> </div>\n\n<div class=\"Y3BBE\">Композиция наполнена символами революции: считается, что в самом центре изображен легендарный полководец Теодорос Колокотронис верхом на коне.</div>\n\n<div class=\"Y3BBE\"> </div>\n\n<div class=\"Y3BBE\">Платок по праву считается редким экземпляром, особенно это касается лимитированных серий. По некоторым данным, в рамках спецвыпуска было создано всего около 500 штук в каждом цветовом решении, что делает его настоящим сокровищем для коллекционеров.</div>','',''),
+(6079,'<div>This silk scarf is a rare, collectible item that commemorates the Greek Revolution of 1821 and the historical friendship between France and Greece. <span class=\"T286Pc\">It is a historical piece that pays tribute to the Greek War of Independence against Ottoman rule, which began on March 25, 1821. It highlights the support Greece received from France during this time.</span></div>\n\n<p><span class=\"T286Pc\">The original design, simply titled \"1821\", was first issued in 1971 and then re-issued in 1985. The specific <strong><em>\"Hommage a l\'Amitié Franco-Hellénique\"</em></strong> subtitle was part of a special issue in 2005 for the opening of the Hermès store in Athens.</span></p>\n\n<p><span class=\"T286Pc\">The design features imagery related to the revolution and is widely believed to depict the Greek war hero <em>Theodoros Kolokotronis</em> on horseback in the center. It is a very detailed and vibrant design, known for \"popping\" visually.</span></p>\n\n<p><span class=\"T286Pc\">This particular scarf is considered rare, especially the limited special issues. According to some sources, only about 500 of each colorway/style were made for the special issues, making them highly sought after by collectors.</span></p>','<div class=\"Y3BBE\">\n<div>Этот шелковый платок — настоящая коллекционная редкость. Он посвящен Греческой революции 1821 года и многовековой дружбе между Францией и Грецией. Это не просто аксессуар, а дань памяти героям борьбы за независимость от Османской империи, начавшейся 25 марта 1821 года, и напоминание о той поддержке, которую Франция оказала греческому народу.</div>\n\n<div> </div>\n</div>\n\n<div class=\"Y3BBE\">Оригинальный дизайн этого платка под лаконичным названием «1821» был впервые представлен в 1971 году и переиздан в 1985-м. Однако именно это издание с подзаголовком <em>«Hommage a l\'Amitié Franco-Hellénique» (Дань франко-греческой дружбе) </em>вышло ограниченным тиражом в 2005 году специально к открытию бутика Hermès в Афинах.</div>\n\n<div class=\"Y3BBE\"> </div>\n\n<div class=\"Y3BBE\">Композиция наполнена символами революции: считается, что в самом центре изображен легендарный полководец Теодорос Колокотронис верхом на коне.</div>\n\n<div class=\"Y3BBE\"> </div>\n\n<div class=\"Y3BBE\">Платок по праву считается редким экземпляром, особенно это касается лимитированных серий. По некоторым данным, в рамках спецвыпуска было создано всего около 500 штук в каждом цветовом решении, что делает его настоящим сокровищем для коллекционеров.</div>','<div>Ce carré de soie est une pièce de collection rare qui commémore la Révolution grecque de 1821 et l\'amitié historique franco-grecque. <span class=\"T286Pc\">C\'est une pièce historique qui rend hommage à la guerre d\'indépendance grecque contre la domination ottomane, qui a débuté le 25 mars 1821. Il met en lumière le soutien apporté à la Grèce par la France durant cette période.</span></div>\n\n<p><span class=\"T286Pc\">Le modèle original, intitulé simplement « 1821 », a été créé en 1971, puis réédité en 1985. Le sous-titre spécifique <strong><em>« Hommage à l\'Amitié franco-hellénique »</em></strong> figurait sur une édition spéciale de 2005, créée à l\'occasion de l\'ouverture de la boutique Hermès à Athènes.</span></p>\n\n<p><span class=\"T286Pc\">Le motif présente des images liées à la révolution et est généralement considéré comme une représentation de la guerre d\'indépendance grecque. Au centre, le héros <em>Theodoros Kolokotronis</em> à cheval. Un motif très détaillé et éclatant, réputé pour son impact visuel saisissant. </span></p>\n\n<p><span class=\"T286Pc\">Cette écharpe est considérée comme rare, surtout les éditions spéciales limitées. Selon certaines sources, seulement 500 exemplaires environ de chaque coloris/style ont été produits pour ces éditions spéciales, ce qui les rend très recherchées par les collectionneurs.</span></p>',''),
 (6080,'<h3><em>From The Hermès Spring-Summer 1997 Seasonal Scarf Booklet:</em></h3>\n\n<p><b> </b>« A propos de bottes » is an old French saying meaning \"with-out a serious purpose\".</p>\n\n<p>But do we always have to be serious and must there always be a purpose?</p>\n\n<p>To raise our lives to the dignity of art, let us cultivate a light-hearted fancy which leads us to the heart of things.</p>\n\n<p>This play-fulness, however, does not rule out meticulous attention to detail, especially when it involves the transcription on to silk of the intricate engraving of a very fine study of boots.</p>','<h3><em>Из буклета коллекции шарфов Hermès весна-лето 1997:</em></h3>\n\n<p><b> </b>«A propos de bottes» — это старинная французская поговорка, в дословном переводе «кстати о ботинках», используется как  «без серьезной цели».</p>\n\n<p>Но всегда ли мы должны быть серьезными, и всегда ли должна быть цель?</p>\n\n<p>Чтобы возвысить нашу жизнь до достоинства искусства, давайте будем культивировать беззаботную фантазию, которая ведет нас к сути вещей.</p>\n\n<p>Однако эта игривость не исключает тщательного внимания к деталям, особенно когда речь идет о переносе на шелк замысловатой гравюры очень тонкого эскиза ботинок.</p>','',''),
 (6081,'<h3><em>From <a href=\"https://abigail-goodman.com/\">abigail-goodman.com</a></em></h3>\n\n<p>Inspired by the Ghysels family\'s renowned ring collection, featured in the book, \"Bagues ethniques d’Afrique, d’Asie et d’Amérique\", this design shows the history of rings from Africa, America, and Asia.</p>\n\n<p>Faivre combined these treasures, including several from the Hermès collection, arranging them on a flowing ribbon, almost like a necklace strung with seashells from around the world.</p>\n\n<p> </p>\n\n<p> </p>','','',''),
 (6082,'','','',''),
@@ -2172,7 +2210,7 @@ INSERT INTO `field_body` VALUES
 (6337,'','','',''),
 (6358,'<h3><em>From The Hermès Fall-Winter 2022/23 Seasonal Scarf Booklet</em>:</h3>\n\n<p>Spring has sprung and a horse rises up triumphant like an inspirational muse - Flora, goddess of flowers, are you there?</p>\n\n<p>Elevated to the rank of a deity of nature, the powerful animal rears up in the breeze to show off his colourful coat of flowers and leaves from the four corners of the world.</p>\n\n<p>The liberated blooms display their indomitable nature and fly out behind him, revealing his legendary body.</p>\n\n<p>Captured in the moment by Théo de Gueltzl, the horse is depicted on his hind legs, like a new ideal in equestrian art.</p>','<h3><em>Из буклета коллекции шарфов Hermès осень-зима 2022/23</em>:</h3>\n\n<p>Весна пришла, и лошадь триумфально поднимается, словно вдохновляющая муза — Флора, богиня цветов, ты здесь?</p>\n\n<p>Возведенное в ранг божества природы, могучее животное встает на дыбы, чтобы продемонстрировать свою шерсть из цветов и листьев со всех уголков мира.</p>\n\n<p>Раскрепощенные цветы показывают свою неукротимую природу и развеваются позади него, открывая его легендарное тело.</p>\n\n<p>Запечатленная в моменте <a href=\"http://localhost/sh/ru-home/search/?SPOT_id=h&amp;h_aw_person=6360&amp;sort=h_aw_person\">Théo de Gueltzl</a> , лошадь изображена на задних ногах, как новый идеал в конном искусстве.</p>','',''),
 (6338,'','<p>Долгое время эта картина считалась работой Рембрандта. Картина полностью выполнена в стиле Рембрандта, и, более того, находилась рядом с «Философом» Рембрандта в Лувре, зал 31 вплоть до 1754 года.</p>\n\n<p>Коллекция герцога де Шуазеля (продажа 1772 года).</p>\n\n<p>Коллекция Людовика XVI, приобретенная на аукционе графа де Водрейля, Париж, 1784 год (как и картина Рембрандта).</p>','<p>Tableau d\'idée tout à fait rembranesque et mis du reste en pendant au XVIIIe siècle (déjà en 1754) avec le Philosophe de Rembrandt (Louvre,Paris,salle 31).</p>\n\n<p>Collection du duc de Choiseul (vente de 1772)</p>\n\n<p>Collection de Louis XVI, acquis à la vente du comte de Vaudreuil, Paris, 1784 (comme Rembrandt)</p>',''),
-(6346,'<p>Jeff\'s collection <em>Hermes Scarf Guides (Мельбурн, Виктория, Австралия) </em>fragments. </p>\n\n<p>Just a few nice items...</p>','','',''),
+(6346,'<p>Jeff\'s collection <em>Hermes Scarf Guides (Мельбурн, Виктория, Австралия) </em>fragments. </p>\n\n<p>Just a few nice items...</p>','<p>Коллекция Джеффа <em>Hermes Scarf Guides (Мельбурн, Виктория, Австралия) </em>фрагменты. </p>\n\n<p>Несколько примеров...</p>','<p>Collection de Jeff <em>Guides des foulards Hermes (Мельбурн, Виктория, Австралия) </em>fragments. </p>\n\n<p>Juste quelques jolis objets...</p>',''),
 (6347,'<p>Observed through Dimitri Rybaltchenko\'s telescope, this boat has an air of Faubourg about it, with its evenly paved stones visible on the bow and display windows where celebrations seem to be in full swing, under the slightly envious gaze of the Greek gods.</p>\n\n<p>As a truly legendary landmark, the great Hermès ship has been sailing the seas for a century, revealing its majestic sails to the rhythm of the wind blown by a thousand pegasuses.</p>\n\n<p><em>Hermes Scarf Guides</em></p>','<p>Обнаруженный в телескоп <a href=\"http://localhost/sh/ru-home/h_spot/h_persons/186-dimitri-rybaltchenko/\">Rybaltchenko</a>, этот корабль напоминает улицу Faubourg: ровная мощеная дорожка на носу и витрины, где, кажется, вовсю идут празднества под слегка завистливым взглядом греческих богов.</p>\n\n<p>Как поистине легендарная достопримечательность, великий корабль Hermès бороздит моря уже столетие, демонстрируя свои величественные паруса в ритме ветра, дующего в тысячах пегасов.</p>\n\n<p><em>Hermes Scarf Guides</em></p>','',''),
 (6348,'','','',''),
 (6349,'','','',''),
@@ -2184,7 +2222,8 @@ INSERT INTO `field_body` VALUES
 (6357,'<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<p>Below is a structured art-historical explanation of how Caravaggio (the master) and Valentin de Boulogne (his follower rather than formal student) each created powerful versions of “The Cardsharps,” and why both paintings are considered outstanding examples of Baroque realism.</p>\n\n<p>Caravaggio was not a formal teacher to Valentin de Boulogne. Rather, Valentin was part of the Caravaggisti: painters who studied Caravaggio’s works closely in Rome and adopted, adapted, and extended his visual language. The relationship is therefore one of artistic lineage and influence, not workshop apprenticeship.</p>\n</div>\n\n<p> </p>\n\n<p> </p>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<h1>Caravaggio:<br />\nThe Cardsharps (c. 1594)</h1>\n\n<p><img alt=\"The_Cardsharps\" src=\"https://upload.wikimedia.org/wikipedia/commons/8/8e/Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg\" /></p>\n\n<h2>Caravaggio’s model</h2>\n\n<h3>Radical realism</h3>\n\n<p>This grounded the scene in everyday life, making the deception immediately believable.</p>\n\n<h3>Psychological storytelling</h3>\n\n<p>Caravaggio captures the exact moment before the con succeeds, engaging the viewer as a witness.</p>\n\n<h3>Light as a narrative tool</h3>\n\n<p>Although early in his career, Caravaggio already uses directional light to:</p>\n\n<ul>\n	<li> Emphasize faces and hands</li>\n	<li> Reveal hidden intentions</li>\n	<li> Separate innocence from deceit</li>\n</ul>\n\n<h3>Light is not decorative;</h3>\n\n<p>It clarifies the moral structure of the scene.</p>\n\n<h3>Compositional intimacy</h3>\n\n<p>Figures are cropped close to the picture plane, pulling the viewer into the space of the table. This was highly innovative and influential.</p>\n\n<div class=\"auto-width-placeholder\">\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n</div>\n\n<h1>Valentin de Boulogne:<br />\nThe Cardsharps (c. 1629)</h1>\n\n<p><img alt=\"The Cardsharps\" src=\"https://www.pubhist.com/works/59/large/valentin_boulogne_card_sharps.jpg\" /></p>\n\n<h2>How Valentin expanded Caravaggio’s model</h2>\n\n<h3>Intensified chiaroscuro: Valentin pushes Caravaggio’s lighting further:</h3>\n\n<ul>\n	<li> Deeper shadows</li>\n	<li> Sharper contrasts</li>\n	<li> More dramatic spotlighting</li>\n	<li> The darkness feels heavier, more oppressive, heightening tension.</li>\n</ul>\n\n<h3>Emotional gravity</h3>\n\n<p>Where Caravaggio’s figures are alert and cunning, Valentin’s are:</p>\n\n<ul>\n	<li> More solemn</li>\n	<li> More introspective</li>\n	<li> Often morally ambiguous</li>\n	<li> His cardsharps feel trapped in their roles rather than playfully deceptive.</li>\n</ul>\n\n<h3>Greater complexity and density</h3>\n\n<p>Valentin often adds:</p>\n\n<ul>\n	<li> More figures</li>\n	<li> Richer textures</li>\n	<li> A tighter clustering of bodies</li>\n</ul>\n\n<p>This creates a sense of claustrophobia and inevitability, reinforcing themes of vice and fate.</p>\n\n<h3>French temperament, Roman language</h3>\n\n<p>Though working in Rome, Valentin brings a distinctly French seriousness:</p>\n\n<ul>\n	<li> Less theatrical flair</li>\n	<li> More moral weight</li>\n	<li> A quieter, darker mood</li>\n	<li>His painting feels less anecdotal and more existential.</li>\n</ul>\n</div>\n\n<div class=\"auto-width-single\">\n<h1>Why both paintings are “fantastic”</h1>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<table>\n	<thead>\n		<tr>\n			<th><em>Aspect</em></th>\n			<th>Caravaggio</th>\n			<th>Valentin de Boulogne</th>\n		</tr>\n	</thead>\n	<tbody>\n		<tr>\n			<td><em>Innovation:</em></td>\n			<td>Invents the genre scene as high art</td>\n			<td>Deepens and darkens the genre</td>\n		</tr>\n		<tr>\n			<td><em>Mood:</em></td>\n			<td>Lively, alert, cunning</td>\n			<td>Heavy, tense, morally somber</td>\n		</tr>\n		<tr>\n			<td><em>Light:</em></td>\n			<td>Clarifying, descriptive</td>\n			<td>Dramatic, oppressive</td>\n		</tr>\n		<tr>\n			<td><em>Viewer role:</em></td>\n			<td>Witness to a clever trick</td>\n			<td>Observer of moral decay</td>\n		</tr>\n	</tbody>\n</table>\n\n<p> </p>\n\n<p><strong>In summary:</strong><br />\nCaravaggio created The Cardsharps by inventing a new visual language of realism, immediacy, and psychological clarity. Valentin de Boulogne absorbed that language and transformed it into something darker, more emotionally complex, and more morally charged. Together, the two works demonstrate how a revolutionary idea can be both originated and profoundly evolved within a single artistic tradition.</p>\n\n<p><em>With help from AI</em></p>\n</div>','<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<p>Ниже приведено структурированное искусствоведческое объяснение того, как Караваджо (мастер) и Валентин де Булонь (его последователь, а не формальный ученик) создали мощные версии картины «Карточные шулеры», и почему обе картины считаются выдающимися образцами барочного реализма.</p>\n\n<p>Караваджо не был формальным учителем Валентина де Булоня. Скорее, Валентин был частью караваджистов: художников, которые внимательно изучали работы Караваджо в Риме и переняли, адаптировали и расширили его визуальный язык.</p>\n\n<p>Таким образом, эти отношения основаны на художественной преемственности и влиянии, а не на мастерском ученичестве.</p>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<h1>Караваджо:<br />\nКарточные шулеры (ок. 1594)</h1>\n<img alt=\"The_Cardsharps\" src=\"https://upload.wikimedia.org/wikipedia/commons/8/8e/Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg\" />\n<h2>Модель Караваджо</h2>\n\n<h3>Радикальный реализм</h3>\n\n<p>Это придало сцене реалистичность, сделав обман сразу же правдоподобным.</p>\n\n<h3>Психологическое повествование</h3>\n\n<p>Караваджо запечатлел точный момент перед тем, как афера увенчалась успехом, вовлекая зрителя в качестве свидетеля.</p>\n\n<h3>Свет как повествовательный инструмент</h3>\n\n<p>Хотя Караваджо только начал свою карьеру, он уже использует направленный свет для:</p>\n\n<ul>\n	<li>Подчеркивания лиц и рук</li>\n	<li>Раскрытия скрытых намерений</li>\n	<li>Разделения невинности и обмана</li>\n</ul>\n\n<h3>Свет не является декоративным элементом;</h3>\n\n<p>Он проясняет моральную структуру сцены.</p>\n\n<h3>Композиционная интимность</h3>\n\n<p>Фигуры обрезаны близко к плоскость изображения, вовлекающая зрителя в пространство стола. Это было очень новаторским и влиятельным подходом.</p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<h1>Валентин де Булонь:<br />\nКарточные шулеры (ок. 1629)</h1>\n<img alt=\"Карточные шулеры\" src=\"https://www.pubhist.com/works/59/large/valentin_boulogne_card_sharps.jpg\" />\n<h2>Как Валентин расширил модель Караваджо</h2>\n\n<h3>Усиленная светотень: Валентин развивает освещение Караваджо дальше:</h3>\n\n<ul>\n	<li>Более глубокие тени</li>\n	<li>Более резкие контрасты</li>\n	<li>Более драматичное освещение</li>\n	<li>Темнота ощущается тяжелее, более гнетущей, усиливая напряжение.</li>\n</ul>\n\n<h3>Эмоциональная глубина</h3>\n\n<p>Если фигуры Караваджо бдительны и хитры, то фигуры Валентина:</p>\n\n<ul>\n	<li>Более торжественные</li>\n	<li>Более интроспективные</li>\n	<li>Часто морально неоднозначные</li>\n	<li>Его карточные шулеры кажутся запертыми в своих ролях, а не игриво обманчивыми.</li>\n</ul>\n\n<h3>Большая сложность и плотность</h3>\n\n<p>Валентин часто добавляет:</p>\n\n<ul>\n	<li>Больше фигур</li>\n	<li>Более богатая текстура</li>\n	<li>Более плотная скопление тел</li>\n</ul>\n\n<p>Это создает ощущение клаустрофобии и неизбежности, усиливая темы порока и судьбы.</p>\n\n<h3>Французский темперамент, римский язык</h3>\n\n<p>Хотя Валентин работает в Риме, он привносит отчетливо французскую серьезность:</p>\n\n<ul>\n	<li>Меньше театрального колорита</li>\n	<li>Больше морального веса</li>\n	<li>Более спокойное, мрачное настроение</li>\n	<li>Его живопись кажется менее анекдотической и более экзистенциальной.</li>\n</ul>\n</div>\n\n<div class=\"auto-width-600\" style=\"padding-top:2rem;\">\n<h1>Почему обе картины «фантастические»</h1>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<table>\n	<thead>\n		<tr>\n			<th><em>Аспект</em></th>\n			<th>Караваджо</th>\n			<th>Валентин де Булонь</th>\n		</tr>\n	</thead>\n	<tbody>\n		<tr>\n			<td><em>Инновация:</em></td>\n			<td>Изобретает жанровую сцену как высокое искусство</td>\n			<td>Углубляет и затемняет жанр</td>\n		</tr>\n		<tr>\n			<td><em>Настроение:</em></td>\n			<td>Живое, внимательное, хитрое</td>\n			<td>Тяжелое, напряженное, морально мрачное</td>\n		</tr>\n		<tr>\n			<td><em>Светлое:</em></td>\n			<td>Проясняющее, описательное</td>\n			<td>Драматичное, гнетущее</td>\n		</tr>\n		<tr>\n			<td><em>Роль зрителя:</em></td>\n			<td>Свидетель хитрого трюка</td>\n			<td>Наблюдатель морального разложения</td>\n		</tr>\n	</tbody>\n</table>\n\n<p><strong>Вкратце:</strong><br />\nКараваджо создал «Карточных шулеров», изобретя новый визуальный язык реализма, непосредственности и психологической ясности. Валентин де Булонь перенял этот язык и преобразовал его в нечто более мрачное, эмоционально сложное и морально заряженное. Вместе эти две работы демонстрируют, как революционная идея может зародиться и глубоко развиться в рамках одной художественной традиции.</p>\n\n<p><em>С помощью ИИ</em></p>\n</div>','<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<p>Vous trouverez ci-dessous une explication structurée, d\'un point de vue historico-artistique, de la manière dont Caravage (le maître) et Valentin de Boulogne (son disciple plutôt que son élève) ont chacun créé des versions saisissantes des « Tricheurs », et pourquoi ces deux tableaux sont considérés comme des exemples exceptionnels du réalisme baroque.</p>\n\n<p>Caravage n\'a pas été le maître de Valentin de Boulogne. Ce dernier appartenait plutôt au groupe des caravagesques : des peintres qui ont étudié de près l\'œuvre de Caravage à Rome et qui ont adopté, adapté et enrichi son langage visuel. La relation relève donc d\'une filiation et d\'une influence artistiques, et non d\'un apprentissage en atelier.</p>\n</div>\n\n<p> </p>\n\n<p> </p>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<h1>Caravage :<br />\nLes Tricheurs (vers 1594)</h1>\n\n<p><img alt=\"The_Cardsharps\" src=\"https://upload.wikimedia.org/wikipedia/commons/8/8e/Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg\" /></p>\n\n<h2>Le modèle de Caravage</h2>\n\n<h3>Réalisme radical</h3>\n\n<p>Ceci ancrait la scène dans la vie quotidienne, Rendre la supercherie immédiatement crédible.</p>\n\n<h3>Narration psychologique</h3>\n\n<p>Caravage saisit l\'instant précis qui précède la réussite de l\'escroquerie, faisant du spectateur un témoin privilégié.</p>\n\n<h3>La lumière comme outil narratif</h3>\n\n<p>Bien qu\'au début de sa carrière, Caravage utilise déjà la lumière directionnelle pour :</p>\n\n<ul>\n	<li> Mettre en valeur les visages et les mains</li>\n	<li> Révéler les intentions cachées</li>\n	<li> Distinguer l\'innocence de la tromperie</li>\n</ul>\n\n<h3>La lumière n\'est pas décorative ;</h3>\n\n<p>Elle clarifie la dimension morale de la scène.</p>\n\n<h3>Intimité de la composition</h3>\n\n<p>Les personnages sont cadrés au ras du cadre, plongeant le spectateur au cœur de l\'espace de la table.</p>\nC\'était une œuvre très novatrice et influente.\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<p> </p>\n\n<h1>Valentin de Boulogne :<br />\nLes Tricheurs (vers 1629)</h1>\n\n<p><img alt=\"Les Tricheurs\" src=\"https://www.pubhist.com/works/59/large/valentin_boulogne_card_sharps.jpg\" /></p>\n\n<h2>Comment Valentin a développé le modèle du Caravage</h2>\n\n<h3>Claire-obscur intensifié : Valentin pousse plus loin la lumière du Caravage :</h3>\n\n<ul>\n	<li>Ombres plus profondes</li>\n	<li>Contrastes plus marqués</li>\n	<li>Éclairage plus dramatique</li>\n	<li> L\'obscurité paraît plus pesante, plus oppressante, accentuant la tension.</li>\n</ul>\n\n<h3>Gravité émotionnelle</h3>\n\n<p>Là où les figures du Caravage sont alertes et rusées, celles de Valentin le sont :</p>\n\n<ul>\n	<li> Plus solennelles</li>\n	<li> Plus introspectives</li>\n	<li> Souvent moralement ambiguës</li>\n	<li> Ses tricheurs semblent prisonniers de leurs rôles plutôt que de jouer la carte de la tromperie.</li>\n</ul>\n\n<h3>Plus grande complexité et densité</h3>\n\n<p>Valentin ajoute souvent :</p>\n\n<ul>\n	<li> Plus de figures</li>\n	<li> Des textures plus riches</li>\n	<li> Un regroupement plus serré des corps</li>\n</ul>\n\n<p>Cela crée un sentiment de claustrophobie et d\'inéluctabilité, renforçant les thèmes du vice et Destin.</p>\n\n<h3>Tempérament français, langue romaine</h3>\n\n<p>Bien qu\'il travaille à Rome, Valentin apporte une gravité typiquement française :</p>\n\n<ul>\n	<li>Moins de théâtralité</li>\n	<li>Plus de profondeur morale</li>\n	<li>Une atmosphère plus sombre et plus calme</li>\n	<li>Sa peinture semble moins anecdotique et plus existentielle.</li>\n</ul>\n</div>\n\n<div class=\"auto-width-600\">\n<h1>Pourquoi ces deux tableaux sont « fantastiques »</h1>\n</div>\n\n<div class=\"auto-width-content\" style=\"padding-top:0;max-width:100%;\">\n<table>\n	<thead>\n		<tr>\n			<th><em>Aspect</em></th>\n			<th>Caravage</th>\n			<th>Valentin de Boulogne</th>\n		</tr>\n	</thead>\n	<tbody>\n		<tr>\n			<td><em>Innovation :</em></td>\n			<td>Invente la scène de genre comme un art majeur</td>\n			<td>Approfondit et assombrit le genre</td>\n		</tr>\n		<tr>\n			<td><em>Ambiance :</em></td>\n			<td>Vif, alerte, rusé</td>\n			<td>Lourd, tendu, moralement sombre</td>\n		</tr>\n		<tr>\n			<td><em>Lumière :</em></td>\n			<td>Clarifiant, descriptif</td>\n			<td>Dramatique, oppressant</td>\n		</tr>\n		<tr>\n			<td><em>Rôle du spectateur :</em></td>\n			<td>Témoin d\'une ruse ingénieuse</td>\n			<td>Observateur de la morale déclin</td>\n		</tr>\n	</tbody>\n</table>\n\n<p> </p>\n\n<p><strong>En résumé :</strong><br />\nCaravage a créé Les Tricheurs en inventant un nouveau langage visuel empreint de réalisme, d’immédiateté et de clarté psychologique. Valentin de Boulogne s’est approprié ce langage et l’a transformé en une œuvre plus sombre, plus complexe émotionnellement et plus chargée moralement. Ensemble, ces deux œuvres démontrent comment une idée révolutionnaire peut naître et évoluer profondément au sein d’une même tradition artistique.</p>\n\n<p><em>Avec l’aide de l’IA</em></p>\n</div>','');
 /*!40000 ALTER TABLE `field_body` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_body2`
@@ -2212,14 +2251,15 @@ CREATE TABLE `field_body2` (
 -- Dumping data for table `field_body2`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_body2` WRITE;
 /*!40000 ALTER TABLE `field_body2` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_body2` VALUES
 (6357,'<p> </p>\n\n<p>Caravaggists - this truly unique style of the Baroque era was named after <a href=\"../../a_persons/caravaggio\">Caravaggio</a>, a reformer artist, the founder of realism.</p>\n\n<p>Who remembers today that Caravaggio committed a murder in his youth?  Despite his life on the run, the artist managed to gather a circle of followers — caravaggists.</p>\n\n<p>The trend developed in Italy at the 16th — 17th centuries, as well as in Holland, Germany and Spain.</p>\n\n<p> </p>','<p>Караваджисты — этот поистине уникальный стиль эпохи барокко получил свое название в честь <a href=\"../../a_persons/caravaggio/\">Караваджо</a>, художника-реформатора, основателя реализма.</p>\n\n<p>Кто сегодня помнит, что в молодости Караваджо совершил убийство? Несмотря на жизнь в бегах, художнику удалось вдохновить круг последователей — караваджистов.</p>\n\n<p>Это направление развилось в Италии в XVI–XVII веках, а также в Голландии, Германии и Испании.</p>','','');
 /*!40000 ALTER TABLE `field_body2` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_countries`
@@ -2241,12 +2281,13 @@ CREATE TABLE `field_countries` (
 -- Dumping data for table `field_countries`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_countries` WRITE;
 /*!40000 ALTER TABLE `field_countries` DISABLE KEYS */;
-set autocommit=0;
 /*!40000 ALTER TABLE `field_countries` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_country`
@@ -2268,9 +2309,9 @@ CREATE TABLE `field_country` (
 -- Dumping data for table `field_country`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_country` WRITE;
 /*!40000 ALTER TABLE `field_country` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_country` VALUES
 (5792,6003,0),
 (5793,6003,0),
@@ -2347,7 +2388,8 @@ INSERT INTO `field_country` VALUES
 (5900,6336,0);
 /*!40000 ALTER TABLE `field_country` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_currency`
@@ -2369,9 +2411,9 @@ CREATE TABLE `field_currency` (
 -- Dumping data for table `field_currency`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_currency` WRITE;
 /*!40000 ALTER TABLE `field_currency` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_currency` VALUES
 (6358,2,0),
 (6120,2,0),
@@ -2415,7 +2457,8 @@ INSERT INTO `field_currency` VALUES
 (5844,2,0);
 /*!40000 ALTER TABLE `field_currency` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_d_av_duty`
@@ -2437,15 +2480,16 @@ CREATE TABLE `field_d_av_duty` (
 -- Dumping data for table `field_d_av_duty`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_d_av_duty` WRITE;
 /*!40000 ALTER TABLE `field_d_av_duty` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_d_av_duty` VALUES
 (5959,1,0),
 (6288,1,0);
 /*!40000 ALTER TABLE `field_d_av_duty` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_d_av_firstname`
@@ -2476,15 +2520,16 @@ CREATE TABLE `field_d_av_firstname` (
 -- Dumping data for table `field_d_av_firstname`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_d_av_firstname` WRITE;
 /*!40000 ALTER TABLE `field_d_av_firstname` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_d_av_firstname` VALUES
 (5959,'Людмила Дмитриевна','Людмила','',''),
 (6288,'Анна Васильевна','','','');
 /*!40000 ALTER TABLE `field_d_av_firstname` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_d_av_lastname`
@@ -2515,15 +2560,16 @@ CREATE TABLE `field_d_av_lastname` (
 -- Dumping data for table `field_d_av_lastname`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_d_av_lastname` WRITE;
 /*!40000 ALTER TABLE `field_d_av_lastname` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_d_av_lastname` VALUES
 (5959,'Верещагина','Верещагина','',''),
 (6288,'Кузьминых','','','');
 /*!40000 ALTER TABLE `field_d_av_lastname` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_d_av_url`
@@ -2545,14 +2591,15 @@ CREATE TABLE `field_d_av_url` (
 -- Dumping data for table `field_d_av_url`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_d_av_url` WRITE;
 /*!40000 ALTER TABLE `field_d_av_url` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_d_av_url` VALUES
 (5959,'http://dymka.teploruk.ru/masters/vereshagina.html');
 /*!40000 ALTER TABLE `field_d_av_url` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_d_aw_featured`
@@ -2573,15 +2620,16 @@ CREATE TABLE `field_d_aw_featured` (
 -- Dumping data for table `field_d_aw_featured`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_d_aw_featured` WRITE;
 /*!40000 ALTER TABLE `field_d_aw_featured` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_d_aw_featured` VALUES
 (5961,1),
 (6297,1);
 /*!40000 ALTER TABLE `field_d_aw_featured` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_d_aw_person`
@@ -2603,14 +2651,15 @@ CREATE TABLE `field_d_aw_person` (
 -- Dumping data for table `field_d_aw_person`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_d_aw_person` WRITE;
 /*!40000 ALTER TABLE `field_d_aw_person` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_d_aw_person` VALUES
 (5961,5959,0);
 /*!40000 ALTER TABLE `field_d_aw_person` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_d_aw_size`
@@ -2632,15 +2681,16 @@ CREATE TABLE `field_d_aw_size` (
 -- Dumping data for table `field_d_aw_size`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_d_aw_size` WRITE;
 /*!40000 ALTER TABLE `field_d_aw_size` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_d_aw_size` VALUES
 (6297,4,0),
 (6298,1,0);
 /*!40000 ALTER TABLE `field_d_aw_size` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_d_aw_type`
@@ -2662,9 +2712,9 @@ CREATE TABLE `field_d_aw_type` (
 -- Dumping data for table `field_d_aw_type`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_d_aw_type` WRITE;
 /*!40000 ALTER TABLE `field_d_aw_type` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_d_aw_type` VALUES
 (5961,13,0),
 (6297,15,0),
@@ -2673,7 +2723,8 @@ INSERT INTO `field_d_aw_type` VALUES
 (6298,9,2);
 /*!40000 ALTER TABLE `field_d_aw_type` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_email`
@@ -2695,9 +2746,9 @@ CREATE TABLE `field_email` (
 -- Dumping data for table `field_email`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_email` WRITE;
 /*!40000 ALTER TABLE `field_email` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_email` VALUES
 (41,'iouri.belokopytov@gmail.com'),
 (5972,'margarita.belokopytova@gmail.com'),
@@ -2707,7 +2758,8 @@ INSERT INTO `field_email` VALUES
 (6344,'7643259@gmail.com');
 /*!40000 ALTER TABLE `field_email` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_figcaption`
@@ -2729,9 +2781,9 @@ CREATE TABLE `field_figcaption` (
 -- Dumping data for table `field_figcaption`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_figcaption` WRITE;
 /*!40000 ALTER TABLE `field_figcaption` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_figcaption` VALUES
 (5986,'Photo from Wiki'),
 (5987,'Photo from Wiki'),
@@ -2795,7 +2847,8 @@ INSERT INTO `field_figcaption` VALUES
 (6090,'Bienvenue à l’atelier');
 /*!40000 ALTER TABLE `field_figcaption` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_av_date`
@@ -2817,9 +2870,9 @@ CREATE TABLE `field_h_av_date` (
 -- Dumping data for table `field_h_av_date`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_av_date` WRITE;
 /*!40000 ALTER TABLE `field_h_av_date` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_av_date` VALUES
 (5797,'1939 - 2002'),
 (5799,''),
@@ -2885,7 +2938,8 @@ INSERT INTO `field_h_av_date` VALUES
 (6360,'Born 1993');
 /*!40000 ALTER TABLE `field_h_av_date` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_av_duty`
@@ -2907,9 +2961,9 @@ CREATE TABLE `field_h_av_duty` (
 -- Dumping data for table `field_h_av_duty`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_av_duty` WRITE;
 /*!40000 ALTER TABLE `field_h_av_duty` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_av_duty` VALUES
 (6326,6,0),
 (5793,1,0),
@@ -2989,7 +3043,8 @@ INSERT INTO `field_h_av_duty` VALUES
 (6360,1,0);
 /*!40000 ALTER TABLE `field_h_av_duty` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_av_firstname`
@@ -3020,9 +3075,9 @@ CREATE TABLE `field_h_av_firstname` (
 -- Dumping data for table `field_h_av_firstname`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_av_firstname` WRITE;
 /*!40000 ALTER TABLE `field_h_av_firstname` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_av_firstname` VALUES
 (5792,'Christiane','Christiane','Christiane','Christiane'),
 (5793,'Caty','Caty','Cathy','Cathy'),
@@ -3097,7 +3152,8 @@ INSERT INTO `field_h_av_firstname` VALUES
 (6360,'Théo de','','','');
 /*!40000 ALTER TABLE `field_h_av_firstname` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_av_lastname`
@@ -3128,9 +3184,9 @@ CREATE TABLE `field_h_av_lastname` (
 -- Dumping data for table `field_h_av_lastname`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_av_lastname` WRITE;
 /*!40000 ALTER TABLE `field_h_av_lastname` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_av_lastname` VALUES
 (5792,'Vauzelles','Vauzelles','Vauzelles','Vauzelles'),
 (5793,'Latham','Latham','Latham-Audibert','Latham-Audibert'),
@@ -3205,7 +3261,8 @@ INSERT INTO `field_h_av_lastname` VALUES
 (6360,'de Gueltzl','','','');
 /*!40000 ALTER TABLE `field_h_av_lastname` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_av_url`
@@ -3227,9 +3284,9 @@ CREATE TABLE `field_h_av_url` (
 -- Dumping data for table `field_h_av_url`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_av_url` WRITE;
 /*!40000 ALTER TABLE `field_h_av_url` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_av_url` VALUES
 (5794,'http://evgeniamiro.com/'),
 (5800,'http://honesterotica.com/portfolios/550'),
@@ -3248,7 +3305,8 @@ INSERT INTO `field_h_av_url` VALUES
 (6138,'https://www.letelegramme.fr/finistere/brest-29200/spanpierre-peronspan-toujours-inclassable-3266927.php');
 /*!40000 ALTER TABLE `field_h_av_url` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_base`
@@ -3270,9 +3328,9 @@ CREATE TABLE `field_h_aw_base` (
 -- Dumping data for table `field_h_aw_base`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_base` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_base` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_base` VALUES
 (5844,3,0),
 (5845,3,0),
@@ -3319,7 +3377,8 @@ INSERT INTO `field_h_aw_base` VALUES
 (6042,3,0);
 /*!40000 ALTER TABLE `field_h_aw_base` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_brand`
@@ -3341,9 +3400,9 @@ CREATE TABLE `field_h_aw_brand` (
 -- Dumping data for table `field_h_aw_brand`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_brand` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_brand` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_brand` VALUES
 (5844,5835,0),
 (5845,5835,0),
@@ -3516,7 +3575,8 @@ INSERT INTO `field_h_aw_brand` VALUES
 (6253,6172,0);
 /*!40000 ALTER TABLE `field_h_aw_brand` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_collection`
@@ -3538,9 +3598,9 @@ CREATE TABLE `field_h_aw_collection` (
 -- Dumping data for table `field_h_aw_collection`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_collection` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_collection` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_collection` VALUES
 (5845,5842,0),
 (5846,5842,0),
@@ -3553,7 +3613,8 @@ INSERT INTO `field_h_aw_collection` VALUES
 (6350,6346,0);
 /*!40000 ALTER TABLE `field_h_aw_collection` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_condition`
@@ -3575,9 +3636,9 @@ CREATE TABLE `field_h_aw_condition` (
 -- Dumping data for table `field_h_aw_condition`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_condition` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_condition` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_condition` VALUES
 (5844,'Brand new'),
 (5845,''),
@@ -3719,7 +3780,8 @@ INSERT INTO `field_h_aw_condition` VALUES
 (6159,'');
 /*!40000 ALTER TABLE `field_h_aw_condition` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_day0`
@@ -3741,9 +3803,9 @@ CREATE TABLE `field_h_aw_day0` (
 -- Dumping data for table `field_h_aw_day0`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_day0` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_day0` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_day0` VALUES
 (5844,'2010-05-04'),
 (5851,'2017-10-25'),
@@ -3828,7 +3890,8 @@ INSERT INTO `field_h_aw_day0` VALUES
 (6025,'2021-05-04');
 /*!40000 ALTER TABLE `field_h_aw_day0` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_featured`
@@ -3849,9 +3912,9 @@ CREATE TABLE `field_h_aw_featured` (
 -- Dumping data for table `field_h_aw_featured`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_featured` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_featured` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_featured` VALUES
 (5975,1),
 (5844,1),
@@ -3866,7 +3929,8 @@ INSERT INTO `field_h_aw_featured` VALUES
 (6079,1);
 /*!40000 ALTER TABLE `field_h_aw_featured` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_more`
@@ -3897,9 +3961,9 @@ CREATE TABLE `field_h_aw_more` (
 -- Dumping data for table `field_h_aw_more`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_more` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_more` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_more` VALUES
 (5850,'Hermès’s best-selling scarf of all time.',NULL,NULL,NULL),
 (5851,'',NULL,NULL,NULL),
@@ -4062,7 +4126,8 @@ INSERT INTO `field_h_aw_more` VALUES
 (6358,'','','','');
 /*!40000 ALTER TABLE `field_h_aw_more` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_options`
@@ -4084,9 +4149,9 @@ CREATE TABLE `field_h_aw_options` (
 -- Dumping data for table `field_h_aw_options`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_options` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_options` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_options` VALUES
 (5994,2,0),
 (5969,1,0),
@@ -4101,7 +4166,8 @@ INSERT INTO `field_h_aw_options` VALUES
 (6120,2,0);
 /*!40000 ALTER TABLE `field_h_aw_options` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_person`
@@ -4123,9 +4189,9 @@ CREATE TABLE `field_h_aw_person` (
 -- Dumping data for table `field_h_aw_person`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_person` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_person` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_person` VALUES
 (5844,5792,0),
 (6044,5792,0),
@@ -4301,7 +4367,8 @@ INSERT INTO `field_h_aw_person` VALUES
 (6358,6360,0);
 /*!40000 ALTER TABLE `field_h_aw_person` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_popularity`
@@ -4323,9 +4390,9 @@ CREATE TABLE `field_h_aw_popularity` (
 -- Dumping data for table `field_h_aw_popularity`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_popularity` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_popularity` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_popularity` VALUES
 (5844,2,0),
 (5850,3,0),
@@ -4463,7 +4530,8 @@ INSERT INTO `field_h_aw_popularity` VALUES
 (6333,2,0);
 /*!40000 ALTER TABLE `field_h_aw_popularity` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_possession`
@@ -4485,16 +4553,17 @@ CREATE TABLE `field_h_aw_possession` (
 -- Dumping data for table `field_h_aw_possession`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_possession` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_possession` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_possession` VALUES
 (5844,5854,0),
 (5847,5855,0),
 (5851,5856,0);
 /*!40000 ALTER TABLE `field_h_aw_possession` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_price`
@@ -4515,9 +4584,9 @@ CREATE TABLE `field_h_aw_price` (
 -- Dumping data for table `field_h_aw_price`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_price` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_price` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_price` VALUES
 (6080,1501),
 (6196,2690),
@@ -4563,7 +4632,8 @@ INSERT INTO `field_h_aw_price` VALUES
 (6120,160);
 /*!40000 ALTER TABLE `field_h_aw_price` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_price_sek`
@@ -4584,9 +4654,9 @@ CREATE TABLE `field_h_aw_price_sek` (
 -- Dumping data for table `field_h_aw_price_sek`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_price_sek` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_price_sek` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_price_sek` VALUES
 (5847,2300),
 (5974,80),
@@ -4629,7 +4699,8 @@ INSERT INTO `field_h_aw_price_sek` VALUES
 (6358,3335);
 /*!40000 ALTER TABLE `field_h_aw_price_sek` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_rarity`
@@ -4651,9 +4722,9 @@ CREATE TABLE `field_h_aw_rarity` (
 -- Dumping data for table `field_h_aw_rarity`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_rarity` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_rarity` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_rarity` VALUES
 (5850,4,0),
 (5974,2,0),
@@ -4792,7 +4863,8 @@ INSERT INTO `field_h_aw_rarity` VALUES
 (6333,2,0);
 /*!40000 ALTER TABLE `field_h_aw_rarity` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_seller`
@@ -4814,9 +4886,9 @@ CREATE TABLE `field_h_aw_seller` (
 -- Dumping data for table `field_h_aw_seller`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_seller` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_seller` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_seller` VALUES
 (5847,5830,0),
 (6084,5830,0),
@@ -4864,7 +4936,8 @@ INSERT INTO `field_h_aw_seller` VALUES
 (6358,6359,0);
 /*!40000 ALTER TABLE `field_h_aw_seller` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_size`
@@ -4886,9 +4959,9 @@ CREATE TABLE `field_h_aw_size` (
 -- Dumping data for table `field_h_aw_size`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_size` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_size` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_size` VALUES
 (6028,6187,0),
 (6222,6187,0),
@@ -4964,7 +5037,8 @@ INSERT INTO `field_h_aw_size` VALUES
 (6115,6327,0);
 /*!40000 ALTER TABLE `field_h_aw_size` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_sizes`
@@ -4986,12 +5060,13 @@ CREATE TABLE `field_h_aw_sizes` (
 -- Dumping data for table `field_h_aw_sizes`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_sizes` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_sizes` DISABLE KEYS */;
-set autocommit=0;
 /*!40000 ALTER TABLE `field_h_aw_sizes` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_url`
@@ -5013,9 +5088,9 @@ CREATE TABLE `field_h_aw_url` (
 -- Dumping data for table `field_h_aw_url`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_url` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_url` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_url` VALUES
 (5847,'https://www.bukowskis.com/en/lots/1044067-hermes-scarf-les-folies-du-ciel'),
 (6277,'https://www.metropol.se/auctions/detail.asp?og={9421ADB5-1605-4F6A-9C27-EF745DE6D959}'),
@@ -5062,7 +5137,8 @@ INSERT INTO `field_h_aw_url` VALUES
 (6346,'https://www.facebook.com/Hermes.Scarf.Guides/');
 /*!40000 ALTER TABLE `field_h_aw_url` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_aw_year`
@@ -5084,9 +5160,9 @@ CREATE TABLE `field_h_aw_year` (
 -- Dumping data for table `field_h_aw_year`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_aw_year` WRITE;
 /*!40000 ALTER TABLE `field_h_aw_year` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_aw_year` VALUES
 (5845,'1938'),
 (5846,'2018'),
@@ -5252,7 +5328,8 @@ INSERT INTO `field_h_aw_year` VALUES
 (6358,'2022');
 /*!40000 ALTER TABLE `field_h_aw_year` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_br_duty`
@@ -5274,9 +5351,9 @@ CREATE TABLE `field_h_br_duty` (
 -- Dumping data for table `field_h_br_duty`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_br_duty` WRITE;
 /*!40000 ALTER TABLE `field_h_br_duty` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_br_duty` VALUES
 (5835,1,0),
 (5836,1,0),
@@ -5293,7 +5370,8 @@ INSERT INTO `field_h_br_duty` VALUES
 (6171,1,0);
 /*!40000 ALTER TABLE `field_h_br_duty` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_br_url`
@@ -5315,9 +5393,9 @@ CREATE TABLE `field_h_br_url` (
 -- Dumping data for table `field_h_br_url`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_br_url` WRITE;
 /*!40000 ALTER TABLE `field_h_br_url` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_br_url` VALUES
 (5835,'https://ru.wikipedia.org/wiki/Hermès'),
 (5836,'https://www.ferragamo.com/shop/fra/fr/femmes/Accessoires/foulards'),
@@ -5334,7 +5412,8 @@ INSERT INTO `field_h_br_url` VALUES
 (5841,'https://www.dior.com/');
 /*!40000 ALTER TABLE `field_h_br_url` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_c_person`
@@ -5356,16 +5435,17 @@ CREATE TABLE `field_h_c_person` (
 -- Dumping data for table `field_h_c_person`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_c_person` WRITE;
 /*!40000 ALTER TABLE `field_h_c_person` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_c_person` VALUES
 (5842,5796,0),
 (6331,6109,1),
 (6331,6177,0);
 /*!40000 ALTER TABLE `field_h_c_person` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_p_artwork`
@@ -5387,16 +5467,17 @@ CREATE TABLE `field_h_p_artwork` (
 -- Dumping data for table `field_h_p_artwork`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_p_artwork` WRITE;
 /*!40000 ALTER TABLE `field_h_p_artwork` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_p_artwork` VALUES
 (5854,5844,0),
 (5855,5847,0),
 (5856,5851,0);
 /*!40000 ALTER TABLE `field_h_p_artwork` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_p_currency`
@@ -5418,16 +5499,17 @@ CREATE TABLE `field_h_p_currency` (
 -- Dumping data for table `field_h_p_currency`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_p_currency` WRITE;
 /*!40000 ALTER TABLE `field_h_p_currency` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_p_currency` VALUES
 (5854,1,0),
 (5855,1,0),
 (5856,1,0);
 /*!40000 ALTER TABLE `field_h_p_currency` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_p_date`
@@ -5448,16 +5530,17 @@ CREATE TABLE `field_h_p_date` (
 -- Dumping data for table `field_h_p_date`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_p_date` WRITE;
 /*!40000 ALTER TABLE `field_h_p_date` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_p_date` VALUES
 (5854,'2003-05-04 00:00:00'),
 (5855,'2018-04-28 00:00:00'),
 (5856,'2017-10-05 00:00:00');
 /*!40000 ALTER TABLE `field_h_p_date` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_p_object_number`
@@ -5478,15 +5561,16 @@ CREATE TABLE `field_h_p_object_number` (
 -- Dumping data for table `field_h_p_object_number`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_p_object_number` WRITE;
 /*!40000 ALTER TABLE `field_h_p_object_number` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_p_object_number` VALUES
 (5855,1044067),
 (5856,486156);
 /*!40000 ALTER TABLE `field_h_p_object_number` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_p_person`
@@ -5508,12 +5592,13 @@ CREATE TABLE `field_h_p_person` (
 -- Dumping data for table `field_h_p_person`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_p_person` WRITE;
 /*!40000 ALTER TABLE `field_h_p_person` DISABLE KEYS */;
-set autocommit=0;
 /*!40000 ALTER TABLE `field_h_p_person` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_p_price_final`
@@ -5534,15 +5619,16 @@ CREATE TABLE `field_h_p_price_final` (
 -- Dumping data for table `field_h_p_price_final`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_p_price_final` WRITE;
 /*!40000 ALTER TABLE `field_h_p_price_final` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_p_price_final` VALUES
 (5855,2300),
 (5856,2000);
 /*!40000 ALTER TABLE `field_h_p_price_final` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_p_price_start`
@@ -5563,15 +5649,16 @@ CREATE TABLE `field_h_p_price_start` (
 -- Dumping data for table `field_h_p_price_start`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_p_price_start` WRITE;
 /*!40000 ALTER TABLE `field_h_p_price_start` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_p_price_start` VALUES
 (5855,2000),
 (5856,1500);
 /*!40000 ALTER TABLE `field_h_p_price_start` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_p_seller`
@@ -5593,16 +5680,17 @@ CREATE TABLE `field_h_p_seller` (
 -- Dumping data for table `field_h_p_seller`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_p_seller` WRITE;
 /*!40000 ALTER TABLE `field_h_p_seller` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_p_seller` VALUES
 (5854,5828,0),
 (5855,5830,0),
 (5856,5832,0);
 /*!40000 ALTER TABLE `field_h_p_seller` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_s_address`
@@ -5633,9 +5721,9 @@ CREATE TABLE `field_h_s_address` (
 -- Dumping data for table `field_h_s_address`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_s_address` WRITE;
 /*!40000 ALTER TABLE `field_h_s_address` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_s_address` VALUES
 (5829,'','Genève','',''),
 (5830,'Stockholm','Стокгольм','Stockholm','Stockholm'),
@@ -5649,7 +5737,8 @@ INSERT INTO `field_h_s_address` VALUES
 (6359,'','','','');
 /*!40000 ALTER TABLE `field_h_s_address` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_h_s_url`
@@ -5671,9 +5760,9 @@ CREATE TABLE `field_h_s_url` (
 -- Dumping data for table `field_h_s_url`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_h_s_url` WRITE;
 /*!40000 ALTER TABLE `field_h_s_url` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_h_s_url` VALUES
 (5830,'https://www.bukowskis.com/'),
 (5829,'https://www.geneve.ch/marche-plainpalais'),
@@ -5687,7 +5776,8 @@ INSERT INTO `field_h_s_url` VALUES
 (6359,'https://hopcash.ch/');
 /*!40000 ALTER TABLE `field_h_s_url` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_images`
@@ -5727,9 +5817,9 @@ CREATE TABLE `field_images` (
 -- Dumping data for table `field_images`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_images` WRITE;
 /*!40000 ALTER TABLE `field_images` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_images` VALUES
 (5900,'1457361855.jpg',0,'[\"\"]','2025-11-07 12:54:23','2025-11-07 12:54:23','',324021,41,41,1600,883,1.81),
 (5795,'1731018441931.jpg',0,'[null]','2025-11-11 11:47:02','2025-11-11 11:47:02','',129525,41,41,800,800,1.00),
@@ -6178,7 +6268,8 @@ INSERT INTO `field_images` VALUES
 (6360,'8c2720d9ac531eec287579169a1996d5-pic.jpeg',0,'[\"\"]','2026-02-02 18:25:21','2026-02-02 18:25:21','',25077,41,41,300,300,1.00);
 /*!40000 ALTER TABLE `field_images` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_language`
@@ -6200,9 +6291,9 @@ CREATE TABLE `field_language` (
 -- Dumping data for table `field_language`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_language` WRITE;
 /*!40000 ALTER TABLE `field_language` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_language` VALUES
 (41,5751,0),
 (40,5753,0),
@@ -6213,7 +6304,8 @@ INSERT INTO `field_language` VALUES
 (5972,5754,0);
 /*!40000 ALTER TABLE `field_language` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_language_files`
@@ -6247,15 +6339,16 @@ CREATE TABLE `field_language_files` (
 -- Dumping data for table `field_language_files`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_language_files` WRITE;
 /*!40000 ALTER TABLE `field_language_files` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_language_files` VALUES
 (5753,'wire--templates-admin--default-php.json',0,'[\"\"]','2026-01-14 16:57:32','2026-01-14 16:57:32','',258,41,41),
 (5753,'wire--modules--languagesupport--languagetranslator-php.json',1,'[\"\"]','2026-01-14 16:59:53','2026-01-14 16:59:53','',1917,41,41);
 /*!40000 ALTER TABLE `field_language_files` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_language_files_site`
@@ -6289,9 +6382,9 @@ CREATE TABLE `field_language_files_site` (
 -- Dumping data for table `field_language_files_site`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_language_files_site` WRITE;
 /*!40000 ALTER TABLE `field_language_files_site` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_language_files_site` VALUES
 (5751,'site--templates--_func-php.json',2,'[\"\"]','2026-01-07 17:48:49','2026-01-07 17:48:49','',116,41,41),
 (5751,'site--templates--a_collections-php.json',3,'[\"\"]','2026-01-10 21:23:02','2026-01-10 21:23:02','',132,41,41),
@@ -6376,7 +6469,8 @@ INSERT INTO `field_language_files_site` VALUES
 (5751,'site--templates--h_spot-php.json',0,'[\"\"]','2020-10-11 17:22:07','2020-10-11 17:22:07','',118,0,0);
 /*!40000 ALTER TABLE `field_language_files_site` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_pass`
@@ -6398,9 +6492,9 @@ CREATE TABLE `field_pass` (
 -- Dumping data for table `field_pass`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_pass` WRITE;
 /*!40000 ALTER TABLE `field_pass` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_pass` VALUES
 (41,'mAwZZtrHxx9tOS5H1ZQ2GQIKEivrD6W','$2y$11$GiX8d6qqBoYFz7YtNKw9c.'),
 (40,'',''),
@@ -6411,7 +6505,8 @@ INSERT INTO `field_pass` VALUES
 (6344,'9vTSvjSJ7O997BVEHwQd/0A8HUibciS','$2y$11$iFguguwbsLb7GF.dwuuu9.');
 /*!40000 ALTER TABLE `field_pass` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_permissions`
@@ -6433,9 +6528,9 @@ CREATE TABLE `field_permissions` (
 -- Dumping data for table `field_permissions`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_permissions` WRITE;
 /*!40000 ALTER TABLE `field_permissions` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_permissions` VALUES
 (38,32,1),
 (5735,32,1),
@@ -6453,7 +6548,8 @@ INSERT INTO `field_permissions` VALUES
 (38,54,6);
 /*!40000 ALTER TABLE `field_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_process`
@@ -6474,9 +6570,9 @@ CREATE TABLE `field_process` (
 -- Dumping data for table `field_process`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_process` WRITE;
 /*!40000 ALTER TABLE `field_process` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_process` VALUES
 (6,17),
 (3,12),
@@ -6517,7 +6613,8 @@ INSERT INTO `field_process` VALUES
 (6269,198);
 /*!40000 ALTER TABLE `field_process` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_roles`
@@ -6539,9 +6636,9 @@ CREATE TABLE `field_roles` (
 -- Dumping data for table `field_roles`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_roles` WRITE;
 /*!40000 ALTER TABLE `field_roles` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_roles` VALUES
 (40,37,0),
 (41,37,0),
@@ -6559,7 +6656,8 @@ INSERT INTO `field_roles` VALUES
 (6342,6290,2);
 /*!40000 ALTER TABLE `field_roles` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `field_title`
@@ -6590,9 +6688,9 @@ CREATE TABLE `field_title` (
 -- Dumping data for table `field_title`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `field_title` WRITE;
 /*!40000 ALTER TABLE `field_title` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `field_title` VALUES
 (11,'Templates',NULL,NULL,NULL),
 (16,'Fields',NULL,NULL,NULL),
@@ -7068,7 +7166,8 @@ INSERT INTO `field_title` VALUES
 (6360,'Théo de Gueltzl','','','');
 /*!40000 ALTER TABLE `field_title` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `fieldgroups`
@@ -7089,9 +7188,9 @@ CREATE TABLE `fieldgroups` (
 -- Dumping data for table `fieldgroups`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `fieldgroups` WRITE;
 /*!40000 ALTER TABLE `fieldgroups` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `fieldgroups` VALUES
 (2,'admin'),
 (3,'user'),
@@ -7140,7 +7239,8 @@ INSERT INTO `fieldgroups` VALUES
 (146,'d_artwork');
 /*!40000 ALTER TABLE `fieldgroups` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `fieldgroups_fields`
@@ -7162,9 +7262,9 @@ CREATE TABLE `fieldgroups_fields` (
 -- Dumping data for table `fieldgroups_fields`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `fieldgroups_fields` WRITE;
 /*!40000 ALTER TABLE `fieldgroups_fields` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `fieldgroups_fields` VALUES
 (2,2,1,''),
 (2,1,0,''),
@@ -7360,7 +7460,8 @@ INSERT INTO `fieldgroups_fields` VALUES
 (114,137,18,'{\"columnWidth\":20}');
 /*!40000 ALTER TABLE `fieldgroups_fields` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `fields`
@@ -7386,9 +7487,9 @@ CREATE TABLE `fields` (
 -- Dumping data for table `fields`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `fields` WRITE;
 /*!40000 ALTER TABLE `fields` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `fields` VALUES
 (1,'FieldtypePageTitleLanguage','title',13,'Title','{\"required\":1,\"textformatters\":[\"TextformatterEntities\"],\"size\":0,\"maxlength\":255,\"label5753\":\"\\u0418\\u043c\\u044f\",\"minlength\":0,\"showCount\":0,\"langBlankInherit\":0,\"tags\":\"page\",\"collapsed\":0}'),
 (2,'FieldtypeModule','process',25,'Process','{\"description\":\"The process that is executed on this page. Since this is mostly used by ProcessWire internally, it is recommended that you don\'t change the value of this unless adding your own pages in the admin.\",\"collapsed\":1,\"required\":1,\"moduleTypes\":[\"Process\"],\"permanent\":1,\"matchType\":\"verbose\",\"blankType\":\"null\"}'),
@@ -7490,7 +7591,8 @@ INSERT INTO `fields` VALUES
 (250,'FieldtypeInteger','h_aw_price_SEK',0,'Price in SEK','{\"zeroNotEmpty\":0,\"inputType\":\"text\",\"size\":10,\"tags\":\"restricted prices\",\"label5753\":\"\\u0426\\u0435\\u043d\\u0430\",\"collapsed\":4}');
 /*!40000 ALTER TABLE `fields` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `fieldtype_options`
@@ -7532,9 +7634,9 @@ CREATE TABLE `fieldtype_options` (
 -- Dumping data for table `fieldtype_options`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `fieldtype_options` WRITE;
 /*!40000 ALTER TABLE `fieldtype_options` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `fieldtype_options` VALUES
 (226,'1','Special Edition','ES',0,'Спец. Выпуск','ES','Édition Spéciale','ES','Specialutgåva','ES'),
 (226,'2','Limited Edition','EL',1,'Лимитированная серия','EL','Édition Limitée','EL','Begränsad Upplaga','EL'),
@@ -7621,7 +7723,8 @@ INSERT INTO `fieldtype_options` VALUES
 (249,'2','CHF','',1,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `fieldtype_options` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `modules`
@@ -7645,9 +7748,9 @@ CREATE TABLE `modules` (
 -- Dumping data for table `modules`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `modules` WRITE;
 /*!40000 ALTER TABLE `modules` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `modules` VALUES
 (1,'FieldtypeTextarea',1,'','2017-02-04 22:00:00'),
 (193,'InputfieldTextTags',0,'','2025-11-06 16:04:57'),
@@ -7766,7 +7869,8 @@ INSERT INTO `modules` VALUES
 (208,'ProtectedMode',3,'{\"protectedMode\":1,\"hideLogin\":\"\",\"roles\":[],\"send503header\":\"\",\"retryAfter\":1768202576,\"retryAfter_inputdate\":\"Y-m-d\",\"retryAfter_inputtime\":\"H:i\",\"retryAfter_autoIncrease\":60,\"message\":\"The site is currently in protected mode.<br>\\nYou must log in to view the site.\",\"message__5753\":\"\",\"message__5754\":\"\",\"message__5755\":\"\",\"prohibitedMessage\":\"Sorry, you do not have permission to view the site in protected mode.\",\"prohibitedMessage__5753\":\"\",\"prohibitedMessage__5754\":\"\",\"prohibitedMessage__5755\":\"\",\"usernamePlaceholder\":\"Username\",\"usernamePlaceholder__5753\":\"\",\"usernamePlaceholder__5754\":\"\",\"usernamePlaceholder__5755\":\"\",\"passwordPlaceholder\":\"Password\",\"passwordPlaceholder__5753\":\"\",\"passwordPlaceholder__5754\":\"\",\"passwordPlaceholder__5755\":\"\",\"loginButtonText\":\"Login\",\"loginButtonText__5753\":\"\",\"loginButtonText__5754\":\"\",\"loginButtonText__5755\":\"\",\"logincss\":\".protected-mode-container {\\n    width: 400px;\\n    max-width: calc(100vw - 20px);\\n    height: 150px;\\n    margin: auto;\\n    position: absolute;\\n    top: 0;\\n    left: 0;\\n    bottom: 0;\\n    right: 0;\\n}\\n\\np, legend {\\n    font-family: Arial, Helvetica, sans-serif;\\n    display: block;\\n    width: 100%;\\n    margin-bottom: 1rem;\\n    line-height: 1.4;\\n    color: #6F6F6F;\\n}\\n\\nbutton {\\n    font-family: Arial, Helvetica, sans-serif;\\n    font-size: 100%;\\n    padding: 0.5em 1em;\\n    background-color: #006DD3;\\n    color:#fff;\\n    text-decoration: none;\\n    border: 0 rgba(0,0,0,0);\\n    border-radius: 2px;\\n}\\nbutton:hover,\\nbutton:focus {\\n    background-color: #007DD2;\\n}\\nbutton:focus {\\n    outline: 0;\\n}\\n\\ninput[type=\'text\'],\\ninput[type=\'password\'] {\\n    font-size: 100%;\\n    padding: 0.5rem;\\n    display: inline-block;\\n    border: 1px solid #ccc;\\n    box-shadow: inset 0 1px 3px #ddd;\\n    border-radius: 4px;\\n    -webkit-box-sizing: border-box;\\n    -moz-box-sizing: border-box;\\n    box-sizing: border-box;\\n}\"}','2026-01-12 07:22:07');
 /*!40000 ALTER TABLE `modules` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `pages`
@@ -7811,9 +7915,9 @@ CREATE TABLE `pages` (
 -- Dumping data for table `pages`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `pages` WRITE;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `pages` VALUES
 (1,0,1,'home',1,'2025-12-17 09:16:07',41,'2017-02-04 22:00:00',41,'2017-02-05 00:00:00',0,'ru-home',1,'fr-home',0,'sv-home',0),
 (2,1,2,'processwire',1035,'2020-07-24 07:35:00',40,'2017-02-04 22:00:00',41,'2017-02-05 00:00:00',5,NULL,1,NULL,1,NULL,1),
@@ -7881,7 +7985,7 @@ INSERT INTO `pages` VALUES
 (5755,5750,45,'swedish',16,'2026-01-23 18:32:19',41,'2020-06-11 06:50:44',41,'2020-06-11 10:50:44',3,NULL,1,NULL,1,NULL,1),
 (5786,1,56,'countries',2049,'2025-11-28 07:30:11',41,'2020-07-24 07:05:06',40,'2020-07-24 09:05:06',8,NULL,1,NULL,1,NULL,1),
 (6171,5834,69,'omega',1,'2026-01-07 14:31:47',40,'2025-11-19 10:01:23',40,'2025-11-19 11:01:23',11,NULL,1,NULL,1,NULL,0),
-(5789,1,61,'h_spot',32,'2026-02-02 20:43:19',41,'2020-09-13 13:20:37',40,'2020-09-13 15:20:37',6,NULL,1,NULL,1,NULL,0),
+(5789,1,61,'h_spot',32,'2026-02-19 14:36:23',41,'2020-09-13 13:20:37',40,'2020-09-13 15:20:37',6,NULL,1,NULL,1,NULL,0),
 (5791,5789,64,'h_persons',1,'2026-01-07 17:42:01',41,'2020-09-13 13:20:42',40,'2020-09-13 15:20:42',1,NULL,1,NULL,1,NULL,0),
 (5792,5791,70,'167-christiane-vauzelles',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:42',40,'2020-09-13 15:20:42',0,NULL,1,NULL,1,NULL,0),
 (5793,5791,70,'168-cathy-latham-audibert',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:42',40,'2020-09-13 15:20:42',1,NULL,1,NULL,1,NULL,0),
@@ -7909,7 +8013,7 @@ INSERT INTO `pages` VALUES
 (5815,5791,70,'322-catherine-baschet',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:51',40,'2020-09-13 15:20:51',23,NULL,1,NULL,1,NULL,0),
 (5816,5791,70,'323-laurence-bourthoumieux',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:51',40,'2020-09-13 15:20:51',24,NULL,1,NULL,1,NULL,0),
 (5817,5791,70,'324-antoine-de-jacquelot',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:51',40,'2020-09-13 15:20:51',25,NULL,1,NULL,1,NULL,0),
-(5818,5791,70,'325-alice-shirley',32,'2026-01-13 10:56:34',41,'2020-09-13 13:20:52',40,'2020-09-13 15:20:52',26,NULL,1,NULL,1,NULL,0),
+(5818,5791,70,'325-alice-shirley',32,'2026-02-18 20:16:35',41,'2020-09-13 13:20:52',40,'2020-09-13 15:20:52',26,NULL,1,NULL,1,NULL,0),
 (5819,5791,70,'326-hubert-de-watrigant',32,'2026-01-20 17:41:49',41,'2020-09-13 13:20:52',40,'2020-09-13 15:20:52',27,NULL,1,NULL,1,NULL,0),
 (5820,5791,70,'327-pierre-alexis-dumas',32,'2026-01-07 14:31:47',40,'2020-09-13 13:20:52',40,'2020-09-13 15:20:52',28,NULL,1,NULL,1,NULL,0),
 (5821,5791,70,'328-jean-louis-dumas',32,'2026-01-07 15:14:11',41,'2020-09-13 13:20:53',40,'2020-09-13 15:20:53',29,NULL,1,NULL,1,NULL,0),
@@ -7938,7 +8042,7 @@ INSERT INTO `pages` VALUES
 (5844,5843,60,'169-cheval-turc',32,'2026-02-02 21:58:15',41,'2020-09-13 13:20:59',40,'2020-09-13 15:20:59',0,NULL,1,NULL,1,NULL,0),
 (5845,5842,60,'198-hemisphaerium-coeli-boreale',1,'2026-01-07 14:31:45',40,'2020-09-13 13:21:00',40,'2020-09-13 15:21:00',0,NULL,1,NULL,1,NULL,0),
 (5846,5842,60,'202-jeu-de-omnibus-et-dameblanche',32,'2026-01-07 14:31:46',40,'2020-09-13 13:21:00',40,'2020-09-13 15:21:00',1,NULL,1,NULL,1,NULL,0),
-(5847,5843,60,'227-les-folies-du-ciel',32,'2026-02-11 13:26:59',41,'2020-09-13 13:21:00',40,'2020-09-13 15:21:00',1,NULL,1,NULL,1,NULL,0),
+(5847,5843,60,'227-les-folies-du-ciel',32,'2026-02-19 14:37:56',41,'2020-09-13 13:21:00',40,'2020-09-13 15:21:00',1,NULL,1,NULL,1,NULL,0),
 (5848,5843,60,'244',32,'2026-01-07 14:31:46',40,'2020-09-13 13:21:01',40,'2020-09-13 15:21:01',2,NULL,1,NULL,1,NULL,0),
 (5849,5843,60,'281-les-voitures-transformation',32,'2026-02-11 13:28:41',41,'2020-09-13 13:21:01',40,'2020-09-13 15:21:01',3,NULL,1,NULL,1,NULL,0),
 (5850,5843,60,'284-brides-de-gala',32,'2026-01-14 13:32:28',41,'2020-09-13 13:21:02',40,'2020-09-13 15:21:02',4,NULL,1,NULL,1,NULL,0),
@@ -8044,7 +8148,7 @@ INSERT INTO `pages` VALUES
 (5959,5958,87,'2857-lyudmila-vereshchagina',32,'2026-01-12 09:05:04',41,'2020-09-13 13:21:51',40,'2020-09-13 15:21:51',0,NULL,1,NULL,1,NULL,0),
 (5960,5957,90,'d_artworks',32,'2026-01-07 14:31:45',40,'2020-09-13 13:21:51',40,'2020-09-13 15:21:51',1,NULL,1,NULL,1,NULL,0),
 (5961,5960,92,'2865-shchuka',32,'2026-01-07 14:31:45',40,'2020-09-13 13:21:51',40,'2020-09-13 15:21:51',0,NULL,1,NULL,1,NULL,0),
-(5972,29,3,'margo',1,'2026-02-18 12:08:13',41,'2020-09-13 16:03:24',41,'2020-09-13 18:04:05',2,NULL,1,NULL,1,NULL,1),
+(5972,29,3,'margo',1,'2026-02-19 17:28:13',5972,'2020-09-13 16:03:24',41,'2020-09-13 18:04:05',2,NULL,1,NULL,1,NULL,1),
 (5974,5843,60,'afrika',32,'2026-02-11 14:07:52',41,'2020-09-13 16:59:12',5972,'2020-09-13 18:59:42',10,NULL,1,NULL,1,NULL,0),
 (5965,5843,60,'armes-de-paris',32,'2026-02-09 17:58:26',41,'2020-09-13 14:46:01',41,'2020-09-13 16:47:14',6,NULL,1,NULL,1,NULL,0),
 (5966,5843,60,'armes-de-chasse',32,'2026-02-11 14:09:28',41,'2020-09-13 14:51:24',41,'2020-09-13 16:52:12',7,NULL,1,NULL,1,NULL,0),
@@ -8092,7 +8196,7 @@ INSERT INTO `pages` VALUES
 (6016,5843,60,'ysl',1,'2026-01-12 16:28:14',41,'2020-11-01 16:43:38',41,'2020-11-01 17:46:07',40,NULL,1,NULL,1,NULL,0),
 (6018,5791,70,'charles-jean-hallo',32,'2026-01-07 14:31:47',40,'2021-07-04 15:53:11',41,'2021-07-04 17:53:58',40,NULL,1,NULL,1,NULL,0),
 (6019,5791,70,'karin-swildens',32,'2026-01-07 14:31:47',40,'2021-07-04 15:55:21',41,'2021-07-04 17:56:04',41,NULL,1,NULL,1,NULL,0),
-(6021,5791,70,'aline-honore',32,'2026-01-14 11:00:33',5972,'2021-07-04 16:40:54',41,'2021-07-04 18:42:32',42,NULL,1,NULL,1,NULL,0),
+(6021,5791,70,'aline-honore',32,'2026-02-18 20:24:12',41,'2021-07-04 16:40:54',41,'2021-07-04 18:42:32',42,NULL,1,NULL,1,NULL,0),
 (6022,5791,70,'jacques-eudel',32,'2026-01-07 14:31:47',40,'2021-07-04 16:46:44',41,'2021-07-04 18:47:30',43,NULL,1,NULL,1,NULL,0),
 (6023,5791,70,'christine-henry',32,'2026-01-19 14:15:03',41,'2021-07-04 16:49:30',41,'2021-07-04 18:50:10',44,NULL,1,NULL,1,NULL,0),
 (6024,5843,60,'la-mecanique-des-idees',32,'2026-01-12 16:28:17',41,'2021-07-05 06:33:44',41,'2021-07-05 08:34:19',41,NULL,1,NULL,1,NULL,0),
@@ -8144,7 +8248,7 @@ INSERT INTO `pages` VALUES
 (6071,5843,60,'sacre-du-printems',32,'2026-01-12 16:32:02',41,'2021-07-05 08:24:21',40,'2021-07-05 10:24:21',88,NULL,1,NULL,1,NULL,0),
 (6072,5843,60,'carpe-diem',32,'2026-01-12 16:32:07',41,'2021-07-05 08:24:21',40,'2021-07-05 10:24:21',89,NULL,1,NULL,1,NULL,0),
 (6073,5843,60,'le-temps-des-marionnettes',32,'2026-01-12 16:32:17',41,'2021-07-05 08:24:22',40,'2021-07-05 10:24:22',90,NULL,1,NULL,1,NULL,0),
-(6079,5843,60,'1821-hommage-a-lamite',32,'2026-02-18 11:50:25',40,'2025-11-01 17:05:45',40,'2025-11-01 18:05:45',89,NULL,1,NULL,1,NULL,0),
+(6079,5843,60,'1821-hommage-a-lamite',32,'2026-02-19 14:02:16',41,'2025-11-01 17:05:45',40,'2025-11-01 18:05:45',89,NULL,1,NULL,1,NULL,0),
 (6080,5843,60,'a-propos-de-bottes',32,'2026-02-11 13:43:50',41,'2025-11-01 17:10:52',40,'2025-11-01 18:10:52',90,NULL,1,NULL,1,NULL,0),
 (6081,5843,60,'alliances-du-monde',1,'2026-02-11 13:47:17',41,'2025-11-01 17:11:49',40,'2025-11-01 18:11:49',91,NULL,1,NULL,1,NULL,0),
 (6082,5843,60,'bolduc-au-carre',32,'2026-02-18 11:50:25',40,'2025-11-01 17:30:00',40,'2025-11-01 18:30:00',92,NULL,1,NULL,1,NULL,0),
@@ -8283,7 +8387,7 @@ INSERT INTO `pages` VALUES
 (6342,29,3,'mb',1,'2026-01-12 12:05:56',41,'2026-01-12 12:04:23',41,'2026-01-12 13:05:56',5,NULL,1,NULL,1,NULL,1),
 (6345,31,5,'see-h-prices',1,'2026-01-19 18:30:45',41,'2026-01-12 17:34:24',41,'2026-01-12 18:35:00',16,NULL,1,NULL,1,NULL,1),
 (6344,29,3,'ab',1,'2026-01-12 12:10:19',41,'2026-01-12 12:07:43',41,'2026-01-12 13:09:04',7,NULL,1,NULL,1,NULL,1),
-(6346,6306,63,'hermes-scarf-guides',1,'2026-01-24 08:21:41',41,'2026-01-17 21:19:50',41,'2026-01-17 22:27:54',2,NULL,1,NULL,1,NULL,1),
+(6346,6306,63,'hermes-scarf-guides',1,'2026-02-19 14:19:07',41,'2026-01-17 21:19:50',41,'2026-01-17 22:27:54',2,NULL,1,NULL,1,NULL,1),
 (6347,5843,60,'hermes-flagship',1,'2026-01-19 11:27:26',41,'2026-01-17 21:26:11',41,'2026-01-17 22:38:44',155,NULL,1,NULL,1,NULL,1),
 (6348,5843,60,'hermes-flagship-variations1',1,'2026-01-18 07:58:39',41,'2026-01-17 21:47:34',41,'2026-01-17 22:50:21',156,NULL,1,NULL,1,NULL,0),
 (6349,5843,60,'hermes-flagship-variations2',1,'2026-01-18 07:56:30',41,'2026-01-17 22:43:12',41,'2026-01-17 23:45:39',157,NULL,1,NULL,1,NULL,0),
@@ -8300,7 +8404,8 @@ INSERT INTO `pages` VALUES
 (6360,5791,70,'theo-de-gueltzl',1,'2026-02-02 22:44:51',41,'2026-02-02 16:46:04',41,'2026-02-02 17:46:50',66,NULL,1,NULL,1,NULL,0);
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `pages_access`
@@ -8322,9 +8427,9 @@ CREATE TABLE `pages_access` (
 -- Dumping data for table `pages_access`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `pages_access` WRITE;
 /*!40000 ALTER TABLE `pages_access` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `pages_access` VALUES
 (5751,2,'2026-01-13 17:06:52'),
 (5753,2,'2026-01-13 17:06:52'),
@@ -8396,7 +8501,8 @@ INSERT INTO `pages_access` VALUES
 (6359,65,'2026-02-02 16:09:49');
 /*!40000 ALTER TABLE `pages_access` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `pages_meta`
@@ -8419,14 +8525,15 @@ CREATE TABLE `pages_meta` (
 -- Dumping data for table `pages_meta`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `pages_meta` WRITE;
 /*!40000 ALTER TABLE `pages_meta` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `pages_meta` VALUES
 (41,'adminDarkMode','0');
 /*!40000 ALTER TABLE `pages_meta` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `pages_parents`
@@ -8446,9 +8553,9 @@ CREATE TABLE `pages_parents` (
 -- Dumping data for table `pages_parents`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `pages_parents` WRITE;
 /*!40000 ALTER TABLE `pages_parents` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `pages_parents` VALUES
 (3,2),
 (22,2),
@@ -8513,7 +8620,8 @@ INSERT INTO `pages_parents` VALUES
 (6338,5906);
 /*!40000 ALTER TABLE `pages_parents` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `pages_sortfields`
@@ -8533,15 +8641,16 @@ CREATE TABLE `pages_sortfields` (
 -- Dumping data for table `pages_sortfields`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `pages_sortfields` WRITE;
 /*!40000 ALTER TABLE `pages_sortfields` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `pages_sortfields` VALUES
 (6185,'-name'),
 (5791,'1');
 /*!40000 ALTER TABLE `pages_sortfields` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `session_login_throttle`
@@ -8562,14 +8671,15 @@ CREATE TABLE `session_login_throttle` (
 -- Dumping data for table `session_login_throttle`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `session_login_throttle` WRITE;
 /*!40000 ALTER TABLE `session_login_throttle` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `session_login_throttle` VALUES
-('margo',1,1771420517);
+('yb',1,1771522214);
 /*!40000 ALTER TABLE `session_login_throttle` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `templates`
@@ -8595,9 +8705,9 @@ CREATE TABLE `templates` (
 -- Dumping data for table `templates`
 --
 
+SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `templates` WRITE;
 /*!40000 ALTER TABLE `templates` DISABLE KEYS */;
-set autocommit=0;
 INSERT INTO `templates` VALUES
 (2,'admin',2,8,0,'{\"useRoles\":1,\"parentTemplates\":[2],\"allowPageNum\":1,\"redirectLogin\":23,\"slashUrls\":1,\"noGlobal\":1,\"compile\":3,\"modified\":1598014032,\"ns\":\"ProcessWire\"}'),
 (3,'user',3,8,0,'{\"useRoles\":1,\"noChildren\":1,\"parentTemplates\":[2],\"slashUrls\":1,\"pageClass\":\"User\",\"noGlobal\":1,\"noMove\":1,\"noTrash\":1,\"noSettings\":1,\"noChangeTemplate\":1,\"nameContentTab\":1}'),
@@ -8645,7 +8755,8 @@ INSERT INTO `templates` VALUES
 (92,'d_artwork',146,0,0,'{\"parentTemplates\":[90],\"slashUrls\":1,\"altFilename\":\"d_artwork\",\"compile\":3,\"label\":\"\\u0418\\u0433\\u0440\\u0443\\u0448\\u043a\\u0430\",\"tags\":\"d\",\"modified\":1766754413,\"ns\":\"ProcessWire\",\"label5753\":\"\\u0418\\u0433\\u0440\\u0443\\u0448\\u043a\\u0430\",\"_lazy\":\"*\"}');
 /*!40000 ALTER TABLE `templates` ENABLE KEYS */;
 UNLOCK TABLES;
-commit;
+COMMIT;
+SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -8656,4 +8767,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-02-18 15:14:42
+-- Dump completed on 2026-02-19 19:45:49
