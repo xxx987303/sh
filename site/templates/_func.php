@@ -175,7 +175,29 @@ function getInputKey(String $key) {
 /**
  * Check that the field is viewable
  */
-function fieldViewable($field, String $tag="", $page=null) {
+function fieldViewable($field, String $tag='', $page=null) {
+    global $SPOT_id;
+
+    $reply = true;
+    if (empty($field)) return false;
+    foreach (['restricted','prices'] as $t) {
+	if (!$field->HasTag($t)) continue;
+	if (!($permission = permissions($p="see-{$SPOT_id}-{$t}"))->id) continue;
+//echo $permission->name."\n";
+	if (!User()->hasPermission($p))  $reply = false;
+    }
+    
+    if (!empty($tag) && !$field->HasTag($tag)) $reply = false;
+    
+    if (is_object($page)) {
+	if(empty($page->$field)) $reply = false;
+	elseif ( $page->$field instanceof SelectableOptionArray && !count($page->$field)) $reply = false;
+    }
+    //printf("%20s %s %s\n",$field->name ,var_export($reply,true),'');
+    return $reply;
+}
+
+function fieldViewableO($field, String $tag="", $page=null) {
     global $dejaVuDebug, $SPOT_id;
     if ($reply = (empty($field)
 	        ? false
@@ -188,7 +210,7 @@ function fieldViewable($field, String $tag="", $page=null) {
 	}
     }
 //  if($reply) if (!@$dejaVuDebug[$field->name.$tag.$reply]++)
-//     echo x("pre", "fieldViewable($field->name,$tag,".($page?$page->name:"")."): ".var_export($reply, true));
+//    echo x("pre", "fieldViewable($field->name,$tag,".($page?$page->name:"")."): $p ".var_export($reply, true));
     return $reply;
 }
 

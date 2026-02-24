@@ -29,7 +29,7 @@
 }
 
 /**
- * Varitions + Main images (small starting from the second one)
+ * Varitions + Horizontal (Main image + small starting from the second one)
  */ 
 ul.variations,
 ul.horizontal{
@@ -39,9 +39,12 @@ ul.horizontal{
     display: flex;
     gap: 1rem; /* spacing between items */
 }
-ul.variations li,
-ul.horizontal li{
+ul.variations li{
     max-width:130px;
+}
+ul.horizontal img{
+    max-height:130px;
+/*    width: auto; */
 }
 
 /**

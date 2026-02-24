@@ -10,13 +10,14 @@ require_once "/Users/yb/Sites/sh/site/templates/_func.php";
 require_once "/Users/yb/Sites/sh/index.php";
 
 $saveToDB = false;
-
-tidy_dump(User()->name,'user');
+echo User()->name."\n";
 
 if(1){
     $SPOT_id = 'h';
     foreach(pages()->find("template=h_artwork") as $p) {
 	foreach($p->fields as $field){
+	    $r = fieldViewableN($field);
+	    continue;
 	    foreach(fields()->getTags() as $tag){
 		$pe = User()->hasPermission($p="see-{$SPOT_id}-{$tag}");
 		if($field->hasTag($tag) && !$pe) $reply = false; 
@@ -24,7 +25,6 @@ if(1){
 	    }
 	}
 	exit;
-	$r = fieldViewable($f, 'restricted');
 	//echo "$f->name '$r' ".var_export($f->hasTag('restricted'),true)."\n";
     }
     exit;

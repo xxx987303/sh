@@ -2,7 +2,7 @@ import os
 from PIL import Image
 
 # Directory to check
-DIRECTORY = "/tmp/Hermes/"
+DIRECTORY = "/Users/yb/Downloads/Hermes/"
 
 # Max allowed size in bytes (2 MB)
 MAX_SIZE = 2 * 1024 * 1024
