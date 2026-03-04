@@ -6814,7 +6814,7 @@ INSERT INTO `field_title` VALUES
 (5840,'Lanvin','','',''),
 (5841,'Dior','','',''),
 (5842,'Maison Carré Foundation','','',''),
-(5843,'Scarves','Платки','Carrés','Halsdukar'),
+(5843,'Scarves','Carrés','Carrés','Halsdukar'),
 (5844,'Cheval Turc','','',''),
 (5845,'Hemisphaerium Coeli Boreale','','',''),
 (5846,'Jeu de Omnibus et DameBlanche','','',''),
@@ -8775,4 +8775,4 @@ SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-03-04  7:37:31
+-- Dump completed on 2026-03-04  7:46:34
