@@ -13,6 +13,20 @@ $saveToDB = false;
 echo User()->name."\n";
 
 if(1){
+    $h = pages()->get("template=h_brand, title=Hermès, sort=title");
+    $k=1;
+    foreach(pages()->find("template=h_artwork, h_aw_brand=$h") as $p) {
+	if ($p->h_aw_collection->count){
+	    printf("SKIP - %s\n",$p->title);
+	}else{
+	    printf("%3d - %s\n",$k++,$p->title);
+	}
+    }
+    exit;
+}
+
+if(0){
+    // fieldViewable test
     $SPOT_id = 'h';
     foreach(pages()->find("template=h_artwork") as $p) {
 	foreach($p->fields as $field){
