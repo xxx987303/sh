@@ -23,6 +23,7 @@ function _tn(String $text, $spot='h'){
     $text = escape_uml($text,'decode');
     if (pages()->get("template=h_brand, title={$text}")->id)  return $text;
     if (preg_match("/^[a-zA-Z ]*$/", $text)) return substr($text,-1) == 's' ? $text : "{$text}s";
+    if (in_array($text,['МaxTwilly','Twilly','Bandana','140x140','90x90','70x70','45x45',]))    return $text;
     if ($text == 'Коллекционер') return 'Коллекционеры';
     if ($text == 'Владелец')     return 'Владельцы';
     if ($text == 'Художник')     return 'Художники';
@@ -41,6 +42,7 @@ function _t(String $text, $spot='h') {
     if (preg_match("/Got as.*Voyage en/", $text))                    return __('Got as "Voyage en Étoffes"');
     if (preg_match("/Arrangement.*pieces|CASSANDRE pour/", $text))   return $text;
     if (preg_match("/Arrangement.*pieces/", $text))                  return __('Arrangement with match sticks and puzzle pieces');
+    if ($text == 'Hermès Scarf Guides')    return $text;
     if ($text == 'About Designer')    return __('About Designer');
     if ($text == 'About Collector')   return __('About Collector');
     if ($text == 'About Owner')       return __('About Owner');
@@ -55,9 +57,9 @@ function _t(String $text, $spot='h') {
     if ($text == 'Paintings Search') return __('Paintings Search');
     if ($text == 'Dymkovo Search')   return __('Dymkovo Search');
     if ($text == 'Toys Search')      return __('Dymkovo Search');
-    if ($text == 'Photo from Wiki')                return __('Photo from Wiki');
-    if ($text == 'Bienvenue à l’atelier')          return __('Bienvenue à l’atelier');
-    if ($text == 'Probably a copy of:')            return __('Probably a copy of:');
+    if ($text == 'Photo from Wiki')                return __($text);
+    if ($text == 'Bienvenue à l’atelier')          return __($text);
+    if ($text == 'Probably a copy of:')            return __($text);
     if ($text == 'Probably an origin for copy of:')return __('Probably an origin for copy of:');
     if ($text == 'Gemäldegalerie Old Masters')     return __('Gemäldegalerie Old Masters');
     if ($text == 'Unknown collection')             return __('Unknown collection');
@@ -1139,3 +1141,38 @@ function escape_uml($text, $direction='auto', $debug=false) {
         }
     return $reply;
 }
+
+    /**
+     * Standartize the Carres sizes
+     */
+    function getSize(page $page, string $default='90x90') {
+	if (empty($page->h_aw_size)) {
+	    $class = $default;
+	    $page->h_aw_size = pages()->get("name=$default");
+	    $page->save();
+	    $was = 'empty';
+	    echo "{$page->title} {$was}->{$page->h_aw_size->name}\n"; 
+	}
+	
+	$n  = strToLower($page->h_aw_size->name);
+	if    (str_starts_with($n,'gavroche'))                      $class = 'Gavroche';
+	elseif(str_starts_with($n,'twilly'))                        $class = 'Twilly';
+	elseif(str_starts_with($n,'maxtwilly'))                     $class = 'MaxTwilly';
+	elseif(str_starts_with($n,'bandana'))                       $class = 'Bandana';
+	elseif (strpos($n,'x') !== false){
+	    $ss = explode('x',$n);
+	    if (  ($perimeter=(int)$ss[0]+(int)$ss[1]) > 170 && $perimeter < 190) $class = '90x90';
+	    elseif($perimeter >270 && $perimeter <290)              $class = '140x140';
+	    elseif($perimeter >130 && $perimeter <150)              $class = '70x70';
+	    elseif($perimeter > 70 && $perimeter < 90)              $class = 'Gavroche';
+	    elseif($ss[0] == 'ma' && $ss[1] == 'twilly')            $class = 'MaxTwilly';
+	}
+	else                                                        $class = 'Unknown';
+	if (strToLower($was=$page->h_aw_size->name) != strToLower($class)) {
+	    $page->h_aw_size = pages()->get("name=$class");
+	    $page->save();
+	    echo "{$page->title} {$was}->{$page->h_aw_size->name}\n"; 
+	}
+	if ($n != strToLower($class)) say::notice(sprintf("%s -> %s",$n, $class));
+	return $class;
+    }

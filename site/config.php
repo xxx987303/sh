@@ -75,7 +75,7 @@ $config->imageSizerOptions = array(
 /**
  * Group items list by object
  */
-$config->groupListItemBy = ['duty','brand'];
+$config->groupListItemBy = ['duty','brand','size'];
 
 /**
  * Fields shown as emojis

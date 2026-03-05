@@ -13,6 +13,21 @@ $saveToDB = false;
 echo User()->name."\n";
 
 if(1){
+
+    // Standardize the sizes
+    
+    $h = pages()->get("template=h_brand, title=Hermès, sort=title");
+    $sizes = [];
+    $k = 0;
+    foreach(pages()->find("template=h_artwork, h_aw_brand=$h") as $p) {
+	@$sizes[getSize($p)]++;
+    }
+    tidy_dump($sizes);
+    exit;
+}
+
+if(0){
+    // Count the scarves
     $h = pages()->get("template=h_brand, title=Hermès, sort=title");
     $k=1;
     foreach(pages()->find("template=h_artwork, h_aw_brand=$h") as $p) {
