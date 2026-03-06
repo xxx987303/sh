@@ -15,11 +15,13 @@ if(!empty($items)){
 
 if(!empty($itemsByType)){
     foreach($itemsByType as $duty=>$items){
+	echo "<div class='uk-width-medium-3-3 ul-list rounded-area' style='background-color:lightgray;padding:10px;margin-top:2em;'>\n";
 	echo x("h3",_tn($duty));
 	$li=[]; foreach($items as $k=>$item) $li[] = "<!-- $k ".str_repeat('-',50)." -->\n".x("li",$item);
 	echo x("div class='uk-width-medium-3-3 ul-list'",
 	       x("ul class='uk-grid uk-grid-width-medium-1-$cols'",
 		 join("\n",$li)));
+	echo "</div>\n";
     }
 }
 

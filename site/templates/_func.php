@@ -609,10 +609,10 @@ function renderObjectList(PageArray $pages, $cols=1, $showPagination=true, $head
     
     $itemsByType = $items = [];
     $needle = sprintf("/_(%s)$/",join('|',$config->groupListItemBy));
-    foreach($pages as $object) {
-	if (empty($object->fields)) continue;
-	$renderedObject = renderObjectListItem($object, $context, $key, $object->featuredPage);
-	$type=''; foreach($object->fields as $f) if(preg_match($needle,$f) && ($o=$object->$f)) $type = $o->title;
+    foreach($pages as $page) {
+	if (empty($page->fields)) continue;
+	$renderedObject = renderObjectListItem($page, $context, $key, $page->featuredPage);
+	$type=''; foreach($page->fields as $f) if(preg_match($needle,$f) && is_object($o=$page->$f)) $type = $o->title;
 	if ($type) foreach(explode(',',$type) as $t) $itemsByType[trim($t)][] = $renderedObject;
 	else  $items[] = $renderedObject;
     }
