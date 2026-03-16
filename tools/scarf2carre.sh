@@ -15,6 +15,8 @@ sed -i~~ \
 sed -i~ \
     -e s/платок/carré/g \
     -e s/платкa/carré/g \
+    -e s/платке/carré/g \
+    -e s/платком/carré/g \
     -e s/платки/carrés/g \
     -e s/Платок/Carré/g \
     -e s/Платки/Carrés/g \

@@ -49,7 +49,7 @@ function _t(String $text, $spot='h') {
     if ($text == 'About Seller')      return __('About Seller');
     if ($text == 'About Artist')      return __('About Artist');
     if ($text == 'About h_brand')     return __('About Brand');
-    if ($text == 'About h_artwork')   return __('About Scarf');
+    if ($text == 'About h_artwork')   return __('About Carré');
     if ($text == 'About h_seller')    return __('About Source');
     if ($text == 'About h_collection')return __('About Collection');
     if ($text == 'Louvre')           return __('Louvre');
@@ -256,6 +256,19 @@ function getRandomFeatured($nCols=3, $spot=null) {
 	}
     }
     return $featured;
+}
+
+/**
+ * Use the "master" body field for variations pages
+ *
+ * TBD - lock the body field for changes...
+ */
+function setVariatinsBody(Page $page) {
+    // http://localhost/sh/h_spot/h_artworks/281-les-voitures-transformation/
+    // http://localhost/sh/h_spot/h_artworks/281-les-voitures-transformation-variations1/
+    if (!preg_match('{(.*)-variations(\d+)}', $page->name, $m)) return;
+    $parent = pages()->get("name=$m[1]");
+    $page->body = $parent->body;
 }
 
 /**
@@ -532,9 +545,9 @@ function getTitleForAbout(Page $page) {
 function renderBodyInTwoColumns(Page $page) {
     return (preg_match("/\<div.*auto-width-content/", $page->body)
 	  ? $page->body
-	  : (empty($b=$page->body) ? "" : x("div class='auto-width-single'",
+	  : (empty($body=$page->body) ? "" : x("div class='auto-width-single'",
 					    getTitleForAbout($page)) .
-				            x("div class='auto-width-content'", $b)));
+				            x("div class='auto-width-content'", $body)));
 }
 
 

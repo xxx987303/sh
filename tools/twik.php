@@ -14,6 +14,42 @@ echo User()->name."\n";
 
 if(1){
 
+    //  grep -E "======================|english|russian|french" t
+    
+    $seeOnlyEmpty = true;
+    $seeOnlyEmpty = false;
+    
+    function render($head,$text) {
+	if (empty(trim($t=strip_tags($text)))) return false;
+	$lines = [];
+	$head = say::color("  -- $head",'R');
+	foreach(explode("\n",$t) as $line) {
+	    if (!empty($l = trim($line))) $lines[] = $l;
+	}
+	if (!empty($lines)) array_unshift($lines,$head);
+	return join("\n",$lines);
+    }
+    // Count missing description
+    $h = pages()->get("template=h_brand, title=Hermès, sort=title");
+    $k=1;
+    $t = "title=Les Nouveaux Amoureux de Paris,";    $t = "";
+    foreach(pages()->find("$t template=h_artwork, h_aw_brand=$h, sort=title") as $p) {
+	if (@$GLOBALS[$p->title]++)     continue;
+	if ($p->h_aw_collection->count) continue;
+	$langs = [];
+	foreach(['english','russian','french'] as $l){
+	    $body = $l=='english' ? $p->body->getDefaultValue() : $p->body->getLanguageValue($l);
+	    if ($r=render($l, $body)) $langs[] = $r;
+	}
+	if ($seeOnlyEmpty && !empty($langs)) continue;
+	printf("%3d %s %s\n", $k++, say::color(str_repeat('===',20),'G'), say::color($p->title,'G'));
+	foreach($langs as $l) echo "$l\n";
+    }
+    exit;
+}
+
+if(0){
+
     // Standardize the sizes
     
     $h = pages()->get("template=h_brand, title=Hermès, sort=title");

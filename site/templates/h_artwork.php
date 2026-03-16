@@ -9,6 +9,8 @@
 //setNextPrev("template=h_artwork, h_aw_collection!=5842|6331, h_aw_brand={$page->h_aw_brand->id}, sort=title", $page);
 setNextPrev("template=h_artwork, h_aw_brand={$page->h_aw_brand->id}, sort=title", $page);
 
+setVariatinsBody($page);
+
 region('browserTitle',
        "{$page->title}, {$page->parent->title}");
 
