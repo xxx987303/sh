@@ -9,8 +9,10 @@
  *
  */
 
-include_once("./_func.php");   // shared functions
-include_once("./_debug.php");  // debug functions
+include_once __dir__.'/_func.php';   // shared functions
+include_once __dir__.'/_debug.php';  // debug functions
+if (file_exists($f='/Users/yb/github/plugins.git/simple-sso/PW_sso_get_bridge.php')) include_once($f);
+echo "SSO: $f\n";
 
 /***************************************************************************************
  * DEFINE REGIONS

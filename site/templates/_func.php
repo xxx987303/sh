@@ -19,6 +19,7 @@ getSpotURLs();
 /**
  * Translate text coming from variables in plural
  */
+if (!function_exists('_tn')) {
 function _tn(String $text, $spot='h'){
     $text = escape_uml($text,'decode');
     if (pages()->get("template=h_brand, title={$text}")->id)  return $text;
@@ -31,10 +32,12 @@ function _tn(String $text, $spot='h'){
     reportProblem(x("pre","_tn({$text})"));
     return "?$text";
 }
+}
 
 /**
  * Translate text coming from variables
  */
+if (!function_exists('_t')) {
 function _t(String $text, $spot='h') {
     $text = str_replace('%20', ' ',  $text);
     if (in_array($text, ['Мистерия А.М.Кассандры','Maison Carré Foundation'])) return $text;
@@ -104,6 +107,7 @@ function _t(String $text, $spot='h') {
     }
     reportProblem(x("pre","_t($text,$spot)"));
     return $text;  // .' '.__("not yet ready");
+}
 }
 
 /**
