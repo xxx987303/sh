@@ -24,18 +24,18 @@ if (!$GLOBALS['SU'])  $user->language = $languages->get('russian');
 <!--	<script src='<?=$config->urls->root?>includeHTML.js'></script> -->
 
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,400i,700' />
-	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/uikit.gradient.min.css' />
-	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/slidenav.gradient.min.css' />
-	<link rel='stylesheet' type='text/css' href='<?=$config->urls->root?>site/uikit/css/components/tooltip.min.css' />
+	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>uikit/css/uikit.gradient.min.css' />
+	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>uikit/css/components/slidenav.gradient.min.css' />
+	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>uikit/css/components/tooltip.min.css' />
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/variations.css' />
 	<?php if((string)@$SPOT_id == 'h') { ?>
-        <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.css' />
-        <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.min.css' />
+            <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.css' />
+            <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/CdP.min.css' />
 	<?php } elseif ((string)@$SPOT_id == 'd') {?>
-        <link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/Dymkovo.css' />
+		<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/Dymkovo.css' />
 	<?php } ?>
 	<link rel='stylesheet' type='text/css' href='<?=urls('templates')?>styles/objects.css' />
-<?php
+	<?php
         // Set h_spot as the default start page
         //if($_SERVER['REQUEST_URI']==config('urls')->root) echo "<meta http-equiv='Refresh' content=\"0; url='".$config->urls->root."{@$SPOT_id}_spot/'\" />\n";
 
@@ -103,9 +103,9 @@ if (!$GLOBALS['SU'])  $user->language = $languages->get('russian');
 	
 	<!--  CdP  <script>  includeHTML(); </script> -->
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-	<script src='<?=$config->urls->root?>site/uikit/js/uikit.min.js'></script>
-	<script src='<?=$config->urls->root?>site/uikit/js/components/lightbox.min.js'></script>
-	<script src='<?=$config->urls->root?>site/uikit/js/components/tooltip.min.js'></script>
+	<script src='<?=urls('templates')?>uikit/js/uikit.min.js'></script>
+	<script src='<?=urls('templates')?>uikit/js/components/lightbox.min.js'></script>
+	<script src='<?=urls('templates')?>uikit/js/components/tooltip.min.js'></script>
 	<script src='<?=urls('templates')?>scripts/objects.js'></script>
 <script>
 document.addEventListener('keydown', function(event) {

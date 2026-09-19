@@ -1,1 +1,0 @@
-/Users/yb/github/plugins.git/simple-sso/PW_sso_get_bridge.php

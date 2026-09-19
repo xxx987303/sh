@@ -1,7 +1,6 @@
 <?php namespace ProcessWire;
-
 /***************************************************************************************
- * SHARED ARTWORK FUNCTIONS
+ * SHARED SH FUNCTIONS
  *
  * The following functions find and render artworks are are defined here so that
  * they can be used by multiple template files.
@@ -9,6 +8,7 @@
  */
 
 require_once __dir__ . '/_func_missing.php';
+require_once __dir__ . '/functions_common.php';
 
 if (!defined('CLI_MODE')) define('CLI_MODE',false);
 global $lookingForBug;
@@ -45,8 +45,10 @@ function _t(String $text, $spot='h') {
     if (preg_match("/Got as.*Voyage en/", $text))                    return __('Got as "Voyage en Étoffes"');
     if (preg_match("/Arrangement.*pieces|CASSANDRE pour/", $text))   return $text;
     if (preg_match("/Arrangement.*pieces/", $text))                  return __('Arrangement with match sticks and puzzle pieces');
+    if (preg_match('/About [adh]_collection/', $text))               return __('About Collection');
     if ($text == 'Hermès Scarf Guides')    return $text;
     if ($text == 'About Designer')    return __('About Designer');
+    if ($text == 'About a_artwork')   return __('About Painting');
     if ($text == 'About Collector')   return __('About Collector');
     if ($text == 'About Owner')       return __('About Owner');
     if ($text == 'About Seller')      return __('About Seller');
@@ -54,7 +56,6 @@ function _t(String $text, $spot='h') {
     if ($text == 'About h_brand')     return __('About Brand');
     if ($text == 'About h_artwork')   return __('About Carré');
     if ($text == 'About h_seller')    return __('About Source');
-    if ($text == 'About h_collection')return __('About Collection');
     if ($text == 'Louvre')           return __('Louvre');
     if ($text == 'Scarves Search')   return __('Scarves Search');
     if ($text == 'Paintings Search') return __('Paintings Search');
@@ -379,7 +380,7 @@ function getKeyValue(Object $page, Field $field, int $truncate=0, $returnValue=f
     } elseif (strpos($field->name,'options')) {
         $reply[] = x("strong",$page->$field->title);
     } elseif (preg_match("/price|payed/",$field->name)) {
-	$currency = empty($c=$page->currency->title) ? 'SEK' : $c;
+	$currency = empty($c=@$page->currency->title) ? 'SEK' : $c;
 	$reply[] = number_format($value,0,","," ")." $currency";
     } elseif (in_array($field->type, ['FieldtypePageTitle', 'FieldtypePageTitleLanguage'])) {   
 	$reply[] = x("a href=''", $value);
@@ -829,6 +830,7 @@ function getType($o, $id=null) {
 
 /**
  */
+/*
 function joinX(Array $a, $skipEmpty=true){
     $r = "";
     foreach($a as $k=>$v) {
@@ -839,7 +841,7 @@ function joinX(Array $a, $skipEmpty=true){
     }
     return x('[',trim($r));
 }
-
+*/
 /**
  *  To be done better...
  */
@@ -853,7 +855,8 @@ function getEmoji($fieldName, String $level, bool $returnImage=false) {
     } else {
 	$reply = false;
     }
-    //if($reply)echo "getEmoji($fieldName,$fn,$returnImage): ".escape_uml(var_export($reply,true),'encode')."<br>";
+    $reply = str_replace('.git', '', $reply);
+    WD_message("($fieldName,$fn,$returnImage): ".escape_uml(var_export($reply,true),'encode'));
     return $reply;
 }
 

@@ -11,8 +11,10 @@
 
 include_once __dir__.'/_func.php';   // shared functions
 include_once __dir__.'/_debug.php';  // debug functions
-if (file_exists($f='/Users/yb/github/plugins.git/simple-sso/PW_sso_get_bridge.php')) include_once($f);
-echo "SSO: $f\n";
+if (USE_SIMPLE_SSO) {
+    require_once __dir__.'/SSOBridge.php';         WD_message("LOADING SSOBridge.php",        'red');
+    require_once __dir__.'/SSO_PW_get_bridge.php'; WD_message("LOADING SSO_PW_get_bridge.php",'red');
+}else                                              WD_message("No SimpleSSO",'red');
 
 /***************************************************************************************
  * DEFINE REGIONS

@@ -12,6 +12,8 @@
 
 .auto-width-content {
 /*  padding: 1.5rem;  */
+    font-size: large;
+    line-height: 1.3em;
     padding-top:0;
     max-width:100%;
     margin: auto;
